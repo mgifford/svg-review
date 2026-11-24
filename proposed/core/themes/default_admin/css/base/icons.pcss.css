@@ -1,0 +1,122 @@
+/*
+ * Default Admin icon registry.
+ *
+ * Every --admin-icon-* custom property is a URL to a monochrome SVG in
+ * images/icons/ (or images/logos/ for brand marks). Property names are the
+ * stable public API; several names intentionally alias the same file (for
+ * example --admin-icon-add and plus.svg, --admin-icon-close/--admin-icon-remove
+ * and close.svg). Use them as mask-image values tinted by background-color.
+ * Only add a property when theme CSS uses it.
+ */
+/* cspell:ignore toleft, totop */
+:root {
+  --admin-icon-add: url("../../images/icons/plus.svg");
+  --admin-icon-asterisk: url("../../images/icons/required.svg");
+  --admin-icon-back-to-site: url("../../images/icons/back-to-site.svg");
+  --admin-icon-check: url("../../images/icons/check.svg");
+  --admin-icon-checked: url("../../images/icons/check.svg");
+  --admin-icon-checkmark: url("../../images/icons/check.svg");
+  --admin-icon-chevron-down: url("../../images/icons/chevron-down.svg");
+  --admin-icon-chevron-left: url("../../images/icons/chevron-left.svg");
+  --admin-icon-chevron-right: url("../../images/icons/chevron-right.svg");
+  --admin-icon-clock: url("../../images/icons/clock.svg");
+  --admin-icon-close: url("../../images/icons/close.svg");
+  --admin-icon-config: url("../../images/icons/cog.svg");
+  --admin-icon-database: url("../../images/icons/database.svg");
+  --admin-icon-devel: url("../../images/icons/key.svg");
+  --admin-icon-drag: url("../../images/icons/drag.svg");
+  --admin-icon-drag-y: url("../../images/icons/drag-y.svg");
+  --admin-icon-drop: url("../../images/icons/chevron-down.svg");
+  --admin-icon-drupal: url("../../images/logos/drupal.svg");
+  --admin-icon-edit: url("../../images/icons/pencil.svg");
+  --admin-icon-error: url("../../images/icons/error.svg");
+  --admin-icon-first: url("../../images/icons/pager-first.svg");
+  --admin-icon-grid: url("../../images/icons/grid.svg");
+  --admin-icon-hamburger: url("../../images/icons/menu.svg");
+  --admin-icon-handle: url("../../images/icons/chevron-right.svg");
+  --admin-icon-help: url("../../images/icons/help.svg");
+  --admin-icon-hide: url("../../images/icons/hide.svg");
+  --admin-icon-info: url("../../images/icons/info.svg");
+  --admin-icon-last: url("../../images/icons/pager-last.svg");
+  --admin-icon-list: url("../../images/icons/list.svg");
+  --admin-icon-loader: url("../../images/icons/loader.svg");
+  --admin-icon-next: url("../../images/icons/pager-next.svg");
+  --admin-icon-php: url("../../images/logos/php.svg");
+  --admin-icon-prev: url("../../images/icons/pager-prev.svg");
+  --admin-icon-remove: url("../../images/icons/close.svg");
+  --admin-icon-required: url("../../images/icons/required.svg");
+  --admin-icon-search: url("../../images/icons/search.svg");
+  --admin-icon-server: url("../../images/icons/server.svg");
+  --admin-icon-show: url("../../images/icons/show.svg");
+  --admin-icon-sidebar: url("../../images/icons/sidebar.svg");
+  --admin-icon-sort: url("../../images/icons/sort.svg");
+  --admin-icon-sort-asc: url("../../images/icons/sort-asc.svg");
+  --admin-icon-sort-desc: url("../../images/icons/sort-desc.svg");
+  --admin-icon-status: url("../../images/icons/status.svg");
+  --admin-icon-tabledrag-handle: url("../../images/icons/tabledrag-handle.svg");
+  --admin-icon-toggle-unchecked: url("../../images/icons/toggle-unchecked.svg");
+  --admin-icon-trash: url("../../images/icons/trash.svg");
+  --admin-icon-warning: url("../../images/icons/warning.svg");
+}
+
+/*
+ * cspell:ignore pretint Pre-tinted
+ * Pre-tinted variants.
+ *
+ * Only for elements that cannot host a masked ::before/::after: native
+ * <select>, checkbox <input>, and <input type="submit">. Masking the control
+ * itself would clip its border and fill, and a url() to a currentColor master
+ * renders black as a background-image, so these contexts point at derived
+ * copies in images/icons/pretint/. Everything else uses mask-image +
+ * background-color with the masters above.
+ *
+ * Each pretint is the master's exact markup with only currentColor replaced
+ * by a baked hex. SVG used as an image cannot read var(), so each hex is a
+ * frozen snapshot of a color token; update the file if the token changes.
+ *
+ *   master             pretint                     hex      token snapshot
+ *   check.svg          check-inverse.svg           #ffffff  --admin-color-white
+ *   check.svg          check-disabled.svg          #767676  --admin-color-gray-700
+ *   check.svg          check-disabled-inverse.svg  #adaeb3  --admin-color-gray-400 (dark mode)
+ *   chevron-down.svg   chevron-down-inverse.svg    #ffffff  --admin-color-white
+ *   chevron-down.svg   chevron-down-disabled.svg   #767676  --admin-color-gray-700
+ *   close.svg          remove-inverse.svg          #ffffff  --admin-color-white
+ *
+ * Do not add to this list unless a native control leaves no other option.
+ */
+:root {
+  --admin-icon-checked-inverse: url("../../images/icons/pretint/check-inverse.svg");
+  --admin-icon-checked-disabled: url("../../images/icons/pretint/check-disabled.svg");
+  --admin-icon-checked-disabled-inverse: url("../../images/icons/pretint/check-disabled-inverse.svg");
+  --admin-icon-chevron-down-inverse: url("../../images/icons/pretint/chevron-down-inverse.svg");
+  --admin-icon-chevron-down-disabled: url("../../images/icons/pretint/chevron-down-disabled.svg");
+  --admin-icon-remove-inverse: url("../../images/icons/pretint/remove-inverse.svg");
+}
+
+/**
+ * Monochrome icon via CSS mask.
+ *
+ * Usage: set --admin-icon to a registry custom property above, e.g.
+ * `--admin-icon: var(--admin-icon-help);`, and optionally --admin-icon-size.
+ * The icon is tinted by background-color (currentColor by default), so it
+ * follows the text color, themes, and dark mode. Note that `fill:
+ * currentColor` inside the SVG does NOT tint a mask-image; only the element's
+ * background-color does.
+ */
+.admin-icon {
+  display: inline-block;
+  flex-shrink: 0;
+  inline-size: var(--admin-icon-size, var(--admin-icon-size-m));
+  block-size: var(--admin-icon-size, var(--admin-icon-size-m));
+  background-color: currentColor;
+  mask-image: var(--admin-icon, none);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+@media (forced-colors: active) {
+  .admin-icon {
+    background-color: CanvasText;
+  }
+}

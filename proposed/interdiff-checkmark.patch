@@ -1,0 +1,79 @@
+diff --git a/core/themes/default_admin/css/base/icons.css b/core/themes/default_admin/css/base/icons.css
+index 8c48f63..67b898a 100644
+--- a/core/themes/default_admin/css/base/icons.css
++++ b/core/themes/default_admin/css/base/icons.css
+@@ -95,6 +95,7 @@
+  *   master             pretint                     hex      token snapshot
+  *   check.svg          check-inverse.svg           #ffffff  --admin-color-white
+  *   check.svg          check-disabled.svg          #767676  --admin-color-gray-700
++ *   check.svg          check-disabled-inverse.svg  #adaeb3  --admin-color-gray-400 (dark mode)
+  *   chevron-down.svg   chevron-down-default.svg    #545560  --admin-color-gray-800
+  *   chevron-down.svg   chevron-down-inverse.svg    #ffffff  --admin-color-white
+  *   chevron-down.svg   chevron-down-disabled.svg   #767676  --admin-color-gray-700
+@@ -106,6 +107,7 @@
+ :root {
+   --admin-icon-checked-inverse: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cpath fill='%23ffffff' d='M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z' /%3e%3c/svg%3e");
+   --admin-icon-checked-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cpath fill='%23767676' d='M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z' /%3e%3c/svg%3e");
++  --admin-icon-checked-disabled-inverse: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cpath fill='%23adaeb3' d='M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z' /%3e%3c/svg%3e");
+   --admin-icon-chevron-down-default: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill='none' stroke='%23545560' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e    %3cpath d='M4 8L12 16L20 8' /%3e  %3c/g%3e%3c/svg%3e");
+   --admin-icon-chevron-down-inverse: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill='none' stroke='%23ffffff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e    %3cpath d='M4 8L12 16L20 8' /%3e  %3c/g%3e%3c/svg%3e");
+   --admin-icon-chevron-down-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill='none' stroke='%23767676' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3e    %3cpath d='M4 8L12 16L20 8' /%3e  %3c/g%3e%3c/svg%3e");
+diff --git a/core/themes/default_admin/css/base/icons.pcss.css b/core/themes/default_admin/css/base/icons.pcss.css
+index 45e4d13..9a344a9 100644
+--- a/core/themes/default_admin/css/base/icons.pcss.css
++++ b/core/themes/default_admin/css/base/icons.pcss.css
+@@ -89,6 +89,7 @@
+  *   master             pretint                     hex      token snapshot
+  *   check.svg          check-inverse.svg           #ffffff  --admin-color-white
+  *   check.svg          check-disabled.svg          #767676  --admin-color-gray-700
++ *   check.svg          check-disabled-inverse.svg  #adaeb3  --admin-color-gray-400 (dark mode)
+  *   chevron-down.svg   chevron-down-default.svg    #545560  --admin-color-gray-800
+  *   chevron-down.svg   chevron-down-inverse.svg    #ffffff  --admin-color-white
+  *   chevron-down.svg   chevron-down-disabled.svg   #767676  --admin-color-gray-700
+@@ -100,6 +101,7 @@
+ :root {
+   --admin-icon-checked-inverse: url("../../images/icons/pretint/check-inverse.svg");
+   --admin-icon-checked-disabled: url("../../images/icons/pretint/check-disabled.svg");
++  --admin-icon-checked-disabled-inverse: url("../../images/icons/pretint/check-disabled-inverse.svg");
+   --admin-icon-chevron-down-default: url("../../images/icons/pretint/chevron-down-default.svg");
+   --admin-icon-chevron-down-inverse: url("../../images/icons/pretint/chevron-down-inverse.svg");
+   --admin-icon-chevron-down-disabled: url("../../images/icons/pretint/chevron-down-disabled.svg");
+diff --git a/core/themes/default_admin/css/components/form--checkbox-radio.css b/core/themes/default_admin/css/components/form--checkbox-radio.css
+index 356cb9d..cef9ddb 100644
+--- a/core/themes/default_admin/css/components/form--checkbox-radio.css
++++ b/core/themes/default_admin/css/components/form--checkbox-radio.css
+@@ -231,6 +231,10 @@
+ .form-boolean--type-checkbox[disabled]:checked {
+   background-image: var(--admin-icon-checked-disabled);
+ }
++.dark-mode .form-boolean--type-checkbox[disabled]:checked {
++  /* Gray-700 is below 3:1 on the dark disabled surface; use gray-400. */
++  background-image: var(--admin-icon-checked-disabled-inverse);
++}
+ .form-boolean--type-radio[disabled]:checked,
+ .form-boolean--type-radio[disabled].error:checked {
+   /* Same ring-and-dot technique as enabled radios; no image asset needed. */
+diff --git a/core/themes/default_admin/css/components/form--checkbox-radio.pcss.css b/core/themes/default_admin/css/components/form--checkbox-radio.pcss.css
+index 88fd02f..a8252a0 100644
+--- a/core/themes/default_admin/css/components/form--checkbox-radio.pcss.css
++++ b/core/themes/default_admin/css/components/form--checkbox-radio.pcss.css
+@@ -224,6 +224,10 @@
+ .form-boolean--type-checkbox[disabled]:checked {
+   background-image: var(--admin-icon-checked-disabled);
+ }
++.dark-mode .form-boolean--type-checkbox[disabled]:checked {
++  /* Gray-700 is below 3:1 on the dark disabled surface; use gray-400. */
++  background-image: var(--admin-icon-checked-disabled-inverse);
++}
+ .form-boolean--type-radio[disabled]:checked,
+ .form-boolean--type-radio[disabled].error:checked {
+   /* Same ring-and-dot technique as enabled radios; no image asset needed. */
+diff --git a/core/themes/default_admin/images/icons/pretint/check-disabled-inverse.svg b/core/themes/default_admin/images/icons/pretint/check-disabled-inverse.svg
+new file mode 100644
+index 0000000..6a9cc1f
+--- /dev/null
++++ b/core/themes/default_admin/images/icons/pretint/check-disabled-inverse.svg
+@@ -0,0 +1,3 @@
++<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
++  <path fill="#adaeb3" d="M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z" />
++</svg>

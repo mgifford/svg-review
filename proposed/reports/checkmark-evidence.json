@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "milestone": "Checkmark family: reconciliation and one verified dark-mode contrast fix",
+  "generatedAt": "2026-11-24T19:46:12.111819+00:00",
+  "baseline": {
+    "beforeCommit": "29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8",
+    "afterCommit": "fe4adb4f942385912bb3244b570afa475cadf3bd",
+    "mr": "https://git.drupalcode.org/project/drupal/-/merge_requests/16166",
+    "mrRef": "refs/merge-requests/16166/head",
+    "verifiedAt": "2026-11-24T19:37:00-05:00",
+    "note": "MR ref and cached after ref both resolve to fe4adb4f942385912bb3244b570afa475cadf3bd. Snapshot counts reproduced: 194 before, 74 after, 204 rows."
+  },
+  "scope": {
+    "family": "checkmark",
+    "beforeFamilyAssets": 13,
+    "afterFamilyAssets": 4,
+    "proposedNewAssets": 1,
+    "fullInventory": "partial; 181 non-checkmark assets are not reconciled in this milestone"
+  },
+  "classification": {
+    "originalProblems": [],
+    "introducedByMr": [
+      {
+        "id": "CHK-001",
+        "title": "Dark-mode disabled checked checkbox check contrast dropped below 3:1",
+        "severity": "accessibility regression (measurable; disabled controls are exempt from SC 1.4.11)",
+        "file": "core/themes/default_admin/css/components/form--checkbox-radio.pcss.css",
+        "line": 225,
+        "assetBefore": "images/icons/82828c/checkmark.svg",
+        "assetAfter": "images/icons/pretint/check-disabled.svg",
+        "state": "checked + disabled + dark mode",
+        "measuredBefore": "#82828c on #313134 = 3.41:1",
+        "measuredAfter": "#767676 on #313134 = 2.85:1",
+        "evidence": "Chromium screenshots at the actual 21x21 CSS component size; pixel sampling and WCAG contrast calculation.",
+        "notes": "The MR correctly aligned the light-mode disabled check with gray-700 (3.16:1 -> 3.78:1) but did not provide a dark-mode pretint, so the same gray-700 is too dark on the dark disabled surface."
+      }
+    ],
+    "resolvedByMr": [
+      {
+        "title": "Unused checkmark colour variants removed",
+        "detail": "Seven colour variants plus the unused 12x10 white checkmark have no reference in Drupal core before or after; removal is consistent with consolidation."
+      },
+      {
+        "title": "Enabled light-mode checked checkbox uses a white pretint rather than a stale 16x16 file",
+        "detail": "White check remains visible at 21x21; contrast #ffffff on #015efe = 5.21:1."
+      },
+      {
+        "title": "Disabled light-mode check contrast improved",
+        "detail": "3.16:1 -> 3.78:1."
+      }
+    ],
+    "intentionalChanges": [
+      {
+        "title": "Action link checkmark glyph changed from a stroked polyline to the filled canonical check",
+        "files": [
+          "migration/media/icons/action-link/checkmark.svg -> images/icons/check.svg",
+          "css/components/action-link.pcss.css:187"
+        ],
+        "assessment": "Intentional icon-family redesign; remains monochrome, non-directional and mask-rendered. Not counted as a regression."
+      },
+      {
+        "title": "Checkbox check glyph geometry normalized to the 24x24 canonical check",
+        "files": [
+          "ffffff/checkmark-sm.svg -> pretint/check-inverse.svg",
+          "82828c/checkmark.svg -> pretint/check-disabled.svg"
+        ],
+        "assessment": "Geometry and fill construction change; both remain visible at the 21x21 component size. Treated as intentional consolidation."
+      }
+    ],
+    "proposedFixes": [
+      {
+        "id": "CHK-001-FIX",
+        "title": "Add a dark-mode disabled check pretint",
+        "files": [
+          "images/icons/pretint/check-disabled-inverse.svg (new)",
+          "css/base/icons.pcss.css",
+          "css/base/icons.css",
+          "css/components/form--checkbox-radio.pcss.css",
+          "css/components/form--checkbox-radio.css"
+        ],
+        "change": "Use #adaeb3 (--admin-color-gray-400) only under .dark-mode for checked+disabled checkboxes.",
+        "measuredResult": "#adaeb3 on #313134 = 5.85:1",
+        "lightModeResult": "unchanged: #767676 on #eaeaea = 3.78:1",
+        "forcedColorsResult": "unchanged: native checkbox appearance; screenshots identical to MR head",
+        "interdiff": "proposed/interdiff-checkmark.patch",
+        "test": "proposed/tests/checkmark_regression.py"
+      }
+    ],
+    "unresolvedInvestigations": [
+      "The live Drupal 12 test applied only the MR checkmark files/CSS to the lab baseline theme; the complete MR theme was not installed.",
+      "Windows High Contrast native verification remains outstanding; forced-colours results are Chromium emulation.",
+      "The other 181 original assets are not reconciled in this milestone.",
+      "Whole-core absence of a literal/dynamic reference is evidence, not proof, that third-party code or user configuration never used a removed colour variant."
+    ]
+  },
+  "renderingEvidence": {
+    "componentSize": "21x21 CSS px (actual .form-boolean size)",
+    "screenshots": {
+      "beforeLightChecks": "proposed/reports/screens/before-light-checks.png",
+      "afterLightChecks": "proposed/reports/screens/light-checks.png",
+      "proposedLightChecks": "proposed/reports/screens/proposed-light-checks.png",
+      "beforeDarkChecks": "proposed/reports/screens/before-dark-checks.png",
+      "afterDarkChecks": "proposed/reports/screens/dark-checks.png",
+      "proposedDarkChecks": "proposed/reports/screens/proposed-dark-checks.png",
+      "beforeDarkDisabled": "proposed/reports/screens/before-dark-checked-disabled.png",
+      "afterDarkDisabled": "proposed/reports/screens/after-dark-checked-disabled.png",
+      "proposedDarkDisabled": "proposed/reports/screens/proposed-dark-checked-disabled.png",
+      "comparisonStrip": "proposed/reports/screens/disabled-check-comparison.png",
+      "forcedLight": "proposed/reports/screens/proposed-forced-light-checks.png",
+      "forcedDark": "proposed/reports/screens/proposed-forced-dark-checks.png",
+      "focusLight": "proposed/reports/screens/proposed-light-focus.png",
+      "focusDark": "proposed/reports/screens/proposed-dark-focus.png",
+      "sizeMatrix": "proposed/reports/screens/proposed-check-sizes.png"
+    },
+    "measuredPixels": {
+      "beforeDarkDisabled": {
+        "background": "rgb(49,49,52)",
+        "check": "rgb(130,130,140)",
+        "contrast": 3.41
+      },
+      "afterDarkDisabled": {
+        "background": "rgb(49,49,52)",
+        "check": "rgb(118,118,118)",
+        "contrast": 2.85
+      },
+      "proposedDarkDisabled": {
+        "background": "rgb(49,49,52)",
+        "check": "rgb(173,174,179)",
+        "contrast": 5.85
+      },
+      "lightDisabled": {
+        "background": "rgb(234,234,234)",
+        "check": "rgb(118,118,118)",
+        "contrast": 3.78
+      },
+      "lightChecked": {
+        "background": "rgb(1,94,254)",
+        "check": "rgb(255,255,255)",
+        "contrast": 5.21
+      },
+      "darkChecked": {
+        "background": "rgb(196,209,255)",
+        "check": "rgb(0,0,0)",
+        "contrast": 13.91
+      }
+    },
+    "pixelDiff": {
+      "darkAfterVsProposedBBox": [
+        4,
+        87,
+        17,
+        99
+      ],
+      "darkScreenshotSize": [
+        416,
+        184
+      ],
+      "changedRegion": "only the disabled checked checkbox row",
+      "lightAfterVsProposed": "identical (no difference)"
+    },
+    "statesTested": [
+      "unchecked",
+      "checked",
+      "checked disabled",
+      "checked error",
+      "hover",
+      "active",
+      "focus-visible (keyboard)",
+      "light",
+      "dark",
+      "forced-colours light",
+      "forced-colours dark"
+    ],
+    "focus": {
+      "focusVisible": true,
+      "outlineStyle": "auto",
+      "outlineWidth": "1px",
+      "outlineOffset": "2px",
+      "lightColor": "rgb(0,95,204)",
+      "darkColor": "rgb(153,200,255)"
+    },
+    "sizes": [
+      "12px",
+      "16px",
+      "21px (actual component)",
+      "24px"
+    ],
+    "rtl": "Not applicable to the non-directional check glyph; toggle RTL transform rules unchanged.",
+    "reducedMotion": "No animation in the affected check assets; toggle transition rules unchanged."
+  },
+  "validation": {
+    "proposedAssetCount": 61,
+    "assetsWithErrors": {},
+    "newAsset": {
+      "path": "images/icons/pretint/check-disabled-inverse.svg",
+      "sha256": "a52e259e39321a9c71feca6e59084cd8c9259d245f264e1d268876df4cb00b19",
+      "bytes": 212,
+      "errors": [],
+      "warnings": [
+        "Explicit paint values: check light, dark and forced-colours contexts"
+      ],
+      "viewBox": "0 0 24 24",
+      "fill": "#adaeb3",
+      "blocked": false
+    },
+    "svgReferencesResolved": 81,
+    "svgReferencesMissing": 0,
+    "compiledDataUriMatchesSource": true,
+    "geometryCheck": "New pretint uses the exact path data of check.svg; only fill changes.",
+    "validatorCoverage": "Partial structural checks only (XML, namespace, viewBox, IDs, path-character heuristic); not full SVG conformance.",
+    "staleCheckmarkReferencesAfter": [],
+    "brokenReferencesProposed": [],
+    "referenceSearchNote": "Exact-path searches for all removed checkmark file paths returned no matches anywhere in core at the after revision. The proposed theme has 81 resolved SVG references and 0 missing."
+  },
+  "tests": {
+    "file": "proposed/tests/checkmark_regression.py",
+    "framework": "Python stdlib unittest",
+    "tests": 6,
+    "result": "OK",
+    "covers": [
+      "new asset validity",
+      "geometry parity with check.svg",
+      "source+compiled token registration",
+      "compiled data URI parity",
+      "dark-mode rule",
+      "contrast >= 3:1"
+    ]
+  },
+  "commands": [
+    "git --git-dir=drupal.git rev-parse refs/heads/before refs/heads/after",
+    "git ls-remote https://git.drupalcode.org/project/drupal.git refs/merge-requests/16166/head",
+    "git --git-dir=drupal.git grep -n -F 'images/icons/82828c/checkmark.svg' before -- core",
+    "python3 proposed/tests/checkmark_regression.py",
+    "git apply --check -p1 proposed/interdiff-checkmark.patch",
+    "python3 review.py --before before/core/themes/default_admin --after proposed/core/themes/default_admin"
+  ],
+  "limitations": [
+    "The live Drupal test applied only the checkmark files/CSS to the lab baseline theme, not the complete MR theme. Full-theme integration remains to be verified.",
+    "The lab site is Drupal 12-dev d29add7e; the MR head is fe4adb4. The check component CSS/assets match the MR head, but the rest of the MR theme was not live-tested.",
+    "Chromium forced-colours emulation is not native Windows High Contrast.",
+    "Disabled controls are exempt from WCAG 2.2 SC 1.4.11; the finding is a measurable state-visibility regression, not a claim of a WCAG failure.",
+    "No full SVG conformance or WCAG conformance claimed.",
+    "Only the checkmark family is reconciled."
+  ],
+  "liveDrupalIntegration": {
+    "site": "https://repro-baseline-main.ddev.site",
+    "page": "/admin/people/permissions",
+    "coreRevision": "d29add7ebc18954dcb88877ed38b5bd88cdbf967",
+    "method": "The MR-head checkmark assets and CSS were applied surgically to the lab baseline default_admin theme (not the full MR theme), caches rebuilt, measured, then the proposed fix added and measured again. The backed-up baseline theme was restored exactly afterwards (diff clean).",
+    "disabledCheckedCheckboxes": 91,
+    "actualComponentSize": "21x21 CSS px",
+    "measurements": {
+      "mrLight": {
+        "background": "rgb(234,234,234)",
+        "check": "rgb(118,118,118)",
+        "contrast": 3.78
+      },
+      "mrDark": {
+        "background": "rgb(49,49,52)",
+        "check": "rgb(118,118,118)",
+        "contrast": 2.85
+      },
+      "proposedLight": {
+        "background": "rgb(234,234,234)",
+        "check": "rgb(118,118,118)",
+        "contrast": 3.78
+      },
+      "proposedDark": {
+        "background": "rgb(49,49,52)",
+        "check": "rgb(173,174,179)",
+        "contrast": 5.85
+      }
+    },
+    "forcedColors": "Native checkbox appearance retained; checked state visible in forced light and forced dark screenshots.",
+    "screenshots": {
+      "mrLight": "proposed/reports/screens/live-mr-light-disabled.png",
+      "mrDark": "proposed/reports/screens/live-mr-dark-disabled.png",
+      "proposedLight": "proposed/reports/screens/live-proposed-light-disabled.png",
+      "proposedDark": "proposed/reports/screens/live-proposed-dark-disabled.png",
+      "forcedLight": "proposed/reports/screens/live-proposed-forced-light-disabled.png",
+      "forcedDark": "proposed/reports/screens/live-proposed-forced-dark-disabled.png",
+      "comparison": "proposed/reports/screens/live-disabled-check-comparison.png"
+    },
+    "restored": "Baseline theme restored; diff against backup is empty; DDEV site is running."
+  }
+}

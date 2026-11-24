@@ -1,0 +1,68 @@
+{
+  "assetCount": 61,
+  "assetsWithErrors": {},
+  "svgRefsResolved": 67,
+  "missingRefs": [],
+  "warnings": {
+    "images/file-types/application-octet-stream.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/application-pdf.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/application-x-executable.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/audio-x-generic.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/image-x-generic.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/package-x-generic.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/text-html.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/text-plain.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/text-x-generic.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/text-x-script.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/video-x-generic.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/x-office-document.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/x-office-presentation.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/file-types/x-office-spreadsheet.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/icons/pretint/check-disabled-inverse.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/icons/pretint/check-disabled.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/icons/pretint/check-inverse.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/icons/pretint/chevron-down-disabled.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/icons/pretint/chevron-down-inverse.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ],
+    "images/icons/pretint/remove-inverse.svg": [
+      "Explicit paint values: check light, dark and forced-colours contexts"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+diff --git a/core/themes/default_admin/css/components/system-status-report-general-info.pcss.css b/core/themes/default_admin/css/components/system-status-report-general-info.pcss.css
+index e4c44f3..bb43c07 100644
+--- a/core/themes/default_admin/css/components/system-status-report-general-info.pcss.css
++++ b/core/themes/default_admin/css/components/system-status-report-general-info.pcss.css
+@@ -65,6 +65,10 @@
+     mask-repeat: no-repeat;
+     mask-position: center center;
+     mask-size: 32px 32px;
++
++    @media (forced-colors: active) {
++      background-color: CanvasText;
++    }
+   }
+ }
+ 
+diff --git a/core/themes/default_admin/css/components/system-status-report-general-info.css b/core/themes/default_admin/css/components/system-status-report-general-info.css
+index 13e462e..9a7b41f 100644
+--- a/core/themes/default_admin/css/components/system-status-report-general-info.css
++++ b/core/themes/default_admin/css/components/system-status-report-general-info.css
+@@ -72,6 +72,10 @@
+     mask-repeat: no-repeat;
+     mask-position: center center;
+     mask-size: 2rem 2rem;
++
++    @media (forced-colors: active) {
++      background-color: CanvasText;
++    }
+   }
+ }
+ 

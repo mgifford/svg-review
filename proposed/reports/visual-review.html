@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkmark fix — visual review</title>
+<style>
+  :root { color-scheme: dark; --bg:#17181b; --panel:#24262a; --line:#45484e; --text:#e8e9ec; --soft:#b9bcc3; --accent:#8fb7ff; --good:#65d38b; --warn:#f0b35e; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; }
+  main { max-width:1100px; margin:0 auto; padding:2rem; }
+  h1 { font-size:1.7rem; margin:0 0 .35rem; }
+  h2 { font-size:1.2rem; margin:2rem 0 .75rem; }
+  p { max-width:75ch; }
+  a { color:var(--accent); }
+  .lede { color:var(--soft); margin-bottom:1.5rem; }
+  .toolbar { display:flex; gap:.5rem; flex-wrap:wrap; margin:1rem 0 1.5rem; }
+  .toolbar button { font:inherit; padding:.55rem .9rem; border:2px solid var(--line); border-radius:.4rem; background:var(--panel); color:var(--text); cursor:pointer; }
+  .toolbar button[aria-pressed="true"] { border-color:var(--accent); background:#2c3850; }
+  .toolbar button:focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+  .mode[hidden] { display:none; }
+  .cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:.6rem; padding:1rem; }
+  .card h3 { margin:0 0 .25rem; font-size:1rem; }
+  .card .sub { color:var(--soft); font-size:.85rem; margin:0 0 .75rem; }
+  .shot { display:block; width:240px; height:240px; image-rendering:pixelated; background:#313134; border:1px solid var(--line); margin:.5rem auto; }
+  .badge { display:inline-block; font-size:.8rem; padding:.15rem .45rem; border-radius:999px; border:1px solid var(--line); color:var(--soft); }
+  .badge.good { color:var(--good); border-color:#3c7a55; }
+  .badge.warn { color:var(--warn); border-color:#7a5a2d; }
+  .row { display:block; width:100%; border:1px solid var(--line); border-radius:.4rem; margin-top:1rem; }
+  table { border-collapse:collapse; width:100%; margin-top:.75rem; }
+  th, td { text-align:left; padding:.5rem .6rem; border-bottom:1px solid var(--line); }
+  th { color:var(--soft); font-weight:600; }
+  code { font-size:.9em; }
+  .note { border-left:4px solid var(--accent); padding:.5rem .75rem; background:#1d2430; color:var(--soft); margin:1rem 0; }
+  footer { margin-top:2rem; border-top:1px solid var(--line); padding-top:1rem; color:var(--soft); font-size:.9rem; }
+  @media (max-width:720px) { .cards { grid-template-columns:1fr; } .shot { width:100%; height:auto; max-width:260px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Disabled checkbox checkmark — visual review</h1>
+  <p class="lede">Actual Drupal 12 lab rendering at <code>/admin/people/permissions</code>, 21×21 CSS px. MR head <code>fe4adb4</code> vs proposed dark-mode fix. Images are enlarged 10× with nearest-neighbour scaling so individual pixels stay visible.</p>
+
+  <div class="toolbar" role="group" aria-label="Colour mode">
+    <button type="button" data-mode="light" aria-pressed="false">Light</button>
+    <button type="button" data-mode="dark" aria-pressed="true">Dark</button>
+    <button type="button" data-mode="forced-light" aria-pressed="false">Forced light</button>
+    <button type="button" data-mode="forced-dark" aria-pressed="false">Forced dark</button>
+  </div>
+
+  <section class="mode" id="mode-light" aria-label="Light mode comparison" hidden>
+    <div class="cards">
+      <article class="card">
+        <h3>MR head (fe4adb4)</h3>
+        <p class="sub">Checked + disabled, light mode</p>
+        <img class="shot" src="screens/live-mr-light-disabled.png" alt="Enlarged checked and disabled checkbox from Drupal, light mode, MR head">
+        <span class="badge good">3.78:1</span>
+      </article>
+      <article class="card">
+        <h3>Proposed fix</h3>
+        <p class="sub">Checked + disabled, light mode</p>
+        <img class="shot" src="screens/live-proposed-light-disabled.png" alt="Enlarged checked and disabled checkbox from Drupal, light mode, proposed fix">
+        <span class="badge good">3.78:1 — unchanged</span>
+      </article>
+    </div>
+    <p class="note">Light mode is intentionally unchanged. The proposed dark-mode asset is not used here.</p>
+  </section>
+
+  <section class="mode" id="mode-dark" aria-label="Dark mode comparison">
+    <div class="cards">
+      <article class="card">
+        <h3>MR head (fe4adb4)</h3>
+        <p class="sub">Checked + disabled, dark mode</p>
+        <img class="shot" src="screens/live-mr-dark-disabled.png" alt="Enlarged checked and disabled checkbox from Drupal, dark mode, MR head">
+        <span class="badge warn">2.85:1 — below 3:1</span>
+      </article>
+      <article class="card">
+        <h3>Proposed fix</h3>
+        <p class="sub">Checked + disabled, dark mode</p>
+        <img class="shot" src="screens/live-proposed-dark-disabled.png" alt="Enlarged checked and disabled checkbox from Drupal, dark mode, proposed fix">
+        <span class="badge good">5.85:1</span>
+      </article>
+    </div>
+    <h2>Row context</h2>
+    <p>Administrator permission row, dark mode. The disabled checked column is the rightmost checkbox.</p>
+    <img class="row" src="screens/live-mr-dark-row.png" alt="Drupal permissions row in dark mode, MR head, rightmost checkbox checked and disabled">
+    <img class="row" src="screens/live-proposed-dark-row.png" alt="Drupal permissions row in dark mode, proposed fix, rightmost checkbox checked and disabled">
+  </section>
+
+  <section class="mode" id="mode-forced-light" aria-label="Forced light mode" hidden>
+    <div class="cards">
+      <article class="card">
+        <h3>Proposed fix, forced light</h3>
+        <p class="sub">Actual Drupal rendering with Chromium forced-colours emulation</p>
+        <img class="shot" src="screens/live-proposed-forced-light-disabled.png" alt="Enlarged checked and disabled checkbox in forced light colours">
+      </article>
+      <article class="card">
+        <h3>MR head, forced light</h3>
+        <p class="sub">Native checkbox appearance retained; no regression from the proposed rule</p>
+        <div class="note">The checkbox uses <code>appearance: auto</code> under forced colours. The proposed dark-mode background image is not used; the native checked state is drawn by the browser.</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="mode" id="mode-forced-dark" aria-label="Forced dark mode" hidden>
+    <div class="cards">
+      <article class="card">
+        <h3>Proposed fix, forced dark</h3>
+        <p class="sub">Actual Drupal rendering with Chromium forced-colours emulation</p>
+        <img class="shot" src="screens/live-proposed-forced-dark-disabled.png" alt="Enlarged checked and disabled checkbox in forced dark colours">
+      </article>
+      <article class="card">
+        <h3>MR head, forced dark</h3>
+        <p class="sub">Native checkbox appearance retained; no regression from the proposed rule</p>
+        <div class="note">These are emulated forced colours, not native Windows High Contrast. Native Windows verification remains outstanding.</div>
+      </article>
+    </div>
+  </section>
+
+  <h2>Measurements</h2>
+  <table>
+    <thead><tr><th>State</th><th>Background</th><th>Check</th><th>Contrast</th></tr></thead>
+    <tbody>
+      <tr><td>MR head, light</td><td><code>rgb(234,234,234)</code></td><td><code>#767676</code></td><td>3.78:1</td></tr>
+      <tr><td>MR head, dark</td><td><code>rgb(49,49,52)</code></td><td><code>#767676</code></td><td>2.85:1</td></tr>
+      <tr><td>Proposed, light</td><td><code>rgb(234,234,234)</code></td><td><code>#767676</code></td><td>3.78:1</td></tr>
+      <tr><td>Proposed, dark</td><td><code>rgb(49,49,52)</code></td><td><code>#adaeb3</code></td><td>5.85:1</td></tr>
+    </tbody>
+  </table>
+  <p class="note">Disabled controls are exempt from WCAG 2.2 SC 1.4.11. This is a measurable state-visibility regression and a low-risk improvement, not a WCAG-failure claim.</p>
+
+  <footer>
+    <p>Live site tested: <span>local Drupal 12 lab, not publicly hosted</span> (the live site is restored to baseline; these are the captured test states).</p>
+    <p>Full evidence: <a href="checkmark-evidence.md">checkmark-evidence.md</a> · <a href="checkmark-evidence.json">checkmark-evidence.json</a> · <a href="../interdiff-checkmark.patch">interdiff-checkmark.patch</a></p>
+  </footer>
+</main>
+<script>
+  const buttons = [...document.querySelectorAll('.toolbar button')];
+  const sections = [...document.querySelectorAll('.mode')];
+  function show(mode) {
+    for (const section of sections) section.hidden = section.id !== 'mode-' + mode;
+    for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
+  }
+  for (const button of buttons) button.addEventListener('click', () => show(button.dataset.mode));
+</script>
+</body>
+</html>
