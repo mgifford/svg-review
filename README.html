@@ -1,0 +1,118 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><h1>Drupal Default Admin SVG review</h1>
+<p>Independent review material for <strong>Drupal core MR !16166</strong> (<code>default_admin</code> SVG consolidation).</p>
+<ul>
+<li>MR: https://git.drupalcode.org/project/drupal/-/merge_requests/16166</li>
+<li>Issue: https://www.drupal.org/project/drupal/issues/3603162</li>
+<li>Baseline before: <code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code></li>
+<li>MR head reviewed: <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code></li>
+</ul>
+<p>This is a <strong>draft review lab</strong>, not an official Drupal repository, not an upstream fork, and <strong>not RTBC</strong>. No claim of full SVG or WCAG conformance is made.</p>
+<h2>What is here</h2>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SVG-IMPROVEMENT-PLAN.md</code></td>
+<td>Prioritised plan for missing assets, dark mode, forced colours, WCAG 2.2 AA, testing and optimisation</td>
+</tr>
+<tr>
+<td><code>reconciliation.md</code> / <code>.json</code></td>
+<td>Checkmark-family dispositions and evidence</td>
+</tr>
+<tr>
+<td><code>CODE-REVIEW.md</code></td>
+<td>Review of the SVG Review Lab tooling</td>
+</tr>
+<tr>
+<td><code>evidence/</code></td>
+<td>Historical findings baseline (schema 4)</td>
+</tr>
+<tr>
+<td><code>lab/</code></td>
+<td>The static SVG Review Lab (<code>acquire.py</code>, <code>usage.py</code>, <code>review.py</code>, <code>template.html</code>)</td>
+</tr>
+<tr>
+<td><code>proposed/interdiff-*.patch</code></td>
+<td>Small proposed fixes/optimisations against the MR head</td>
+</tr>
+<tr>
+<td><code>proposed/tests/</code></td>
+<td>Regression checks for the fixes</td>
+</tr>
+<tr>
+<td><code>proposed/reports/</code></td>
+<td>Per-fix evidence, screenshots, validation and the self-contained asset gallery</td>
+</tr>
+<tr>
+<td><code>review.html</code></td>
+<td>Interactive SVG inventory generated from the pinned snapshots</td>
+</tr>
+<tr>
+<td><code>after/</code> / <code>proposed/</code></td>
+<td><strong>Test fixtures only</strong> — not full Drupal themes; see below</td>
+</tr>
+</tbody>
+</table>
+<h2>Quick start</h2>
+<h3>Static review</h3>
+<pre><code class="language-sh">python3 -m http.server 8770 --bind 127.0.0.1
+# open http://127.0.0.1:8770/proposed/reports/patch-gallery.html
+</code></pre>
+<p><code>patch-gallery.html</code> embeds the SVGs, so the asset gallery works without the Drupal snapshots. The “Open real forced-colours tabs” button needs the local Playwright helper, which is not included in this simplified repo; use Chromium DevTools → Rendering → Emulate forced-colors instead.</p>
+<p><code>review.html</code> is the full generated inventory and also works offline.</p>
+<h3>Reproduce the full lab</h3>
+<pre><code class="language-sh">cd lab
+python3 acquire.py        # fetches the pinned commits and extracts default_admin
+python3 review.py         # writes usage.json, inventory.json, review.html
+</code></pre>
+<p>This requires Git and network access to <code>git.drupalcode.org</code>. Do not commit the acquired <code>before/</code>, <code>after/</code>, <code>drupal.git/</code>, <code>inventory.json</code> or <code>usage.json</code>.</p>
+<h3>Apply the proposed patches</h3>
+<p>Apply in this order to a checkout at the MR head:</p>
+<pre><code class="language-sh">git apply -p1 proposed/interdiff-checkmark.patch
+git apply -p1 proposed/interdiff-forced-colors-status-icons.patch
+git apply -p1 proposed/interdiff-svg-optimization-required.patch
+git apply -p1 proposed/interdiff-svg-cleanup.patch
+git apply -p1 proposed/interdiff-svg-optimization-status-family.patch
+</code></pre>
+<p>Each patch is small and independently reviewable. Nothing here has been pushed upstream or posted to the issue/MR.</p>
+<h3>Tests</h3>
+<pre><code class="language-sh">python3 proposed/tests/checkmark_regression.py
+python3 proposed/tests/forced_colors_status_icons.py
+python3 proposed/tests/svg_cleanup_test.py
+python3 proposed/tests/svg_optimization_pilot.py
+python3 proposed/tests/svg_optimization_status_family.py
+</code></pre>
+<p>The repository includes only the <strong>changed-file fixture subset</strong> needed by these checks under <code>after/</code> and <code>proposed/</code>; it is not a full Drupal theme. The full-tree validation report in <code>proposed/reports/validation.json</code> was generated from the complete proposed theme.</p>
+<h2>Headline findings</h2>
+<ul>
+<li>The MR removes/relocates SVG assets but leaves <strong>no broken SVG file references</strong> (80 references resolved, 0 missing in the after tree).</li>
+<li>Missing variants: <strong><code>search-muted</code> / <code>search-muted-rtl</code></strong> (autocomplete) and <strong><code>pretint/edit-inverse</code></strong> (media-library dark mode). A dark disabled select chevron also needs a decision.</li>
+<li><strong>77 original assets have no after-side target</strong>, but 0 of their exact paths are still referenced in the after tree. They are mostly intentional colour-variant/consolidation removals, not missing files.</li>
+<li>Confirmed fixes included here:</li>
+<li>dark-mode disabled checkbox contrast (<code>2.85:1 → 5.85:1</code>)</li>
+<li>status-report icons disappearing in forced colours</li>
+<li>14 unused assets removed</li>
+<li>4-decimal optimisation of <code>required.svg</code> and five status icons</li>
+<li>Optimisation result: after-side <strong>74 files / 41,981 bytes → 61 files / 30,380 bytes</strong>, a <strong>27.6% reduction</strong> (net of the new check-disabled-inverse pretint).</li>
+</ul>
+<h2>Limits</h2>
+<ul>
+<li>No full Drupal install with the complete MR theme was used. The live component tests used a local Drupal 12 baseline theme with relevant files/CSS applied surgically, then restored exactly.</li>
+<li>Forced-colours results are Chromium emulation, not native Windows High Contrast.</li>
+<li>File-type icons on dark surfaces, the autocomplete/media-library missing variants, and most of the 77 unresolved originals still need component-by-component review.</li>
+<li>Automated tests do not establish WCAG 2.2 AA conformance; manual and assistive-technology testing remains outstanding.</li>
+</ul>
+<h2>Licence and provenance</h2>
+<p>Drupal is licensed under <strong>GPL-2.0-or-later</strong>. The patches, Drupal-derived SVGs, screenshots and evidence in this repository are derived from Drupal core and remain under that licence. See <code>LICENSE</code> and <code>NOTICE</code>.</p>
+<p>This repository is not affiliated with or endorsed by the Drupal Association or the Drupal project.</p>
+<h2>Not done</h2>
+<ul>
+<li>No upstream push</li>
+<li>No issue/MR comment</li>
+<li>No full WCAG or SVG conformance claim</li>
+</ul></body></html>

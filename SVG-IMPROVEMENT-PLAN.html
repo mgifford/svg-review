@@ -1,0 +1,719 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG IMPROVEMENT PLAN</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="reconciliation.html">Dispositions</a> · <a href="CODE-REVIEW.html">Lab review</a></nav><h1>SVG improvement plan for Drupal Core (Default Admin)</h1>
+<p><strong>Baseline:</strong> before <code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code>; MR !16166 head <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code>.
+<strong>Scope:</strong> the 203 SVG paths in the patch, the inline SVGs in the theme, and the components that consume them.
+<strong>Goal:</strong> dark mode as a first-class mode, WCAG 2.2 AA where the icons carry meaning, and no regression to light mode or forced colours.</p>
+<p>This is a work plan, not a claim of conformance. Each item names its evidence and acceptance test.</p>
+<hr />
+<h2>1. Are SVGs missing from Drupal Core?</h2>
+<p><strong>Short answer:</strong> no SVG file is missing by reference — a whole-core pass over the after tree resolved <strong>80 SVG references with 0 missing files</strong>, and every after-side SVG has a <code>viewBox</code>, no XML errors and no blocked content. What is missing is narrower: <strong>CSS variables and variants that components still expect</strong>, plus a few <strong>state-specific assets</strong>.</p>
+<ul>
+<li>Add <code>search-muted.svg</code> and <code>search-muted-rtl.svg</code> (autocomplete).</li>
+<li>Add <code>pretint/edit-inverse.svg</code> (media library dark/forced dark).</li>
+<li>Consider a dark disabled chevron variant; the current dark rule can win over the disabled rule.</li>
+<li>Do <strong>not</strong> restore the 77 unresolved originals; 0 of their exact paths are still referenced in the after tree.</li>
+</ul>
+<p>The rest of this document is the implementation backlog.</p>
+<h3>1.1 Missing assets / variants to add</h3>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Missing item</th>
+<th>Why it matters</th>
+<th>Evidence</th>
+<th>Acceptance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P0</strong></td>
+<td><code>images/icons/search-muted.svg</code> and <code>search-muted-rtl.svg</code> (or equivalent pretints)</td>
+<td>Autocomplete inputs lose the magnifier entirely. The CSS references undefined variables.</td>
+<td><code>autocomplete-loading.module.pcss.css:51,57</code>; compiled <code>.css:58,64</code>; old assets were <code>868686/magnifier.svg</code> and <code>magnifier-rtl.svg</code></td>
+<td>Align the input again in LTR/RTL; icon visible at 16px in light, dark and forced colours</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td><code>images/icons/pretint/edit-inverse.svg</code> (white/light pencil)</td>
+<td>Media library edit button has no glyph in dark mode and forced-colours dark. Remove already has <code>remove-inverse</code>; edit has no counterpart.</td>
+<td><code>media-library-item.pcss.css:289,338</code>; compiled <code>.css:296,345</code>; <code>--admin-icon-edit-inverse</code> is undefined</td>
+<td>Edit button visible in dark and forced dark; forced-light unchanged</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td><code>images/icons/pretint/chevron-down-disabled-inverse.svg</code> (or reordered selector)</td>
+<td>In dark mode <code>.dark-mode &amp;</code> overrides the disabled select glyph with the <strong>enabled</strong> white chevron, so the disabled arrow looks active.</td>
+<td><code>form--select.pcss.css:15-27</code>; both selectors have equal specificity and the dark override comes later</td>
+<td>Disabled select has a muted chevron distinct from enabled in dark mode; checked by computed style and screenshot</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>A documented dark/forced variant or explicit decision for each remaining pretint</td>
+<td>Pretints are frozen colour snapshots. Their usability across modes cannot be inferred from the master.</td>
+<td><code>pretint/</code> contains check-inverse, check-disabled, chevron-down-default/inverse/disabled, remove-default/inverse</td>
+<td>Every pretint has a state/mode table and a tested consumer; unused pretints removed</td>
+</tr>
+</tbody>
+</table>
+<h3>1.1a Suggested minimal asset specs</h3>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Suggested content</th>
+<th>Wiring and test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>images/icons/search-muted.svg</code> and <code>search-muted-rtl.svg</code></td>
+<td>Reuse the old <code>before/.../images/icons/868686/magnifier.svg</code> / <code>magnifier-rtl.svg</code> artwork as pretints, or add a mask-based wrapper. For dark mode, use a lighter token snapshot (for example <code>#adaeb3</code>) rather than reusing <code>#868686</code>.</td>
+<td>Define <code>--admin-icon-search-muted</code> / <code>-rtl</code>; add a <code>.dark-mode</code> override; test the autocomplete input in LTR and RTL</td>
+</tr>
+<tr>
+<td><code>images/icons/pretint/edit-inverse.svg</code></td>
+<td>Copy <code>images/icons/pencil.svg</code> and replace <code>currentColor</code> with <code>#ffffff</code>.</td>
+<td>Register <code>--admin-icon-edit-inverse</code>; use it in the existing dark/forced-dark media library rule; test edit and remove buttons</td>
+</tr>
+<tr>
+<td><code>images/icons/pretint/chevron-down-disabled-inverse.svg</code></td>
+<td>Copy <code>chevron-down.svg</code> and replace <code>currentColor</code> with a muted dark-surface token (for example <code>#adaeb3</code>).</td>
+<td>Define the token; add a dark-mode <code>[disabled]</code> selector; test enabled vs disabled in dark mode</td>
+</tr>
+<tr>
+<td><code>images/icons/pretint/check-disabled-inverse.svg</code></td>
+<td>Already proposed; <code>#adaeb3</code>.</td>
+<td><code>--admin-icon-checked-disabled-inverse</code>; tested in the live permission page</td>
+</tr>
+</tbody>
+</table>
+<p>Do not bulk-generate these from every colour variant. Add only the mode/state variants that have a real consumer and a regression test.</p>
+<h3>1.2 Not missing: do not restore the 77 unresolved originals</h3>
+<ul>
+<li><strong>77 originals have no after-side target</strong>, but <strong>0 of those paths are still referenced exactly in the after tree</strong>. Their references moved or the assets are unused.</li>
+<li><strong>36 of the 77</strong> were referenced in the before tree. Examples: <code>000f33/sort--inactive.svg</code>, <code>003ecc/sort--asc.svg</code>, <code>868686/magnifier.svg</code>, <code>82828c/checkmark.svg</code>, <code>media-edit.svg</code>.</li>
+<li>Many are colour variants of a now-canonical master (<code>checkmark</code>, <code>ex</code>, <code>questionmark</code>, <code>circle</code>, <code>trash</code>, <code>cog</code>, <code>plus</code>, <code>show</code>, <code>hide</code>, <code>key</code>). Restoring them would recreate the duplication the MR correctly removes.</li>
+<li>Expected family outcomes:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Correct outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>checkmark / checked</td>
+<td>One currentColor master + light/dark/disabled pretints where native controls need them; <strong>do not restore colour variants</strong></td>
+</tr>
+<tr>
+<td>ex / remove / close</td>
+<td>Canonical close/remove master; inverse pretint for dark; verify background-image uses</td>
+</tr>
+<tr>
+<td>questionmark</td>
+<td>Canonical help master or documented replacement; no colour variants</td>
+</tr>
+<tr>
+<td>circle</td>
+<td>Radio ring/dot is now CSS; <strong>no circle asset needed</strong> unless a non-radio consumer exists</td>
+</tr>
+<tr>
+<td>sort indicators</td>
+<td>New <code>sort.svg</code>, <code>sort-asc.svg</code>, <code>sort-desc.svg</code>; update the reconciliation mapping (names changed from <code>sort--asc</code>)</td>
+</tr>
+<tr>
+<td>breadcrumb arrows</td>
+<td>Separator is now <code>/</code> CSS text and the first link uses <code>back-to-site</code>; <strong>no arrow-breadcrumb asset needed</strong></td>
+</tr>
+<tr>
+<td>spinners</td>
+<td>CSS border spinner and loader; do not restore the old blocked spinner SVGs merely because the lab blocked previews</td>
+</tr>
+<tr>
+<td>tabledrag</td>
+<td><code>drag</code>, <code>drag-y</code> and inline indentation SVG; <code>tabledrag-handle</code> is the forced-colours mask</td>
+</tr>
+<tr>
+<td>media edit/remove</td>
+<td><code>pencil</code>/<code>close</code> masters + <code>edit-inverse</code> (missing) and <code>remove-inverse</code></td>
+</tr>
+<tr>
+<td>module/navigation integrations</td>
+<td>Several old toolbar/module icons are unused in core; removal is justified, not a missing icon</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 Unused additions: cleanup status</h3>
+<p><strong>Removed in the proposed tree (14 assets / 11,068 bytes):</strong> <code>appearance</code>, <code>blocks</code>, <code>bookmarks</code>, <code>content</code>, <code>files</code>, <code>media</code>, <code>nav-toggle-left</code>, <code>nav-toggle-top</code>, <code>people</code>, <code>reports</code>, <code>structure</code>, <code>user</code>, <code>pretint/chevron-down-default</code>, <code>pretint/remove-default</code>. Variable definitions and comment rows removed too.</p>
+<p><strong>Kept pending (2):</strong>
+- <code>search.svg</code> — needed for the missing <code>search-muted</code> fix.
+- <code>chevron-left.svg</code> — pending the RTL/breadcrumb decision.</p>
+<p><code>menu.svg</code> is used inline in <code>menu-local-task.html.twig</code> and is not unused.</p>
+<ul>
+<li><code>search.svg</code> is unused because the muted search variants are missing; keep the master only once it has a consumer.</li>
+<li><code>chevron-left.svg</code> is unused; use it for a real RTL/breadcrumb need or remove it.</li>
+<li>The rest are unused registry entries. Keeping them adds dark-mode and forced-colours surface with no component to test.</li>
+<li>The theme's own registry comment says “Only add a property when theme CSS uses it.” Bring the assets and variables back in line with that rule.</li>
+</ul>
+<h3>1.4 Inline SVGs that need attention</h3>
+<ul>
+<li><code>templates/navigation/menu-local-task.html.twig:30</code> includes <code>images/icons/menu.svg</code> inline inside a labelled button. Add <code>aria-hidden="true"</code> / <code>focusable="false"</code> to the SVG so the button's <code>aria-label</code> is the only announced name.</li>
+<li><code>templates/admin/indentation.html.twig:13-35</code> contains an inline tabledrag tree SVG with hard-coded <code>stroke="#888"</code>. Use <code>currentColor</code> (or a documented token) and <code>aria-hidden="true"</code> / <code>focusable="false"</code>; verify light, dark and forced colours.</li>
+</ul>
+<hr />
+<h2>2. Dark mode as a first-class citizen</h2>
+<h3>2.1 Policy</h3>
+<ol>
+<li><strong>Masters are monochrome and use <code>currentColor</code></strong> unless the artwork is intentionally multicolour (file-type/brand marks).</li>
+<li><strong>Prefer CSS masks</strong> for monochrome icons so <code>background-color</code>/<code>currentColor</code> determines the visible colour. Use background-image only where the component cannot host a mask (native <code>&lt;select&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;input type=submit&gt;</code>), and then use <strong>pretints</strong>.</li>
+<li><strong>Never use a <code>currentColor</code> master as a background image</strong> without a documented reason and a dark-mode override. <code>currentColor</code> in an external SVG resolves to black; the theme's own pretint comment already states this.</li>
+<li><strong>Every pretint is state-and-mode-specific.</strong> A single pretint may not serve light, dark and disabled states if its contrast differs.</li>
+<li><strong>Forced colours uses system colours.</strong> Use <code>CanvasText</code>, <code>LinkText</code>, <code>ButtonText</code>, <code>Highlight</code>, etc.; do not use a global <code>forced-color-adjust: none</code>.</li>
+<li><strong>No hard-coded interface colours in inline SVG or masters.</strong> Use <code>currentColor</code>/tokens; document exceptions (file-type artwork).</li>
+<li><strong>Multicolour artwork stays multicolour.</strong> Test it on dark surfaces; do not convert file-type icons to masks.</li>
+</ol>
+<h3>2.2 Audit findings to act on</h3>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Finding</th>
+<th>Where</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P0</strong></td>
+<td><code>--admin-icon-edit-inverse</code> undefined</td>
+<td><code>media-library-item.pcss.css:289,338</code></td>
+<td>Add pretint; test dark/forced dark</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td><code>--admin-icon-search-muted</code> / <code>-rtl</code> undefined</td>
+<td><code>autocomplete-loading.module.pcss.css:51,57</code></td>
+<td>Add muted LTR/RTL assets or a mask-based wrapper</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td><code>--admin-icon-loader</code> used as background image while master is <code>currentColor</code></td>
+<td><code>more-actions.pcss.css:66</code></td>
+<td>Measure on the sticky button background in dark mode; use a system/token colour or a pretint</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td><code>--admin-icon-edit</code> used as background image in light mode</td>
+<td><code>media-library-item.pcss.css:105,282</code></td>
+<td>Verify black-on-light; pair with the new edit-inverse</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Status-report icons disappear in forced colours</td>
+<td><code>system-status-report-general-info.pcss.css:58-68</code></td>
+<td><strong>Proposed patch:</strong> <code>background-color: CanvasText</code> under forced colours; verified on <code>/admin/reports/status</code></td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Intrinsic file-type icons have no dark adaptation</td>
+<td><code>file.pcss.css:30-69</code>; 14 <code>file-types/*.svg</code></td>
+<td>Test the file widget, media library and attachment lists on dark surfaces; add dark artwork only if the light artwork fails</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Disabled select glyph uses the enabled white inverse in dark mode</td>
+<td><code>form--select.pcss.css:15-27</code>; computed dark disabled select uses the <code>%23ffffff</code> chevron with <code>opacity: .7</code> and a disabled border</td>
+<td>Add a muted dark disabled variant or reorder the rules; the state currently relies on opacity/border, not the glyph</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Checked+disabled checkbox in dark mode</td>
+<td><code>form--checkbox-radio.pcss.css:225</code></td>
+<td><strong>Proposed patch:</strong> <code>check-disabled-inverse</code> (#adaeb3), measured 2.85:1 → 5.85:1</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Tabledrag inline tree uses hard-coded <code>#888</code></td>
+<td><code>indentation.html.twig:13-35</code></td>
+<td><code>stroke="currentColor"</code>; verify dark/forced</td>
+</tr>
+</tbody>
+</table>
+<h3>2.3 Dark-mode acceptance tests</h3>
+<ul>
+<li>Every <strong>meaningful</strong> icon remains visible at its actual component size in light <strong>and</strong> dark.</li>
+<li>Relevant states remain distinguishable: checked, unchecked, selected, disabled, error, sort asc/desc, drag handle, focus, hover.</li>
+<li>Measured non-text contrast against the adjacent background is <strong>≥3:1</strong> for meaningful graphics. Disabled controls are exempt from SC 1.4.11, but states should still be discernible; do not use the exemption to hide a regression.</li>
+<li>No <code>background-image</code> with a <code>currentColor</code> master is unaccounted for.</li>
+<li>Every pretint appears in a state/mode table and is covered by a component test.</li>
+<li>Intrinsic multicolour icons are tested on the real dark surface; if they fail, supply dark artwork, not a mask silhouette.</li>
+<li>The test is performed in the actual Drupal component, not only in the standalone gallery.</li>
+</ul>
+<hr />
+<h2>3. Forced-colours plan</h2>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Task</th>
+<th>Acceptance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P0</strong></td>
+<td>Status-report icon masks: system-colour background (patch ready)</td>
+<td>All five status icons visible in Chromium forced light and forced dark; actual <code>/admin/reports/status</code> screenshot</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td>Media library edit icon: add <code>edit-inverse</code> and verify the forced-dark rule</td>
+<td>Edit and remove both visible in forced light/dark</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td>Autocomplete search: restore muted search glyph; test forced colours</td>
+<td>Magnifier visible, or intentionally native/hidden</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Audit every <code>mask-image</code> + <code>background-color</code> pair for an author colour that forced colours will replace with Canvas</td>
+<td>No icon disappears against Canvas/CanvasText; documented system colour per case</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Keep <code>forced-color-adjust: none</code> scoped to individual masks only, never globally</td>
+<td>Grep check: no global opt-out</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>Verify tabledrag <code>LinkText</code> fallback (visible in current Chromium tests) and select <code>appearance: revert</code></td>
+<td>No regression across forced light/dark</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>Native Windows High Contrast verification</td>
+<td>Required before claiming forced-colours readiness; Chromium emulation is not enough</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Do not</strong> treat a forced-colours simulation as native Windows evidence. Record which combinations are emulated and which are untested.</p>
+<hr />
+<h2>4. SVG quality policy</h2>
+<h3>4.1 Required for every interface SVG</h3>
+<ul>
+<li>Well-formed XML and correct SVG namespace.</li>
+<li>No scripts, event handlers, <code>foreignObject</code>, external <code>href</code> or external <code>url()</code>.</li>
+<li>Unique IDs within each document; all internal references resolve.</li>
+<li>A valid, non-zero <code>viewBox</code>; no negative dimensions.</li>
+<li>No unintended clipping; internal detail preserved.</li>
+<li><code>currentColor</code> for monochrome artwork; no accidental hard-coded hex unless a pretint or multicolour artwork.</li>
+<li>Correct stroke/fill rules, line caps and joins preserved from the original.</li>
+<li>No bulk optimisation or reformatting mixed with functional change.</li>
+<li>Licence/provenance retained.</li>
+<li>Reasonable decimal precision; no arbitrary path rewriting.</li>
+</ul>
+<h3>4.2 Per-asset actions from this audit</h3>
+<table>
+<thead>
+<tr>
+<th>Asset / group</th>
+<th>Finding</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Masters</strong> (33 mask-only assets)</td>
+<td>Render through <code>mask-image</code>; colour comes from the component</td>
+<td>Keep <code>currentColor</code>; test each consuming component in light/dark/forced</td>
+</tr>
+<tr>
+<td><strong>Background-only assets</strong> (20)</td>
+<td>Intrinsic colours; <code>currentColor</code> renders black</td>
+<td>Review the 20; convert to mask where a wrapper exists; otherwise add pretints/state variants</td>
+</tr>
+<tr>
+<td><strong>Mixed assets</strong> (4: <code>check</code>, <code>chevron-down</code>, <code>close</code>, <code>pencil</code>)</td>
+<td>Used both as mask and background image</td>
+<td>Document both consumers; do not judge them from one preview mode; test both code paths</td>
+</tr>
+<tr>
+<td><strong>File-type icons</strong> (14)</td>
+<td>Intentionally multicolour; <code>aria-hidden</code>/<code>focusable</code> present</td>
+<td>Test on dark surfaces; keep multicolour; do not mask</td>
+</tr>
+<tr>
+<td><strong>Pretints</strong> (7)</td>
+<td>Frozen colours; several state combinations untested</td>
+<td>Build the pretint state matrix; add <code>edit-inverse</code>; remove unused <code>chevron-down-default</code> and <code>remove-default</code></td>
+</tr>
+<tr>
+<td><strong>Status icons</strong> (5)</td>
+<td>Mask over author background disappears in forced colours</td>
+<td>System-colour patch</td>
+</tr>
+<tr>
+<td><strong>Inline menu SVG</strong></td>
+<td>Included in a labelled button without <code>aria-hidden</code></td>
+<td>Add <code>aria-hidden="true"</code> and <code>focusable="false"</code></td>
+</tr>
+<tr>
+<td><strong>Inline indentation SVG</strong></td>
+<td>Hard-coded <code>#888</code>; no ARIA hiding</td>
+<td>Use <code>currentColor</code>; <code>aria-hidden="true"</code>; dark/forced test</td>
+</tr>
+<tr>
+<td><strong>Unused additions</strong></td>
+<td>14 removed; 2 pending</td>
+<td><code>search</code> needs the muted-search fix; <code>chevron-left</code> awaits the RTL decision</td>
+</tr>
+</tbody>
+</table>
+<p>The after inventory has <strong>0 structural errors</strong> and <strong>no missing viewBoxes</strong>; the 21 paint-value warnings are the 14 multicolour file-type icons and 7 pretints, which are expected but require the dark/forced review above.</p>
+<p>The usage counts follow custom-property aliases (for example <code>--messages-icon: var(--admin-icon-info)</code>) and inline template includes. A first-pass scanner that ignored aliases reported <code>info.svg</code> as unused; it is actually a mask in the messages component. <code>menu.svg</code> is used inline in <code>menu-local-task.html.twig</code>, not in CSS, and is counted as image-only.</p>
+<hr />
+<h3>4.3 SVG optimisation</h3>
+<p>Optimisation is a <strong>separate, later phase</strong>. Do not mix path rewriting with correctness fixes.</p>
+<p>Baseline: <strong>74 files / 41,981 bytes</strong>. The measured opportunity is:</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Bytes</th>
+<th style="text-align: right;">Share</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14 unused after-side assets (removed)</td>
+<td style="text-align: right;">11,068</td>
+<td style="text-align: right;">26.4%</td>
+<td>Deleted; 2 remaining pending decisions</td>
+</tr>
+<tr>
+<td>Two identical file-type pairs</td>
+<td style="text-align: right;">1,546 redundant</td>
+<td style="text-align: right;">3.7%</td>
+<td>Deferred: compiled CSS inlines both data URIs; source deletion alone does not reduce served CSS</td>
+</tr>
+<tr>
+<td>Whitespace/comments between tags</td>
+<td style="text-align: right;">1,411</td>
+<td style="text-align: right;">3.4%</td>
+<td>Deferred: low value and high review noise</td>
+</tr>
+<tr>
+<td>SVGO 4-decimal path conversion, all 74</td>
+<td style="text-align: right;">9,214</td>
+<td style="text-align: right;">21.9%</td>
+<td>Family pilot only: required + five status icons applied</td>
+</tr>
+<tr>
+<td>SVGO 3-decimal path conversion</td>
+<td style="text-align: right;">~10,700</td>
+<td style="text-align: right;">~25%</td>
+<td>Reject: visible pixel differences at 24–192px in the pilot</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Applied pilot:</strong> <code>icons/required.svg</code>, SVGO 3.3.5 with <code>viewBox</code>, IDs, titles/descriptions, metadata, comments and <code>currentColor</code> preserved; no path merging/shape conversion; 4-decimal path data. Result: <strong>1,130 → 920 bytes (18.6%)</strong>, <strong>0 differing pixels at 16/24/32/42/64/192px</strong>. A 3-decimal version produced differences; it was rejected. <code>logos/drupal.svg</code> also produced a pixel-identical 4-decimal variant (1,610 → 1,222 bytes) but is not applied.</p>
+<p>Rules:</p>
+<ol>
+<li>Remove unused assets before optimising used ones.</li>
+<li>Preserve <code>viewBox</code>, <code>currentColor</code>, IDs, titles/descriptions, licence/provenance and state variants.</li>
+<li>Do not merge paths, convert shapes, remove <code>viewBox</code>, or strip metadata.</li>
+<li>Use <strong>4 decimals</strong> as the batch floor; 3 decimals is not visually safe in the pilot.</li>
+<li>Compare pixels at 16/24/32/42/64/192 and at the actual component size; test alpha, dark, forced colours and masks.</li>
+<li>Test the real Drupal component before merging a family.</li>
+<li>One asset or one family per commit; no bulk rewrite.</li>
+<li>Do not optimise tiny files where the gain is negligible and review noise is high.</li>
+<li>Do not optimise pretints until their mode/state table is final.</li>
+</ol>
+<p><strong>Result so far:</strong> after-side 74 files / 41,981 bytes → proposed 61 files / 30,380 bytes, a <strong>27.6% reduction</strong>, including the 14-file cleanup, the required/status pilots, and the new <code>check-disabled-inverse.svg</code>.</p>
+<p>Reports: <code>proposed/reports/svg-optimization-pilot.md</code>.
+Patches: <code>proposed/interdiff-svg-cleanup.patch</code>, <code>proposed/interdiff-svg-optimization-required.patch</code>, <code>proposed/interdiff-svg-optimization-status-family.patch</code>.
+Tests: <code>proposed/tests/svg_cleanup_test.py</code>, <code>svg_optimization_pilot.py</code>, <code>svg_optimization_status_family.py</code>.</p>
+<h2>5. WCAG 2.2 AA checklist for the icon work</h2>
+<p>These are the checks to run per affected component. They do not replace manual testing or testing with disabled people.</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>What to verify for icons</th>
+<th>Evidence to record</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1.1.1 Non-text content</strong></td>
+<td>Decorative background/mask icons are not announced; meaningful icon-only controls have a text alternative</td>
+<td><code>aria-hidden</code>/<code>focusable</code> on inline SVG; accessible name on buttons/links</td>
+</tr>
+<tr>
+<td><strong>1.4.1 Use of colour</strong></td>
+<td>Checked, selected, disabled, sort direction and error states are not conveyed by colour alone</td>
+<td>Shape/position/state test, screenshots</td>
+</tr>
+<tr>
+<td><strong>1.4.3 Contrast (minimum)</strong></td>
+<td>Text labels and icon+text controls meet 4.5:1; large text 3:1</td>
+<td>Computed colours and contrast</td>
+</tr>
+<tr>
+<td><strong>1.4.11 Non-text contrast</strong></td>
+<td>Meaningful icon graphics, state indicators and focus indicators meet 3:1 against adjacent colours</td>
+<td>Pixel measurement at component size</td>
+</tr>
+<tr>
+<td><strong>1.4.10 Reflow</strong></td>
+<td>Icons remain usable at 320px and at 200%/400% zoom</td>
+<td>Browser reflow test</td>
+</tr>
+<tr>
+<td><strong>2.4.7 Focus visible</strong></td>
+<td>Icon-only controls and handles have a visible focus indicator in light, dark and forced colours</td>
+<td>Keyboard screenshots/computed outline</td>
+</tr>
+<tr>
+<td><strong>2.4.11 Focus not obscured</strong></td>
+<td>Sticky headers/toolbars do not hide focus on icon controls</td>
+<td>Scrolling/focus test</td>
+</tr>
+<tr>
+<td><strong>2.5.8 Target size (minimum)</strong></td>
+<td>Icon-only controls are at least 24×24 CSS px or have sufficient spacing</td>
+<td>Measured target boxes</td>
+</tr>
+<tr>
+<td><strong>3.2.3/3.2.4 Consistency</strong></td>
+<td>The same icon/action looks and behaves consistently across admin pages</td>
+<td>Component inventory</td>
+</tr>
+<tr>
+<td><strong>4.1.2 Name, role, value</strong></td>
+<td>Icon-only buttons expose their name and state</td>
+<td>Accessibility tree</td>
+</tr>
+<tr>
+<td><strong>2.2.2/2.3.1 Animation</strong></td>
+<td>Spinners/throbbers respect reduced motion where required; no distracting uncontrolled motion</td>
+<td>Reduced-motion emulation</td>
+</tr>
+<tr>
+<td><strong>1.3.4/1.4.10 RTL</strong></td>
+<td>Directional icons and search/magnifier variants are correct in RTL</td>
+<td>RTL screenshots; no missing <code>-rtl</code> assets</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Do not claim WCAG conformance from SVG inspection or axe alone.</strong> Record manual and assistive-technology gaps separately. Disabled controls are exempt from 1.4.11, but that exemption must not be used to ignore a state-visibility regression.</p>
+<hr />
+<h2>6. Test matrix</h2>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Light</th>
+<th>Dark</th>
+<th>Forced light</th>
+<th>Forced dark</th>
+<th>Sizes</th>
+<th>RTL</th>
+<th>Reduced motion</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Checkbox checked / disabled / error</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>21px actual; 12/16/24 preview</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Check fix proposed; dark disabled 5.85:1</td>
+</tr>
+<tr>
+<td>Select chevron</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ native</td>
+<td>✅ native</td>
+<td>actual</td>
+<td>✅</td>
+<td>n/a</td>
+<td>Disabled-dark state still to verify</td>
+</tr>
+<tr>
+<td>Autocomplete search</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>16px</td>
+<td>❌</td>
+<td>n/a</td>
+<td><strong>Missing asset</strong></td>
+</tr>
+<tr>
+<td>Media library edit/remove</td>
+<td>✅</td>
+<td>❌ edit</td>
+<td>✅</td>
+<td>❌ edit</td>
+<td>24px</td>
+<td>✅</td>
+<td>n/a</td>
+<td><strong>Missing <code>edit-inverse</code></strong></td>
+</tr>
+<tr>
+<td>Status-report icons</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌ before / ✅ proposed</td>
+<td>❌ before / ✅ proposed</td>
+<td>42px</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Forced-colours patch ready</td>
+</tr>
+<tr>
+<td>Tabledrag handle</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅ <code>LinkText</code></td>
+<td>✅ <code>LinkText</code></td>
+<td>16px</td>
+<td>✅ transform</td>
+<td>n/a</td>
+<td>Chromium verified</td>
+</tr>
+<tr>
+<td>File-type icons</td>
+<td>✅</td>
+<td>⚠️ open</td>
+<td>⚠️ open</td>
+<td>⚠️ open</td>
+<td>16px</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Actual widget test needed</td>
+</tr>
+<tr>
+<td>Action-link icons</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>1em</td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Mask-rendered</td>
+</tr>
+<tr>
+<td>Toggle checkbox</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>actual</td>
+<td>✅ transform</td>
+<td>✅ transition</td>
+<td>Check states in dark/forced</td>
+</tr>
+<tr>
+<td>Inline menu / indentation</td>
+<td>✅</td>
+<td>⚠️</td>
+<td>⚠️</td>
+<td>⚠️</td>
+<td>actual</td>
+<td>✅</td>
+<td>n/a</td>
+<td>Fix ARIA + currentColor</td>
+</tr>
+</tbody>
+</table>
+<p>Legend: ✅ tested, ❌ missing/broken, ⚠️ needs verification.</p>
+<hr />
+<h2>7. Ordered implementation plan</h2>
+<h3>Phase A — stop the confirmed breakage (P0)</h3>
+<ol>
+<li>Add <code>search-muted.svg</code> / <code>search-muted-rtl.svg</code> (or a mask wrapper), register them, and test autocomplete in LTR/RTL.</li>
+<li>Add <code>pretint/edit-inverse.svg</code>, register it, and test media library edit in dark and forced dark.</li>
+<li>Keep the proposed status-report forced-colours patch (5 status icons).</li>
+<li>Keep the proposed check-disabled dark pretint fix.</li>
+<li>Add a regression test that fails on any <code>var(--admin-icon-*)</code> reference without a definition.</li>
+</ol>
+<h3>Phase B — dark-mode correctness (P1)</h3>
+<ol>
+<li>Resolve the loader background-image/currentColor case on the sticky buttons in dark mode.</li>
+<li>Verify the disabled-select dark chevron state; add a muted variant or reorder the rules.</li>
+<li>Review all 20 background-image assets against dark surfaces; convert to masks where a mask host exists.</li>
+<li>Review the 14 multicolour file-type icons in real file/widget surfaces; do not mask them.</li>
+<li>Fix inline menu/indentation SVG semantics and hard-coded colour.</li>
+<li>Add a lint rule: no <code>background-image</code> pointing at a <code>currentColor</code> master unless allowlisted with a test.</li>
+</ol>
+<h3>Phase C — forced colours and state coverage (P1/P2)</h3>
+<ol>
+<li>Add system-colour handling for every mask-over-author-background case.</li>
+<li>Build a pretint state/mode table; test each entry at the component.</li>
+<li>Scope <code>forced-color-adjust</code>; no global opt-out.</li>
+<li>Verify select/checkbox native appearance in forced colours.</li>
+<li>Request native Windows High Contrast verification.</li>
+</ol>
+<h3>Phase D — cleanup and accessibility (P2)</h3>
+<ol>
+<li>Remove or justify the remaining unused assets. 14 removed (11,068 bytes); <code>search</code> and <code>chevron-left</code> remain pending.</li>
+<li>Add <code>aria-hidden</code>/<code>focusable</code> to inline decorative SVGs.</li>
+<li>Test icon-only controls for names, focus, target size (24px) and state.</li>
+<li>Add RTL and reduced-motion cases for directional spinners/toggles.</li>
+<li>Reconcile the family mappings (sort names, breadcrumb, spinner, media) in <code>reconciliation.json</code>; do not restore colour variants.</li>
+</ol>
+<h3>Phase E — reporting and lab tooling</h3>
+<ol>
+<li>Update the gallery to remain <strong>Auto (actual use)</strong> by default, with per-asset <code>mask</code>/<code>background</code>/<code>mixed</code>/<code>unused</code> badges and a forced-colours window.</li>
+<li>Add a CSS-variable lint, missing-file lint, and background-image/currentColor lint to the lab.</li>
+<li>Cache rendering results by asset hash + browser + size + mode; separate inherited warnings from after-side regressions.</li>
+<li>Produce updated JSON/Markdown reports and a small interdiff per phase.</li>
+<li>Stop after each phase for review; do not push or post upstream.</li>
+</ol>
+<hr />
+<h3>Phase F — optimisation after correctness (P2)</h3>
+<ol>
+<li>Remove or justify the unused assets. 14 removed; <code>search</code> and <code>chevron-left</code> pending.</li>
+<li>Decide whether the duplicate file-type pairs justify a shared CSS data URI (deferred: no runtime gain from source deletion alone).</li>
+<li>Decide whether the 1,411-byte lossless minification is worth the review noise (currently deferred).</li>
+<li>Pilot 4-decimal optimisation on one used family; required and the five status icons are applied, with 16–192px pixel checks and one 512px logo edge-pixel difference recorded.</li>
+<li>Batch only after per-file visual and component tests pass; keep each family in its own commit.</li>
+</ol>
+<h2>8. Missing/unknown information</h2>
+<ul>
+<li><strong>No native Windows High Contrast testing</strong> yet; Chromium forced-colours emulation is not a substitute.</li>
+<li><strong>No full Drupal install with the complete MR theme</strong>; the checkmark and status tests used the lab baseline theme with the relevant files/CSS applied surgically, then restored exactly.</li>
+<li><strong>Dynamic and third-party references</strong> can still exist outside core; absence of a literal reference is evidence, not proof of non-use.</li>
+<li><strong>77 originals</strong> have no after-side target, but <strong>0 exact stale references</strong> remain in the after tree. Their disposition still needs a family-by-family reconciliation.</li>
+<li><strong>No full WCAG 2.2 AA or SVG conformance claim.</strong> Automated checks cover only part of the requirements; manual and assistive-technology testing remains outstanding.</li>
+<li><strong>No visual-regression baseline for every component</strong>; the current screenshots cover checkboxes, status icons, tabledrag and selects only.</li>
+</ul>
+<hr />
+<h2>9. Reference evidence</h2>
+<ul>
+<li><a href="reconciliation.html">reconciliation.md</a> / <a href="reconciliation.json">reconciliation.json</a> — checkmark dispositions</li>
+<li><a href="proposed/reports/checkmark-evidence.html">checkmark-evidence.md</a> — checkmark fix and live Drupal measurements</li>
+<li><a href="proposed/reports/forced-colors-status-icons.html">forced-colors-status-icons.md</a> — status-icon forced-colours fix</li>
+<li><a href="proposed/reports/svg-optimization-pilot.html">svg-optimization-pilot.md</a> — optimisation audit, cleanup batch and family pilots</li>
+<li><a href="proposed/reports/patch-gallery.html">patch-gallery.html</a> — full asset gallery with Auto/Image/Mask and forced-colours views</li>
+<li><code>proposed/tests/checkmark_regression.py</code> — 6 tests</li>
+<li><code>proposed/tests/forced_colors_status_icons.py</code> — 3 tests</li>
+<li><code>proposed/interdiff-checkmark.patch</code> — checkmark dark disabled fix</li>
+<li><code>proposed/interdiff-forced-colors-status-icons.patch</code> — status icon fix</li>
+<li><code>proposed/reports/screens/</code> — live Drupal and component screenshots</li>
+</ul>
+<p><strong>Not pushed. Not posted. Next step: Phase A, one small commit per missing variant, tested against the live lab.</strong></p></body></html>

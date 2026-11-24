@@ -1,0 +1,153 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>checkmark evidence</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="../../index.html">Home</a> · <a href="../../proposed/reports/patch-gallery.html">All assets</a> · <a href="../../proposed/reports/visual-review.html">Visual review</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="../../reconciliation.html">Dispositions</a> · <a href="../../CODE-REVIEW.html">Lab review</a></nav><h1>Drupal MR !16166 — checkmark family evidence</h1>
+<p><strong>Status:</strong> first milestone, stop point. One confirmed regression, one minimal proposed fix. No upstream push or comment.</p>
+<p><strong>Baseline:</strong> before <code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code>; MR !16166 head <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code>.</p>
+<p><code>refs/merge-requests/16166/head</code> resolved to <code>fe4adb4...</code> at review time. The cached <code>after</code> ref matched it. The historical inventory reproduced: 194 before, 74 after, 204 rows, 77 unresolved, 63 relocated, 54 candidate replacements, 10 after-side unmatched.</p>
+<p><strong>Scope:</strong> checkmark family only (13 original assets, 4 after-side assets, 1 proposed asset). The other 181 original assets are not reconciled in this milestone.</p>
+<h2>What the MR does with checkmarks</h2>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Disposition</th>
+<th>Replacement / evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>migration/media/icons/form/checked.svg</code></td>
+<td>Relocated without modification</td>
+<td><code>images/icons/check.svg</code> — SHA-256 <code>a51b10ca...</code> in both revisions. Backs <code>--admin-icon-check</code>, <code>-checked</code>, <code>-checkmark</code>.</td>
+</tr>
+<tr>
+<td><code>migration/media/icons/form/toggle-unchecked.svg</code></td>
+<td>Relocated without modification</td>
+<td><code>images/icons/toggle-unchecked.svg</code> — SHA-256 <code>213e711a...</code> in both revisions.</td>
+</tr>
+<tr>
+<td><code>migration/media/icons/action-link/checkmark.svg</code></td>
+<td>Replaced (intentional redesign)</td>
+<td><code>images/icons/check.svg</code>. Stroked polyline becomes filled canonical check; still monochrome, non-directional, mask-rendered.</td>
+</tr>
+<tr>
+<td><code>images/icons/ffffff/checkmark-sm.svg</code></td>
+<td>Replaced (derived pretint)</td>
+<td><code>images/icons/pretint/check-inverse.svg</code> (<code>#ffffff</code>). Same white role, new 24×24 canonical geometry.</td>
+</tr>
+<tr>
+<td><code>images/icons/82828c/checkmark.svg</code></td>
+<td>Replaced (derived pretint)</td>
+<td><code>images/icons/pretint/check-disabled.svg</code> (<code>#767676</code>). Checked+disabled checkbox, light mode.</td>
+</tr>
+<tr>
+<td><code>images/icons/002e9a/checkmark.svg</code> and 6 other colour variants, plus <code>ffffff/checkmark.svg</code></td>
+<td>Confirmed unused and removed</td>
+<td>No exact path reference anywhere in core at the before revision; the only basename references point to action-link/checkmark.svg and 82828c/checkmark.svg. No dynamic <code>images/icons/&lt;hex&gt;/checkmark*.svg</code> construction was found. Absence of a reference is not proof that third-party or user configuration never used the file.</td>
+</tr>
+</tbody>
+</table>
+<p>All before/after checkmark files, source references and confidence are in <code>reconciliation.json</code> and <code>reconciliation.md</code>.</p>
+<h2>Confirmed regression</h2>
+<p><strong>CHK-001 — dark-mode disabled checked checkbox check loses contrast.</strong></p>
+<ul>
+<li>Before: <code>#82828c</code> on the dark disabled surface <code>#313134</code> = <strong>3.41:1</strong>.</li>
+<li>MR head: <code>#767676</code> on <code>#313134</code> = <strong>2.85:1</strong>.</li>
+<li>Light mode improved: <code>#82828c</code> on <code>#eaeaea</code> 3.16:1 → <code>#767676</code> <strong>3.78:1</strong>.</li>
+</ul>
+<p>The MR replaced the unused colour variants correctly, but the single disabled-check asset was aligned to gray-700 without a dark-mode counterpart. The checked state remains present but is markedly less distinguishable in dark mode. Disabled controls are exempt from WCAG 2.2 SC 1.4.11; this is reported as a measurable state-visibility regression, not a WCAG failure claim.</p>
+<p><img alt="MR head vs proposed disabled check in live Drupal" src="screens/live-disabled-check-comparison.png" /></p>
+<h2>Proposed fix (smallest appropriate change)</h2>
+<ul>
+<li>Add <code>images/icons/pretint/check-disabled-inverse.svg</code> — same path data as <code>check.svg</code>, fill <code>#adaeb3</code> (<code>--admin-color-gray-400</code>, the dark disabled foreground token).</li>
+<li>Register <code>--admin-icon-checked-disabled-inverse</code> in <code>css/base/icons.pcss.css</code> and the compiled <code>icons.css</code>.</li>
+<li>Add one dark-mode rule for <code>.form-boolean--type-checkbox[disabled]:checked</code>; light mode keeps <code>check-disabled.svg</code> unchanged.</li>
+<li>Add <code>proposed/tests/checkmark_regression.py</code> (6 stdlib tests: asset validity, geometry parity, token registration, compiled data-URI parity, dark rule, contrast).</li>
+<li>Full patch: <code>proposed/interdiff-checkmark.patch</code> (verified with <code>git apply --check</code>).</li>
+</ul>
+<p>Measured result: <code>#adaeb3</code> on <code>#313134</code> = <strong>5.85:1</strong>. Light mode remains <strong>3.78:1</strong>. Forced-colours screenshots are identical to MR head (the checkbox uses native appearance under forced colours).</p>
+<h2>Suggested commit split (local only, not pushed)</h2>
+<ol>
+<li>Add <code>pretint/check-disabled-inverse.svg</code> and register <code>--admin-icon-checked-disabled-inverse</code> (asset + registry).</li>
+<li>Add the dark-mode checked+disabled checkbox rule (component CSS and compiled CSS).</li>
+<li>Add <code>proposed/tests/checkmark_regression.py</code> and the evidence reports (lab only; not part of the Drupal patch).</li>
+</ol>
+<p><code>proposed/interdiff-checkmark.patch</code> contains the Drupal theme changes only and applies to the MR head with <code>git apply -p1</code>. The test and reports live under <code>proposed/</code> in the review lab.</p>
+<h2>Rendering evidence</h2>
+<ul>
+<li>Actual component size: 21×21 CSS px for <code>.form-boolean--type-checkbox</code>.</li>
+<li>States: unchecked, checked, checked disabled, checked error, hover, active, keyboard focus-visible, light, dark, forced-colours light, forced-colours dark.</li>
+<li>Size matrix: 12, 16, 21 (actual), 24 px — check remains visible.</li>
+<li>Focus: <code>:focus-visible</code> true, 1px outline, offset 2px; light <code>rgb(0,95,204)</code>, dark <code>rgb(153,200,255)</code>.</li>
+<li>Pixel diff (dark after vs proposed): bounding box <code>[4,87,17,99]</code> in a 416×184 screenshot — only the disabled checkbox changed. Light after vs proposed: no difference.</li>
+<li>Checked states: white on <code>#015efe</code> = 5.21:1 (light); black on <code>#c4d1ff</code> = 13.91:1 (dark).</li>
+<li>Screenshots: <code>proposed/reports/screens/</code>.</li>
+<li>Forced colours use Chromium media emulation, not native Windows High Contrast.</li>
+</ul>
+<h2>Live Drupal integration test</h2>
+<p>Tested on the running Drupal Core Lab site at <code>https://repro-baseline-main.ddev.site/admin/people/permissions</code> (Drupal 12-dev <code>d29add7e</code>), where the Administrator column renders <strong>91 checked and disabled checkboxes</strong>. The MR-head check assets and component CSS were applied to the lab's baseline <code>default_admin</code> theme, caches rebuilt, measured, then the proposed fix was added and measured again. The baseline theme was restored exactly afterwards (directory diff empty).</p>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Background</th>
+<th>Check</th>
+<th>Contrast</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MR head, light</td>
+<td><code>rgb(234,234,234)</code></td>
+<td><code>#767676</code></td>
+<td><strong>3.78:1</strong></td>
+</tr>
+<tr>
+<td>MR head, dark</td>
+<td><code>rgb(49,49,52)</code></td>
+<td><code>#767676</code></td>
+<td><strong>2.85:1</strong></td>
+</tr>
+<tr>
+<td>Proposed, light</td>
+<td><code>rgb(234,234,234)</code></td>
+<td><code>#767676</code></td>
+<td><strong>3.78:1</strong></td>
+</tr>
+<tr>
+<td>Proposed, dark</td>
+<td><code>rgb(49,49,52)</code></td>
+<td><code>#adaeb3</code></td>
+<td><strong>5.85:1</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The live Drupal measurements match the isolated harness exactly. The affected control is 21x21 CSS px. Forced light and forced dark retain the native checkbox appearance and the checked state remains visible (<code>appearance: auto</code>).</p>
+<p>Screenshots: <code>screens/live-mr-light-disabled.png</code>, <code>screens/live-mr-dark-disabled.png</code>, <code>screens/live-proposed-light-disabled.png</code>, <code>screens/live-proposed-dark-disabled.png</code>, <code>screens/live-proposed-forced-light-disabled.png</code>, <code>screens/live-proposed-forced-dark-disabled.png</code>, <code>screens/live-mr-dark-row.png</code>, <code>screens/live-proposed-dark-row.png</code>.</p>
+<h2>Validation</h2>
+<ul>
+<li>Proposed theme inventory: 61 SVGs; 0 structural errors (14 unused assets removed, status/required optimised).</li>
+<li>New SVG: valid XML, SVG namespace, <code>viewBox="0 0 24 24"</code>, no external content, path data identical to <code>check.svg</code>, fill <code>#adaeb3</code>.</li>
+<li>81 SVG references in the proposed theme resolve; 0 missing.</li>
+<li>Compiled data-URI payload matches the source SVG (viewBox, path <code>d</code>, fill).</li>
+<li>Validation is partial structural checking, not full SVG conformance.</li>
+</ul>
+<h2>Limits / outstanding work</h2>
+<ul>
+<li>The live Drupal test applied only the MR checkmark files/CSS to the baseline theme, not the complete MR theme. The lab core is <code>d29add7e</code>; the MR head is <code>fe4adb4</code>. Full-theme integration remains to be verified.</li>
+<li>Native Windows High Contrast testing remains outstanding.</li>
+<li>The checkmark family is the only reconciled family; 181 assets remain.</li>
+<li>No claim of full SVG or WCAG conformance.</li>
+<li>No upstream push or issue comment has been made.</li>
+</ul>
+<h2>Reproduce</h2>
+<pre><code class="language-sh"># Snapshot and MR verification
+git --git-dir=drupal.git rev-parse refs/heads/before refs/heads/after
+git ls-remote https://git.drupalcode.org/project/drupal.git refs/merge-requests/16166/head
+
+# Static checks and tests
+python3 proposed/tests/checkmark_regression.py
+git apply --check -p1 proposed/interdiff-checkmark.patch
+
+# Lab inventory of the proposed tree (run in a temporary directory)
+python3 review.py --before before/core/themes/default_admin \
+                  --after proposed/core/themes/default_admin
+</code></pre></body></html>

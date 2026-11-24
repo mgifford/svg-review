@@ -1,0 +1,212 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>svg optimization pilot</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="../../index.html">Home</a> · <a href="../../proposed/reports/patch-gallery.html">All assets</a> · <a href="../../proposed/reports/visual-review.html">Visual review</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="../../reconciliation.html">Dispositions</a> · <a href="../../CODE-REVIEW.html">Lab review</a></nav><h1>SVG optimisation — audit and verified pilots</h1>
+<p><strong>Scope:</strong> the 74 SVG files in <code>after/core/themes/default_admin/images/</code> (41,981 bytes total). This is a measurement plus two bounded pilots and a cleanup batch, not a bulk rewrite.</p>
+<h2>Opportunity, in order of value</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th style="text-align: right;">Bytes</th>
+<th style="text-align: right;">Share of total</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unused after-side assets</td>
+<td style="text-align: right;"><strong>11,068 removed</strong>; 558 pending</td>
+<td style="text-align: right;">26.4% removed</td>
+<td>Delete rather than optimise</td>
+</tr>
+<tr>
+<td>Two identical file-type pairs</td>
+<td style="text-align: right;"><strong>1,546</strong> redundant</td>
+<td style="text-align: right;">3.7%</td>
+<td>Low; deduplicate the CSS URL, not the artwork</td>
+</tr>
+<tr>
+<td>Whitespace/comments between tags</td>
+<td style="text-align: right;"><strong>1,411</strong></td>
+<td style="text-align: right;">3.4%</td>
+<td>Low; lossless</td>
+</tr>
+<tr>
+<td>SVGO 4-decimal path conversion, all 74</td>
+<td style="text-align: right;"><strong>9,214</strong></td>
+<td style="text-align: right;">21.9%</td>
+<td><strong>Not yet validated per file</strong>; geometry/path data changes</td>
+</tr>
+<tr>
+<td>SVGO 3-decimal path conversion</td>
+<td style="text-align: right;">~10,700</td>
+<td style="text-align: right;">~25%</td>
+<td><strong>Rejected</strong>: measured pixel differences at 24–192px</td>
+</tr>
+</tbody>
+</table>
+<p>Total SVG payload is small. Removing dead assets is a bigger, safer win than minifying used paths. Delivery compression and caching will matter more than a few hundred bytes for the used set.</p>
+<h2>Pilot: <code>icons/required.svg</code></h2>
+<p>Tool: SVGO 3.3.5, run only in <code>/tmp</code>, no repository dependency.</p>
+<p>Config properties: <code>preset-default</code> with <code>removeViewBox: false</code>, <code>cleanupIds: false</code>, <code>removeTitle/Desc/Metadata/Comments: false</code>, <code>convertColors: false</code>, <code>mergePaths: false</code>, <code>convertShapeToPath: false</code>, <code>convertPathData</code> at 4 decimals, <code>multipass: false</code>.</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After</th>
+<th style="text-align: right;">Saving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>icons/required.svg</code></td>
+<td style="text-align: right;">1,130 B</td>
+<td style="text-align: right;"><strong>920 B</strong></td>
+<td style="text-align: right;"><strong>18.6%</strong></td>
+</tr>
+<tr>
+<td><code>icons/logos/drupal.svg</code> (pilot only, not applied)</td>
+<td style="text-align: right;">1,610 B</td>
+<td style="text-align: right;">1,222 B</td>
+<td style="text-align: right;">24.1%</td>
+</tr>
+</tbody>
+</table>
+<p>Pixel comparison (transparent canvas, RGBA, exact per-pixel diff):</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>16px</th>
+<th>24px</th>
+<th>32px</th>
+<th>42px</th>
+<th>64px</th>
+<th>192px</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>required, 4 decimals</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>drupal, 4 decimals</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>required, 3 decimals</td>
+<td>0</td>
+<td>5 px (Δ64)</td>
+<td>2 px (Δ64)</td>
+<td>2 px (Δ64)</td>
+<td>4 px (Δ64)</td>
+<td>23 px (Δ64)</td>
+</tr>
+<tr>
+<td>drupal, 3 decimals</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>8 px (Δ64)</td>
+</tr>
+</tbody>
+</table>
+<p>4-decimal output was pixel-identical at all tested sizes for both pilot assets. 3-decimal output was rejected. The path data was rewritten to relative/shorthand commands; this is <strong>not</strong> byte-identical geometry, so pixel equality at tested sizes is evidence, not proof at every scale or renderer.</p>
+<p>Pilot patch: <code>proposed/interdiff-svg-optimization-required.patch</code> (1 file; 920 bytes). Report: this file.</p>
+<h2>Rules for a batch pass</h2>
+<ol>
+<li><strong>Remove unused assets first.</strong> Do not spend optimisation effort on the 16 files with no consumer.</li>
+<li><strong>Do not remove <code>viewBox</code>, <code>currentColor</code>, IDs, titles/descriptions, metadata or licence comments.</strong></li>
+<li><strong>Do not merge paths or convert shapes</strong> unless each file is separately reviewed; stroke order, fill rules and holes can change.</li>
+<li><strong>4 decimals is the floor for a batch pilot.</strong> 3 decimals produced visible antialias differences in the pilot.</li>
+<li><strong>Per-file pixel comparison</strong> at 16/24/32/42/64/192 plus the actual component size, in light/dark/forced colours where relevant.</li>
+<li><strong>Actual Drupal component test</strong> for each optimised asset family before merging; standalone raster equality is not enough.</li>
+<li><strong>No bulk optimisation mixed with functional fixes.</strong> One family or one asset per commit.</li>
+<li><strong>Preserve provenance.</strong> If an asset has a licence/title/description, keep it.</li>
+<li><strong>No mass reformatting</strong> of files that are already small (under ~300 bytes) — the gain is negligible and review noise is high.</li>
+<li><strong>Do not optimise removed/pretint assets blindly.</strong> Pretints are frozen colour snapshots; confirm their mode/state table first.</li>
+</ol>
+<h2>Decision</h2>
+<p>The first pilot applied <code>required.svg</code>. The batch execution below adds the 14-file unused-asset cleanup and the five-icon status family; other assets remain unchanged. Actual full-MR-theme Drupal testing is still pending.</p>
+<h2>Applied: unused-asset cleanup</h2>
+<p>Removed from <code>proposed</code> after confirming no consumer references:</p>
+<p><code>appearance</code>, <code>blocks</code>, <code>bookmarks</code>, <code>content</code>, <code>files</code>, <code>media</code>, <code>nav-toggle-left</code>, <code>nav-toggle-top</code>, <code>people</code>, <code>reports</code>, <code>structure</code>, <code>user</code>, <code>pretint/chevron-down-default</code>, <code>pretint/remove-default</code>.</p>
+<ul>
+<li><strong>14 files / 11,068 bytes removed.</strong></li>
+<li>The corresponding registry variables and comment-table rows were removed.</li>
+<li><code>search.svg</code> is kept for the pending muted-search fix; <code>chevron-left.svg</code> is kept pending the RTL decision.</li>
+<li>Test: <code>proposed/tests/svg_cleanup_test.py</code> (3 tests, passing).</li>
+<li>Patch: <code>proposed/interdiff-svg-cleanup.patch</code>.</li>
+</ul>
+<h2>Applied: status-icon family at 4 decimals</h2>
+<p>Five used assets, same SVGO settings as the required.svg pilot:</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After</th>
+<th style="text-align: right;">Saving</th>
+<th>Pixel check</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>icons/clock.svg</code></td>
+<td style="text-align: right;">279</td>
+<td style="text-align: right;">244</td>
+<td style="text-align: right;">12.5%</td>
+<td>identical 16–192px</td>
+</tr>
+<tr>
+<td><code>icons/server.svg</code></td>
+<td style="text-align: right;">415</td>
+<td style="text-align: right;">364</td>
+<td style="text-align: right;">12.3%</td>
+<td>identical 16–192px</td>
+</tr>
+<tr>
+<td><code>icons/database.svg</code></td>
+<td style="text-align: right;">349</td>
+<td style="text-align: right;">306</td>
+<td style="text-align: right;">12.3%</td>
+<td>identical 16–192px</td>
+</tr>
+<tr>
+<td><code>logos/drupal.svg</code></td>
+<td style="text-align: right;">1,610</td>
+<td style="text-align: right;">1,223</td>
+<td style="text-align: right;">24.0%</td>
+<td>identical 16–192px; 1 edge pixel at 512px</td>
+</tr>
+<tr>
+<td><code>logos/php.svg</code></td>
+<td style="text-align: right;">1,211</td>
+<td style="text-align: right;">1,192</td>
+<td style="text-align: right;">1.6%</td>
+<td>identical 16–512px</td>
+</tr>
+</tbody>
+</table>
+<p>Total: <strong>535 bytes saved (13.8%)</strong> on the family. Tests: <code>proposed/tests/svg_optimization_status_family.py</code> (4 tests, passing). Patch: <code>proposed/interdiff-svg-optimization-status-family.patch</code>.</p>
+<p>The one 512px edge-pixel difference for the Drupal logo is at a non-UI scale; it is recorded rather than hidden. The optimized family has not yet been installed into a full MR-theme Drupal site; the existing live status test used the pre-optimisation assets and the forced-colours CSS fix.</p>
+<h2>Deferred with reasons</h2>
+<ul>
+<li><strong>Duplicate file-type pairs</strong>: the two pairs are identical, but the compiled CSS inlines each SVG as a separate data URI. Removing a source file does not reduce the served CSS without introducing a shared custom property, and the MIME-specific filenames are part of the theme's current mapping. Defer.</li>
+<li><strong>Whitespace/comment minification</strong>: measured at only 1,411 bytes across all 74 files, and it would touch most files. Low value and high review noise; defer until a bulk-format policy is agreed.</li>
+</ul>
+<h2>Result</h2>
+<p>After-side baseline: <strong>74 files / 41,981 bytes</strong>.
+Proposed tree after cleanup and the two optimisation pilots: <strong>61 files / 30,380 bytes</strong> — <strong>11,601 bytes less (27.6%)</strong>. The proposed tree also adds <code>pretint/check-disabled-inverse.svg</code>, so the reduction is net of that addition.</p></body></html>

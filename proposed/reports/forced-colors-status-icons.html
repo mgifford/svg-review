@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>forced colors status icons</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="../../index.html">Home</a> · <a href="../../proposed/reports/patch-gallery.html">All assets</a> · <a href="../../proposed/reports/visual-review.html">Visual review</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="../../reconciliation.html">Dispositions</a> · <a href="../../CODE-REVIEW.html">Lab review</a></nav><h1>Forced-colours audit: status-report icons, chevron and tabledrag</h1>
+<p><strong>Scope:</strong> the icons you flagged after reviewing the patch gallery under forced colours. Tested in Chromium forced-colours emulation and on the live Drupal 12 lab at <code>/admin/reports/status</code>. The live lab theme is restored exactly afterwards.</p>
+<h2>Confirmed issue: status-report icons disappear</h2>
+<p>All five <code>.system-status-general-info__item-icon</code> items use a masked <code>::before</code> over:</p>
+<pre><code class="language-css">background-color: var(--admin-color-primary);
+</code></pre>
+<p>Under forced colours the author background is replaced with <code>Canvas</code>. The mask is then painted in the same colour as the page background:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Page background</th>
+<th>Icon <code>::before</code> background</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Forced light</td>
+<td><code>rgb(255,255,255)</code> Canvas</td>
+<td><code>rgb(255,255,255)</code></td>
+<td><strong>Invisible</strong></td>
+</tr>
+<tr>
+<td>Forced dark</td>
+<td><code>rgb(0,0,0)</code> Canvas</td>
+<td><code>rgb(0,0,0)</code></td>
+<td><strong>Invisible</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This affects <strong><code>images/logos/drupal.svg</code></strong> and the server, clock, PHP and database status icons. The SVG itself is fine; the problem is the background colour behind the mask.</p>
+<p><strong>This is pre-existing in the before revision as well as MR head; it is not introduced by !16166.</strong> It is still a real forced-colours defect worth fixing.</p>
+<h3>Proposed fix</h3>
+<p>Add a system-colour override inside the icon block:</p>
+<pre><code class="language-css">@media (forced-colors: active) {
+  .system-status-general-info__item-icon::before {
+    background-color: CanvasText;
+  }
+}
+</code></pre>
+<p>Applied only in forced-colours mode; the normal <code>--admin-color-primary</code> circle remains unchanged.</p>
+<ul>
+<li>Patch: <code>proposed/interdiff-forced-colors-status-icons.patch</code> (2 files, 8 insertions)</li>
+<li>Test: <code>proposed/tests/forced_colors_status_icons.py</code> (3 tests, passing)</li>
+<li>Static component harness: <code>proposed/test/forced-status-after.html</code> / <code>forced-status-proposed.html</code></li>
+<li>Actual Drupal screenshots:</li>
+<li>before: <code>screens/live-status-forced-light-after.png</code>, <code>screens/live-status-forced-dark-after.png</code></li>
+<li>proposed: <code>screens/live-status-forced-light-proposed.png</code>, <code>screens/live-status-forced-dark-proposed.png</code></li>
+<li>Component screenshots: <code>screens/forced-status-after-*.png</code> / <code>forced-status-proposed-*.png</code></li>
+</ul>
+<p>Measured after the fix: forced light <code>drupalBg = rgb(0,0,0)</code> on <code>rgb(255,255,255)</code>; forced dark <code>drupalBg = rgb(255,255,255)</code> on <code>rgb(0,0,0)</code>.</p>
+<h2>Chevron-down</h2>
+<ul>
+<li>The removed <code>images/icons/000f33/chevron-down.svg</code> has a hard-coded <code>#000f33</code> fill and is invisible on a forced-dark raw preview. It is <strong>not used</strong> by the MR.</li>
+<li>The after <code>images/icons/chevron-down.svg</code> is used as a select background. In forced colours the rule in <code>form--select.pcss.css</code> sets <code>background-image: none</code> and <code>appearance: revert</code>, so the browser draws the native select arrow.</li>
+<li>No forced-colours defect found; the dark-blue thumbnail is an original variant, not an after-side asset.</li>
+</ul>
+<h2>Tabledrag handle</h2>
+<ul>
+<li>The after <code>images/icons/tabledrag-handle.svg</code> is a mask. Under forced colours the handle computes <code>background-color: LinkText</code> (blue in forced light, yellow in forced dark) and is visible.</li>
+<li>The first two dark handles in the gallery card are original variants (<code>000f33/tabledrag-handle.svg</code> and <code>images/src/tabledrag-handle.svg</code>), not after assets. They are removed/unused; their raw previews are not evidence of an after-side forced-colours bug.</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>Chromium forced-colours emulation, not native Windows High Contrast.</li>
+<li>The live Drupal test used the baseline Drupal 12 theme with only the proposed status CSS applied, then restored the theme exactly (directory diff clean).</li>
+<li>No full MR-theme live install; see the main evidence report for that limitation.</li>
+<li>No claim of full WCAG or SVG conformance.</li>
+</ul></body></html>

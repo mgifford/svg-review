@@ -1,0 +1,1847 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>svg review findings</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="../index.html">Home</a> · <a href="../proposed/reports/patch-gallery.html">All assets</a> · <a href="../proposed/reports/visual-review.html">Visual review</a> · <a href="../SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="../reconciliation.html">Dispositions</a> · <a href="../CODE-REVIEW.html">Lab review</a></nav><h1>SVG review findings</h1>
+<p>Generated: 2026-11-24T16:27:57.351Z</p>
+<p>Scope: Standalone SVG files in exported directories</p>
+<ul>
+<li>before directory: before/core/themes/default_admin</li>
+<li>after directory: after/core/themes/default_admin</li>
+<li>before cached Git ref (export not independently verified): 29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</li>
+<li>after cached Git ref (export not independently verified): fe4adb4f942385912bb3244b570afa475cadf3bd</li>
+</ul>
+<h2>Summary</h2>
+<ul>
+<li>before: 194</li>
+<li>after: 74</li>
+<li>rows: 204</li>
+<li>errorRows: 0</li>
+<li>warningRows: 155</li>
+<li>missingAfter: 77</li>
+<li>missingBefore: 10</li>
+<li>reviewed: 0</li>
+</ul>
+<p>Rendering audit: completed; size: 64 px; 199 unique results.
+Browser forced colours at export: inactive (not a forced-colours audit).</p>
+<h2>File-by-file findings</h2>
+<h3>images/icons/000f33/chevron-down.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/000f33/chevron-down.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-down.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/000f33/circle.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/000f33/circle.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/000f33/sort--inactive.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/000f33/sort--inactive.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/000f33/tabledrag-handle.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/000f33/tabledrag-handle.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/tabledrag-handle.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/002e9a/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/002e9a/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/002e9a/cog.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/002e9a/cog.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/cog.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/002e9a/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/002e9a/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/002e9a/hide.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/002e9a/hide.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/hide.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/002e9a/key.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/002e9a/key.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/key.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/002e9a/plus.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/002e9a/plus.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/plus.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/002e9a/questionmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/002e9a/questionmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/002e9a/show.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/002e9a/show.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/show.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/002e9a/trash.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/002e9a/trash.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/trash.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/0036b1/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/0036b1/chevron-right.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/chevron-right.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-right.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/cog.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/cog.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/cog.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/0036b1/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/0036b1/hide.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/hide.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/hide.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/key.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/key.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/key.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/plus.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/plus.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/plus.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/questionmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/0036b1/questionmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/0036b1/show.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/show.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/show.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/0036b1/trash.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/0036b1/trash.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/trash.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/003ecc/arrow-left.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/arrow-left.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/003ecc/arrow-right.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/arrow-right.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/003ecc/chevron-down.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/003ecc/chevron-down.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-down.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/003ecc/circle.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/circle.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/003ecc/sort--asc.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/sort--asc.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/003ecc/sort--desc.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/sort--desc.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/003ecc/spinner-rtl.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/spinner-rtl.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Warning: Active content, stylesheet or external reference: preview blocked pending inspection</li>
+<li>Rendering (not-tested): Blocked for safety</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Active content, stylesheet or external reference: preview blocked pending inspection</li>
+<li>warning: Rendering blocked for safety</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/003ecc/spinner.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/003ecc/spinner.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Warning: Active content, stylesheet or external reference: preview blocked pending inspection</li>
+<li>Rendering (not-tested): Blocked for safety</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Active content, stylesheet or external reference: preview blocked pending inspection</li>
+<li>warning: Rendering blocked for safety</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/42a877/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/42a877/checkmark.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/545560/arrow-breadcrumb-rtl.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/545560/arrow-breadcrumb-rtl.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/545560/arrow-breadcrumb.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/545560/arrow-breadcrumb.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/545560/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/545560/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/545560/chevron-down.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/chevron-down.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-down.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/chevron-right.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/chevron-right.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-right.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/cog.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/cog.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/cog.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/545560/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/545560/hide.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/hide.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/hide.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/key.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/key.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/key.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/pager-first.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/pager-first.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/pager-first.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/pager-last.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/pager-last.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/pager-last.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/pager-next.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/pager-next.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/pager-next.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/pager-prev.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/pager-prev.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/pager-prev.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/pencil.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/pencil.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/pencil.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/plus.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/plus.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/plus.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/questionmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/545560/questionmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/545560/show.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/show.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/show.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/545560/trash.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/545560/trash.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/trash.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/82828c/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/82828c/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/82828c/circle.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/82828c/circle.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/868686/magnifier-rtl.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/868686/magnifier-rtl.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/868686/magnifier.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/868686/magnifier.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/8e929c/chevron-down.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/8e929c/chevron-down.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-down.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ab1b1b/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/ab1b1b/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/ab1b1b/cog.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ab1b1b/cog.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/cog.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ab1b1b/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/ab1b1b/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/ab1b1b/hide.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ab1b1b/hide.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/hide.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ab1b1b/key.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ab1b1b/key.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/key.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ab1b1b/plus.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ab1b1b/plus.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/plus.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ab1b1b/questionmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/ab1b1b/questionmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/ab1b1b/show.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ab1b1b/show.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/show.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ab1b1b/trash.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ab1b1b/trash.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/trash.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/c11f1f/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/c11f1f/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/c11f1f/cog.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/c11f1f/cog.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/cog.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/c11f1f/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/c11f1f/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/c11f1f/hide.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/c11f1f/hide.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/hide.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/c11f1f/key.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/c11f1f/key.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/key.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/c11f1f/plus.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/c11f1f/plus.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/plus.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/c11f1f/questionmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/c11f1f/questionmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/c11f1f/show.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/c11f1f/show.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/show.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/c11f1f/trash.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/c11f1f/trash.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/trash.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/currentColor/arrow-breadcrumb.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/currentColor/arrow-breadcrumb.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/currentColor/media-edit.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/currentColor/media-edit.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/currentColor/tabledrag-handle-y.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/currentColor/tabledrag-handle-y.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/d3d4d9/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/d3d4d9/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/d72222/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/d72222/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/d72222/circle.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/d72222/circle.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/d72222/cog.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/d72222/cog.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/cog.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/d72222/ex.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/d72222/ex.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/d72222/hide.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/d72222/hide.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/hide.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/d72222/key.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/d72222/key.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/key.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/d72222/plus.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/d72222/plus.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/plus.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/d72222/questionmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/d72222/questionmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/d72222/show.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/d72222/show.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/show.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/d72222/trash.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/d72222/trash.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/trash.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/e0ac00/exclamation.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/e0ac00/exclamation.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/e34f4f/crossout.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/e34f4f/crossout.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/ee0000/required.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/icons/ee0000/required.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/required.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: viewBox changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/icons/ffffff/checkmark-sm.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/ffffff/checkmark-sm.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/ffffff/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/icons/ffffff/checkmark.svg</li>
+<li>Warning: No viewBox; check scalability</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: No viewBox; check scalability</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/icons/files/application-octet-stream.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/application-octet-stream.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/application-octet-stream.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/application-pdf.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/application-pdf.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/application-pdf.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/application-x-executable.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/application-x-executable.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/application-octet-stream.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/audio-x-generic.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/audio-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/audio-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/image-x-generic.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/image-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/image-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/package-x-generic.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/package-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/package-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/text-html.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/text-html.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/text-html.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/text-plain.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/text-plain.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/text-plain.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/text-x-generic.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/text-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/text-plain.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/text-x-script.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/text-x-script.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/text-x-script.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/video-x-generic.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/video-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/video-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/x-office-document.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/x-office-document.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/x-office-document.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/x-office-presentation.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/x-office-presentation.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/x-office-presentation.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/icons/files/x-office-spreadsheet.svg</h3>
+<ul>
+<li>Status: relocated</li>
+<li>Before: images/icons/files/x-office-spreadsheet.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/file-types/x-office-spreadsheet.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+</ul>
+<h3>images/src/hamburger-menu.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/src/hamburger-menu.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/menu.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/src/sort--asc.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/src/sort--asc.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/src/sort--desc.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/src/sort--desc.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/src/sort--inactive--ltr.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/src/sort--inactive--ltr.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/src/sort--inactive--rtl.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/src/sort--inactive--rtl.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/src/tabledrag-handle.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: images/src/tabledrag-handle.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/tabledrag-handle.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>images/src/tabledrag-tree.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: images/src/tabledrag-tree.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/action-link/checkmark.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/action-link/checkmark.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/action-link/remove.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/action-link/remove.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/general/calendar.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/general/calendar.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/general/circle.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/general/circle.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/general/default-admin.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/general/default-admin.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/general/drupal.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: migration/media/icons/general/drupal.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/logos/drupal.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>migration/media/icons/general/more.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/general/more.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/general/tool.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/general/tool.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/media-library/media-edit.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/media-library/media-edit.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/media-library/media-remove.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/media-library/media-remove.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/messages/question.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/messages/question.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/navigation/announcement.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/navigation/announcement.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/navigation/block.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/navigation/block.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/navigation/chevron-down.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: migration/media/icons/navigation/chevron-down.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/chevron-down.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Geometry or non-paint attributes changed</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>migration/media/icons/navigation/create.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/navigation/create.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/navigation/extend-new.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/navigation/extend-new.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/navigation/people-new.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/navigation/people-new.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/table/drag-dots.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/table/drag-dots.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/table/drag-x.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/table/drag-x.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/bat.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/bat.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/commerce.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/commerce.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/extend.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/extend.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/fallback.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/fallback.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/group.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/group.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/hamburger.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/hamburger.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/local-tasks.svg</h3>
+<ul>
+<li>Status: candidate replacement</li>
+<li>Before: migration/media/icons/toolbar/local-tasks.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: images/icons/status.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Replacement match needs confirmation</li>
+</ul>
+<h3>migration/media/icons/toolbar/tmgmt.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/tmgmt.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/trash-module.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/trash-module.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar/webform.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar/webform.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar-meta/devel.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar-meta/devel.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar-meta/rebuild-cache.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar-meta/rebuild-cache.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>migration/media/icons/toolbar-meta/responsive-preview.svg</h3>
+<ul>
+<li>Status: unresolved</li>
+<li>Before: migration/media/icons/toolbar-meta/responsive-preview.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>After: Missing</li>
+<li>warning: Missing after asset / replacement</li>
+</ul>
+<h3>images/file-types/application-x-executable.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/file-types/application-x-executable.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/file-types/text-x-generic.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/file-types/text-x-generic.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/chevron-left.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/chevron-left.svg</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/check-disabled.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/check-disabled.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/check-inverse.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/check-inverse.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/chevron-down-default.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/chevron-down-default.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/chevron-down-disabled.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/chevron-down-disabled.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/chevron-down-inverse.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/chevron-down-inverse.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/remove-default.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/remove-default.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h3>images/icons/pretint/remove-inverse.svg</h3>
+<ul>
+<li>Status: added / unmatched</li>
+<li>Before: Missing</li>
+<li>After: images/icons/pretint/remove-inverse.svg</li>
+<li>Warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>Rendering (ok): Rendered nontransparent pixels at 64px</li>
+<li>warning: Explicit paint values: check light, dark and forced-colours contexts</li>
+<li>warning: No before counterpart</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li>Partial structural and path syntax checks, not complete SVG conformance.</li>
+<li>No automated contrast, geometry equivalence, actual Drupal CSS or reference usage checks.</li>
+<li>Forced-colour presets are simulations; the alpha audit does not test forced colours, focus, mask or palette-specific visibility.</li>
+<li>Candidate replacements are heuristic; missing counterparts may be intentional.</li>
+<li>Blocked and untested assets are not passes.</li>
+</ul></body></html>

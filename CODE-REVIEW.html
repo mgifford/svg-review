@@ -1,0 +1,312 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CODE REVIEW</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="reconciliation.html">Dispositions</a> · <a href="CODE-REVIEW.html">Lab review</a></nav><h1>Code review — SVG Review Lab</h1>
+<p><strong>Scope:</strong> the four implementation files in this lab: <code>acquire.py</code>, <code>usage.py</code>,
+<code>review.py</code>, <code>template.html</code>. This is a review of the <em>tool</em>, not a set of SVG
+dispositions for Drupal MR !16166. Snapshots and implementation files were left
+unchanged; the findings below are proposals, not applied fixes.</p>
+<p><strong>Method:</strong></p>
+<ol>
+<li>Read all four files and the historical evidence.</li>
+<li>Ran the pinned-SHA fetch commands and extracted <code>core/themes/default_admin</code>
+   at <code>29b0a0b...</code> and <code>fe4adb4...</code> into a temporary directory.</li>
+<li>Ran <code>review.py</code> against (a) hand-built edge-case fixtures and (b) the real
+   snapshots, then compared the result row-by-row with
+   <code>evidence/svg-review-findings.json</code>.</li>
+<li>Loaded <code>review.html</code> in Chromium via Playwright and exercised filtering,
+   inspection, decisions, imports/exports, preview-size changes, blocked assets,
+   and injected filenames/source.</li>
+</ol>
+<p><strong>Bottom line:</strong> the pipeline reproduces the historical baseline exactly
+(194 before / 74 after / 204 rows; 77 unresolved, 63 relocated, 54 candidate
+replacements, 10 unmatched — zero row differences), and its preview XSS
+defences hold. The main weaknesses are in <em>attribution</em> (which references are
+evidence for which asset), <em>provenance of automatic matches</em>, and <em>review-state
+loss in the UI</em>. Those matter because this lab's output is used as evidence.</p>
+<hr />
+<h2>Findings</h2>
+<h3>F1 — High — Reference suffix matching produces false <code>path</code> matches</h3>
+<p><code>usage.py:20</code> treats a reference as an exact path when the reference string
+merely ends with the asset path:</p>
+<pre><code class="language-python">resolved = (f.parent/token).resolve()
+exact = [p for p in candidates
+         if resolved == (root/p).resolve() or token.lstrip('/').endswith(p)]
+</code></pre>
+<p>Reproduction with a CSS file in the theme root:</p>
+<ul>
+<li><code>url(../../other_theme/images/icons/a.svg)</code> is recorded as <code>match: "path"</code>
+  for <strong>this</strong> theme's <code>images/icons/a.svg</code>.</li>
+<li>With both <code>images/icons/a.svg</code> and <code>x/images/icons/a.svg</code> present,
+  <code>url(x/images/icons/a.svg)</code> is attributed to <strong>both</strong> assets.</li>
+</ul>
+<p>Impact: shared basenames are common in Drupal themes (<code>checkmark.svg</code>,
+<code>cog.svg</code>, <code>spinner.svg</code>). A cross-theme or nested reference can make a removed
+icon look referenced, or inflate its reference count. This is exactly the kind
+of claim the lab is supposed to prevent.</p>
+<p>Suggested fix: only accept a resolved path against known roots (theme root,
+Drupal root); remove the string-suffix fallback. If a suffix/relative-to-Drupal
+form is needed, resolve it against the Drupal root and label it separately.
+Add regression fixtures for <code>../</code>, <code>../../other_theme/</code>, and <code>x/images/...</code>.</p>
+<h3>F2 — High — Automatic matches are exported as <code>selectedReplacement</code></h3>
+<p><code>review.py:67-73</code> picks <code>candidates[0]</code> automatically, and
+<code>template.html:39</code> exports it as <code>selectedReplacement</code> with no indication that
+no reviewer chose it. In the historical report:</p>
+<ul>
+<li>127 before rows point at only 74 after targets.</li>
+<li>Seven different before assets each map to <code>images/icons/cog.svg</code>, and
+  likewise for <code>hide</code>, <code>plus</code>, <code>show</code> and <code>trash</code>; <code>key</code> and <code>chevron-down</code>
+  collect six each (colour variants collapsed by basename).</li>
+<li>The report has <code>chosen: {}</code>, so every one of those 54 "candidate
+  replacements" is an automatic guess.</li>
+</ul>
+<p>Impact: a consumer of the JSON can mistake an automatic proposal for a
+confirmed mapping. It also silently merges many-to-one consolidations, which the
+prompt asks to classify explicitly, without exposing that several assets share
+one target.</p>
+<p>Suggested fix: add fields such as <code>matchEvidence</code> (<code>hash</code> / <code>geometry</code> /
+<code>basename</code> / <code>none</code>), <code>selectionSource</code> (<code>auto</code> / <code>reviewer</code>), and
+<code>consolidatedFrom</code> (count or list) to each row. Do not label an automatic
+target "selected"; keep <code>chosen</code> as the only reviewer-confirmed map and make the
+UI show or filter unreviewed automatic matches.</p>
+<h3>F3 — High — Unsaved decisions and notes are discarded on search or filter</h3>
+<p><code>template.html:31</code> reloads the decision and notes from <code>localStorage</code> on every
+<code>render()</code>. <code>template.html:32</code> wires <code>search</code> and <code>filter</code> input/change to
+<code>nav()</code>, and <code>template.html:15</code> calls <code>render()</code> after every navigation.</p>
+<p>Reproduced in Chromium: type <code>UNSAVED reviewer note</code>, choose
+<code>Needs investigation</code>, then type one character in Search — the note and
+decision become empty. The same happens when changing the replacement or
+filtering. The saved record (if any) is keyed by the old pair, so changing the
+replacement leaves an invisible orphan review.</p>
+<p>Impact: silent loss of review work; a reviewer may believe a note was attached
+to the row they are looking at.</p>
+<p>Suggested fix: keep a dirty flag and do not overwrite unsaved edits when
+navigating/filtering; at minimum prompt before discarding. On replacement
+change, either migrate the review to the new key or tell the user that a new
+row-level decision is starting and an earlier one is retained elsewhere.</p>
+<h3>F4 — Medium — Rendering audit results go stale when preview size changes</h3>
+<p><code>template.html:24</code> records results at the size current at audit start;
+<code>template.html:32</code> changes size without invalidating them; the gallery continues
+to show <code>Pass: Rendered nontransparent pixels at 64px</code> while previews render at
+256px.</p>
+<p>Reproduced: audit at 64 px, change Size to 256. Result text stays at 64 px,
+<code>report().preview.size</code> is 256, <code>report().renderAudit.size</code> is 64, and the audit
+still reports <code>completed</code>.</p>
+<p>Impact: per-asset evidence and the visible preview can refer to different test
+conditions, and the separate audit fields do not make that obvious enough for a
+report reader.</p>
+<p>Suggested fix: key cached results by <code>{hash, size, implementation, focus, palette}</code>
+and mark the whole audit stale (or auto-rerun) when a test setting changes. The
+report should state "results from size X; current preview size Y" explicitly.</p>
+<h3>F5 — Medium — Blocked assets are not aggregated in the audit summary</h3>
+<p><code>template.html:24</code> skips <code>z.blocked</code> assets. Per-asset reports do record
+<code>rendering: {kind: 'not-tested', text: 'Blocked for safety'}</code>, but
+<code>template.html:37-41</code> has no aggregate skipped count, and
+<code>renderAudit.status</code> still says <code>completed</code>.</p>
+<p>Real baseline: the two <code>003ecc/spinner*.svg</code> files are blocked because they use
+<code>&lt;style&gt;</code> with an animation, so the audit covered 199 unique results across 268
+asset entries (duplicates included) while presenting itself as completed. The
+prompt explicitly says to inspect the blocked spinner styles rather than delete
+them; the tool should make that omission countable, not just visible one asset
+at a time.</p>
+<p>Suggested fix: add <code>renderAudit.skipped = {blocked: n, hashes: [...]}</code> and a
+sentence in the Markdown/JSON summary ("n assets not tested: blocked"). Keep
+per-asset <code>not-tested</code> entries.</p>
+<h3>F6 — Medium — <code>oldPathsInAfter</code> is dominated by basename noise</h3>
+<p><code>review.py:90</code> calls <code>scan(roots[1], a)</code> to look for old paths in the after
+tree. <code>usage.py:22</code> then records every same-basename asset when no exact match
+exists.</p>
+<p>Real baseline: all <strong>157</strong> hits for old paths are <code>basename candidate</code>; none is
+an actual reference to a colour directory. 100 distinct removed variants appear
+"referenced" only because the after CSS refers to the new base icon
+(<code>../../images/icons/cog.svg</code>). Separately, the 16 entries in
+<code>oldPathsInAfter.unmatchedImageReferences</code> are references to <em>new</em> after assets
+(<code>check.svg</code>, <code>pretint/check-inverse.svg</code>, ...), not stale old paths.</p>
+<p>Impact: a consumer can read <code>usage.json</code> as evidence that removed colour
+variants are still referenced. The field name "unmatched image references"
+makes the 16 new references look like problems.</p>
+<p>Suggested fix: for old-path detection, accept only resolved exact hits; report
+same-basename ambiguity in a separate field. Rename the unmatched list to
+describe its actual scope (references with no before-side basename), or omit it
+and compute "after references with no after-side asset" separately.</p>
+<h3>F7 — Medium — Snapshot provenance is a ref name, not a content check</h3>
+<p><code>review.py:84-87</code> reads <code>refs/heads/before|after</code> from <code>drupal.git</code> and puts them
+in <code>provenance</code> as "export not independently verified". <code>acquire.py:15</code> checks
+that the fetched commit equals the requested SHA, but nothing verifies that the
+<code>before/</code>/<code>after/</code> trees currently on disk are the trees from those commits.</p>
+<p>Impact: if a snapshot is edited, replaced, or left over from a different
+checkout, the report still displays the pinned SHA. The honesty of the label
+depends on a reader noticing it.</p>
+<p>Suggested fix: at acquisition time write a manifest of <code>git ls-tree -r</code> paths,
+modes and blob hashes; at review time compare the exported files with that
+manifest (or recompute SHA-256 per file) and record <code>exportVerified: true/false</code>.
+<code>git archive</code> already protects against transport corruption, but not against
+later edits to the working directory.</p>
+<h3>F8 — Medium — The historical evidence cannot be reproduced with the current tool</h3>
+<p><code>evidence/svg-review-findings.json</code> is <code>schemaVersion: 4</code>, generated by Firefox
+160, and contains no <code>usage</code> object; the current template emits <code>schemaVersion:
+5</code> and embeds <code>usage</code>. <code>evidence/</code> has no <code>usage.json</code> or <code>inventory.json</code>,
+although <code>AGENT-PROMPT.md</code> says to read <code>usage.json</code> and <code>README.md:40</code> tells
+users to inspect it.</p>
+<p>Impact: the baseline report and the current tool disagree on schema and on which
+evidence exists, so a fresh run (which writes <code>usage.json</code>, <code>inventory.json</code>,
+and a v5 report) is not directly comparable with the committed baseline. The
+missing <code>usage.json</code> also means the source-reference step in the prompt has no
+committed baseline to compare against.</p>
+<p>Suggested fix: regenerate the evidence with the current code (including
+<code>usage.json</code> and <code>inventory.json</code>), or record the generator version/schema in
+the evidence README. Keep the schema version in the report and reject or
+migrate unknown schemas on import.</p>
+<h3>F9 — Medium — Reference scanning is theme-only, and unmatched detection is narrower still</h3>
+<p><code>usage.py:6-24</code> scans only the <code>--before</code>/<code>--after</code> roots passed by
+<code>review.py</code> (defaults: the two theme directories). Step 2 of the prompt requires
+whole-Drupal-tree searches. <code>README.md:40</code> documents a manual <code>git grep</code>
+substitute, but the generated <code>usage.json</code> does not mark itself as theme-scoped.</p>
+<p><code>usage.py:23</code> also reports unmatched references only when the token contains
+<code>images/</code>. Reproduction: <code>url(img/missing.svg)</code> is silently ignored.</p>
+<p>Impact: counts in the UI ("N source reference candidates") are not whole-core
+counts, and broken references outside <code>images/</code> are invisible.</p>
+<p>Suggested fix: add an explicit scan-root/scope option (Drupal root vs theme),
+record the scope in <code>usage.json</code>, and report any unresolved <code>.svg</code> token that is
+not <code>http(s)</code>/<code>data:</code> — with separate categories for "outside scanned roots".</p>
+<h3>F10 — Low/Medium — Basename matching is case-insensitive even though Drupal on Linux is not</h3>
+<p><code>usage.py:8</code> lowercases basenames. A reference to <code>images/icons/A.SVG</code> is
+reported as a <code>basename candidate</code> for <code>images/icons/a.svg</code>. On a case-sensitive
+server that reference is broken; on a case-insensitive local checkout it can
+appear to resolve.</p>
+<p>Suggested fix: match case-sensitively for path resolution; if a
+case-insensitive match is found, report <code>caseMismatch</code> and do not present it as
+ordinary usage. This also matters today because the lab is being run on macOS.</p>
+<h3>F11 — Low — The geometry fingerprint is not a geometry check</h3>
+<p><code>review.py:40</code> excludes <code>fill</code>, <code>stroke</code>, <code>color</code>, <code>stop-color</code>, <code>id</code> and
+<code>class</code> from the hashed attributes, but includes the raw <code>style</code> attribute and
+the whole attribute set. Reproductions:</p>
+<ul>
+<li><code>fill="#000000"</code> vs <code>style="fill:#000000"</code> changes the fingerprint, producing
+  "Geometry or non-paint attributes changed" even though paint is equivalent.</li>
+<li>Changing <code>id="a"</code> to <code>id="b"</code> does <strong>not</strong> change the fingerprint, so an ID
+  rename (which can break <code>url(#...)</code> or author CSS) is unflagged.</li>
+</ul>
+<p>Suggested fix: rename the finding to "serialized structure/non-paint attributes
+changed", normalize <code>style</code> declarations into paint/geometry buckets, and
+compare <code>id</code>/<code>class</code> separately where they are functionally relevant. Do not
+describe the hash as geometry equivalence.</p>
+<h3>F12 — Low — A deeply nested SVG crashes the whole run</h3>
+<p><code>review.py:41</code> builds the fingerprint recursively; <code>review.py:59</code> catches only
+<code>ET.ParseError</code> and <code>ValueError</code>. A 1,200-level <code>&lt;g&gt;</code> nest produced an unhandled
+<code>RecursionError</code> and exit code 1.</p>
+<p>Suggested fix: make the fingerprint traversal iterative (or impose and report a
+depth limit), and catch unexpected per-asset exceptions so one pathological file
+cannot abort the inventory.</p>
+<h3>F13 — Low — Row findings duplicate side warnings in the report</h3>
+<p><code>template.html:39</code> sets <code>findings: rowFlags(r)</code>, and <code>rowFlags</code> starts with
+<code>assetFlags(before)</code> plus <code>assetFlags(after)</code>; <code>template.html:43</code> then prints
+each side's warnings again. The historical Markdown shows repeated
+"No viewBox" entries, and <code>warningRows</code> counts a row once while the prose lists
+the same warning two or three times.</p>
+<p>Suggested fix: keep <code>row.findings</code> for row-level findings only
+(geometry/viewBox/replacement/missing), and keep side validation under
+<code>before</code>/<code>after</code>; or de-duplicate by asset hash + message when rendering
+Markdown.</p>
+<h3>F14 — Low — No fallback if GitLab rejects a pinned-SHA fetch</h3>
+<p><code>acquire.py:14</code> only runs
+<code>git fetch --depth=1 URL &lt;sha&gt;:refs/heads/&lt;label&gt;</code>, with no fallback to a full
+fetch or MR ref. I tested both pinned SHAs and they fetch successfully today, so
+this is not a current failure; the prompt nevertheless anticipates servers that
+reject unadvertised SHAs, and the script would then fail with no guidance.</p>
+<p>Suggested fix: on fetch failure, fetch the MR ref (or full history) and then
+verify <code>rev-parse</code> equals the requested SHA before archiving; fail with a
+specific message if it does not.</p>
+<h3>F15 — Low — Preview sizes and contrast coverage fall short of the prompt</h3>
+<p><code>template.html:5</code> offers 16/24/32/64/128/256 px but not 12 px or actual
+component sizes; the report's limitations correctly state that contrast,
+geometry equivalence, and actual Drupal CSS are not checked. This is documented,
+so it is listed as a coverage gap rather than a defect — but the prompt asks for
+12/16/24 and component sizes, and for contrast of meaningful graphics.</p>
+<p>Suggested fix: add 12 px and a free-form size input; when an asset's internal
+<code>width</code>/<code>height</code> differs from the selected size, show it; add a documented
+manual contrast checklist rather than implying automated coverage.</p>
+<hr />
+<h2>What is solid</h2>
+<ul>
+<li><strong>Reproduction is exact.</strong> Fetching <code>29b0a0b...</code> and <code>fe4adb4...</code> from
+  <code>git.drupalcode.org</code> succeeded, the extracted theme trees contain 194 and 74
+  SVGs, and <code>review.py</code> produced 204 rows whose statuses (77 unresolved,
+  63 relocated, 54 candidate replacements, 10 unmatched) and every row's
+  before/after mapping match <code>evidence/svg-review-findings.json</code> exactly.</li>
+<li><strong>Preview injection is handled well.</strong> <code>review.py:94</code> escapes <code>&lt;</code> in the
+  embedded JSON, and the template only uses <code>textContent</code>, <code>createElement</code>,
+  and data URLs. A filename containing <code>&lt;img src=x onerror=...&gt;</code> and an SVG
+  source containing <code>&lt;/script&gt;&lt;script&gt;...</code> did not execute, create a DOM image,
+  or break the page in Chromium.</li>
+<li><strong>Unsafe SVG is blocked conservatively.</strong> DTD/entity declarations, scripts,
+  <code>&lt;style&gt;</code>, <code>foreignObject</code>, animation elements, event attributes, non-fragment
+  <code>href</code>, and non-fragment <code>url()</code> values are flagged; duplicate/unresolved IDs,
+  invalid/non-positive <code>viewBox</code>, negative dimensions, and empty title/desc are
+  reported.</li>
+<li><strong>Deterministic and dependency-free.</strong> No third-party packages; duplicate
+  hashes are counted once in the audit; generated output ordering is stable.</li>
+<li><strong>Basic UI flow works.</strong> The gallery, filters, inspect view, decision save,
+  export, and rendering audit work in Chromium with no page errors (only the
+  expected missing <code>favicon.ico</code> 404 from the test server).</li>
+</ul>
+<h2>Maintainability observations</h2>
+<ul>
+<li><strong>No automated tests.</strong> The attribution bugs above were only visible because I
+  built adversarial fixtures. A small stdlib <code>unittest</code> suite covering
+  <code>usage.scan</code> (suffix, case, <code>../</code>, <code>images/</code> scope), <code>review.build</code>
+  (many-to-one, relocation, added rows), the geometry fingerprint, and one
+  malformed/deep SVG would prevent regressions cheaply.</li>
+<li><strong>The template is hard to review by construction.</strong> Almost all CSS is on
+  <code>template.html:2-5</code> and almost all JS on single very long lines (for example,
+  <code>template.html:23</code> is over 2,000 characters). This is fine for an offline
+  single-file tool, but it makes diffs and line-level review unreliable; keep a
+  readable source and inline it into <code>review.html</code> at build time, or at least
+  format it.</li>
+<li><strong>Outputs are written into the current working directory</strong> (<code>usage.json</code>,
+  <code>inventory.json</code>, <code>review.html</code>) with no <code>--out</code> option and no warning before
+  overwriting. Running the lab twice from the same directory silently replaces
+  earlier evidence; an output directory or an explicit overwrite flag would make
+  runs safer.</li>
+</ul>
+<h2>Not tested / unresolved</h2>
+<ul>
+<li>This review did not make the 194 per-asset dispositions, run Drupal's CSS
+  build/tests, render actual Drupal components, or test forced-colours/high
+  contrast, focus, RTL, or reduced motion. Those remain the follow-up work in
+  <code>AGENT-PROMPT.md</code>.</li>
+<li>The merge request itself was not inspected beyond the two pinned commits.</li>
+<li>Simulated palettes are not real forced-colours evidence; that limitation is
+  already stated in the README and report.</li>
+<li>The exact W3C SVG conformance status of any asset was not assessed.</li>
+</ul>
+<h2>Suggested minimal fix order</h2>
+<ol>
+<li><strong>Evidence correctness first:</strong> F1, F2, F6 (scanner attribution and
+   automatic-match provenance), with regression fixtures for each reproduction.</li>
+<li><strong>Provenance and baseline:</strong> F7, F8, F9 (content verification, schema/scope
+   alignment in exported reports).</li>
+<li><strong>Review-state correctness:</strong> F3, F4, F5 (dirty state, audit cache key,
+   skipped-asset accounting).</li>
+<li><strong>Robustness/polish:</strong> F11-F15 (fingerprint semantics, crash containment,
+   report de-duplication, fetch fallback, preview sizes).</li>
+</ol>
+<h2>Commands used (temporary directories, not the workspace)</h2>
+<pre><code class="language-sh"># Pinned fetch and extraction
+git init --bare /tmp/acqtest.git
+git --git-dir=/tmp/acqtest.git fetch --depth=1 \
+  https://git.drupalcode.org/project/drupal.git \
+  29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8:refs/heads/before
+git --git-dir=/tmp/acqtest.git fetch --depth=1 \
+  https://git.drupalcode.org/project/drupal.git \
+  fe4adb4f942385912bb3244b570afa475cadf3bd:refs/heads/after
+git --git-dir=/tmp/acqtest.git archive before core/themes/default_admin | tar -x -C before
+git --git-dir=/tmp/acqtest.git archive after  core/themes/default_admin | tar -x -C after
+
+# Real run
+python3 review.py --before before/core/themes/default_admin \
+                  --after  after/core/themes/default_admin
+
+# Fixture runs for scanner, deep nesting, and geometry checks
+python3 review.py --before before --after after
+</code></pre>
+<p>Browser tests used Chromium through Playwright at
+<code>http://127.0.0.1:8766/review.html</code>; that temporary server was stopped after the
+tests.</p></body></html>
