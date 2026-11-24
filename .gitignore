@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.DS_Store
+.playwright-mcp/
+drupal.git/
+before/
+inventory.json
+usage.json
+proposed/reports/serve.py
+proposed/reports/open-forced-colors.mjs
