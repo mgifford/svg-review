@@ -1,0 +1,641 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-24T19:44:58.625312+00:00",
+  "scope": {
+    "family": "checkmark",
+    "beforeCommit": "29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8",
+    "afterCommit": "fe4adb4f942385912bb3244b570afa475cadf3bd",
+    "mr": "!16166",
+    "fullInventoryStatus": "partial: checkmark family only; other families pending"
+  },
+  "summary": {
+    "beforeFamilyAssets": 13,
+    "usedBeforeAssets": 5,
+    "unusedBeforeAssets": 8,
+    "relocatedUnchanged": 2,
+    "replacedOrRedesigned": 3,
+    "confirmedUnusedRemoved": 8,
+    "unresolved": 0,
+    "afterFamilyAssets": 4,
+    "confirmedRegressions": 1,
+    "proposedNewAssets": 1
+  },
+  "beforeAssets": [
+    {
+      "path": "before/core/themes/default_admin/images/icons/002e9a/checkmark.svg",
+      "sha256": "2bede937273b6b91ddaf606a4deac2c5ad99c4a5d8185e112461d39f44600554",
+      "bytes": 147,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/0036b1/checkmark.svg",
+      "sha256": "bc4b1ac8ffb4640a02d2aefc55107c42350028e9724b68b306dc6be133acbca6",
+      "bytes": 147,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/42a877/checkmark.svg",
+      "sha256": "79e64a0e87f9a51196668dfeb4af138107d1b28fc47e00a51db62f4de924987d",
+      "bytes": 167,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/545560/checkmark.svg",
+      "sha256": "da4c00ad08d9d8abd4ef3ba6355983122c78d0ea31d4f0459ac5afa381375374",
+      "bytes": 147,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/ab1b1b/checkmark.svg",
+      "sha256": "aa8652598f1e6b57bee7569d109687ddecec132bbebda62b891461d2b8f898d5",
+      "bytes": 147,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/c11f1f/checkmark.svg",
+      "sha256": "7b7b60e415ae0a837c2f2db6fef94e020b9a8b0d9818a9339bb66dabf5b6502b",
+      "bytes": 147,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/d72222/checkmark.svg",
+      "sha256": "979ffaf2a060102fa0cb0d429ad386005761bdda01aae6e2039f33b4df388d48",
+      "bytes": 147,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/ffffff/checkmark.svg",
+      "sha256": "4e6a00a12dd37fbb97d095545212f1ab0f68febfd491173a4e48ff68a3ad878c",
+      "bytes": 254,
+      "disposition": "Confirmed unused and removed",
+      "dispositionDetail": "No reference to this exact colour-directory path exists in Drupal core at the before revision. The only core basename references point to action-link/checkmark.svg and 82828c/checkmark.svg, not to this variant. No dynamic construction of images/icons/<hex>/checkmark*.svg was found. Removal is consistent with consolidation; absence of a reference is not proof that third-party code or user configuration never used the file.",
+      "references": [],
+      "mapping": null,
+      "confidence": "medium-high",
+      "evidence": [
+        "git --git-dir=drupal.git grep -n -F \"<exact path>\" before -- core: no matches",
+        "git --git-dir=drupal.git grep -n -F \"checkmark.svg\" before -- core: only action-link/checkmark.svg and 82828c/checkmark.svg",
+        "No PHP/JS/Twig construction of images/icons/<hex>/checkmark*.svg in core"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/82828c/checkmark.svg",
+      "sha256": "49ea2ce3735829767a448da1f3a0b559b891faa2a1813aa9a99daa7ba0f0c9af",
+      "bytes": 166,
+      "disposition": "Replaced by differently named SVG",
+      "dispositionDetail": "Disabled checked checkbox icon. The old 16x16 hard-coded #82828c check was replaced by images/icons/pretint/check-disabled.svg, derived from check.svg with #767676. Geometry changed to the canonical 24x24 check glyph.",
+      "references": [
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-radio.pcss.css",
+          "line": 223,
+          "component": "Checkbox (form-boolean--type-checkbox), checked + disabled",
+          "rendering": "CSS background-image on the native input; compiled CSS inlines the SVG as a data URI",
+          "states": "checked, disabled, hover (disabled hover), error+disabled",
+          "reference": "../../images/icons/82828c/checkmark.svg"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-radio.css",
+          "line": 230,
+          "component": "Checkbox, checked + disabled (compiled)",
+          "rendering": "CSS background-image; SVG inlined as data URI by the build",
+          "states": "checked, disabled",
+          "reference": "inlined checkmark-sm data URI"
+        }
+      ],
+      "mapping": {
+        "after": "images/icons/pretint/check-disabled.svg",
+        "relation": "derived pretint from check.svg",
+        "notes": "Light-mode contrast improved from 3.16:1 to 3.78:1; dark-mode contrast regressed from 3.41:1 to 2.85:1 (MR head). Proposed fix adds check-disabled-inverse.svg for dark mode."
+      },
+      "confidence": "high",
+      "evidence": [
+        "Exact source reference found in theme CSS",
+        "Rendered contrast measured from Chromium screenshots at 21x21px"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/images/icons/ffffff/checkmark-sm.svg",
+      "sha256": "55b08d01604b4943ac3848ea675e9d57c2bdff04962c8cc9cfe506c32c889a75",
+      "bytes": 163,
+      "disposition": "Replaced by differently named SVG",
+      "dispositionDetail": "Checked checkbox icon in light mode. The old 16x16 white check was replaced by images/icons/pretint/check-inverse.svg, derived from check.svg with #ffffff. Geometry changed to the canonical 24x24 check glyph.",
+      "references": [
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-radio.pcss.css",
+          "line": 144,
+          "component": "Checkbox (form-boolean--type-checkbox), checked",
+          "rendering": "CSS background-image on the native input; compiled CSS inlines the SVG",
+          "states": "checked, hover, active, error",
+          "reference": "../../images/icons/ffffff/checkmark-sm.svg"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-radio.css",
+          "line": 151,
+          "component": "Checkbox, checked (compiled)",
+          "rendering": "CSS background-image; SVG inlined as data URI by the build",
+          "states": "checked, hover, active, error",
+          "reference": "inlined 16x16 checkmark-sm data URI"
+        }
+      ],
+      "mapping": {
+        "after": "images/icons/pretint/check-inverse.svg",
+        "relation": "derived pretint from check.svg",
+        "notes": "White check remains white; 21x21px rendered check is clearly visible on primary, hover and active backgrounds."
+      },
+      "confidence": "high",
+      "evidence": [
+        "Exact source reference found in theme CSS",
+        "Chromium screenshots in light mode"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/migration/media/icons/action-link/checkmark.svg",
+      "sha256": "f669b1b14045a246e8bd140ee54748aaeb08ef084c9a29aa6854fcb50ffe8ff0",
+      "bytes": 229,
+      "disposition": "Replaced by differently named SVG",
+      "dispositionDetail": "Action-link checkmark icon (--admin-icon-checkmark). The old stroked polyline check was replaced by the canonical filled check.svg. This is an intentional icon-family redesign: the check remains monochrome, non-directional and mask-rendered, but its stroke/fill construction changes.",
+      "references": [
+        {
+          "rev": "before",
+          "file": "css/base/icons.pcss.css",
+          "line": 11,
+          "component": "Icon registry: --admin-icon-checkmark",
+          "rendering": "CSS custom property consumed as a mask",
+          "states": "n/a",
+          "reference": "../../migration/media/icons/action-link/checkmark.svg"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/action-link.pcss.css",
+          "line": 187,
+          "component": "Action link, action-link--icon-checkmark",
+          "rendering": "CSS mask-image; tinted by currentColor/background-color",
+          "states": "default, hover, active, focus, forced-colors",
+          "reference": "var(--admin-icon-checkmark)"
+        },
+        {
+          "rev": "before",
+          "file": "css/base/icons.css",
+          "line": 17,
+          "component": "Icon registry (compiled)",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-checkmark data URI"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/action-link.css",
+          "line": 197,
+          "component": "Action link checkmark (compiled)",
+          "rendering": "CSS mask-image",
+          "states": "default, hover, active, focus, forced-colors",
+          "reference": "var(--admin-icon-checkmark)"
+        }
+      ],
+      "mapping": {
+        "after": "images/icons/check.svg",
+        "relation": "replaced by canonical master (different geometry)",
+        "notes": "Intentional redesign; no directional/RTL dependence."
+      },
+      "confidence": "high",
+      "evidence": [
+        "Exact source reference found in theme CSS",
+        "Masked rendering checked in light, dark and forced-colors emulation"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/migration/media/icons/form/checked.svg",
+      "sha256": "a51b10ca20971e0c0d04f6e05220086f57395f8438c13852b8421810e30638d6",
+      "bytes": 217,
+      "disposition": "Relocated without modification",
+      "dispositionDetail": "Exact hash match with images/icons/check.svg. The same file content moved from the migration staging tree to the public icon registry and now backs --admin-icon-check, --admin-icon-checked and --admin-icon-checkmark.",
+      "references": [
+        {
+          "rev": "before",
+          "file": "css/base/icons.pcss.css",
+          "line": 10,
+          "component": "Icon registry: --admin-icon-checked",
+          "rendering": "CSS custom property consumed as background-image or mask",
+          "states": "n/a",
+          "reference": "../../migration/media/icons/form/checked.svg"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-radio.pcss.css",
+          "line": 148,
+          "component": "Checkbox, checked, dark mode",
+          "rendering": "CSS background-image on the native input (currentColor renders black in an image)",
+          "states": "checked, dark mode",
+          "reference": "var(--admin-icon-checked)"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-toggle.pcss.css",
+          "line": 111,
+          "component": "Checkbox toggle, checked, forced-colors",
+          "rendering": "CSS mask-image",
+          "states": "checked, forced-colors",
+          "reference": "var(--admin-icon-checked)"
+        },
+        {
+          "rev": "before",
+          "file": "css/base/icons.css",
+          "line": 16,
+          "component": "Icon registry (compiled)",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-checked data URI"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-radio.css",
+          "line": 155,
+          "component": "Checkbox, checked, dark mode (compiled)",
+          "rendering": "CSS background-image",
+          "states": "checked, dark mode",
+          "reference": "var(--admin-icon-checked)"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-toggle.css",
+          "line": 118,
+          "component": "Checkbox toggle, checked, forced-colors (compiled)",
+          "rendering": "CSS mask-image",
+          "states": "checked, forced-colors",
+          "reference": "var(--admin-icon-checked)"
+        }
+      ],
+      "mapping": {
+        "after": "images/icons/check.svg",
+        "relation": "relocation, SHA-256 identical",
+        "notes": "a51b10ca2097... in both revisions"
+      },
+      "confidence": "high",
+      "evidence": [
+        "SHA-256 equality",
+        "Exact source references found in theme CSS"
+      ]
+    },
+    {
+      "path": "before/core/themes/default_admin/migration/media/icons/form/toggle-unchecked.svg",
+      "sha256": "213e711ac97eee9486434fff6cc9cadead2a7b8b0ac3bf85154d51030e419213",
+      "bytes": 1260,
+      "disposition": "Relocated without modification",
+      "dispositionDetail": "Exact hash match with images/icons/toggle-unchecked.svg.",
+      "references": [
+        {
+          "rev": "before",
+          "file": "css/base/icons.pcss.css",
+          "line": 57,
+          "component": "Icon registry: --admin-icon-toggle-unchecked",
+          "rendering": "CSS custom property consumed as a mask",
+          "states": "n/a",
+          "reference": "../../migration/media/icons/form/toggle-unchecked.svg"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-toggle.pcss.css",
+          "line": 149,
+          "component": "Checkbox toggle, unchecked, forced-colors",
+          "rendering": "CSS mask-image",
+          "states": "unchecked, forced-colors, RTL transform",
+          "reference": "var(--admin-icon-toggle-unchecked)"
+        },
+        {
+          "rev": "before",
+          "file": "css/base/icons.css",
+          "line": 63,
+          "component": "Icon registry (compiled)",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-toggle-unchecked data URI"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-toggle.css",
+          "line": 156,
+          "component": "Checkbox toggle, unchecked, forced-colors (compiled)",
+          "rendering": "CSS mask-image",
+          "states": "unchecked, forced-colors, RTL transform",
+          "reference": "var(--admin-icon-toggle-unchecked)"
+        },
+        {
+          "rev": "before",
+          "file": "css/base/icons.css",
+          "line": 74,
+          "component": "Icon registry (compiled): --admin-icon-toggle-unchecked",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-toggle-unchecked data URI"
+        },
+        {
+          "rev": "before",
+          "file": "css/components/form--checkbox-toggle.css",
+          "line": 156,
+          "component": "Checkbox toggle, unchecked, forced-colors (compiled)",
+          "rendering": "CSS mask-image",
+          "states": "unchecked, forced-colors",
+          "reference": "var(--admin-icon-toggle-unchecked)"
+        }
+      ],
+      "mapping": {
+        "after": "images/icons/toggle-unchecked.svg",
+        "relation": "relocation, SHA-256 identical",
+        "notes": "213e711ac97e... in both revisions"
+      },
+      "confidence": "high",
+      "evidence": [
+        "SHA-256 equality",
+        "Exact source reference found in theme CSS"
+      ]
+    }
+  ],
+  "afterAssets": [
+    {
+      "path": "after/core/themes/default_admin/images/icons/check.svg",
+      "sha256": "a51b10ca20971e0c0d04f6e05220086f57395f8438c13852b8421810e30638d6",
+      "bytes": 217,
+      "role": "Canonical monochrome check master",
+      "derivedFrom": null,
+      "aliases": [
+        "--admin-icon-check",
+        "--admin-icon-checked",
+        "--admin-icon-checkmark"
+      ],
+      "references": [
+        {
+          "rev": "after",
+          "file": "css/base/icons.pcss.css",
+          "line": 19,
+          "component": "Icon registry",
+          "rendering": "CSS custom property",
+          "states": "n/a",
+          "reference": "../../images/icons/check.svg"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.pcss.css",
+          "line": 20,
+          "component": "Icon registry",
+          "rendering": "CSS custom property",
+          "states": "n/a",
+          "reference": "../../images/icons/check.svg"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.pcss.css",
+          "line": 21,
+          "component": "Icon registry",
+          "rendering": "CSS custom property",
+          "states": "n/a",
+          "reference": "../../images/icons/check.svg"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.css",
+          "line": 25,
+          "component": "Icon registry (compiled): --admin-icon-check",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-check data URI"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.css",
+          "line": 26,
+          "component": "Icon registry (compiled): --admin-icon-checked",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-checked data URI"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.css",
+          "line": 27,
+          "component": "Icon registry (compiled): --admin-icon-checkmark",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-checkmark data URI"
+        }
+      ]
+    },
+    {
+      "path": "after/core/themes/default_admin/images/icons/pretint/check-inverse.svg",
+      "sha256": "ac9710c9aec4a729af8582b3ab65d22475ca7545c9249ab0ae34a353220c5d8b",
+      "bytes": 212,
+      "role": "Pretinted checked checkbox (light)",
+      "derivedFrom": "images/icons/check.svg",
+      "fill": "#ffffff",
+      "references": [
+        {
+          "rev": "after",
+          "file": "css/base/icons.pcss.css",
+          "line": 101,
+          "component": "Icon registry: --admin-icon-checked-inverse",
+          "rendering": "CSS custom property",
+          "states": "n/a",
+          "reference": "../../images/icons/pretint/check-inverse.svg"
+        },
+        {
+          "rev": "after",
+          "file": "css/components/form--checkbox-radio.pcss.css",
+          "line": 144,
+          "component": "Checkbox checked, light mode",
+          "rendering": "CSS background-image",
+          "states": "checked, hover, active, error",
+          "reference": "var(--admin-icon-checked-inverse)"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.css",
+          "line": 107,
+          "component": "Icon registry (compiled): --admin-icon-checked-inverse",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-checked-inverse data URI"
+        },
+        {
+          "rev": "after",
+          "file": "css/components/form--checkbox-radio.css",
+          "line": 151,
+          "component": "Checkbox, checked, light mode (compiled)",
+          "rendering": "CSS background-image",
+          "states": "checked, hover, active, error",
+          "reference": "var(--admin-icon-checked-inverse)"
+        }
+      ]
+    },
+    {
+      "path": "after/core/themes/default_admin/images/icons/pretint/check-disabled.svg",
+      "sha256": "f11c93f65a2065b7c1399c355d3989bf1925db71118233c894b237f8224c2eac",
+      "bytes": 212,
+      "role": "Pretinted disabled checked checkbox (light)",
+      "derivedFrom": "images/icons/check.svg",
+      "fill": "#767676",
+      "references": [
+        {
+          "rev": "after",
+          "file": "css/base/icons.pcss.css",
+          "line": 102,
+          "component": "Icon registry: --admin-icon-checked-disabled",
+          "rendering": "CSS custom property",
+          "states": "n/a",
+          "reference": "../../images/icons/pretint/check-disabled.svg"
+        },
+        {
+          "rev": "after",
+          "file": "css/components/form--checkbox-radio.pcss.css",
+          "line": 225,
+          "component": "Checkbox checked + disabled, light mode",
+          "rendering": "CSS background-image",
+          "states": "checked, disabled",
+          "reference": "var(--admin-icon-checked-disabled)"
+        },
+        {
+          "rev": "after",
+          "file": "css/base/icons.css",
+          "line": 108,
+          "component": "Icon registry (compiled): --admin-icon-checked-disabled",
+          "rendering": "CSS custom property with inlined data URI",
+          "states": "n/a",
+          "reference": "--admin-icon-checked-disabled data URI"
+        },
+        {
+          "rev": "after",
+          "file": "css/components/form--checkbox-radio.css",
+          "line": 232,
+          "component": "Checkbox, checked + disabled, light mode (compiled)",
+          "rendering": "CSS background-image",
+          "states": "checked, disabled",
+          "reference": "var(--admin-icon-checked-disabled)"
+        }
+      ]
+    },
+    {
+      "path": "after/core/themes/default_admin/images/icons/toggle-unchecked.svg",
+      "sha256": "213e711ac97eee9486434fff6cc9cadead2a7b8b0ac3bf85154d51030e419213",
+      "bytes": 1260,
+      "role": "Toggle unchecked master",
+      "derivedFrom": null,
+      "references": [
+        {
+          "rev": "after",
+          "file": "css/base/icons.pcss.css",
+          "line": 68,
+          "component": "Icon registry: --admin-icon-toggle-unchecked",
+          "rendering": "CSS custom property",
+          "states": "n/a",
+          "reference": "../../images/icons/toggle-unchecked.svg"
+        }
+      ]
+    }
+  ],
+  "proposedChanges": [
+    {
+      "path": "images/icons/pretint/check-disabled-inverse.svg",
+      "change": "Add pretinted disabled check for dark mode",
+      "fill": "#adaeb3",
+      "token": "--admin-color-gray-400",
+      "reason": "MR head uses #767676 on the dark disabled surface (#313134), 2.85:1. The new value is 5.85:1 and matches the disabled foreground token. Geometry is unchanged from check.svg.",
+      "evidence": "proposed/reports/screens/disabled-check-comparison.png"
+    },
+    {
+      "path": "css/base/icons.pcss.css (+ compiled icons.css)",
+      "change": "Register --admin-icon-checked-disabled-inverse",
+      "reason": "Theme registry consistency; generated CSS data URI verified to match the source SVG."
+    },
+    {
+      "path": "css/components/form--checkbox-radio.pcss.css (+ compiled .css)",
+      "change": "Use the new pretint only in .dark-mode for checked+disabled checkboxes",
+      "reason": "Keeps light-mode output unchanged while restoring >=3:1 in dark mode."
+    },
+    {
+      "path": "proposed/tests/checkmark_regression.py",
+      "change": "Add static regression checks",
+      "reason": "Covers asset validity, token registration, compiled/source parity, dark rule, and contrast."
+    }
+  ],
+  "knownLimitations": [
+    "Whole-core literal searches and dynamic-path inspection cannot prove an asset is never used; absence is evidence, not proof (see AGENTS.md).",
+    "The live Drupal 12 lab site was tested with the MR checkmark files and CSS applied surgically to the baseline default_admin theme; the full MR theme was not installed, and the lab core revision is d29add7e rather than MR head fe4adb4.",
+    "Forced-colours results use Chromium media emulation, not native Windows High Contrast. Native Windows verification remains outstanding.",
+    "Only the checkmark family was reconciled; 181 assets from the wider inventory remain pending.",
+    "Reduced motion and RTL are not applicable to the non-directional check glyph; RTL toggle positioning is unchanged.",
+    "Automated pixel/contrast checks do not establish WCAG conformance."
+  ],
+  "liveIntegration": {
+    "site": "https://repro-baseline-main.ddev.site",
+    "page": "/admin/people/permissions",
+    "coreRevision": "d29add7ebc18954dcb88877ed38b5bd88cdbf967",
+    "component": "91 disabled+checked checkboxes in the Administrator permission column",
+    "method": "MR checkmark assets/CSS applied to the baseline theme; caches rebuilt; proposed fix added; baseline theme restored exactly.",
+    "restored": true
+  }
+}
