@@ -170,6 +170,12 @@ The usage counts follow custom-property aliases (for example `--messages-icon: v
 
 ---
 
+### 4.3.1 High-use optimisation
+
+The first family beyond required/status was selected by repeated UI use: hamburger/menu, chevrons, pager arrows, checks, close/plus, sort, loader and tabledrag. The supplied hamburger/logo files were validated, their lost viewBox/ARIA restored, and 4-decimal conversion applied only after pixel checks. **21 files saved 562 SVG bytes**; compiled `icons.css` dropped from **28,725 to 27,233 bytes** for that pass. The menu is pixel-identical at 16–512px; logos are exact at UI sizes with edge-pixel differences recorded at 192px+.
+
+Report: [high-use-optimization.md](proposed/reports/high-use-optimization.md); patch: `proposed/interdiff-svg-high-use-optimization.patch`; tests: `compiled_icons_test.py` and `svg_optimization_status_family.py`.
+
 ### 4.4 `currentColor` in dark mode
 
 `currentColor` only works when the SVG inherits a CSS colour. It does **not** work through an SVG used as a CSS `background-image`: the image is rasterised on its own and `currentColor` becomes black. This is why several after-side assets look black on a dark preview even when the asset itself is not used.
@@ -210,7 +216,7 @@ Rules:
 8. Do not optimise tiny files where the gain is negligible and review noise is high.
 9. Do not optimise pretints until their mode/state table is final.
 
-**Result so far:** after-side 74 files / 41,981 bytes → proposed 61 files / 32,119 bytes, a **23.5% reduction**, including the 14-file cleanup, the required/status pilots, and the new `check-disabled-inverse.svg`.
+**Result so far:** after-side 74 files / 41,981 bytes → proposed 61 files / 31,557 bytes, a **24.8% reduction**; compiled `icons.css` 40,615 → 27,233 bytes, including the 14-file cleanup, the required/status pilots, and the new `check-disabled-inverse.svg`.
 
 Reports: `proposed/reports/svg-optimization-pilot.md`.
 Patches: `proposed/interdiff-svg-cleanup.patch`, `proposed/interdiff-svg-optimization-required.patch`, `proposed/interdiff-svg-optimization-status-family.patch`.

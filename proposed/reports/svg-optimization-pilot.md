@@ -76,10 +76,10 @@ Five used assets, same SVGO settings as the required.svg pilot:
 | `icons/clock.svg` | 279 | 281 | -0.7% (metadata overhead) | identical 16–192px |
 | `icons/server.svg` | 415 | 401 | 3.4% | identical 16–192px |
 | `icons/database.svg` | 349 | 343 | 1.7% | identical 16–192px |
-| `logos/drupal.svg` | 1,610 | 1,260 | 21.7% | identical 16–192px; 1 edge pixel at 512px |
-| `logos/php.svg` | 1,211 | 1,229 | -1.5% (metadata overhead) | identical 16–512px |
+| `logos/drupal.svg` | 1,610 | 1,235 | 23.3% | identical 16–64px; 8 edge pixels at 192px, 14 at 512px |
+| `logos/php.svg` | 1,211 | 1,208 | 0.2% | identical 16–64px; 1 edge pixel at 192px, 2 at 512px |
 
-Total: **3,864 → 3,514 bytes; 350 bytes saved (9.1%)**. The shared decorative ARIA attributes add 38 bytes per file, so tiny icons can grow slightly even though their path data is smaller. Tests: `proposed/tests/svg_optimization_status_family.py` (5 tests, passing). Patch: `proposed/interdiff-svg-optimization-status-family.patch`.
+Total: **3,864 → 3,468 bytes; 396 bytes saved (10.2%)**. The shared decorative ARIA attributes add bytes, so the savings are smaller than the raw SVGO delta. Tests: `proposed/tests/svg_optimization_status_family.py` (5 tests, passing). Patch: `proposed/interdiff-svg-optimization-status-family.patch`.
 
 The one 512px edge-pixel difference for the Drupal logo is at a non-UI scale; it is recorded rather than hidden. The optimized family has not yet been installed into a full MR-theme Drupal site; the existing live status test used the pre-optimisation assets and the forced-colours CSS fix.
 
@@ -91,4 +91,4 @@ The one 512px edge-pixel difference for the Drupal logo is at a non-UI scale; it
 ## Result
 
 After-side baseline: **74 files / 41,981 bytes**.
-Proposed tree after cleanup, the two optimisation pilots and the shared decorative metadata: **61 files / 32,119 bytes** — **9,862 bytes less (23.5%)**. The proposed tree also adds `pretint/check-disabled-inverse.svg`, so the reduction is net of that addition.
+Proposed tree after cleanup, all optimisation pilots and the shared decorative metadata: **61 files / 31,557 bytes** — **10,424 bytes less (24.8%)**. The proposed tree also adds `pretint/check-disabled-inverse.svg`, so the reduction is net of that addition. The compiled `icons.css` went from **40,615 to 27,233 bytes**.

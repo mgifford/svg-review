@@ -1,0 +1,170 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>High-use SVG optimisation</title><style>body{max-width:1000px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="svg-property-standard.html">Standard</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>High-use SVG optimisation</h1>
+<p>The supplied <code>hamburger.svg</code>, <code>drupal.svg</code> and <code>php.svg</code> were a good starting point, but all three had lost structural metadata:</p>
+<ul>
+<li>hamburger: no <code>viewBox</code></li>
+<li>PHP: no <code>viewBox</code></li>
+<li>all three: no decorative <code>aria-hidden</code>/<code>focusable</code></li>
+</ul>
+<p>Those were restored before comparison. The hamburger is pixel-identical at <strong>16–512px</strong>. The Drupal and PHP logos are identical at <strong>16–64px</strong>; the Drupal logo has 8 edge pixels differing at 192px and 14 at 512px, and PHP has 1/2. Those differences are recorded, not hidden.</p>
+<h2>High-use set applied</h2>
+<p>The same 4-decimal conversion was applied to the assets used repeatedly in admin controls:</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After</th>
+<th style="text-align: right;">Saving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>menu.svg</code> (supplied hamburger)</td>
+<td style="text-align: right;">458</td>
+<td style="text-align: right;">448</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr>
+<td><code>chevron-down</code></td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr>
+<td><code>chevron-left</code></td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">228</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td><code>chevron-right</code></td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">227</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td><code>pager-first</code></td>
+<td style="text-align: right;">322</td>
+<td style="text-align: right;">285</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr>
+<td><code>pager-last</code></td>
+<td style="text-align: right;">321</td>
+<td style="text-align: right;">284</td>
+<td style="text-align: right;">37</td>
+</tr>
+<tr>
+<td><code>pager-next</code></td>
+<td style="text-align: right;">269</td>
+<td style="text-align: right;">240</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr>
+<td><code>pager-prev</code></td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">241</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr>
+<td><code>check</code></td>
+<td style="text-align: right;">254</td>
+<td style="text-align: right;">221</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td><code>close</code></td>
+<td style="text-align: right;">275</td>
+<td style="text-align: right;">256</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td><code>plus</code></td>
+<td style="text-align: right;">271</td>
+<td style="text-align: right;">252</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr>
+<td><code>tabledrag-handle</code></td>
+<td style="text-align: right;">811</td>
+<td style="text-align: right;">811</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr>
+<td><code>loader</code></td>
+<td style="text-align: right;">347</td>
+<td style="text-align: right;">279</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr>
+<td><code>sort</code></td>
+<td style="text-align: right;">296</td>
+<td style="text-align: right;">271</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td><code>sort-asc</code></td>
+<td style="text-align: right;">279</td>
+<td style="text-align: right;">257</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td><code>sort-desc</code></td>
+<td style="text-align: right;">280</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr>
+<td><code>pretint/check-disabled</code></td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">216</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td><code>pretint/check-inverse</code></td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">216</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td><code>pretint/check-disabled-inverse</code></td>
+<td style="text-align: right;">249</td>
+<td style="text-align: right;">216</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr>
+<td><code>logos/drupal</code> (supplied)</td>
+<td style="text-align: right;">1,260</td>
+<td style="text-align: right;">1,235</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr>
+<td><code>logos/php</code> (supplied)</td>
+<td style="text-align: right;">1,229</td>
+<td style="text-align: right;">1,208</td>
+<td style="text-align: right;">21</td>
+</tr>
+</tbody>
+</table>
+<p><strong>21 files / 562 bytes</strong> saved before the compiled CSS pass.</p>
+<p>Most importantly, the compiled <code>icons.css</code> inlines these as data URIs. It was regenerated from the source artwork and dropped from <strong>28,725 to 27,233 bytes</strong> (1,492 bytes) for this high-use pass. The after-side original compiled CSS was <strong>40,615 bytes</strong>; the current proposed one is <strong>27,233 bytes</strong> (33.0% smaller), including the earlier cleanup.</p>
+<h2>What changed</h2>
+<ul>
+<li>supplied hamburger mapped to <code>icons/menu.svg</code>;</li>
+<li>supplied Drupal/PHP logos adopted with viewBox/ARIA restored;</li>
+<li>4-decimal path conversion for chevrons, pager, checks, close/plus, sort, loader and tabledrag;</li>
+<li>compiled <code>icons.css</code> data URIs re-synced with the source SVGs so the bytes are actually in the served CSS.</li>
+</ul>
+<h2>What did not change</h2>
+<ul>
+<li><code>tabledrag-handle</code> was already at the precision floor; no byte gain.</li>
+<li>No stroke-weight, optical-padding or geometry redesign was done here. Those remain family decisions in the property standard.</li>
+<li>This is not a blanket rewrite of all 61 assets; it targets repeated controls and the supplied files.</li>
+</ul>
+<h2>Evidence</h2>
+<ul>
+<li>Patch: <code>proposed/interdiff-svg-high-use-optimization.patch</code>.</li>
+<li>Pixel tests: <code>proposed/tests/svg_optimization_status_family.py</code> (status family), <code>proposed/tests/compiled_icons_test.py</code> (compiled/source artwork equivalence).</li>
+<li>Source/compiled sync test: <code>proposed/tests/compiled_icons_test.py</code>.</li>
+<li>Current totals: <strong>31,557 SVG bytes</strong> and <strong>27,233 compiled icons.css bytes</strong>.</li>
+</ul></body></html>

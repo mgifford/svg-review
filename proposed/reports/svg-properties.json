@@ -8023,7 +8023,7 @@
       "proposed": true
     },
     "icons/check.svg": {
-      "bytes": 254,
+      "bytes": 221,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -8088,20 +8088,20 @@
       "currentColor": true,
       "hardcoded": false,
       "mixedColor": false,
-      "decimalsMax": 5,
-      "decimalsCount": 14,
+      "decimalsMax": 4,
+      "decimalsCount": 12,
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "d822818f7dd80faab3dc53d93f5ca3911982328a62d1aeebd51cef936e6a223c",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <path fill=\"currentColor\" d=\"M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z\" />\n</svg>\n",
+      "hash": "84d44ade5da1344ab250d1d6827c9f0b070c0daa078e16d1cdc49949c591e46b",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"m5.6924 10.6436 3.58 3.7587 9.0352-9.4892 2.2266 2.3408L9.2725 19.087l-5.8067-6.1025z\"/></svg>\n",
       "path": "icons/check.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/chevron-down.svg": {
-      "bytes": 249,
+      "bytes": 226,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -8124,7 +8124,7 @@
         "line": 0,
         "polyline": 0,
         "polygon": 0,
-        "g": 1,
+        "g": 0,
         "defs": 0,
         "use": 0,
         "clipPath": 0,
@@ -8139,7 +8139,7 @@
         "style": 0
       },
       "paths": 1,
-      "groups": 1,
+      "groups": 0,
       "shapes": 0,
       "fill": [
         "none"
@@ -8179,15 +8179,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "25e8892b1c2520cfb67519bdb4d884ee91a6c8ffa832167e09768c9f3f4791bb",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M4 8L12 16L20 8\" />\n  </g>\n</svg>\n",
+      "hash": "343b86b8605994500eb52d6b951aaf1139e69a98976ec20ba5338b0d56f1881b",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"m4 8 8 8 8-8\"/></svg>\n",
       "path": "icons/chevron-down.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/chevron-left.svg": {
-      "bytes": 250,
+      "bytes": 228,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -8210,7 +8210,7 @@
         "line": 0,
         "polyline": 0,
         "polygon": 0,
-        "g": 1,
+        "g": 0,
         "defs": 0,
         "use": 0,
         "clipPath": 0,
@@ -8225,7 +8225,7 @@
         "style": 0
       },
       "paths": 1,
-      "groups": 1,
+      "groups": 0,
       "shapes": 0,
       "fill": [
         "none"
@@ -8265,15 +8265,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "cc730c6101ba37e3324a5ed5614728820402c8677359e499ddab14427813aa65",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M16 20L8 12L16 4\" />\n  </g>\n</svg>\n",
+      "hash": "45080ed5110bdb6a0571fc428b8bcda5da92f9544e8acc724c50a963bbcfb92b",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"m16 20-8-8 8-8\"/></svg>\n",
       "path": "icons/chevron-left.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/chevron-right.svg": {
-      "bytes": 249,
+      "bytes": 227,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -8296,7 +8296,7 @@
         "line": 0,
         "polyline": 0,
         "polygon": 0,
-        "g": 1,
+        "g": 0,
         "defs": 0,
         "use": 0,
         "clipPath": 0,
@@ -8311,7 +8311,7 @@
         "style": 0
       },
       "paths": 1,
-      "groups": 1,
+      "groups": 0,
       "shapes": 0,
       "fill": [
         "none"
@@ -8351,8 +8351,8 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "497626934a9742081973a56c9f6e9a968212621b51084f42aef560410b1b9e2e",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M8 20L16 12L8 4\" />\n  </g>\n</svg>\n",
+      "hash": "78fe718e666fa13c5459081506480b323667dcbab2153ab917062ce21c787e59",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"3\" d=\"m8 20 8-8-8-8\"/></svg>\n",
       "path": "icons/chevron-right.svg",
       "family": "ui",
       "kind": "currentColor",
@@ -8445,7 +8445,7 @@
       "proposed": true
     },
     "icons/close.svg": {
-      "bytes": 275,
+      "bytes": 256,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -8523,8 +8523,8 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "109fc702ee397ed1410d0c62bcc480954cd6ce271b91f664a88cba78b2f97482",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M20 4L4 20\" />\n    <path d=\"M4 4L20 20\" />\n  </g>\n</svg>\n",
+      "hash": "aa2e091e27b30e5bf774251a527e5aa8225488a2d03395afc7b260dc533799fc",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><path d=\"M20 4 4 20\"/><path d=\"m4 4 16 16\"/></g></svg>\n",
       "path": "icons/close.svg",
       "family": "ui",
       "kind": "currentColor",
@@ -9472,7 +9472,7 @@
       "proposed": true
     },
     "icons/loader.svg": {
-      "bytes": 347,
+      "bytes": 279,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -9495,7 +9495,7 @@
         "line": 0,
         "polyline": 0,
         "polygon": 0,
-        "g": 1,
+        "g": 0,
         "defs": 0,
         "use": 0,
         "clipPath": 0,
@@ -9510,7 +9510,7 @@
         "style": 0
       },
       "paths": 1,
-      "groups": 1,
+      "groups": 0,
       "shapes": 0,
       "fill": [
         "none"
@@ -9545,20 +9545,20 @@
       "currentColor": true,
       "hardcoded": false,
       "mixedColor": false,
-      "decimalsMax": 5,
-      "decimalsCount": 9,
+      "decimalsMax": 2,
+      "decimalsCount": 1,
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "91f46a41095d82c17b9726850aa9c0354e375d203539c0ceaf67e3b009ba8b5a",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M12 4C12.5523 4 13 3.55228 13 3C13 2.44772 12.5523 2 12 2C11.4477 2 11 2.44772 11 3C11 3.55228 11.4477 4 12 4Z\" />\n  </g>\n</svg>\n",
+      "hash": "42c94007fdc53cdb1200de0d8c7a980ccaef3235b1eb797cc7f499bef199bcf7",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\" d=\"M12 4c.5523 0 1-.4477 1-1s-.4477-1-1-1-1 .4477-1 1 .4477 1 1 1\"/></svg>\n",
       "path": "icons/loader.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/menu.svg": {
-      "bytes": 458,
+      "bytes": 448,
       "viewBox": "0 0 16 16",
       "viewBoxParts": [
         0.0,
@@ -9633,15 +9633,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "4be6be5a462a082cc3e1feee37de2b8d59cdd57ece9bd11000e78a8575fb95f1",
-      "source": "<svg fill=\"none\" height=\"16\" viewBox=\"0 0 16 16\" width=\"16\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\"><path clip-rule=\"evenodd\" d=\"m15 9h-14c-.56016 0-1-.43984-1-1s.43984-1 1-1h14c.5602 0 1 .43984 1 1s-.4398 1-1 1zm0-5h-14c-.56016 0-1-.43984-1-1s.43984-1 1-1h14c.5602 0 1 .43984 1 1s-.4398 1-1 1zm-14 8h14c.5602 0 1 .4398 1 1s-.4398 1-1 1h-14c-.56016 0-1-.4398-1-1s.43984-1 1-1z\" fill=\"currentColor\" fill-rule=\"evenodd\"/></svg>\n",
+      "hash": "503b72bcad586159c731ba01c89ac2e7be8f6cc5c443bd580e8f4e19fdf17ede",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"none\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M15 9H1c-.56016 0-1-.43984-1-1s.43984-1 1-1h14c.5602 0 1 .43984 1 1s-.4398 1-1 1m0-5H1c-.56016 0-1-.43984-1-1s.43984-1 1-1h14c.5602 0 1 .43984 1 1s-.4398 1-1 1M1 12h14c.5602 0 1 .4398 1 1s-.4398 1-1 1H1c-.56016 0-1-.4398-1-1s.43984-1 1-1\" clip-rule=\"evenodd\"/></svg>\n",
       "path": "icons/menu.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/pager-first.svg": {
-      "bytes": 322,
+      "bytes": 285,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -9719,15 +9719,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "34ebf07dfe30c291b222ef2ebb4ca9d0af67a2b24127be271252b966ec4fa2f1",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"11 17 6 12 11 7\"></polyline>\n    <polyline points=\"18 17 13 12 18 7\"></polyline>\n  </g>\n</svg>\n",
+      "hash": "6336848e87d949c685080771000e7aa1241713c07e3185124bd3a00b537fd240",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><polyline points=\"11 17 6 12 11 7\"/><polyline points=\"18 17 13 12 18 7\"/></g></svg>\n",
       "path": "icons/pager-first.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/pager-last.svg": {
-      "bytes": 321,
+      "bytes": 284,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -9805,15 +9805,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "1976bb01d8bb99b5d6db42ff05f4e0746643123eabf591c38701845f53af1180",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"13 17 18 12 13 7\"></polyline>\n    <polyline points=\"6 17 11 12 6 7\"></polyline>\n  </g>\n</svg>\n",
+      "hash": "a78f61eacc772ed79d7e4603818cedd2c44bbbddb72be57fd512f536fbe18bc5",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><polyline points=\"13 17 18 12 13 7\"/><polyline points=\"6 17 11 12 6 7\"/></g></svg>\n",
       "path": "icons/pager-last.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/pager-next.svg": {
-      "bytes": 269,
+      "bytes": 240,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -9836,7 +9836,7 @@
         "line": 0,
         "polyline": 1,
         "polygon": 0,
-        "g": 1,
+        "g": 0,
         "defs": 0,
         "use": 0,
         "clipPath": 0,
@@ -9851,7 +9851,7 @@
         "style": 0
       },
       "paths": 0,
-      "groups": 1,
+      "groups": 0,
       "shapes": 1,
       "fill": [
         "none"
@@ -9891,15 +9891,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "e9c6dc14962dd342218775b455dfae8f7ab6ac406cadfd87a7d9570d4b40fe97",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"9 18 15 12 9 6\"></polyline>\n  </g>\n</svg>\n",
+      "hash": "35bea145a88671bdeae05d8529519ac0a1bac52303313dbdf98e56040ee7f0ba",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><polyline fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\" points=\"9 18 15 12 9 6\"/></svg>\n",
       "path": "icons/pager-next.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/pager-prev.svg": {
-      "bytes": 270,
+      "bytes": 241,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -9922,7 +9922,7 @@
         "line": 0,
         "polyline": 1,
         "polygon": 0,
-        "g": 1,
+        "g": 0,
         "defs": 0,
         "use": 0,
         "clipPath": 0,
@@ -9937,7 +9937,7 @@
         "style": 0
       },
       "paths": 0,
-      "groups": 1,
+      "groups": 0,
       "shapes": 1,
       "fill": [
         "none"
@@ -9977,8 +9977,8 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "211aec813dc20b981257c19a3487f47fdb96dd75f28d02f7c3cf3a64794b2e90",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <polyline points=\"15 18 9 12 15 6\"></polyline>\n  </g>\n</svg>\n",
+      "hash": "36dddceb2336bcba8bb7cd440414f71283763caba3b3e0b98825105fc9019212",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><polyline fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\" points=\"15 18 9 12 15 6\"/></svg>\n",
       "path": "icons/pager-prev.svg",
       "family": "ui",
       "kind": "currentColor",
@@ -10071,7 +10071,7 @@
       "proposed": true
     },
     "icons/plus.svg": {
-      "bytes": 271,
+      "bytes": 252,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -10149,15 +10149,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "449ebe1a3da9af45c92c2f85ba953993b9040ff560299b5d2b114451b1f5535f",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M12 4V20\" />\n    <path d=\"M4 12H20\" />\n  </g>\n</svg>\n",
+      "hash": "5e190fca6e8a42d9b660e9ac7c0db2cda942ad7c082fd2804fbaaa47b00b3519",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><path d=\"M12 4v16\"/><path d=\"M4 12h16\"/></g></svg>\n",
       "path": "icons/plus.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/pretint/check-disabled-inverse.svg": {
-      "bytes": 249,
+      "bytes": 216,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -10224,20 +10224,20 @@
       "currentColor": false,
       "hardcoded": true,
       "mixedColor": false,
-      "decimalsMax": 5,
-      "decimalsCount": 14,
+      "decimalsMax": 4,
+      "decimalsCount": 12,
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "8d20cb42a1422332e6ef7b7b39ec1189da6edce6531e8aeaf67347c50b5a8277",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <path fill=\"#adaeb3\" d=\"M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z\" />\n</svg>\n",
+      "hash": "d7f8f1932f50e517633bd23b089b103ebc7f52e7e31c73fecd280912b358d919",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"#adaeb3\" d=\"m5.6924 10.6436 3.58 3.7587 9.0352-9.4892 2.2266 2.3408L9.2725 19.087l-5.8067-6.1025z\"/></svg>\n",
       "path": "icons/pretint/check-disabled-inverse.svg",
       "family": "pretint",
       "kind": "hardcoded",
       "proposed": true
     },
     "icons/pretint/check-disabled.svg": {
-      "bytes": 249,
+      "bytes": 216,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -10304,20 +10304,20 @@
       "currentColor": false,
       "hardcoded": true,
       "mixedColor": false,
-      "decimalsMax": 5,
-      "decimalsCount": 14,
+      "decimalsMax": 4,
+      "decimalsCount": 12,
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "7fee8195ba9a7c23fe6e7aced628749873b6cbe3f380c157d4d974d0ed190b6e",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <path fill=\"#767676\" d=\"M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z\" />\n</svg>\n",
+      "hash": "d4474131bea9973ea18f844797dc3f97db5518201e02b572eaab9505df3afa12",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"#767676\" d=\"m5.6924 10.6436 3.58 3.7587 9.0352-9.4892 2.2266 2.3408L9.2725 19.087l-5.8067-6.1025z\"/></svg>\n",
       "path": "icons/pretint/check-disabled.svg",
       "family": "pretint",
       "kind": "hardcoded",
       "proposed": true
     },
     "icons/pretint/check-inverse.svg": {
-      "bytes": 249,
+      "bytes": 216,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -10384,13 +10384,13 @@
       "currentColor": false,
       "hardcoded": true,
       "mixedColor": false,
-      "decimalsMax": 5,
-      "decimalsCount": 14,
+      "decimalsMax": 4,
+      "decimalsCount": 12,
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "21628de9fc4d8c4268417f4a7fcec2ed64d846d7ee6db1dbb4ef404126c8944d",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <path fill=\"#ffffff\" d=\"M5.69238 10.6436L9.27246 14.4023L18.3076 4.91309L20.5342 7.25391L9.27246 19.0869L3.46582 12.9844L5.69238 10.6436Z\" />\n</svg>\n",
+      "hash": "e164c62c834009c99d1fdc71a37892b2f71a474b10bfa7fe11d810e235675bbf",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><path fill=\"#ffffff\" d=\"m5.6924 10.6436 3.58 3.7587 9.0352-9.4892 2.2266 2.3408L9.2725 19.087l-5.8067-6.1025z\"/></svg>\n",
       "path": "icons/pretint/check-inverse.svg",
       "family": "pretint",
       "kind": "hardcoded",
@@ -11083,7 +11083,7 @@
       "proposed": true
     },
     "icons/sort-asc.svg": {
-      "bytes": 279,
+      "bytes": 257,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -11161,15 +11161,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "6f432fe977eedc96bf61b5c8888630648ad3db1b1814a4fc6086a2a4290aafc7",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M12 21V3\" />\n    <path d=\"M5 10L12 3L19 10\" />\n  </g>\n</svg>\n",
+      "hash": "ddde17dc149b93e423b924bbd7544978c5fe097b8ca9c156556da49f59ab2651",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><path d=\"M12 21V3\"/><path d=\"m5 10 7-7 7 7\"/></g></svg>\n",
       "path": "icons/sort-asc.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/sort-desc.svg": {
-      "bytes": 280,
+      "bytes": 258,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -11247,15 +11247,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "74036730a86ce09a64bf898712af8f4bdc86275dae791b954f06fc2330c9f7da",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M12 3V21\" />\n    <path d=\"M19 14L12 21L5 14\" />\n  </g>\n</svg>\n",
+      "hash": "a5249d29cd0def713e9f4e20f29b8d40babe8848f3d9245a42e81c975460b7fa",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><path d=\"M12 3v18\"/><path d=\"m19 14-7 7-7-7\"/></g></svg>\n",
       "path": "icons/sort-desc.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "icons/sort.svg": {
-      "bytes": 296,
+      "bytes": 271,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -11333,8 +11333,8 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "fc9f736d8db41dc9ed60ce685120e15222b09afb0dea803b5de7d936b7521c50",
-      "source": "<svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\">\n  <g fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.25\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n    <path d=\"M3 12H17\" />\n    <path d=\"M3 6H21\" />\n    <path d=\"M3 18H13\" />\n  </g>\n</svg>\n",
+      "hash": "45c8556befd5b6f8e5ab38db55a5eb201ecf5d0343fedb544df6c7ae5b014cb1",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2.25\"><path d=\"M3 12h14\"/><path d=\"M3 6h18\"/><path d=\"M3 18h10\"/></g></svg>\n",
       "path": "icons/sort.svg",
       "family": "ui",
       "kind": "currentColor",
@@ -11497,8 +11497,8 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "3085ac9978653b7a2440691fea4c2167a2825c9346165a8b0d7b0c93ef91cfce",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"currentColor\" d=\"M14.103 5.476a.5.5 0 00-.701-.053.526.526 0 00-.082.713l1.1 1.346H8.512V1.62l1.32 1.113a.501.501 0 00.732-.054.528.528 0 00-.085-.744L8.328.119a.5.5 0 00-.647 0L5.529 1.935a.527.527 0 00-.085.744.504.504 0 00.732.054l1.32-1.113v5.862H1.588L2.68 6.136a.526.526 0 00-.1-.68.5.5 0 00-.675.02L.117 7.67a.525.525 0 000 .66l1.788 2.194a.5.5 0 00.702.053.526.526 0 00.081-.713l-1.1-1.346h5.908v5.862l-1.32-1.113a.501.501 0 00-.698.082.526.526 0 00.051.716l2.152 1.817v-.001a.5.5 0 00.647 0l2.151-1.816a.526.526 0 00.052-.716.501.501 0 00-.699-.082l-1.32 1.113V8.518h5.908l-1.091 1.346a.527.527 0 00.022.776.504.504 0 00.752-.116l1.78-2.194a.527.527 0 000-.66z\"/></svg>\n",
+      "hash": "61a48d0c84461a03c9835afa4a26c1ecda1450a9d28ee034e10ce7854e8eb05d",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" aria-hidden=\"true\" focusable=\"false\" viewBox=\"0 0 16 16\"><path fill=\"currentColor\" d=\"M14.103 5.476a.5.5 0 00-.701-.053.526.526 0 00-.082.713l1.1 1.346H8.512V1.62l1.32 1.113a.501.501 0 00.732-.054.528.528 0 00-.085-.744L8.328.119a.5.5 0 00-.647 0L5.529 1.935a.527.527 0 00-.085.744.504.504 0 00.732.054l1.32-1.113v5.862H1.588L2.68 6.136a.526.526 0 00-.1-.68.5.5 0 00-.675.02L.117 7.67a.525.525 0 000 .66l1.788 2.194a.5.5 0 00.702.053.526.526 0 00.081-.713l-1.1-1.346h5.908v5.862l-1.32-1.113a.501.501 0 00-.698.082.526.526 0 00.051.716l2.152 1.817v-.001a.5.5 0 00.647 0l2.151-1.816a.526.526 0 00.052-.716.501.501 0 00-.699-.082l-1.32 1.113V8.518h5.908l-1.091 1.346a.527.527 0 00.022.776.504.504 0 00.752-.116l1.78-2.194a.527.527 0 000-.66z\"/></svg>\n",
       "path": "icons/tabledrag-handle.svg",
       "family": "ui",
       "kind": "currentColor",
@@ -11755,7 +11755,7 @@
       "proposed": true
     },
     "logos/drupal.svg": {
-      "bytes": 1260,
+      "bytes": 1235,
       "viewBox": "0 0 24 24",
       "viewBoxParts": [
         0.0,
@@ -11825,15 +11825,15 @@
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "f4dc8dfef8a782ded46ba28ee6d8cc00e75b3bc3e287979a4bc115a85373e95a",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"currentColor\" d=\"M15.792 5.064C14.088 3.408 12.504 1.824 12.024 0c-.48 1.824-2.064 3.408-3.768 5.064-2.496 2.496-5.352 5.352-5.352 9.648-.144 5.016 3.888 9.192 8.904 9.288s9.216-3.888 9.288-8.904v-.384c.048-4.296-2.808-7.152-5.304-9.648M7.56 15.528c-.264.336-.528.744-.696 1.128-.048.048-.096.12-.168.12h-.048c-.216 0-.432-.384-.432-.384-.048-.096-.12-.216-.168-.312L6 15.984c-.552-1.2-.096-2.904-.096-2.904.216-.816.6-1.632 1.08-2.328.312-.432.648-.864.984-1.296l.432.432 2.04 2.064c.096.096.096.216 0 .312L8.328 14.64zm4.56 5.952c-1.728 0-3.168-1.416-3.12-3.168 0-.768.312-1.512.768-2.064.648-.768 1.464-1.56 2.376-2.592 1.032 1.128 1.728 1.848 2.376 2.736.048.048.096.12.12.216.336.528.552 1.128.552 1.776.072 1.728-1.344 3.096-3.072 3.096m5.904-5.016c-.048.12-.168.216-.312.264h-.048c-.12-.048-.216-.12-.312-.216-.552-.816-1.176-1.608-1.848-2.28l-.816-.864-2.76-2.856c-.552-.528-1.128-1.128-1.632-1.68 0-.048-.048-.048-.048-.048q-.144-.18-.216-.432v-.096c-.096-.48.096-.96.432-1.296.528-.528 1.08-1.08 1.608-1.632.552.6 1.176 1.2 1.776 1.824 1.2 1.128 2.28 2.376 3.288 3.72.816 1.176 1.248 2.496 1.248 3.936-.096.504-.168 1.104-.36 1.656\"/></svg>\n",
+      "hash": "27403375cd321d387262e74c17293b23022fcad0e6730f1ac53a8d3c08ea83d4",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" focusable=\"false\"><path fill=\"currentColor\" d=\"M15.792 5.064C14.088 3.408 12.504 1.824 12.024 0c-.48 1.824-2.064 3.408-3.768 5.064-2.496 2.496-5.352 5.352-5.352 9.648-.144 5.016 3.888 9.192 8.904 9.288s9.216-3.888 9.288-8.904v-.384c.048-4.296-2.808-7.152-5.304-9.648M7.56 15.528a5.5 5.5 0 0 0-.696 1.128c-.048.048-.096.12-.168.12h-.048c-.216 0-.432-.384-.432-.384-.048-.096-.12-.216-.168-.312L6 15.984c-.552-1.2-.096-2.904-.096-2.904.216-.816.6-1.632 1.08-2.328.312-.432.648-.864.984-1.296l.432.432 2.04 2.064c.096.096.096.216 0 .312L8.328 14.64zm4.56 5.952c-1.728 0-3.168-1.416-3.12-3.168 0-.768.312-1.512.768-2.064.648-.768 1.464-1.56 2.376-2.592 1.032 1.128 1.728 1.848 2.376 2.736.048.048.096.12.12.216.336.528.552 1.128.552 1.776.072 1.728-1.344 3.096-3.072 3.096m5.904-5.016a.5.5 0 0 1-.312.264h-.048a.9.9 0 0 1-.312-.216c-.552-.816-1.176-1.608-1.848-2.28l-.816-.864-2.76-2.856a36 36 0 0 1-1.632-1.68c0-.048-.048-.048-.048-.048a1.2 1.2 0 0 1-.216-.432v-.096c-.096-.48.096-.96.432-1.296.528-.528 1.08-1.08 1.608-1.632.552.6 1.176 1.2 1.776 1.824 1.2 1.128 2.28 2.376 3.288 3.72.816 1.176 1.248 2.496 1.248 3.936-.096.504-.168 1.104-.36 1.656\"/></svg>\n",
       "path": "logos/drupal.svg",
       "family": "ui",
       "kind": "currentColor",
       "proposed": true
     },
     "logos/php.svg": {
-      "bytes": 1229,
+      "bytes": 1208,
       "viewBox": "0 0 66 33.447",
       "viewBoxParts": [
         0.0,
@@ -11899,12 +11899,12 @@
       "hardcoded": false,
       "mixedColor": false,
       "decimalsMax": 3,
-      "decimalsCount": 129,
+      "decimalsCount": 127,
       "externalHrefs": [],
       "hasScript": false,
       "hasForeignObject": false,
-      "hash": "d912180a6fe511b913ca74047fc2cd55bdd2a0d12b91b75ea43ef7fcf7a42397",
-      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"66\" height=\"33.447\" viewBox=\"0 0 66 33.447\" aria-hidden=\"true\" focusable=\"false\"><g fill=\"currentColor\"><path d=\"M49.5 12.255h-2.7l-1.473 7h2.4c1.59 0 2.773-.342 3.55-.94.78-.6 1.304-1.62 1.577-3.023.26-1.345.142-1.975-.357-2.528-.5-.553-1.498-.51-2.996-.51z\"/><path d=\"M33 0C14.775 0 0 7.488 0 16.724s14.775 16.724 33 16.724 33-7.488 33-16.724S51.225 0 33 0m-9.328 19.982c-.787.737-1.662 1.376-2.625 1.69-.963.313-2.19.583-3.68.583H13.99l-.935 5H9.11l3.52-18h7.584c2.28 0 3.946.34 4.992 1.537s1.36 2.74.944 4.885c-.172.884-.462 1.628-.87 2.36-.413.732-.947 1.338-1.608 1.945m11.51 2.273 1.558-8.124c.177-.91.112-1.29-.196-1.62s-.962-.255-1.963-.255h-3.126l-2.016 10h-3.913l3.52-18h3.912l-.935 5h3.486c2.193 0 3.706.124 4.54.888.832.765 1.08 1.99.748 3.703l-1.637 8.41h-3.977zm21.747-6.708c-.173.884-.463 1.692-.872 2.424-.41.734-.944 1.404-1.605 2.01-.787.738-1.662 1.377-2.625 1.69-.963.314-2.19.584-3.68.584H44.77l-.934 5h-3.944l3.518-18h7.584c2.282 0 3.946.34 4.992 1.537 1.046 1.2 1.36 2.61.943 4.757z\"/><path d=\"M18.72 12.255h-2.703l-1.473 7h2.4c1.59 0 2.773-.342 3.552-.94.778-.6 1.303-1.62 1.576-3.023.26-1.345.142-1.975-.357-2.528-.5-.553-1.497-.51-2.996-.51z\"/></g></svg>\n",
+      "hash": "062a426102d82f0c0899c15c1a047f9c8d86c319354476ca536bb604f7ad1ee1",
+      "source": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"66\" height=\"33.447\" viewBox=\"0 0 66 33.447\" aria-hidden=\"true\" focusable=\"false\"><g fill=\"currentColor\"><path d=\"M49.5 12.255h-2.7l-1.473 7h2.4c1.59 0 2.773-.342 3.55-.94.78-.6 1.304-1.62 1.577-3.023.26-1.345.142-1.975-.357-2.528-.5-.553-1.498-.51-2.996-.51z\"/><path d=\"M33 0C14.775 0 0 7.488 0 16.724s14.775 16.724 33 16.724 33-7.488 33-16.724S51.225 0 33 0m-9.328 19.982c-.787.737-1.662 1.376-2.625 1.69-.963.313-2.19.583-3.68.583H13.99l-.935 5H9.11l3.52-18h7.584c2.28 0 3.946.34 4.992 1.537s1.36 2.74.944 4.885a7.8 7.8 0 0 1-.87 2.36c-.413.732-.947 1.338-1.608 1.945m11.51 2.273 1.558-8.124c.177-.91.112-1.29-.196-1.62s-.962-.255-1.963-.255h-3.126l-2.016 10h-3.913l3.52-18h3.912l-.935 5h3.486c2.193 0 3.706.124 4.54.888.832.765 1.08 1.99.748 3.703l-1.637 8.41h-3.977zm21.747-6.708a8.1 8.1 0 0 1-.872 2.424 8 8 0 0 1-1.605 2.01c-.787.738-1.662 1.377-2.625 1.69-.963.314-2.19.584-3.68.584H44.77l-.934 5h-3.944l3.518-18h7.584c2.282 0 3.946.34 4.992 1.537 1.046 1.2 1.36 2.61.943 4.757z\"/><path d=\"M18.72 12.255h-2.703l-1.473 7h2.4c1.59 0 2.773-.342 3.552-.94.778-.6 1.303-1.62 1.576-3.023.26-1.345.142-1.975-.357-2.528-.5-.553-1.497-.51-2.996-.51z\"/></g></svg>\n",
       "path": "logos/php.svg",
       "family": "ui",
       "kind": "currentColor",

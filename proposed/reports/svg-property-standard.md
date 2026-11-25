@@ -8,7 +8,7 @@
 
 | Property | After-side distribution | Proposed |
 |---|---:|---|
-| Files / bytes | 74 / 41,981 B | 61 / 32,119 B |
+| Files / bytes | 74 / 41,981 B | 61 / 31,557 B |
 | 24×24 viewBox | 56 | 43 |
 | 16×16 viewBox | 17 | 17 |
 | `0 0 66 33.447` (PHP logo) | 1 | 1 |
@@ -22,7 +22,7 @@
 | Stroke width 3 | 11 | 10 |
 | No stroke (filled) | 23 | 24 |
 | Stroke width 0.5 / 0.8 / 2 | 3 / 1 / 1 | 3 / 1 / 1 |
-| Path precision >4 decimals | 17 | 9 |
+| Path precision >4 decimals | 17 | 4 |
 
 ## Normalisation targets
 
@@ -79,7 +79,7 @@ All checks pass.
 1. **Optical padding.** The rendered matrix shows wide ranges: loader has 78.8% bottom padding, pager arrows 32.5% side padding, chevrons 26.9% cross-axis padding. Normalising these changes optical size, so each family needs a visual diff.
 2. **Stroke-weight exceptions.** 2 and 3 are deliberate weight classes, not simply drift. Decide the class table before changing any icon.
 3. **Fill accents.** Seven UI icons use `fill-opacity=".15"`; verify the accent is intentional across the family.
-4. **Path precision.** 9 proposed files still have >4 decimal places. Optimise only with per-file pixel gates, as with the required/status pilot.
+4. **Path precision.** 4 proposed files still have >4 decimal places. Optimise only with per-file pixel gates, as with the required/status pilot.
 5. **Title/desc.** Do **not** add blanket titles. These assets are decorative; the containing control supplies the accessible name. `menu.svg` is inline inside a button labelled “Tabs display toggle”.
 
 ## Structural wins already in place
@@ -88,4 +88,4 @@ All checks pass.
 - no IDs, external references, scripts or foreignObject
 - duplicate file-type pairs are still present; deduplication is deferred
 - all proposed SVGs are hidden from assistive technology
-- 14 unused assets recommended for removal (2 still pending); the cleanup is optional; `tabledrag-handle` dimensions corrected
+- 14 unused assets recommended for removal (2 still pending); the cleanup is optional; `tabledrag-handle` dimensions corrected; high-use controls optimised

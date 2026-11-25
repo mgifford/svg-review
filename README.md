@@ -20,7 +20,7 @@ This is a **draft review lab**, not an official Drupal repository, not an upstre
 | `lab/` | The static SVG Review Lab (`acquire.py`, `usage.py`, `review.py`, `template.html`) |
 | `proposed/interdiff-*.patch` | Small proposed fixes/optimisations against the MR head |
 | `proposed/tests/` | Regression checks for the fixes |
-| `proposed/reports/` | Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, usage method and the self-contained asset gallery |
+| `proposed/reports/` | Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, [high-use optimisation](proposed/reports/high-use-optimization.md) and the self-contained asset gallery |
 | `review.html` | Interactive SVG inventory generated from the pinned snapshots |
 | `after/` / `proposed/` | **Test fixtures only** — not full Drupal themes; see below |
 
@@ -70,6 +70,7 @@ git apply -p1 proposed/interdiff-svg-cleanup.patch
 git apply -p1 proposed/interdiff-svg-optimization-status-family.patch
 git apply -p1 proposed/interdiff-loader-currentcolor.patch
 git apply -p1 proposed/interdiff-svg-metadata-normalization.patch
+git apply -p1 proposed/interdiff-svg-high-use-optimization.patch
 ```
 
 Each patch is small and independently reviewable. Nothing here has been pushed upstream or posted to the issue/MR.
@@ -84,6 +85,7 @@ python3 proposed/tests/svg_optimization_pilot.py
 python3 proposed/tests/svg_optimization_status_family.py
 python3 proposed/tests/loader_dark_test.py
 python3 proposed/tests/svg_properties_test.py
+python3 proposed/tests/compiled_icons_test.py
 ```
 
 The repository includes only the **changed-file fixture subset** needed by these checks under `after/` and `proposed/`; it is not a full Drupal theme. The full-tree validation report in `proposed/reports/validation.json` was generated from the complete proposed theme.
@@ -98,9 +100,10 @@ The repository includes only the **changed-file fixture subset** needed by these
   - status-report icons disappearing in forced colours
   - 14 unused assets recommended for removal (optional cleanup; also reflected in the proposed tree)
   - 4-decimal optimisation of `required.svg` and five status icons
-- Optimisation result: after-side **74 files / 41,981 bytes → 61 files / 32,119 bytes**, a **23.5% reduction** (net of the new check-disabled-inverse pretint).
+- Optimisation result: after-side **74 files / 41,981 bytes → 61 files / 31,557 bytes**, a **24.8% reduction**; compiled `icons.css` is **40,615 → 27,233 bytes** (net of the new check-disabled-inverse pretint).
 - CurrentColor audit: unused icons have no dark-mode rendering; `menu.svg` is inline and inherits, while the sticky loader was a real `background-image: currentColor` bug and now uses a currentColor mask.
 - The asset gallery defaults to a checkerboard, outlines the AFTER thumbnail, and exposes per-asset byte sizes, zoom and uncompressed source diffs.
+- High-use controls (menu/hamburger, chevrons, pager, checks, close/plus, sort, loader and tabledrag) were separately optimised after pixel checks; the supplied hamburger is pixel-identical and the logos are exact at UI sizes.
 - The property matrix audits all 74 after-side SVGs for viewBox, dimensions, paint, stroke class, metadata, IDs, precision and rendered padding/ink; all 61 proposed SVGs now have consistent decorative ARIA metadata.
 - `tabledrag-handle.svg` was corrected from 17×17 to 16×16; file types, pretints and logos are deliberately kept as separate families.
 

@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/svg-properties.html">Properties</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>Drupal Default Admin SVG review</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/svg-properties.html">Properties</a> · <a href="proposed/reports/high-use-optimization.html">High-use</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>Drupal Default Admin SVG review</h1>
 <p>Independent review material for <strong>Drupal core MR !16166</strong> (<code>default_admin</code> SVG consolidation).</p>
 <ul>
 <li>MR: https://git.drupalcode.org/project/drupal/-/merge_requests/16166</li>
@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <td><code>proposed/reports/</code></td>
-<td>Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, usage method and the self-contained asset gallery</td>
+<td>Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, <a href="proposed/reports/high-use-optimization.html">high-use optimisation</a> and the self-contained asset gallery</td>
 </tr>
 <tr>
 <td><code>review.html</code></td>
@@ -89,6 +89,7 @@ git apply -p1 proposed/interdiff-svg-cleanup.patch
 git apply -p1 proposed/interdiff-svg-optimization-status-family.patch
 git apply -p1 proposed/interdiff-loader-currentcolor.patch
 git apply -p1 proposed/interdiff-svg-metadata-normalization.patch
+git apply -p1 proposed/interdiff-svg-high-use-optimization.patch
 </code></pre>
 <p>Each patch is small and independently reviewable. Nothing here has been pushed upstream or posted to the issue/MR.</p>
 <h3>Tests</h3>
@@ -99,6 +100,7 @@ python3 proposed/tests/svg_optimization_pilot.py
 python3 proposed/tests/svg_optimization_status_family.py
 python3 proposed/tests/loader_dark_test.py
 python3 proposed/tests/svg_properties_test.py
+python3 proposed/tests/compiled_icons_test.py
 </code></pre>
 <p>The repository includes only the <strong>changed-file fixture subset</strong> needed by these checks under <code>after/</code> and <code>proposed/</code>; it is not a full Drupal theme. The full-tree validation report in <code>proposed/reports/validation.json</code> was generated from the complete proposed theme.</p>
 <h2>Headline findings</h2>
@@ -111,9 +113,10 @@ python3 proposed/tests/svg_properties_test.py
 <li>status-report icons disappearing in forced colours</li>
 <li>14 unused assets recommended for removal (optional cleanup; also reflected in the proposed tree)</li>
 <li>4-decimal optimisation of <code>required.svg</code> and five status icons</li>
-<li>Optimisation result: after-side <strong>74 files / 41,981 bytes → 61 files / 32,119 bytes</strong>, a <strong>23.5% reduction</strong> (net of the new check-disabled-inverse pretint).</li>
+<li>Optimisation result: after-side <strong>74 files / 41,981 bytes → 61 files / 31,557 bytes</strong>, a <strong>24.8% reduction</strong>; compiled <code>icons.css</code> is <strong>40,615 → 27,233 bytes</strong> (net of the new check-disabled-inverse pretint).</li>
 <li>CurrentColor audit: unused icons have no dark-mode rendering; <code>menu.svg</code> is inline and inherits, while the sticky loader was a real <code>background-image: currentColor</code> bug and now uses a currentColor mask.</li>
 <li>The asset gallery defaults to a checkerboard, outlines the AFTER thumbnail, and exposes per-asset byte sizes, zoom and uncompressed source diffs.</li>
+<li>High-use controls (menu/hamburger, chevrons, pager, checks, close/plus, sort, loader and tabledrag) were separately optimised after pixel checks; the supplied hamburger is pixel-identical and the logos are exact at UI sizes.</li>
 <li>The property matrix audits all 74 after-side SVGs for viewBox, dimensions, paint, stroke class, metadata, IDs, precision and rendered padding/ink; all 61 proposed SVGs now have consistent decorative ARIA metadata.</li>
 <li><code>tabledrag-handle.svg</code> was corrected from 17×17 to 16×16; file types, pretints and logos are deliberately kept as separate families.</li>
 </ul>
