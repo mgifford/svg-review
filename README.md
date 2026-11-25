@@ -28,7 +28,7 @@ This is a **draft review lab**, not an official Drupal repository, not an upstre
 
 - **After-side** — the MR !16166 tree: the files the patch actually adds or keeps.
 - **Proposed** — our separate fixes/cleanup working copy, not upstream.
-- **Unused — proposed removal** — the MR keeps the file, but we found no CSS, template or JS consumer in the after tree. Our cleanup recommends deleting it; this is **not** an MR deletion and the cleanup is optional.
+- **Unused — optional removal** — the MR keeps the file, but we found no CSS, template or JS consumer in the after tree. Our cleanup recommends deleting it; this is **not** an MR deletion and the cleanup is optional.
 - **No after asset** — an original file has no counterpart in the MR at all.
 
 See [how “used” was determined](proposed/reports/usage-method.md): the current label is a source/alias scan, not a rendered-page audit.
