@@ -1,0 +1,136 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How used was determined</title><style>body{max-width:1000px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="dark-mode-currentcolor.html">CurrentColor audit</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>How “used” was determined — and what is still missing</h1>
+<p>There are three different questions, and they must not be conflated:</p>
+<ol>
+<li><strong>Does a source file contain a literal reference to this SVG?</strong></li>
+<li><strong>Is the SVG reachable through a CSS custom property or alias?</strong></li>
+<li><strong>Does a rendered page actually paint it in a given state?</strong></li>
+</ol>
+<p>The current “unused” label comes from questions 1 and 2, <strong>not</strong> question 3. That is why it is a cleanup candidate, not proof that no Drupal page can ever render the file.</p>
+<h2>1. Literal source scan (<code>usage.py</code>)</h2>
+<p><code>usage.py</code> scans source files in the after-side theme (402 files in the current run):</p>
+<ul>
+<li>CSS, PCSS, Twig, PHP, JS/MJS/TS, YAML, HTML, JSON, theme/inc/module files.</li>
+<li>It looks for tokens matching:</li>
+</ul>
+<pre><code class="language-text">[\w./%+@~-]+\.svg(?:\?[^\s'\&quot;;)#]+)?
+</code></pre>
+<ul>
+<li>It strips a query string such as <code>?v=123</code>.</li>
+<li>It resolves the token against the real path first.</li>
+<li>If that fails, it falls back to a <strong>basename candidate</strong> and records it as <code>basename candidate</code>.</li>
+</ul>
+<p>It does <strong>not</strong> search for partial stems such as <code>files</code>, class names such as <code>.files</code>, or arbitrary strings. A reference must end in <code>.svg</code>.</p>
+<p>Example that is found:</p>
+<pre><code class="language-css">background-image: url(../../images/icons/files.svg);
+</code></pre>
+<p>Example that is <strong>not</strong> found by this pass:</p>
+<pre><code class="language-css">background-image: var(--admin-icon-files);
+</code></pre>
+<p>or a path assembled at runtime.</p>
+<p>Known limits, also recorded in <code>usage.json</code>:</p>
+<ul>
+<li>dynamic paths and generated code;</li>
+<li>aliases and CSS custom properties;</li>
+<li>references outside the scanned tree (contrib/custom modules/themes);</li>
+<li>SVG content inlined as a <code>data:image/svg+xml</code> URI (the filename disappears);</li>
+<li>runtime DOM changes.</li>
+</ul>
+<p>Unmatched references are <strong>not</strong> treated as broken links; and a missing literal reference is <strong>not</strong> proof of non-use.</p>
+<h2>2. Alias/var analysis (separate from <code>usage.py</code>)</h2>
+<p>For the icon audit I separately parsed <code>--admin-icon-*</code> definitions and <code>var(--admin-icon-*)</code> usages, including aliases such as:</p>
+<pre><code class="language-css">--messages-icon: var(--admin-icon-info);
+</code></pre>
+<p>That produced the mode labels used in the gallery: <code>mask</code>, <code>background</code>, <code>mask,background</code>, <code>image</code> and unused. It is still <strong>static source analysis</strong>:</p>
+<ul>
+<li>a variable can be defined but never referenced;</li>
+<li>a reference can be inside a selector that never matches;</li>
+<li>the compiled CSS may inline a data URI, losing the filename;</li>
+<li>dynamic/JS-set variables are not captured.</li>
+</ul>
+<p>The alias step is currently analysis code, not part of the committed <code>usage.py</code>. That should be added before “unused” is treated as authoritative.</p>
+<h2>3. What a rendered check requires</h2>
+<p>Run a browser against real Drupal pages and collect <strong>computed styles plus DOM/resource evidence</strong>, not source strings.</p>
+<p>For every element and each of <code>::before</code>, <code>::after</code>, <code>::marker</code>:</p>
+<ul>
+<li><code>background-image</code></li>
+<li><code>mask-image</code> / <code>-webkit-mask-image</code></li>
+<li><code>content</code> (it can contain a URL)</li>
+<li><code>list-style-image</code></li>
+<li><code>border-image-source</code></li>
+<li><code>cursor</code></li>
+</ul>
+<p>Also collect:</p>
+<ul>
+<li><code>&lt;img src&gt;</code>, <code>&lt;object data&gt;</code>, <code>&lt;embed src&gt;</code></li>
+<li><code>&lt;use href&gt;</code> and inline <code>&lt;svg&gt;</code></li>
+<li><code>performance.getEntriesByType('resource')</code></li>
+<li>CSSOM rules as a secondary source (rules that exist but never match are not proof of rendering)</li>
+<li>decode <code>data:image/svg+xml</code> values and hash them against the known SVG content</li>
+<li>record the <strong>page, state, element selector and CSS property</strong> for each observation</li>
+</ul>
+<p>States must be exercised explicitly:</p>
+<ul>
+<li>default, hover, focus-visible, active, checked, disabled</li>
+<li>light, dark, forced light, forced dark</li>
+<li>LTR and RTL</li>
+<li>open dialogs, autocomplete, media library, sticky form actions</li>
+<li>unauthenticated and authenticated pages, plus the permissions/roles that expose components</li>
+</ul>
+<p>Chromium DevTools Protocol <code>CSS.forcePseudoState</code> can force <code>:hover</code>, <code>:focus</code>, <code>:active</code> and <code>:visited</code> for computed-style collection. Pseudo-element styles are visible through <code>getComputedStyle(element, '::after')</code>.</p>
+<p>A minimal browser snippet:</p>
+<pre><code class="language-js">const found = new Set();
+
+function urls(value) {
+  for (const m of value.matchAll(/url\([&quot;']?([^&quot;')]+)[&quot;']?\)/g)) {
+    found.add(m[1]);
+  }
+}
+
+for (const el of document.querySelectorAll('*')) {
+  for (const pseudo of [null, '::before', '::after', '::marker']) {
+    const cs = getComputedStyle(el, pseudo);
+    for (const prop of [
+      'backgroundImage', 'maskImage', 'webkitMaskImage', 'content',
+      'listStyleImage', 'borderImageSource', 'cursor',
+    ]) {
+      urls(cs[prop] || '');
+    }
+  }
+}
+
+for (const img of document.images) found.add(img.currentSrc || img.src);
+for (const entry of performance.getEntriesByType('resource')) found.add(entry.name);
+</code></pre>
+<p>That output must then be mapped to theme paths, with data URIs hash-matched. Run it on a page/state manifest; a single page visit is not enough.</p>
+<h2>What the labels should mean</h2>
+<table>
+<thead>
+<tr>
+<th>Label</th>
+<th>Evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Literal source reference</strong></td>
+<td>Exact path or basename candidate found in source</td>
+</tr>
+<tr>
+<td><strong>Alias source reference</strong></td>
+<td>A used <code>var(--admin-icon-*)</code> resolves to the asset</td>
+</tr>
+<tr>
+<td><strong>Rendered</strong></td>
+<td>Observed in computed styles/DOM/network in a recorded state</td>
+</tr>
+<tr>
+<td><strong>Not observed</strong></td>
+<td>Not seen in the pages/states covered so far</td>
+</tr>
+<tr>
+<td><strong>No source consumer found</strong></td>
+<td>No literal or alias reference in scanned source; still not proof about unexercised UI</td>
+</tr>
+</tbody>
+</table>
+<p>This is why the current cleanup is <strong>optional</strong>. If we want to delete a file with confidence, the rendered check must cover the relevant components and states first.</p></body></html>

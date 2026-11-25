@@ -20,7 +20,7 @@ This is a **draft review lab**, not an official Drupal repository, not an upstre
 | `lab/` | The static SVG Review Lab (`acquire.py`, `usage.py`, `review.py`, `template.html`) |
 | `proposed/interdiff-*.patch` | Small proposed fixes/optimisations against the MR head |
 | `proposed/tests/` | Regression checks for the fixes |
-| `proposed/reports/` | Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix and the self-contained asset gallery |
+| `proposed/reports/` | Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, usage method and the self-contained asset gallery |
 | `review.html` | Interactive SVG inventory generated from the pinned snapshots |
 | `after/` / `proposed/` | **Test fixtures only** — not full Drupal themes; see below |
 
@@ -30,6 +30,8 @@ This is a **draft review lab**, not an official Drupal repository, not an upstre
 - **Proposed** — our separate fixes/cleanup working copy, not upstream.
 - **Unused — proposed removal** — the MR keeps the file, but we found no CSS, template or JS consumer in the after tree. Our cleanup recommends deleting it; this is **not** an MR deletion and the cleanup is optional.
 - **No after asset** — an original file has no counterpart in the MR at all.
+
+See [how “used” was determined](proposed/reports/usage-method.md): the current label is a source/alias scan, not a rendered-page audit.
 
 The 14 assets currently recommended for removal are `appearance`, `blocks`, `bookmarks`, `content`, `files`, `media`, `nav-toggle-left`, `nav-toggle-top`, `people`, `reports`, `structure`, `user`, `pretint/chevron-down-default` and `pretint/remove-default`. `search` and `chevron-left` are also unused but remain pending a decision.
 
