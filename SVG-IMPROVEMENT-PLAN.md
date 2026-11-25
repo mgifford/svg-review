@@ -170,6 +170,18 @@ The usage counts follow custom-property aliases (for example `--messages-icon: v
 
 ---
 
+### 4.4 `currentColor` in dark mode
+
+`currentColor` only works when the SVG inherits a CSS colour. It does **not** work through an SVG used as a CSS `background-image`: the image is rasterised on its own and `currentColor` becomes black. This is why several after-side assets look black on a dark preview even when the asset itself is not used.
+
+Rules:
+
+1. **Mask or inline** currentColor icon: safe in dark mode; the CSS colour supplies the visible paint.
+2. **Background image** currentColor icon: unsafe; use a mask/pseudo-element, an inline SVG, or a tested mode-specific pretint.
+3. **Unused** currentColor icon: no dark-mode rendering exists. Remove it or attach it to a real component; do not treat its black `<img>` thumbnail as a component failure.
+
+The unused after assets were removed in the proposed cleanup. `menu.svg` is inline and inherits correctly. `loader.svg` was used as a `background-image` in the sticky form actions; the proposed fix draws it through a pseudo-element with `background-color: currentColor` and a mask, with a reduced-motion fallback. See `proposed/reports/dark-mode-currentcolor.md`, `proposed/interdiff-loader-currentcolor.patch` and `proposed/tests/loader_dark_test.py`.
+
 ### 4.3 SVG optimisation
 
 Optimisation is a **separate, later phase**. Do not mix path rewriting with correctness fixes.
@@ -316,7 +328,8 @@ Legend: ✅ tested, ❌ missing/broken, ⚠️ needs verification.
 - [checkmark-evidence.md](proposed/reports/checkmark-evidence.md) — checkmark fix and live Drupal measurements
 - [forced-colors-status-icons.md](proposed/reports/forced-colors-status-icons.md) — status-icon forced-colours fix
 - [svg-optimization-pilot.md](proposed/reports/svg-optimization-pilot.md) — optimisation audit, cleanup batch and family pilots
-- [patch-gallery.html](proposed/reports/patch-gallery.html) — full asset gallery with Auto/Image/Mask and forced-colours views
+- [dark-mode-currentcolor.md](proposed/reports/dark-mode-currentcolor.md) — currentColor consumer audit and loader fix
+- [patch-gallery.html](http://127.0.0.1:8770/proposed/reports/patch-gallery.html) — full asset gallery with Auto/Image/Mask and forced-colours views
 - `proposed/tests/checkmark_regression.py` — 6 tests
 - `proposed/tests/forced_colors_status_icons.py` — 3 tests
 - `proposed/interdiff-checkmark.patch` — checkmark dark disabled fix

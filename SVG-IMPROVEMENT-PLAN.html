@@ -375,6 +375,15 @@
 <p>The after inventory has <strong>0 structural errors</strong> and <strong>no missing viewBoxes</strong>; the 21 paint-value warnings are the 14 multicolour file-type icons and 7 pretints, which are expected but require the dark/forced review above.</p>
 <p>The usage counts follow custom-property aliases (for example <code>--messages-icon: var(--admin-icon-info)</code>) and inline template includes. A first-pass scanner that ignored aliases reported <code>info.svg</code> as unused; it is actually a mask in the messages component. <code>menu.svg</code> is used inline in <code>menu-local-task.html.twig</code>, not in CSS, and is counted as image-only.</p>
 <hr />
+<h3>4.4 <code>currentColor</code> in dark mode</h3>
+<p><code>currentColor</code> only works when the SVG inherits a CSS colour. It does <strong>not</strong> work through an SVG used as a CSS <code>background-image</code>: the image is rasterised on its own and <code>currentColor</code> becomes black. This is why several after-side assets look black on a dark preview even when the asset itself is not used.</p>
+<p>Rules:</p>
+<ol>
+<li><strong>Mask or inline</strong> currentColor icon: safe in dark mode; the CSS colour supplies the visible paint.</li>
+<li><strong>Background image</strong> currentColor icon: unsafe; use a mask/pseudo-element, an inline SVG, or a tested mode-specific pretint.</li>
+<li><strong>Unused</strong> currentColor icon: no dark-mode rendering exists. Remove it or attach it to a real component; do not treat its black <code>&lt;img&gt;</code> thumbnail as a component failure.</li>
+</ol>
+<p>The unused after assets were removed in the proposed cleanup. <code>menu.svg</code> is inline and inherits correctly. <code>loader.svg</code> was used as a <code>background-image</code> in the sticky form actions; the proposed fix draws it through a pseudo-element with <code>background-color: currentColor</code> and a mask, with a reduced-motion fallback. See <code>proposed/reports/dark-mode-currentcolor.md</code>, <code>proposed/interdiff-loader-currentcolor.patch</code> and <code>proposed/tests/loader_dark_test.py</code>.</p>
 <h3>4.3 SVG optimisation</h3>
 <p>Optimisation is a <strong>separate, later phase</strong>. Do not mix path rewriting with correctness fixes.</p>
 <p>Baseline: <strong>74 files / 41,981 bytes</strong>. The measured opportunity is:</p>
@@ -709,7 +718,8 @@ Tests: <code>proposed/tests/svg_cleanup_test.py</code>, <code>svg_optimization_p
 <li><a href="proposed/reports/checkmark-evidence.html">checkmark-evidence.md</a> — checkmark fix and live Drupal measurements</li>
 <li><a href="proposed/reports/forced-colors-status-icons.html">forced-colors-status-icons.md</a> — status-icon forced-colours fix</li>
 <li><a href="proposed/reports/svg-optimization-pilot.html">svg-optimization-pilot.md</a> — optimisation audit, cleanup batch and family pilots</li>
-<li><a href="proposed/reports/patch-gallery.html">patch-gallery.html</a> — full asset gallery with Auto/Image/Mask and forced-colours views</li>
+<li><a href="proposed/reports/dark-mode-currentcolor.html">dark-mode-currentcolor.md</a> — currentColor consumer audit and loader fix</li>
+<li><a href="http://127.0.0.1:8770/proposed/reports/patch-gallery.html">patch-gallery.html</a> — full asset gallery with Auto/Image/Mask and forced-colours views</li>
 <li><code>proposed/tests/checkmark_regression.py</code> — 6 tests</li>
 <li><code>proposed/tests/forced_colors_status_icons.py</code> — 3 tests</li>
 <li><code>proposed/interdiff-checkmark.patch</code> — checkmark dark disabled fix</li>
