@@ -12,6 +12,20 @@ This is a source/consumer audit, not a claim that every black thumbnail is a Dru
 | Inline currentColor | `menu.svg` | Included inline in `menu-local-task.html.twig`; `currentColor` inherits the surrounding text colour, so it is light in dark mode | **Not a bug**; the gallery’s Image mode shows it black, which is why it looked wrong |
 | Background `currentColor` | `loader.svg` | Used as `background-image` in `more-actions.pcss.css`; `currentColor` cannot inherit through a background image and resolves to black | **Confirmed dark-mode bug**; fixed in the proposed pseudo-element/mask patch |
 
+## White inverse pretints
+
+`pretint/check-inverse.svg`, `pretint/chevron-down-inverse.svg` and `pretint/remove-inverse.svg` are **white by design**. They disappear on a white preview plate, but that does not mean the files are missing.
+
+![Forced-light simulation showing the three inverse pretints on dark plates with labels](screens/forced-light-inverse.png)
+
+| Asset | Consumer | Forced-light behaviour |
+|---|---|---|
+| `check-inverse.svg` | Checked checkbox background, `form--checkbox-radio.pcss.css` | Forced colours sets `appearance: revert`, so the native checkbox is used; the white pretint is not the forced-light control |
+| `chevron-down-inverse.svg` | `.dark-mode` select, `form--select.pcss.css` | The forced-colours select rule removes `background-image` and uses the native arrow |
+| `remove-inverse.svg` | Dark mode and forced-dark media-library remove, `media-library-item.pcss.css` | Forced light uses the dark `remove` glyph; the inverse glyph is for dark/forced-dark surfaces. The `:active` rule also uses the inverse and should be checked in a real forced-light component |
+
+The gallery now detects `-inverse.svg`, renders these on a dark plate, and labels them **white inverse — dark surfaces**. It also labels them **no before counterpart** rather than “source changed”.
+
 ## Why the gallery showed them as black
 
 The gallery’s Image mode renders each SVG through an `<img>` element. An external SVG has no inherited `currentColor`, so the browser uses black. That is **not** how an inline SVG or a CSS mask behaves:
