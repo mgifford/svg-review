@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG property standard</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="high-use-optimization.html">High-use optimisation</a> · <a href="dark-mode-currentcolor.html">CurrentColor audit</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>SVG property standard and matrix</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG property standard</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="high-use-optimization.html">High-use</a> · <a href="over-300-optimization.html">Over 300</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>SVG property standard and matrix</h1>
 <p><strong>Scope:</strong> the <strong>74 after-side</strong> SVGs in <code>after/core/themes/default_admin/images</code>, plus the <strong>61</strong> kept in the proposed tree. “After-side” means the MR tree; “proposed” means our separate fixes/cleanup, not upstream. Before-side historical variants (194) are not part of this normalisation pass.</p>
 <p><strong>Matrix:</strong> <a href="svg-properties.html">svg-properties.html</a> — filter by family, paint model, proposal status and flags. The raw data is in <a href="svg-properties.json">svg-properties.json</a>; rendered-pixel metrics are in <a href="svg-visual-metrics.json">svg-visual-metrics.json</a>.</p>
 <h2>What the files look like now</h2>
@@ -14,7 +14,7 @@
 <tr>
 <td>Files / bytes</td>
 <td style="text-align: right;">74 / 41,981 B</td>
-<td>61 / 31,557 B</td>
+<td>61 / 28,661 B</td>
 </tr>
 <tr>
 <td>24×24 viewBox</td>
@@ -84,7 +84,7 @@
 <tr>
 <td>Path precision &gt;4 decimals</td>
 <td style="text-align: right;">17</td>
-<td>4</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
@@ -139,7 +139,7 @@
 <li><strong>Optical padding.</strong> The rendered matrix shows wide ranges: loader has 78.8% bottom padding, pager arrows 32.5% side padding, chevrons 26.9% cross-axis padding. Normalising these changes optical size, so each family needs a visual diff.</li>
 <li><strong>Stroke-weight exceptions.</strong> 2 and 3 are deliberate weight classes, not simply drift. Decide the class table before changing any icon.</li>
 <li><strong>Fill accents.</strong> Seven UI icons use <code>fill-opacity=".15"</code>; verify the accent is intentional across the family.</li>
-<li><strong>Path precision.</strong> 4 proposed files still have &gt;4 decimal places. Optimise only with per-file pixel gates, as with the required/status pilot.</li>
+<li><strong>Path precision.</strong> 1 proposed file still has &gt;4 decimal places (<code>back-to-site</code> uses a 5-decimal variant to preserve its pixels). Optimise only with per-file pixel gates, as with the required/status pilot.</li>
 <li><strong>Title/desc.</strong> Do <strong>not</strong> add blanket titles. These assets are decorative; the containing control supplies the accessible name. <code>menu.svg</code> is inline inside a button labelled “Tabs display toggle”.</li>
 </ol>
 <h2>Structural wins already in place</h2>
@@ -148,5 +148,5 @@
 <li>no IDs, external references, scripts or foreignObject</li>
 <li>duplicate file-type pairs are still present; deduplication is deferred</li>
 <li>all proposed SVGs are hidden from assistive technology</li>
-<li>14 unused assets recommended for removal (2 still pending); the cleanup is optional; <code>tabledrag-handle</code> dimensions corrected; high-use controls optimised</li>
+<li>14 unused assets recommended for removal (2 still pending); the cleanup is optional; <code>tabledrag-handle</code> dimensions corrected; high-use controls and every SVG over 300 bytes optimised</li>
 </ul></body></html>

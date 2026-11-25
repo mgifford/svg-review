@@ -1,13 +1,1 @@
-<svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M11 0L14 3V16H2V0H11Z" fill="#fff"/>
-  <path d="M11 0L14 3V16H2V0H11ZM3 15H13V4H10V1H3V15ZM11 3H12.5L11 1.5V3Z" fill="#7f7f7f"/>
-  <path d="M4 2H9V3H4V2Z" fill="#dadada"/>
-  <path d="M4 3H9V4H4V3Z" fill="#e0e0e0"/>
-  <path d="M4 4H9V5H4V4Z" fill="#ebebeb"/>
-  <path d="M4 5H12V6H4V5Z" fill="#eee"/>
-  <path d="M4 6H12V7H4V6Z" fill="#f5f5f5"/>
-  <path d="M4 7H12V8H4V7Z" fill="#f8f8f8"/>
-  <path d="M4 8H12V9H4V8Z" fill="#fcfcfc"/>
-  <path d="M4 2H9V4H4V2Z" fill="#0077c0"/>
-  <path d="M5 14H4V13H5V14ZM12 14H6V13H12V14ZM5 12H4V11H5V12ZM12 12H6V11H12V12ZM7 10H4V5H7V10ZM12 10H8V9H12V10ZM12 8H8V7H12V8ZM12 6H8V5H12V6Z" fill="#a8a8a8"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path fill="#fff" d="m11 0 3 3v13H2V0z"/><path fill="#7f7f7f" d="m11 0 3 3v13H2V0zM3 15h10V4h-3V1H3zm8-12h1.5L11 1.5z"/><path fill="#dadada" d="M4 2h5v1H4z"/><path fill="#e0e0e0" d="M4 3h5v1H4z"/><path fill="#ebebeb" d="M4 4h5v1H4z"/><path fill="#eee" d="M4 5h8v1H4z"/><path fill="#f5f5f5" d="M4 6h8v1H4z"/><path fill="#f8f8f8" d="M4 7h8v1H4z"/><path fill="#fcfcfc" d="M4 8h8v1H4z"/><path fill="#0077c0" d="M4 2h5v2H4z"/><path fill="#a8a8a8" d="M5 14H4v-1h1zm7 0H6v-1h6zm-7-2H4v-1h1zm7 0H6v-1h6zm-5-2H4V5h3zm5 0H8V9h4zm0-2H8V7h4zm0-2H8V5h4z"/></svg>

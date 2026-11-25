@@ -36,7 +36,7 @@ The same 4-decimal conversion was applied to the assets used repeatedly in admin
 | `logos/drupal` (supplied) | 1,260 | 1,235 | 25 |
 | `logos/php` (supplied) | 1,229 | 1,208 | 21 |
 
-**21 files / 562 bytes** saved before the compiled CSS pass.
+**21 files / 562 bytes** saved before the compiled CSS pass. The subsequent over-300 pass reduces these files further.
 
 Most importantly, the compiled `icons.css` inlines these as data URIs. It was regenerated from the source artwork and dropped from **28,725 to 27,233 bytes** (1,492 bytes) for this high-use pass. The after-side original compiled CSS was **40,615 bytes**; the current proposed one is **27,233 bytes** (33.0% smaller), including the earlier cleanup.
 
@@ -58,4 +58,4 @@ Most importantly, the compiled `icons.css` inlines these as data URIs. It was re
 - Patch: `proposed/interdiff-svg-high-use-optimization.patch`.
 - Pixel tests: `proposed/tests/svg_optimization_status_family.py` (status family), `proposed/tests/compiled_icons_test.py` (compiled/source artwork equivalence).
 - Source/compiled sync test: `proposed/tests/compiled_icons_test.py`.
-- Current totals: **31,557 SVG bytes** and **27,233 compiled icons.css bytes**.
+- Current totals after the over-300 pass: **28,661 SVG bytes** and **25,587 compiled icons.css bytes**.

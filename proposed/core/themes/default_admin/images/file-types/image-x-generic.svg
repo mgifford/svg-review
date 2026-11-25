@@ -1,14 +1,1 @@
-<svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M11 0L14 3V16H2V0H11Z" fill="#fff"/>
-  <path d="M11 0L14 3V16H2V0H11ZM3 15H13V4H10V1H3V15ZM11 3H12.5L11 1.5V3Z" fill="#7f7f7f"/>
-  <path d="M9 2V5H12V14H4V2H9Z" fill="#f3da4d"/>
-  <path d="M4 2H9V3H4V2Z" fill="#ecc747"/>
-  <path d="M4 3H9V4H4V3Z" fill="#f0d14a"/>
-  <path d="M4 7H12V10H4V7Z" fill="#f9e752"/>
-  <path d="M4 13H12V14H4V13Z" fill="#cc7b2b"/>
-  <path d="M4 12H12V13H4V12Z" fill="#d58f32"/>
-  <path d="M4 11H12V12H4V11Z" fill="#e3b33f"/>
-  <path d="M4 8H12V9H4V8Z" fill="#fef456"/>
-  <circle cx="6" cy="5" r="2" fill="#fff"/>
-  <path d="M6.27 7.39C6.29 6.80 7.22 5.98 8 6C8.66 6.02 9.49 6.78 9.49 6.78C9.49 6.78 10.34 6.02 11 6C11.79 5.98 12.54 6.89 12.54 7.39C12.54 7.88 11.99 6.67 11 6.94C9.93 7.22 9.49 8 9.49 8C9.49 8 9.05 7.10 8 6.94C6.84 6.76 6.26 7.97 6.27 7.39Z" fill="#756400"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" aria-hidden="true" focusable="false" viewBox="0 0 16 16"><path fill="#fff" d="m11 0 3 3v13H2V0z"/><path fill="#7f7f7f" d="m11 0 3 3v13H2V0zM3 15h10V4h-3V1H3zm8-12h1.5L11 1.5z"/><path fill="#f3da4d" d="M9 2v3h3v9H4V2z"/><path fill="#ecc747" d="M4 2h5v1H4z"/><path fill="#f0d14a" d="M4 3h5v1H4z"/><path fill="#f9e752" d="M4 7h8v3H4z"/><path fill="#cc7b2b" d="M4 13h8v1H4z"/><path fill="#d58f32" d="M4 12h8v1H4z"/><path fill="#e3b33f" d="M4 11h8v1H4z"/><path fill="#fef456" d="M4 8h8v1H4z"/><circle cx="6" cy="5" r="2" fill="#fff"/><path fill="#756400" d="M6.27 7.39C6.29 6.8 7.22 5.98 8 6c.66.02 1.49.78 1.49.78S10.34 6.02 11 6c.79-.02 1.54.89 1.54 1.39 0 .49-.55-.72-1.54-.45C9.93 7.22 9.49 8 9.49 8S9.05 7.1 8 6.94c-1.16-.18-1.74 1.03-1.73.45"/></svg>

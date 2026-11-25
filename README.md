@@ -71,6 +71,7 @@ git apply -p1 proposed/interdiff-svg-optimization-status-family.patch
 git apply -p1 proposed/interdiff-loader-currentcolor.patch
 git apply -p1 proposed/interdiff-svg-metadata-normalization.patch
 git apply -p1 proposed/interdiff-svg-high-use-optimization.patch
+git apply -p1 proposed/interdiff-svg-over-300-optimization.patch
 ```
 
 Each patch is small and independently reviewable. Nothing here has been pushed upstream or posted to the issue/MR.
@@ -100,10 +101,11 @@ The repository includes only the **changed-file fixture subset** needed by these
   - status-report icons disappearing in forced colours
   - 14 unused assets recommended for removal (optional cleanup; also reflected in the proposed tree)
   - 4-decimal optimisation of `required.svg` and five status icons
-- Optimisation result: after-side **74 files / 41,981 bytes → 61 files / 31,557 bytes**, a **24.8% reduction**; compiled `icons.css` is **40,615 → 27,233 bytes** (net of the new check-disabled-inverse pretint).
+- Optimisation result: after-side **74 files / 41,981 bytes → 61 files / 28,661 bytes**, a **31.7% reduction**; compiled `icons.css` is **40,615 → 25,587 bytes** (37.0%) (net of the new check-disabled-inverse pretint).
 - CurrentColor audit: unused icons have no dark-mode rendering; `menu.svg` is inline and inherits, while the sticky loader was a real `background-image: currentColor` bug and now uses a currentColor mask.
 - The asset gallery defaults to a checkerboard, outlines the AFTER thumbnail, and exposes per-asset byte sizes, zoom and uncompressed source diffs.
 - High-use controls (menu/hamburger, chevrons, pager, checks, close/plus, sort, loader and tabledrag) were separately optimised after pixel checks; the supplied hamburger is pixel-identical and the logos are exact at UI sizes.
+- Every proposed SVG over 300 bytes was then attempted: 38 of 39 adopted, 2,896 bytes saved; `help.svg` was skipped because rounding changed visible pixels.
 - The property matrix audits all 74 after-side SVGs for viewBox, dimensions, paint, stroke class, metadata, IDs, precision and rendered padding/ink; all 61 proposed SVGs now have consistent decorative ARIA metadata.
 - `tabledrag-handle.svg` was corrected from 17×17 to 16×16; file types, pretints and logos are deliberately kept as separate families.
 

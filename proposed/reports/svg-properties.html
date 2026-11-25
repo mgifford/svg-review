@@ -2,12 +2,12 @@
 <style>body{max-width:1600px;margin:auto;padding:1.2rem;font:15px/1.45 system-ui,sans-serif;background:#f4f6f8;color:#17191d}h1{margin:.2rem 0}h2{margin-top:1.4rem}a{color:#0b57d0}code{font-size:.82em}.stats{display:flex;gap:.5rem;flex-wrap:wrap;margin:.8rem 0}.stat{background:#fff;border:1px solid #c9ccd4;border-radius:.4rem;padding:.45rem .7rem;font-size:.8rem}.stat b{display:block;font-size:1.1rem}.bar{display:flex;gap:.6rem;flex-wrap:wrap;margin:.8rem 0;position:sticky;top:0;background:#f4f6f8;padding:.4rem 0;z-index:2}input,select{font:inherit;padding:.35rem .5rem;border:1px solid #aab;border-radius:.3rem;background:#fff}.tablewrap{overflow:auto;background:#fff;border:1px solid #c9ccd4;border-radius:.4rem}table{border-collapse:collapse;width:100%;min-width:1550px}caption{text-align:left;padding:.6rem;color:#555}th,td{border-bottom:1px solid #dfe1e6;padding:.32rem .45rem;text-align:left;vertical-align:top;font-size:.78rem}th{background:#eef1f5;position:sticky;top:0}tr.warn td{background:#fff5f5}td code{overflow-wrap:anywhere}.targets table{min-width:0}footer{margin-top:1.5rem;color:#555;font-size:.85rem}</style></head><body>
 <h1>SVG structural and visual property matrix</h1>
 <p><strong>After-side</strong> is the MR !16166 tree. <strong>Proposed</strong> is our separate fixes/cleanup working copy, not upstream. <strong>Recommended removal (unused)</strong> means the MR keeps the file but we found no CSS/template/JS consumer and recommend deleting it in the proposed cleanup; it is not an MR deletion.</p><p>After-side and proposed SVGs in <code>default_admin/images</code>. The matrix is generated from the committed SVG files; the visual columns come from rasterising each SVG on a transparent canvas at 160px. Padding and centre offsets are percentages of the viewBox, not component sizes.</p>
-<p><strong>Baseline:</strong> 74 after-side SVGs, 41,981 bytes. <strong>Proposed:</strong> 61 SVGs, 31,557 bytes. 14 after assets are recommended for removal in the proposed cleanup because no consumer was found; the cleanup is optional.</p>
+<p><strong>Baseline:</strong> 74 after-side SVGs, 41,981 bytes. <strong>Proposed:</strong> 61 SVGs, 28,661 bytes. 14 after assets are recommended for removal in the proposed cleanup because no consumer was found; the cleanup is optional.</p>
 <div class="stats">
 <div class="stat"><b>74</b>after-side files</div>
 <div class="stat"><b>41,981</b>after bytes</div>
 <div class="stat"><b>61</b>proposed files</div>
-<div class="stat"><b>31,557</b>proposed bytes</div>
+<div class="stat"><b>28,661</b>proposed bytes</div>
 <div class="stat"><b>14</b>with aria-hidden</div>
 <div class="stat"><b>17</b>with >4 decimals</div>
 </div>

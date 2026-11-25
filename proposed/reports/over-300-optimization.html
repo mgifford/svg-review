@@ -1,0 +1,302 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Over-300 SVG optimisation</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="high-use-optimization.html">High-use</a> · <a href="svg-property-standard.html">Standard</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>Optimisation of every proposed SVG over 300 bytes</h1>
+<p><strong>Scope:</strong> all <strong>39</strong> proposed SVGs above 300 bytes. This is the broad pass; files at or below 300 bytes were not touched.</p>
+<h2>Result</h2>
+<ul>
+<li>39 files: <strong>26,048 → 23,152 bytes</strong></li>
+<li><strong>2,896 bytes saved</strong> on the over-300 set</li>
+<li><strong>38 of 39</strong> files adopted</li>
+<li><strong>1 skipped</strong>: <code>icons/help.svg</code> — path rounding changed 3 pixels at 24px and 2 at 32px; not acceptable without a design review</li>
+<li>compiled <code>icons.css</code>: <strong>27,233 → 25,587 bytes</strong> (1,646 bytes) for this pass</li>
+<li>final proposed SVG total: <strong>28,661 bytes</strong></li>
+<li>final compiled <code>icons.css</code>: <strong>25,587 bytes</strong></li>
+</ul>
+<h2>Applied, with pixel exceptions</h2>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th style="text-align: right;">Before</th>
+<th style="text-align: right;">After</th>
+<th style="text-align: right;">Saving</th>
+<th>Pixel result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>toggle-unchecked</code></td>
+<td style="text-align: right;">1,297</td>
+<td style="text-align: right;">657</td>
+<td style="text-align: right;">640</td>
+<td>identical 16–64; 2 edge pixels at 192</td>
+</tr>
+<tr>
+<td><code>file-types/text-x-script</code></td>
+<td style="text-align: right;">1,012</td>
+<td style="text-align: right;">838</td>
+<td style="text-align: right;">174</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/image-x-generic</code></td>
+<td style="text-align: right;">951</td>
+<td style="text-align: right;">827</td>
+<td style="text-align: right;">124</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/application-pdf</code></td>
+<td style="text-align: right;">838</td>
+<td style="text-align: right;">716</td>
+<td style="text-align: right;">122</td>
+<td>identical 16–64; 1 edge pixel at 192</td>
+</tr>
+<tr>
+<td><code>file-types/text-plain</code></td>
+<td style="text-align: right;">964</td>
+<td style="text-align: right;">847</td>
+<td style="text-align: right;">117</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/text-x-generic</code></td>
+<td style="text-align: right;">964</td>
+<td style="text-align: right;">847</td>
+<td style="text-align: right;">117</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/package-x-generic</code></td>
+<td style="text-align: right;">872</td>
+<td style="text-align: right;">766</td>
+<td style="text-align: right;">106</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/x-office-document</code></td>
+<td style="text-align: right;">785</td>
+<td style="text-align: right;">682</td>
+<td style="text-align: right;">103</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/text-html</code></td>
+<td style="text-align: right;">761</td>
+<td style="text-align: right;">660</td>
+<td style="text-align: right;">101</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/x-office-spreadsheet</code></td>
+<td style="text-align: right;">792</td>
+<td style="text-align: right;">694</td>
+<td style="text-align: right;">98</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/drag</code></td>
+<td style="text-align: right;">519</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">89</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/x-office-presentation</code></td>
+<td style="text-align: right;">751</td>
+<td style="text-align: right;">662</td>
+<td style="text-align: right;">89</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/video-x-generic</code></td>
+<td style="text-align: right;">775</td>
+<td style="text-align: right;">691</td>
+<td style="text-align: right;">84</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/back-to-site</code></td>
+<td style="text-align: right;">375</td>
+<td style="text-align: right;">324</td>
+<td style="text-align: right;">51</td>
+<td>5-decimal variant: identical 16–42; 14 edge pixels at 64</td>
+</tr>
+<tr>
+<td><code>icons/cog</code></td>
+<td style="text-align: right;">1,059</td>
+<td style="text-align: right;">976</td>
+<td style="text-align: right;">83</td>
+<td>identical 16/24/32/64/192; 1 pixel at 42</td>
+</tr>
+<tr>
+<td><code>file-types/audio-x-generic</code></td>
+<td style="text-align: right;">846</td>
+<td style="text-align: right;">763</td>
+<td style="text-align: right;">83</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/application-octet-stream</code></td>
+<td style="text-align: right;">582</td>
+<td style="text-align: right;">522</td>
+<td style="text-align: right;">60</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>file-types/application-x-executable</code></td>
+<td style="text-align: right;">582</td>
+<td style="text-align: right;">522</td>
+<td style="text-align: right;">60</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/search</code></td>
+<td style="text-align: right;">382</td>
+<td style="text-align: right;">315</td>
+<td style="text-align: right;">67</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/trash</code></td>
+<td style="text-align: right;">465</td>
+<td style="text-align: right;">404</td>
+<td style="text-align: right;">61</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/grid</code></td>
+<td style="text-align: right;">424</td>
+<td style="text-align: right;">373</td>
+<td style="text-align: right;">51</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/sidebar</code></td>
+<td style="text-align: right;">444</td>
+<td style="text-align: right;">393</td>
+<td style="text-align: right;">51</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/drag-y</code></td>
+<td style="text-align: right;">369</td>
+<td style="text-align: right;">321</td>
+<td style="text-align: right;">48</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/warning</code></td>
+<td style="text-align: right;">425</td>
+<td style="text-align: right;">382</td>
+<td style="text-align: right;">43</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/hide</code></td>
+<td style="text-align: right;">467</td>
+<td style="text-align: right;">430</td>
+<td style="text-align: right;">37</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/status</code></td>
+<td style="text-align: right;">333</td>
+<td style="text-align: right;">299</td>
+<td style="text-align: right;">34</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/show</code></td>
+<td style="text-align: right;">327</td>
+<td style="text-align: right;">295</td>
+<td style="text-align: right;">32</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/error</code></td>
+<td style="text-align: right;">324</td>
+<td style="text-align: right;">293</td>
+<td style="text-align: right;">31</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/info</code></td>
+<td style="text-align: right;">303</td>
+<td style="text-align: right;">273</td>
+<td style="text-align: right;">30</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/key</code></td>
+<td style="text-align: right;">517</td>
+<td style="text-align: right;">498</td>
+<td style="text-align: right;">19</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/list</code></td>
+<td style="text-align: right;">512</td>
+<td style="text-align: right;">439</td>
+<td style="text-align: right;">73</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/menu</code></td>
+<td style="text-align: right;">448</td>
+<td style="text-align: right;">438</td>
+<td style="text-align: right;">10</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>logos/drupal</code></td>
+<td style="text-align: right;">1,235</td>
+<td style="text-align: right;">1,230</td>
+<td style="text-align: right;">5</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>logos/php</code></td>
+<td style="text-align: right;">1,208</td>
+<td style="text-align: right;">1,205</td>
+<td style="text-align: right;">3</td>
+<td>identical 16–192</td>
+</tr>
+<tr>
+<td><code>icons/database</code></td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">0</td>
+<td>already at the precision floor</td>
+</tr>
+<tr>
+<td><code>icons/required</code></td>
+<td style="text-align: right;">957</td>
+<td style="text-align: right;">957</td>
+<td style="text-align: right;">0</td>
+<td>already at the precision floor</td>
+</tr>
+<tr>
+<td><code>icons/server</code></td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">401</td>
+<td style="text-align: right;">0</td>
+<td>already at the precision floor</td>
+</tr>
+<tr>
+<td><code>icons/tabledrag-handle</code></td>
+<td style="text-align: right;">811</td>
+<td style="text-align: right;">811</td>
+<td style="text-align: right;">0</td>
+<td>already at the precision floor</td>
+</tr>
+</tbody>
+</table>
+<p><code>icons/help.svg</code> remains <strong>628 bytes</strong> and is deliberately not optimised.</p>
+<h2>Method</h2>
+<ul>
+<li>SVGO 3.3.5, 4-decimal path data, no path merging, no shape conversion, no viewBox removal, no ID cleanup, no title/description/metadata removal, no colour conversion.</li>
+<li>ARIA/viewBox restored after optimisation.</li>
+<li>Pixel comparison at 16, 24, 32, 42, 64 and 192px.</li>
+<li>Compiled <code>icons.css</code> data URIs re-synced from every source SVG; <code>compiled_icons_test.py</code> verifies source/compiled artwork equivalence.</li>
+</ul>
+<p>Patch: <code>proposed/interdiff-svg-over-300-optimization.patch</code>.</p>
+<p>This pass does not normalise stroke weight, optical padding or path geometry; those remain separate visual decisions.</p></body></html>

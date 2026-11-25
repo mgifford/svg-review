@@ -216,7 +216,7 @@ Rules:
 8. Do not optimise tiny files where the gain is negligible and review noise is high.
 9. Do not optimise pretints until their mode/state table is final.
 
-**Result so far:** after-side 74 files / 41,981 bytes → proposed 61 files / 31,557 bytes, a **24.8% reduction**; compiled `icons.css` 40,615 → 27,233 bytes, including the 14-file cleanup, the required/status pilots, and the new `check-disabled-inverse.svg`.
+**Result so far:** after-side 74 files / 41,981 bytes → proposed 61 files / 28,661 bytes, a **31.7% reduction**; compiled `icons.css` 40,615 → 25,587 bytes, including the 14-file cleanup, the required/status pilots, and the new `check-disabled-inverse.svg`.
 
 Reports: `proposed/reports/svg-optimization-pilot.md`.
 Patches: `proposed/interdiff-svg-cleanup.patch`, `proposed/interdiff-svg-optimization-required.patch`, `proposed/interdiff-svg-optimization-status-family.patch`.
