@@ -41,6 +41,7 @@
 <main>
   <h1>Disabled checkbox checkmark — visual review</h1>
   <p class="lede">Actual Drupal 12 lab rendering at <code>/admin/people/permissions</code>, 21×21 CSS px. MR head <code>fe4adb4</code> vs proposed dark-mode fix. Images are enlarged 10× with nearest-neighbour scaling so individual pixels stay visible.</p>
+  <p class="note"><strong>Scope:</strong> this page only reviews the disabled-checkmark fix. For the full before/after list, byte sizes and uncompressed source diffs, open the <a href="patch-gallery.html">asset gallery</a>.</p>
 
   <div class="toolbar" role="group" aria-label="Colour mode">
     <button type="button" data-mode="light" aria-pressed="false">Light</button>
@@ -131,8 +132,8 @@
   <p class="note">Disabled controls are exempt from WCAG 2.2 SC 1.4.11. This is a measurable state-visibility regression and a low-risk improvement, not a WCAG-failure claim.</p>
 
   <footer>
-    <p>Live site tested: <span>local Drupal 12 lab, not publicly hosted</span> (the live site is restored to baseline; these are the captured test states).</p>
-    <p>Full evidence: <a href="checkmark-evidence.html">checkmark-evidence.html</a> · <a href="checkmark-evidence.json">checkmark-evidence.json</a> · <a href="../interdiff-checkmark.patch">interdiff-checkmark.patch</a></p>
+    <p>Live site tested: <a href="https://repro-baseline-main.ddev.site/admin/people/permissions">repro-baseline-main.ddev.site/admin/people/permissions</a> (the live site is restored to baseline; these are the captured test states).</p>
+    <p>Full evidence: <a href="checkmark-evidence.md">checkmark-evidence.md</a> · <a href="checkmark-evidence.json">checkmark-evidence.json</a> · <a href="../interdiff-checkmark.patch">interdiff-checkmark.patch</a></p>
   </footer>
 </main>
 <script>
