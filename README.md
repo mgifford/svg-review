@@ -13,6 +13,7 @@ This is a **draft review lab**, not an official Drupal repository, not an upstre
 
 | Path | Contents |
 |---|---|
+| `HANDOFF.md` / `.html` | Verified/unverified split, patch order and release status |
 | `SVG-IMPROVEMENT-PLAN.md` | Prioritised plan for missing assets, dark mode, forced colours, WCAG 2.2 AA, testing and optimisation |
 | `reconciliation.md` / `.json` | Checkmark-family dispositions and evidence |
 | `CODE-REVIEW.md` | Review of the SVG Review Lab tooling |
