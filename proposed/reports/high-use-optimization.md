@@ -40,6 +40,12 @@ The same 4-decimal conversion was applied to the assets used repeatedly in admin
 
 Most importantly, the compiled `icons.css` inlines these as data URIs. It was regenerated from the source artwork and dropped from **28,725 to 27,233 bytes** (1,492 bytes) for this high-use pass. The after-side original compiled CSS was **40,615 bytes**; the current proposed one is **27,233 bytes** (33.0% smaller), including the earlier cleanup.
 
+### Menu/hamburger: what “smaller” means
+
+The supplied hamburger path **is** used for `images/icons/menu.svg`. The raw supplied file is 390 B, but it had no `viewBox`. Restoring the required `viewBox` and decorative ARIA makes it 438 B. The MR’s 421 B after-side file has no ARIA, so it is smaller as a standalone file.
+
+The served CSS is different: the compiled hamburger data URI is **432 B** in the proposed CSS versus **451 B** in the after-side CSS. The gallery’s 421 B value is the MR after-side file, not the proposed optimised source. If raw file bytes were the only goal, dropping the legacy `focusable="false"` would make the proposed menu 419 B, but that would break the metadata consistency applied to the rest of the set.
+
 ## What changed
 
 - supplied hamburger mapped to `icons/menu.svg`;

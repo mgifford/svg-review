@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>High-use SVG optimisation</title><style>body{max-width:1000px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="svg-property-standard.html">Standard</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>High-use SVG optimisation</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>High-use SVG optimisation</title><style>body{max-width:1000px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="high-use-optimization.html">High-use</a> · <a href="over-300-optimization.html">Over 300</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>High-use SVG optimisation</h1>
 <p>The supplied <code>hamburger.svg</code>, <code>drupal.svg</code> and <code>php.svg</code> were a good starting point, but all three had lost structural metadata:</p>
 <ul>
 <li>hamburger: no <code>viewBox</code></li>
@@ -146,8 +146,11 @@
 </tr>
 </tbody>
 </table>
-<p><strong>21 files / 562 bytes</strong> saved before the compiled CSS pass.</p>
+<p><strong>21 files / 562 bytes</strong> saved before the compiled CSS pass. The subsequent over-300 pass reduces these files further.</p>
 <p>Most importantly, the compiled <code>icons.css</code> inlines these as data URIs. It was regenerated from the source artwork and dropped from <strong>28,725 to 27,233 bytes</strong> (1,492 bytes) for this high-use pass. The after-side original compiled CSS was <strong>40,615 bytes</strong>; the current proposed one is <strong>27,233 bytes</strong> (33.0% smaller), including the earlier cleanup.</p>
+<h3>Menu/hamburger: what “smaller” means</h3>
+<p>The supplied hamburger path <strong>is</strong> used for <code>images/icons/menu.svg</code>. The raw supplied file is 390 B, but it had no <code>viewBox</code>. Restoring the required <code>viewBox</code> and decorative ARIA makes it 438 B. The MR’s 421 B after-side file has no ARIA, so it is smaller as a standalone file.</p>
+<p>The served CSS is different: the compiled hamburger data URI is <strong>432 B</strong> in the proposed CSS versus <strong>451 B</strong> in the after-side CSS. The gallery’s 421 B value is the MR after-side file, not the proposed optimised source. If raw file bytes were the only goal, dropping the legacy <code>focusable="false"</code> would make the proposed menu 419 B, but that would break the metadata consistency applied to the rest of the set.</p>
 <h2>What changed</h2>
 <ul>
 <li>supplied hamburger mapped to <code>icons/menu.svg</code>;</li>
@@ -166,5 +169,5 @@
 <li>Patch: <code>proposed/interdiff-svg-high-use-optimization.patch</code>.</li>
 <li>Pixel tests: <code>proposed/tests/svg_optimization_status_family.py</code> (status family), <code>proposed/tests/compiled_icons_test.py</code> (compiled/source artwork equivalence).</li>
 <li>Source/compiled sync test: <code>proposed/tests/compiled_icons_test.py</code>.</li>
-<li>Current totals: <strong>31,557 SVG bytes</strong> and <strong>27,233 compiled icons.css bytes</strong>.</li>
+<li>Current totals after the over-300 pass: <strong>28,661 SVG bytes</strong> and <strong>25,587 compiled icons.css bytes</strong>.</li>
 </ul></body></html>
