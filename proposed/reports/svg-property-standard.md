@@ -1,6 +1,6 @@
 # SVG property standard and matrix
 
-**Scope:** the **74 after-side** SVGs in `after/core/themes/default_admin/images`, plus the **61** kept in the proposed tree. Before-side historical variants (194) are not part of this normalisation pass.
+**Scope:** the **74 after-side** SVGs in `after/core/themes/default_admin/images`, plus the **61** kept in the proposed tree. “After-side” means the MR tree; “proposed” means our separate fixes/cleanup, not upstream. Before-side historical variants (194) are not part of this normalisation pass.
 
 **Matrix:** [svg-properties.html](svg-properties.html) — filter by family, paint model, proposal status and flags. The raw data is in [svg-properties.json](svg-properties.json); rendered-pixel metrics are in [svg-visual-metrics.json](svg-visual-metrics.json).
 
@@ -88,4 +88,4 @@ All checks pass.
 - no IDs, external references, scripts or foreignObject
 - duplicate file-type pairs are still present; deduplication is deferred
 - all proposed SVGs are hidden from assistive technology
-- 14 unused assets removed (2 still pending); `tabledrag-handle` dimensions corrected
+- 14 unused assets recommended for removal (2 still pending); the cleanup is optional; `tabledrag-handle` dimensions corrected

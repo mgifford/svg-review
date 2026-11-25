@@ -383,7 +383,7 @@
 <li><strong>Background image</strong> currentColor icon: unsafe; use a mask/pseudo-element, an inline SVG, or a tested mode-specific pretint.</li>
 <li><strong>Unused</strong> currentColor icon: no dark-mode rendering exists. Remove it or attach it to a real component; do not treat its black <code>&lt;img&gt;</code> thumbnail as a component failure.</li>
 </ol>
-<p>The unused after assets were removed in the proposed cleanup. <code>menu.svg</code> is inline and inherits correctly. <code>loader.svg</code> was used as a <code>background-image</code> in the sticky form actions; the proposed fix draws it through a pseudo-element with <code>background-color: currentColor</code> and a mask, with a reduced-motion fallback. See <code>proposed/reports/dark-mode-currentcolor.md</code>, <code>proposed/interdiff-loader-currentcolor.patch</code> and <code>proposed/tests/loader_dark_test.py</code>.</p>
+<p>The unused after assets are recommended for removal; the proposed working tree removes them. This is optional cleanup, not an MR deletion. <code>menu.svg</code> is inline and inherits correctly. <code>loader.svg</code> was used as a <code>background-image</code> in the sticky form actions; the proposed fix draws it through a pseudo-element with <code>background-color: currentColor</code> and a mask, with a reduced-motion fallback. See <code>proposed/reports/dark-mode-currentcolor.md</code>, <code>proposed/interdiff-loader-currentcolor.patch</code> and <code>proposed/tests/loader_dark_test.py</code>.</p>
 <h3>4.3 SVG optimisation</h3>
 <p>Optimisation is a <strong>separate, later phase</strong>. Do not mix path rewriting with correctness fixes.</p>
 <p>Baseline: <strong>74 files / 41,981 bytes</strong>. The measured opportunity is:</p>
@@ -398,10 +398,10 @@
 </thead>
 <tbody>
 <tr>
-<td>14 unused after-side assets (removed)</td>
+<td>14 unused after-side assets (recommended removal)</td>
 <td style="text-align: right;">11,068</td>
 <td style="text-align: right;">26.4%</td>
-<td>Deleted; 2 remaining pending decisions</td>
+<td>Optional cleanup; 2 remaining pending decisions</td>
 </tr>
 <tr>
 <td>Two identical file-type pairs</td>
@@ -690,7 +690,7 @@ Tests: <code>proposed/tests/svg_cleanup_test.py</code>, <code>svg_optimization_p
 </ol>
 <h3>Phase D — cleanup and accessibility (P2)</h3>
 <ol>
-<li>Remove or justify the remaining unused assets. 14 removed (11,068 bytes); <code>search</code> and <code>chevron-left</code> remain pending.</li>
+<li>Remove or justify the remaining unused assets. 14 are recommended for removal (11,068 bytes); <code>search</code> and <code>chevron-left</code> remain pending.</li>
 <li>Add <code>aria-hidden</code>/<code>focusable</code> to inline decorative SVGs.</li>
 <li>Test icon-only controls for names, focus, target size (24px) and state.</li>
 <li>Add RTL and reduced-motion cases for directional spinners/toggles.</li>

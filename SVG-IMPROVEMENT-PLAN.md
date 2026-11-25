@@ -180,7 +180,7 @@ Rules:
 2. **Background image** currentColor icon: unsafe; use a mask/pseudo-element, an inline SVG, or a tested mode-specific pretint.
 3. **Unused** currentColor icon: no dark-mode rendering exists. Remove it or attach it to a real component; do not treat its black `<img>` thumbnail as a component failure.
 
-The unused after assets were removed in the proposed cleanup. `menu.svg` is inline and inherits correctly. `loader.svg` was used as a `background-image` in the sticky form actions; the proposed fix draws it through a pseudo-element with `background-color: currentColor` and a mask, with a reduced-motion fallback. See `proposed/reports/dark-mode-currentcolor.md`, `proposed/interdiff-loader-currentcolor.patch` and `proposed/tests/loader_dark_test.py`.
+The unused after assets are recommended for removal; the proposed working tree removes them. This is optional cleanup, not an MR deletion. `menu.svg` is inline and inherits correctly. `loader.svg` was used as a `background-image` in the sticky form actions; the proposed fix draws it through a pseudo-element with `background-color: currentColor` and a mask, with a reduced-motion fallback. See `proposed/reports/dark-mode-currentcolor.md`, `proposed/interdiff-loader-currentcolor.patch` and `proposed/tests/loader_dark_test.py`.
 
 ### 4.3 SVG optimisation
 
@@ -190,7 +190,7 @@ Baseline: **74 files / 41,981 bytes**. The measured opportunity is:
 
 | Item | Bytes | Share | Risk |
 |---|---:|---:|---|
-| 14 unused after-side assets (removed) | 11,068 | 26.4% | Deleted; 2 remaining pending decisions |
+| 14 unused after-side assets (recommended removal) | 11,068 | 26.4% | Optional cleanup; 2 remaining pending decisions |
 | Two identical file-type pairs | 1,546 redundant | 3.7% | Deferred: compiled CSS inlines both data URIs; source deletion alone does not reduce served CSS |
 | Whitespace/comments between tags | 1,411 | 3.4% | Deferred: low value and high review noise |
 | SVGO 4-decimal path conversion, all 74 | 9,214 | 21.9% | Family pilot only: required + five status icons applied |
@@ -302,7 +302,7 @@ Legend: ✅ tested, ❌ missing/broken, ⚠️ needs verification.
 
 ### Phase D — cleanup and accessibility (P2)
 
-1. Remove or justify the remaining unused assets. 14 removed (11,068 bytes); `search` and `chevron-left` remain pending.
+1. Remove or justify the remaining unused assets. 14 are recommended for removal (11,068 bytes); `search` and `chevron-left` remain pending.
 2. Add `aria-hidden`/`focusable` to inline decorative SVGs.
 3. Test icon-only controls for names, focus, target size (24px) and state.
 4. Add RTL and reduced-motion cases for directional spinners/toggles.

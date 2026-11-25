@@ -24,6 +24,15 @@ This is a **draft review lab**, not an official Drupal repository, not an upstre
 | `review.html` | Interactive SVG inventory generated from the pinned snapshots |
 | `after/` / `proposed/` | **Test fixtures only** — not full Drupal themes; see below |
 
+## Reading “after”, “proposed” and “removed”
+
+- **After-side** — the MR !16166 tree: the files the patch actually adds or keeps.
+- **Proposed** — our separate fixes/cleanup working copy, not upstream.
+- **Unused — proposed removal** — the MR keeps the file, but we found no CSS, template or JS consumer in the after tree. Our cleanup recommends deleting it; this is **not** an MR deletion and the cleanup is optional.
+- **No after asset** — an original file has no counterpart in the MR at all.
+
+The 14 assets currently recommended for removal are `appearance`, `blocks`, `bookmarks`, `content`, `files`, `media`, `nav-toggle-left`, `nav-toggle-top`, `people`, `reports`, `structure`, `user`, `pretint/chevron-down-default` and `pretint/remove-default`. `search` and `chevron-left` are also unused but remain pending a decision.
+
 ## Quick start
 
 ### Static review
@@ -85,7 +94,7 @@ The repository includes only the **changed-file fixture subset** needed by these
 - Confirmed fixes included here:
   - dark-mode disabled checkbox contrast (`2.85:1 → 5.85:1`)
   - status-report icons disappearing in forced colours
-  - 14 unused assets removed
+  - 14 unused assets recommended for removal (optional cleanup; also reflected in the proposed tree)
   - 4-decimal optimisation of `required.svg` and five status icons
 - Optimisation result: after-side **74 files / 41,981 bytes → 61 files / 32,119 bytes**, a **23.5% reduction** (net of the new check-disabled-inverse pretint).
 - CurrentColor audit: unused icons have no dark-mode rendering; `menu.svg` is inline and inherits, while the sticky loader was a real `background-image: currentColor` bug and now uses a currentColor mask.

@@ -58,6 +58,14 @@
 </tr>
 </tbody>
 </table>
+<h2>Reading “after”, “proposed” and “removed”</h2>
+<ul>
+<li><strong>After-side</strong> — the MR !16166 tree: the files the patch actually adds or keeps.</li>
+<li><strong>Proposed</strong> — our separate fixes/cleanup working copy, not upstream.</li>
+<li><strong>Unused — proposed removal</strong> — the MR keeps the file, but we found no CSS, template or JS consumer in the after tree. Our cleanup recommends deleting it; this is <strong>not</strong> an MR deletion and the cleanup is optional.</li>
+<li><strong>No after asset</strong> — an original file has no counterpart in the MR at all.</li>
+</ul>
+<p>The 14 assets currently recommended for removal are <code>appearance</code>, <code>blocks</code>, <code>bookmarks</code>, <code>content</code>, <code>files</code>, <code>media</code>, <code>nav-toggle-left</code>, <code>nav-toggle-top</code>, <code>people</code>, <code>reports</code>, <code>structure</code>, <code>user</code>, <code>pretint/chevron-down-default</code> and <code>pretint/remove-default</code>. <code>search</code> and <code>chevron-left</code> are also unused but remain pending a decision.</p>
 <h2>Quick start</h2>
 <h3>Static review</h3>
 <pre><code class="language-sh">python3 -m http.server 8770 --bind 127.0.0.1
@@ -100,7 +108,7 @@ python3 proposed/tests/svg_properties_test.py
 <li>Confirmed fixes included here:</li>
 <li>dark-mode disabled checkbox contrast (<code>2.85:1 → 5.85:1</code>)</li>
 <li>status-report icons disappearing in forced colours</li>
-<li>14 unused assets removed</li>
+<li>14 unused assets recommended for removal (optional cleanup; also reflected in the proposed tree)</li>
 <li>4-decimal optimisation of <code>required.svg</code> and five status icons</li>
 <li>Optimisation result: after-side <strong>74 files / 41,981 bytes → 61 files / 32,119 bytes</strong>, a <strong>23.5% reduction</strong> (net of the new check-disabled-inverse pretint).</li>
 <li>CurrentColor audit: unused icons have no dark-mode rendering; <code>menu.svg</code> is inline and inherits, while the sticky loader was a real <code>background-image: currentColor</code> bug and now uses a currentColor mask.</li>
