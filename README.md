@@ -109,6 +109,8 @@ The repository includes only the **changed-file fixture subset** needed by these
 - The property matrix audits all 74 after-side SVGs for viewBox, dimensions, paint, stroke class, metadata, IDs, precision and rendered padding/ink; all 61 proposed SVGs now have consistent decorative ARIA metadata.
 - `tabledrag-handle.svg` was corrected from 17×17 to 16×16; file types, pretints and logos are deliberately kept as separate families.
 
+Apply the over-300 optimisation patch **after** the metadata and high-use patches so the compiled `icons.css` data URIs stay in sync.
+
 ## Limits
 
 - No full Drupal install with the complete MR theme was used. The live component tests used a local Drupal 12 baseline theme with relevant files/CSS applied surgically, then restored exactly.

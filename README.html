@@ -122,6 +122,7 @@ python3 proposed/tests/compiled_icons_test.py
 <li>The property matrix audits all 74 after-side SVGs for viewBox, dimensions, paint, stroke class, metadata, IDs, precision and rendered padding/ink; all 61 proposed SVGs now have consistent decorative ARIA metadata.</li>
 <li><code>tabledrag-handle.svg</code> was corrected from 17×17 to 16×16; file types, pretints and logos are deliberately kept as separate families.</li>
 </ul>
+<p>Apply the over-300 optimisation patch <strong>after</strong> the metadata and high-use patches so the compiled <code>icons.css</code> data URIs stay in sync.</p>
 <h2>Limits</h2>
 <ul>
 <li>No full Drupal install with the complete MR theme was used. The live component tests used a local Drupal 12 baseline theme with relevant files/CSS applied surgically, then restored exactly.</li>
