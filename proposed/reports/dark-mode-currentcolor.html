@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>dark mode currentcolor</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="../..index.html">Home</a> · <a href="../..proposed/reports/patch-gallery.html">All assets</a> · <a href="../..proposed/reports/visual-review.html">Visual review</a> · <a href="../..SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="../..reconciliation.html">Dispositions</a> · <a href="../..CODE-REVIEW.html">Lab review</a></nav><h1>CurrentColor icons in dark mode — the 18 assets you flagged</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CurrentColor dark-mode audit</title><style>body{max-width:1000px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="visual-review.html">Checkmark review</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>CurrentColor icons in dark mode — the 18 assets you flagged</h1>
 <p><strong>Scope:</strong> <code>appearance</code>, <code>blocks</code>, <code>bookmarks</code>, <code>chevron-left</code>, <code>content</code>, <code>files</code>, <code>loader</code>, <code>media</code>, <code>menu</code>, <code>nav-toggle-left</code>, <code>nav-toggle-top</code>, <code>people</code>, <code>reports</code>, <code>search</code>, <code>structure</code>, <code>user</code>, <code>pretint/chevron-down-default</code>, <code>pretint/remove-default</code>.</p>
 <p>This is a source/consumer audit, not a claim that every black thumbnail is a Drupal failure.</p>
 <h2>Verdict summary</h2>
@@ -14,15 +14,9 @@
 <tbody>
 <tr>
 <td>Unused after assets</td>
-<td>14</td>
+<td>16: the 14 named module/toolbar icons plus <code>pretint/chevron-down-default</code> and <code>pretint/remove-default</code></td>
 <td>No Drupal consumer. As an <code>&lt;img&gt;</code>/<code>background-image</code>, <code>currentColor</code> resolves to black; as a mask/inline SVG it would inherit the text colour.</td>
-<td><strong>Removed in the proposed cleanup</strong>; not a component regression in the MR</td>
-</tr>
-<tr>
-<td>Unused, still pending</td>
-<td><code>search</code>, <code>chevron-left</code></td>
-<td>Same as above; no consumer found in the after tree</td>
-<td><strong>Not rendered anywhere</strong>; remove or attach to a real component before treating them as supported icons</td>
+<td><strong>14 removed in the proposed cleanup</strong>; <code>search</code> and <code>chevron-left</code> remain pending removal/attachment</td>
 </tr>
 <tr>
 <td>Inline currentColor</td>
@@ -34,13 +28,7 @@
 <td>Background <code>currentColor</code></td>
 <td><code>loader.svg</code></td>
 <td>Used as <code>background-image</code> in <code>more-actions.pcss.css</code>; <code>currentColor</code> cannot inherit through a background image and resolves to black</td>
-<td><strong>Confirmed dark-mode bug</strong>; needs a mask/pseudo-element or a mode-specific pretint</td>
-</tr>
-<tr>
-<td>No after asset</td>
-<td><code>pretint/chevron-down-default</code>, <code>pretint/remove-default</code></td>
-<td>These originals have no after-side target; they are removed/renamed in the MR</td>
-<td>No after image exists to compare</td>
+<td><strong>Confirmed dark-mode bug</strong>; fixed in the proposed pseudo-element/mask patch</td>
 </tr>
 </tbody>
 </table>
@@ -67,7 +55,7 @@
 <p>Static harness: <code>proposed/test/loader-dark.html</code>. It uses the proposed compiled CSS and Drupal's real <code>body:has([data-drupal-selector="edit-delete"] + .ajax-progress)</code> selector.</p>
 <h2>What to do</h2>
 <ol>
-<li><strong>Remove the 16 unused after assets</strong> (<code>search</code> and <code>chevron-left</code> are the remaining two) or attach them to a component with a real mask/inline use.</li>
+<li><strong>Remove the 16 unused after assets</strong> (14 are already removed in the proposed cleanup; <code>search</code> and <code>chevron-left</code> remain) or attach them to a component with a real mask/inline use.</li>
 <li><strong>Keep <code>menu.svg</code> unchanged</strong>; it is inline and inherits correctly.</li>
 <li><strong>Fix <code>loader.svg</code> usage</strong> with a currentColor mask/pseudo-element or a tested pretint.</li>
 <li>Do not treat black <code>&lt;img&gt;</code> thumbnails of <code>currentColor</code> SVGs as evidence of a dark-mode failure; test the actual consumer.</li>

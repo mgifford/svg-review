@@ -8,11 +8,9 @@ This is a source/consumer audit, not a claim that every black thumbnail is a Dru
 
 | Group | Assets | Dark-mode result | Verdict |
 |---|---|---|---|
-| Unused after assets | 14 | No Drupal consumer. As an `<img>`/`background-image`, `currentColor` resolves to black; as a mask/inline SVG it would inherit the text colour. | **Removed in the proposed cleanup**; not a component regression in the MR |
-| Unused, still pending | `search`, `chevron-left` | Same as above; no consumer found in the after tree | **Not rendered anywhere**; remove or attach to a real component before treating them as supported icons |
+| Unused after assets | 16: the 14 named module/toolbar icons plus `pretint/chevron-down-default` and `pretint/remove-default` | No Drupal consumer. As an `<img>`/`background-image`, `currentColor` resolves to black; as a mask/inline SVG it would inherit the text colour. | **14 removed in the proposed cleanup**; `search` and `chevron-left` remain pending removal/attachment |
 | Inline currentColor | `menu.svg` | Included inline in `menu-local-task.html.twig`; `currentColor` inherits the surrounding text colour, so it is light in dark mode | **Not a bug**; the gallery’s Image mode shows it black, which is why it looked wrong |
-| Background `currentColor` | `loader.svg` | Used as `background-image` in `more-actions.pcss.css`; `currentColor` cannot inherit through a background image and resolves to black | **Confirmed dark-mode bug**; needs a mask/pseudo-element or a mode-specific pretint |
-| No after asset | `pretint/chevron-down-default`, `pretint/remove-default` | These originals have no after-side target; they are removed/renamed in the MR | No after image exists to compare |
+| Background `currentColor` | `loader.svg` | Used as `background-image` in `more-actions.pcss.css`; `currentColor` cannot inherit through a background image and resolves to black | **Confirmed dark-mode bug**; fixed in the proposed pseudo-element/mask patch |
 
 ## Why the gallery showed them as black
 
@@ -46,7 +44,7 @@ Static harness: `proposed/test/loader-dark.html`. It uses the proposed compiled 
 
 ## What to do
 
-1. **Remove the 16 unused after assets** (`search` and `chevron-left` are the remaining two) or attach them to a component with a real mask/inline use.
+1. **Remove the 16 unused after assets** (14 are already removed in the proposed cleanup; `search` and `chevron-left` remain) or attach them to a component with a real mask/inline use.
 2. **Keep `menu.svg` unchanged**; it is inline and inherits correctly.
 3. **Fix `loader.svg` usage** with a currentColor mask/pseudo-element or a tested pretint.
 4. Do not treat black `<img>` thumbnails of `currentColor` SVGs as evidence of a dark-mode failure; test the actual consumer.
