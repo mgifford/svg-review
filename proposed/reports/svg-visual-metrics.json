@@ -1,0 +1,1112 @@
+{
+  "file-types/application-octet-stream.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/application-pdf.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/application-x-executable.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/audio-x-generic.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/image-x-generic.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/package-x-generic.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/text-html.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/text-plain.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/text-x-generic.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/text-x-script.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/video-x-generic.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/x-office-document.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/x-office-presentation.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "file-types/x-office-spreadsheet.svg": {
+    "bbox": [
+      2,
+      0,
+      12,
+      16
+    ],
+    "padLeft": 12.5,
+    "padRight": 12.5,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 73.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/appearance.svg": {
+    "bbox": [
+      3.75,
+      0,
+      16.5,
+      23.4
+    ],
+    "padLeft": 15.6,
+    "padRight": 15.6,
+    "padTop": 0,
+    "padBottom": 2.5,
+    "ink": 37.15,
+    "centerX": 0,
+    "centerY": -1.3
+  },
+  "icons/back-to-site.svg": {
+    "bbox": [
+      2.85,
+      2.85,
+      18.3,
+      16.35
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 11.9,
+    "padBottom": 20,
+    "ink": 15.52,
+    "centerX": 0,
+    "centerY": -4.1
+  },
+  "icons/blocks.svg": {
+    "bbox": [
+      1.2,
+      0.15,
+      21.6,
+      23.85
+    ],
+    "padLeft": 5,
+    "padRight": 5,
+    "padTop": 0.6,
+    "padBottom": 0,
+    "ink": 47.82,
+    "centerX": 0,
+    "centerY": 0.3
+  },
+  "icons/bookmarks.svg": {
+    "bbox": [
+      3.75,
+      0,
+      17.55,
+      23.85
+    ],
+    "padLeft": 15.6,
+    "padRight": 11.2,
+    "padTop": 0,
+    "padBottom": 0.6,
+    "ink": 37.66,
+    "centerX": 2.2,
+    "centerY": -0.3
+  },
+  "icons/check.svg": {
+    "bbox": [
+      3.45,
+      4.95,
+      17.1,
+      14.1
+    ],
+    "padLeft": 14.4,
+    "padRight": 14.4,
+    "padTop": 20.6,
+    "padBottom": 20.6,
+    "ink": 12.53,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/chevron-down.svg": {
+    "bbox": [
+      2.4,
+      6.45,
+      19.2,
+      11.1
+    ],
+    "padLeft": 10,
+    "padRight": 10,
+    "padTop": 26.9,
+    "padBottom": 26.9,
+    "ink": 13.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/chevron-left.svg": {
+    "bbox": [
+      6.45,
+      2.4,
+      11.1,
+      19.2
+    ],
+    "padLeft": 26.9,
+    "padRight": 26.9,
+    "padTop": 10,
+    "padBottom": 10,
+    "ink": 13.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/chevron-right.svg": {
+    "bbox": [
+      6.45,
+      2.4,
+      11.1,
+      19.2
+    ],
+    "padLeft": 26.9,
+    "padRight": 26.9,
+    "padTop": 10,
+    "padBottom": 10,
+    "ink": 13.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/clock.svg": {
+    "bbox": [
+      0.75,
+      0.75,
+      22.5,
+      22.5
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 31.17,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/close.svg": {
+    "bbox": [
+      2.85,
+      2.85,
+      18.3,
+      18.3
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 11.9,
+    "padBottom": 11.9,
+    "ink": 19.67,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/cog.svg": {
+    "bbox": [
+      0,
+      0,
+      24,
+      24
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 43.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/content.svg": {
+    "bbox": [
+      2.85,
+      0.75,
+      18.3,
+      22.5
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 34.73,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/database.svg": {
+    "bbox": [
+      1.8,
+      0.75,
+      20.4,
+      22.5
+    ],
+    "padLeft": 7.5,
+    "padRight": 7.5,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 41.18,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/drag-y.svg": {
+    "bbox": [
+      0.75,
+      0.9,
+      22.5,
+      22.2
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.8,
+    "padBottom": 3.8,
+    "ink": 17.38,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/drag.svg": {
+    "bbox": [
+      0.75,
+      0.75,
+      22.5,
+      22.5
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 28.45,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/error.svg": {
+    "bbox": [
+      0.75,
+      0.75,
+      22.5,
+      22.5
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 33.6,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/files.svg": {
+    "bbox": [
+      1.65,
+      0,
+      21,
+      24
+    ],
+    "padLeft": 6.9,
+    "padRight": 5.6,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 46.89,
+    "centerX": 0.6,
+    "centerY": 0
+  },
+  "icons/grid.svg": {
+    "bbox": [
+      1.5,
+      1.5,
+      21,
+      21
+    ],
+    "padLeft": 6.3,
+    "padRight": 6.3,
+    "padTop": 6.3,
+    "padBottom": 6.3,
+    "ink": 58.45,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/help.svg": {
+    "bbox": [
+      0,
+      0,
+      24,
+      24
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 34.72,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/hide.svg": {
+    "bbox": [
+      0,
+      0,
+      24,
+      24
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 46.13,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/info.svg": {
+    "bbox": [
+      1.8,
+      1.8,
+      20.4,
+      20.4
+    ],
+    "padLeft": 7.5,
+    "padRight": 7.5,
+    "padTop": 7.5,
+    "padBottom": 7.5,
+    "ink": 27.54,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/key.svg": {
+    "bbox": [
+      0,
+      1,
+      15,
+      14
+    ],
+    "padLeft": 0,
+    "padRight": 6.3,
+    "padTop": 6.3,
+    "padBottom": 6.3,
+    "ink": 31.91,
+    "centerX": -3.1,
+    "centerY": 0
+  },
+  "icons/list.svg": {
+    "bbox": [
+      1.5,
+      4.5,
+      21,
+      15
+    ],
+    "padLeft": 6.3,
+    "padRight": 6.3,
+    "padTop": 18.8,
+    "padBottom": 18.8,
+    "ink": 28.24,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/loader.svg": {
+    "bbox": [
+      9.9,
+      0.9,
+      4.2,
+      4.2
+    ],
+    "padLeft": 41.3,
+    "padRight": 41.2,
+    "padTop": 3.8,
+    "padBottom": 78.8,
+    "ink": 2.5,
+    "centerX": 0,
+    "centerY": -37.5
+  },
+  "icons/media.svg": {
+    "bbox": [
+      0,
+      0,
+      24,
+      24
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 60.48,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/menu.svg": {
+    "bbox": [
+      0,
+      2,
+      16,
+      12
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 12.5,
+    "padBottom": 12.5,
+    "ink": 36.7,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/nav-toggle-left.svg": {
+    "bbox": [
+      3.75,
+      3.9,
+      16.5,
+      16.2
+    ],
+    "padLeft": 15.6,
+    "padRight": 15.6,
+    "padTop": 16.3,
+    "padBottom": 16.3,
+    "ink": 13.99,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/nav-toggle-top.svg": {
+    "bbox": [
+      3.9,
+      3.75,
+      16.2,
+      16.5
+    ],
+    "padLeft": 16.3,
+    "padRight": 16.3,
+    "padTop": 15.6,
+    "padBottom": 15.6,
+    "ink": 13.97,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pager-first.svg": {
+    "bbox": [
+      4.8,
+      5.85,
+      14.4,
+      12.3
+    ],
+    "padLeft": 20,
+    "padRight": 20,
+    "padTop": 24.4,
+    "padBottom": 24.4,
+    "ink": 13.11,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pager-last.svg": {
+    "bbox": [
+      4.8,
+      5.85,
+      14.4,
+      12.3
+    ],
+    "padLeft": 20,
+    "padRight": 20,
+    "padTop": 24.4,
+    "padBottom": 24.4,
+    "ink": 13.11,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pager-next.svg": {
+    "bbox": [
+      7.8,
+      4.8,
+      8.4,
+      14.4
+    ],
+    "padLeft": 32.5,
+    "padRight": 32.5,
+    "padTop": 20,
+    "padBottom": 20,
+    "ink": 7.85,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pager-prev.svg": {
+    "bbox": [
+      7.8,
+      4.8,
+      8.4,
+      14.4
+    ],
+    "padLeft": 32.5,
+    "padRight": 32.5,
+    "padTop": 20,
+    "padBottom": 20,
+    "ink": 7.85,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pencil.svg": {
+    "bbox": [
+      0.9,
+      1.05,
+      22.05,
+      22.05
+    ],
+    "padLeft": 3.8,
+    "padRight": 4.4,
+    "padTop": 4.4,
+    "padBottom": 3.7,
+    "ink": 23.54,
+    "centerX": -0.3,
+    "centerY": 0.3
+  },
+  "icons/people.svg": {
+    "bbox": [
+      0,
+      0,
+      24,
+      24
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 55.55,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/plus.svg": {
+    "bbox": [
+      2.85,
+      2.85,
+      18.3,
+      18.3
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 11.9,
+    "padBottom": 11.9,
+    "ink": 13.91,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/check-disabled.svg": {
+    "bbox": [
+      3.45,
+      4.95,
+      17.1,
+      14.1
+    ],
+    "padLeft": 14.4,
+    "padRight": 14.4,
+    "padTop": 20.6,
+    "padBottom": 20.6,
+    "ink": 12.53,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/check-inverse.svg": {
+    "bbox": [
+      3.45,
+      4.95,
+      17.1,
+      14.1
+    ],
+    "padLeft": 14.4,
+    "padRight": 14.4,
+    "padTop": 20.6,
+    "padBottom": 20.6,
+    "ink": 12.53,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/chevron-down-default.svg": {
+    "bbox": [
+      2.4,
+      6.45,
+      19.2,
+      11.1
+    ],
+    "padLeft": 10,
+    "padRight": 10,
+    "padTop": 26.9,
+    "padBottom": 26.9,
+    "ink": 13.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/chevron-down-disabled.svg": {
+    "bbox": [
+      2.4,
+      6.45,
+      19.2,
+      11.1
+    ],
+    "padLeft": 10,
+    "padRight": 10,
+    "padTop": 26.9,
+    "padBottom": 26.9,
+    "ink": 13.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/chevron-down-inverse.svg": {
+    "bbox": [
+      2.4,
+      6.45,
+      19.2,
+      11.1
+    ],
+    "padLeft": 10,
+    "padRight": 10,
+    "padTop": 26.9,
+    "padBottom": 26.9,
+    "ink": 13.3,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/remove-default.svg": {
+    "bbox": [
+      2.85,
+      2.85,
+      18.3,
+      18.3
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 11.9,
+    "padBottom": 11.9,
+    "ink": 19.67,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/pretint/remove-inverse.svg": {
+    "bbox": [
+      2.85,
+      2.85,
+      18.3,
+      18.3
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 11.9,
+    "padBottom": 11.9,
+    "ink": 19.67,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/reports.svg": {
+    "bbox": [
+      0.75,
+      0.75,
+      22.5,
+      22.35
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.8,
+    "ink": 38.36,
+    "centerX": 0,
+    "centerY": -0.3
+  },
+  "icons/required.svg": {
+    "bbox": [
+      0.45,
+      0.6,
+      23.1,
+      22.05
+    ],
+    "padLeft": 1.9,
+    "padRight": 1.9,
+    "padTop": 2.5,
+    "padBottom": 5.6,
+    "ink": 41.3,
+    "centerX": 0,
+    "centerY": -1.6
+  },
+  "icons/search.svg": {
+    "bbox": [
+      1.8,
+      1.8,
+      20.4,
+      20.4
+    ],
+    "padLeft": 7.5,
+    "padRight": 7.5,
+    "padTop": 7.5,
+    "padBottom": 7.5,
+    "ink": 21.33,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/server.svg": {
+    "bbox": [
+      0.75,
+      0.75,
+      22.5,
+      22.5
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 45.34,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/show.svg": {
+    "bbox": [
+      0,
+      2.4,
+      24,
+      19.2
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 10,
+    "padBottom": 10,
+    "ink": 40.58,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/sidebar.svg": {
+    "bbox": [
+      0.9,
+      0.9,
+      22.2,
+      20.1
+    ],
+    "padLeft": 3.8,
+    "padRight": 3.8,
+    "padTop": 3.8,
+    "padBottom": 12.5,
+    "ink": 33.35,
+    "centerX": 0,
+    "centerY": -4.4
+  },
+  "icons/sort-asc.svg": {
+    "bbox": [
+      3.9,
+      1.8,
+      16.2,
+      20.4
+    ],
+    "padLeft": 16.3,
+    "padRight": 16.3,
+    "padTop": 7.5,
+    "padBottom": 7.5,
+    "ink": 15.98,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/sort-desc.svg": {
+    "bbox": [
+      3.9,
+      1.8,
+      16.2,
+      20.4
+    ],
+    "padLeft": 16.3,
+    "padRight": 16.3,
+    "padTop": 7.5,
+    "padBottom": 7.5,
+    "ink": 15.98,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/sort.svg": {
+    "bbox": [
+      1.8,
+      4.8,
+      20.4,
+      14.4
+    ],
+    "padLeft": 7.5,
+    "padRight": 7.5,
+    "padTop": 20,
+    "padBottom": 20,
+    "ink": 19.91,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/status.svg": {
+    "bbox": [
+      0.9,
+      0.75,
+      22.35,
+      22.35
+    ],
+    "padLeft": 3.8,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.8,
+    "ink": 30.21,
+    "centerX": 0.3,
+    "centerY": -0.3
+  },
+  "icons/structure.svg": {
+    "bbox": [
+      0.3,
+      0.15,
+      23.4,
+      23.7
+    ],
+    "padLeft": 1.3,
+    "padRight": 1.3,
+    "padTop": 0.6,
+    "padBottom": 0.6,
+    "ink": 51.05,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/tabledrag-handle.svg": {
+    "bbox": [
+      0,
+      0,
+      16,
+      16
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 21.79,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/toggle-unchecked.svg": {
+    "bbox": [
+      6.9,
+      6,
+      11.1,
+      12
+    ],
+    "padLeft": 28.7,
+    "padRight": 25,
+    "padTop": 25,
+    "padBottom": 25,
+    "ink": 12.42,
+    "centerX": 1.9,
+    "centerY": 0
+  },
+  "icons/trash.svg": {
+    "bbox": [
+      1.5,
+      0.45,
+      21,
+      23.1
+    ],
+    "padLeft": 6.3,
+    "padRight": 6.3,
+    "padTop": 1.9,
+    "padBottom": 1.9,
+    "ink": 48.55,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/user.svg": {
+    "bbox": [
+      0,
+      0,
+      24,
+      24
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 44.66,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "icons/warning.svg": {
+    "bbox": [
+      0.75,
+      0.75,
+      22.5,
+      22.5
+    ],
+    "padLeft": 3.1,
+    "padRight": 3.1,
+    "padTop": 3.1,
+    "padBottom": 3.1,
+    "ink": 30.45,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "logos/drupal.svg": {
+    "bbox": [
+      2.85,
+      0,
+      18.3,
+      24
+    ],
+    "padLeft": 11.9,
+    "padRight": 11.9,
+    "padTop": 0,
+    "padBottom": 0,
+    "ink": 35.89,
+    "centerX": 0,
+    "centerY": 0
+  },
+  "logos/php.svg": {
+    "bbox": [
+      0,
+      -0.19,
+      66,
+      33.82
+    ],
+    "padLeft": 0,
+    "padRight": 0,
+    "padTop": -0.6,
+    "padBottom": -0.6,
+    "ink": 31.01,
+    "centerX": 0,
+    "centerY": 0
+  }
+}

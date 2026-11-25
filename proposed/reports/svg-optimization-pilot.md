@@ -22,7 +22,7 @@ Config properties: `preset-default` with `removeViewBox: false`, `cleanupIds: fa
 
 | File | Before | After | Saving |
 |---|---:|---:|---:|
-| `icons/required.svg` | 1,130 B | **920 B** | **18.6%** |
+| `icons/required.svg` | 1,130 B | **958 B** (920 B SVGO + shared ARIA) | **15.2%** |
 | `icons/logos/drupal.svg` (pilot only, not applied) | 1,610 B | 1,222 B | 24.1% |
 
 Pixel comparison (transparent canvas, RGBA, exact per-pixel diff):
@@ -71,15 +71,15 @@ Removed from `proposed` after confirming no consumer references:
 
 Five used assets, same SVGO settings as the required.svg pilot:
 
-| Asset | Before | After | Saving | Pixel check |
+| Asset | Before | Proposed (incl. ARIA) | Saving | Pixel check |
 |---|---:|---:|---:|---|
-| `icons/clock.svg` | 279 | 244 | 12.5% | identical 16–192px |
-| `icons/server.svg` | 415 | 364 | 12.3% | identical 16–192px |
-| `icons/database.svg` | 349 | 306 | 12.3% | identical 16–192px |
-| `logos/drupal.svg` | 1,610 | 1,223 | 24.0% | identical 16–192px; 1 edge pixel at 512px |
-| `logos/php.svg` | 1,211 | 1,192 | 1.6% | identical 16–512px |
+| `icons/clock.svg` | 279 | 281 | -0.7% (metadata overhead) | identical 16–192px |
+| `icons/server.svg` | 415 | 401 | 3.4% | identical 16–192px |
+| `icons/database.svg` | 349 | 343 | 1.7% | identical 16–192px |
+| `logos/drupal.svg` | 1,610 | 1,260 | 21.7% | identical 16–192px; 1 edge pixel at 512px |
+| `logos/php.svg` | 1,211 | 1,229 | -1.5% (metadata overhead) | identical 16–512px |
 
-Total: **535 bytes saved (13.8%)** on the family. Tests: `proposed/tests/svg_optimization_status_family.py` (4 tests, passing). Patch: `proposed/interdiff-svg-optimization-status-family.patch`.
+Total: **3,864 → 3,514 bytes; 350 bytes saved (9.1%)**. The shared decorative ARIA attributes add 38 bytes per file, so tiny icons can grow slightly even though their path data is smaller. Tests: `proposed/tests/svg_optimization_status_family.py` (5 tests, passing). Patch: `proposed/interdiff-svg-optimization-status-family.patch`.
 
 The one 512px edge-pixel difference for the Drupal logo is at a non-UI scale; it is recorded rather than hidden. The optimized family has not yet been installed into a full MR-theme Drupal site; the existing live status test used the pre-optimisation assets and the forced-colours CSS fix.
 
@@ -91,4 +91,4 @@ The one 512px edge-pixel difference for the Drupal logo is at a non-UI scale; it
 ## Result
 
 After-side baseline: **74 files / 41,981 bytes**.
-Proposed tree after cleanup and the two optimisation pilots: **61 files / 30,380 bytes** — **11,601 bytes less (27.6%)**. The proposed tree also adds `pretint/check-disabled-inverse.svg`, so the reduction is net of that addition.
+Proposed tree after cleanup, the two optimisation pilots and the shared decorative metadata: **61 files / 32,119 bytes** — **9,862 bytes less (23.5%)**. The proposed tree also adds `pretint/check-disabled-inverse.svg`, so the reduction is net of that addition.

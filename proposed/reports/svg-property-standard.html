@@ -1,0 +1,152 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG property standard</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}</style></head><body><nav class="nav"><a href="../../index.html">Home</a> · <a href="patch-gallery.html">Asset gallery</a> · <a href="svg-properties.html">Property matrix</a> · <a href="dark-mode-currentcolor.html">CurrentColor audit</a> · <a href="../../SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>SVG property standard and matrix</h1>
+<p><strong>Scope:</strong> the <strong>74 after-side</strong> SVGs in <code>after/core/themes/default_admin/images</code>, plus the <strong>61</strong> kept in the proposed tree. Before-side historical variants (194) are not part of this normalisation pass.</p>
+<p><strong>Matrix:</strong> <a href="svg-properties.html">svg-properties.html</a> — filter by family, paint model, proposal status and flags. The raw data is in <a href="svg-properties.json">svg-properties.json</a>; rendered-pixel metrics are in <a href="svg-visual-metrics.json">svg-visual-metrics.json</a>.</p>
+<h2>What the files look like now</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th style="text-align: right;">After-side distribution</th>
+<th>Proposed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Files / bytes</td>
+<td style="text-align: right;">74 / 41,981 B</td>
+<td>61 / 32,119 B</td>
+</tr>
+<tr>
+<td>24×24 viewBox</td>
+<td style="text-align: right;">56</td>
+<td>43</td>
+</tr>
+<tr>
+<td>16×16 viewBox</td>
+<td style="text-align: right;">17</td>
+<td>17</td>
+</tr>
+<tr>
+<td><code>0 0 66 33.447</code> (PHP logo)</td>
+<td style="text-align: right;">1</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>currentColor</code></td>
+<td style="text-align: right;">53</td>
+<td>41</td>
+</tr>
+<tr>
+<td>Hardcoded colour</td>
+<td style="text-align: right;">21</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>aria-hidden</code>/<code>focusable</code></td>
+<td style="text-align: right;">14 / 74</td>
+<td><strong>61 / 61</strong> after normalisation</td>
+</tr>
+<tr>
+<td><code>title</code> / <code>desc</code></td>
+<td style="text-align: right;">0 / 74</td>
+<td>0 / 61 (decorative policy)</td>
+</tr>
+<tr>
+<td>IDs</td>
+<td style="text-align: right;">0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>External refs / scripts / foreignObject</td>
+<td style="text-align: right;">0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Stroke width 2.25</td>
+<td style="text-align: right;">33</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Stroke width 3</td>
+<td style="text-align: right;">11</td>
+<td>10</td>
+</tr>
+<tr>
+<td>No stroke (filled)</td>
+<td style="text-align: right;">23</td>
+<td>24</td>
+</tr>
+<tr>
+<td>Stroke width 0.5 / 0.8 / 2</td>
+<td style="text-align: right;">3 / 1 / 1</td>
+<td>3 / 1 / 1</td>
+</tr>
+<tr>
+<td>Path precision &gt;4 decimals</td>
+<td style="text-align: right;">17</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<h2>Normalisation targets</h2>
+<h3>UI master on the 24 grid</h3>
+<ul>
+<li><code>viewBox="0 0 24 24"</code></li>
+<li>no <code>width</code>/<code>height</code></li>
+<li><code>currentColor</code> paint</li>
+<li><code>aria-hidden="true"</code> and <code>focusable="false"</code></li>
+<li>no IDs, external refs, scripts, foreignObject</li>
+<li>2.25 stroke is the <strong>standard line weight</strong>; 3 is the <strong>bold class</strong> (chevrons, grid/list, show/hide, trash)</li>
+<li>0.5 is the <strong>filled-icon edge-smoothing class</strong> (bookmarks/files/media); do not change without a visual diff</li>
+<li>2.25 with a <code>0</code> stroke on a filled accent is the <strong>filled-accent class</strong> (<code>fill-opacity=".15"</code>)</li>
+</ul>
+<h3>UI on the 16 grid</h3>
+<ul>
+<li><code>viewBox="0 0 16 16"</code>, <code>width="16" height="16"</code>, <code>currentColor</code>, aria-hidden/focusable</li>
+<li><code>key.svg</code>, <code>menu.svg</code>, <code>tabledrag-handle.svg</code></li>
+<li><code>tabledrag-handle.svg</code> was <strong>17×17</strong> with a 16×16 viewBox; normalised to <strong>16×16</strong> in the proposed tree</li>
+</ul>
+<h3>Pretints</h3>
+<ul>
+<li>same geometry as the master; hardcoded palette colour; 24 grid</li>
+<li>no <code>currentColor</code>; aria-hidden/focusable</li>
+<li><code>check-inverse</code>, <code>chevron-down-*</code>, <code>remove-*</code>, etc. are intentionally white/grey/blue snapshots</li>
+</ul>
+<h3>File types</h3>
+<ul>
+<li><code>viewBox="0 0 16 16"</code>, <code>width="16" height="16"</code>, hardcoded multicolour palette</li>
+<li>aria-hidden/focusable</li>
+<li><strong>Do not</strong> convert to <code>currentColor</code> or force a 24 grid; these are multicolour file-type artwork</li>
+</ul>
+<h3>Logos</h3>
+<ul>
+<li>preserve intrinsic aspect and viewBox; the PHP logo is <code>0 0 66 33.447</code></li>
+<li><code>currentColor</code>, decorative aria-hidden/focusable</li>
+<li>do not crop or rescale to the 24 icon grid</li>
+</ul>
+<h2>Applied metadata normalisation</h2>
+<p><a href="../interdiff-svg-metadata-normalization.patch">interdiff-svg-metadata-normalization.patch</a> adds <code>aria-hidden="true" focusable="false"</code> to the 47 proposed SVGs that lacked it and fixes <code>tabledrag-handle</code> to 16×16.</p>
+<p><a href="../tests/svg_properties_test.py">svg_properties_test.py</a> asserts:</p>
+<ul>
+<li>every proposed SVG has a viewBox and is hidden from assistive technology</li>
+<li>no scripts, foreignObject, external/data URLs</li>
+<li>tabledrag dimensions match its 16×16 viewBox</li>
+<li>no external <code>href</code>s</li>
+</ul>
+<p>All checks pass.</p>
+<h2>Not normalised yet — needs visual decisions</h2>
+<ol>
+<li><strong>Optical padding.</strong> The rendered matrix shows wide ranges: loader has 78.8% bottom padding, pager arrows 32.5% side padding, chevrons 26.9% cross-axis padding. Normalising these changes optical size, so each family needs a visual diff.</li>
+<li><strong>Stroke-weight exceptions.</strong> 2 and 3 are deliberate weight classes, not simply drift. Decide the class table before changing any icon.</li>
+<li><strong>Fill accents.</strong> Seven UI icons use <code>fill-opacity=".15"</code>; verify the accent is intentional across the family.</li>
+<li><strong>Path precision.</strong> 9 proposed files still have &gt;4 decimal places. Optimise only with per-file pixel gates, as with the required/status pilot.</li>
+<li><strong>Title/desc.</strong> Do <strong>not</strong> add blanket titles. These assets are decorative; the containing control supplies the accessible name. <code>menu.svg</code> is inline inside a button labelled “Tabs display toggle”.</li>
+</ol>
+<h2>Structural wins already in place</h2>
+<ul>
+<li>every SVG has a viewBox</li>
+<li>no IDs, external references, scripts or foreignObject</li>
+<li>duplicate file-type pairs are still present; deduplication is deferred</li>
+<li>all proposed SVGs are hidden from assistive technology</li>
+<li>14 unused assets removed (2 still pending); <code>tabledrag-handle</code> dimensions corrected</li>
+</ul></body></html>

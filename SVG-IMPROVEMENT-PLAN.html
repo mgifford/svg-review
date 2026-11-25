@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG IMPROVEMENT PLAN</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="reconciliation.html">Dispositions</a> · <a href="CODE-REVIEW.html">Lab review</a></nav><h1>SVG improvement plan for Drupal Core (Default Admin)</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SVG IMPROVEMENT PLAN</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/svg-properties.html">Properties</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="reconciliation.html">Dispositions</a></nav><h1>SVG improvement plan for Drupal Core (Default Admin)</h1>
 <p><strong>Baseline:</strong> before <code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code>; MR !16166 head <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code>.
 <strong>Scope:</strong> the 203 SVG paths in the patch, the inline SVGs in the theme, and the components that consume them.
 <strong>Goal:</strong> dark mode as a first-class mode, WCAG 2.2 AA where the icons carry meaning, and no regression to light mode or forced colours.</p>
@@ -442,10 +442,21 @@
 <li>Do not optimise tiny files where the gain is negligible and review noise is high.</li>
 <li>Do not optimise pretints until their mode/state table is final.</li>
 </ol>
-<p><strong>Result so far:</strong> after-side 74 files / 41,981 bytes → proposed 61 files / 30,380 bytes, a <strong>27.6% reduction</strong>, including the 14-file cleanup, the required/status pilots, and the new <code>check-disabled-inverse.svg</code>.</p>
+<p><strong>Result so far:</strong> after-side 74 files / 41,981 bytes → proposed 61 files / 32,119 bytes, a <strong>23.5% reduction</strong>, including the 14-file cleanup, the required/status pilots, and the new <code>check-disabled-inverse.svg</code>.</p>
 <p>Reports: <code>proposed/reports/svg-optimization-pilot.md</code>.
 Patches: <code>proposed/interdiff-svg-cleanup.patch</code>, <code>proposed/interdiff-svg-optimization-required.patch</code>, <code>proposed/interdiff-svg-optimization-status-family.patch</code>.
 Tests: <code>proposed/tests/svg_cleanup_test.py</code>, <code>svg_optimization_pilot.py</code>, <code>svg_optimization_status_family.py</code>.</p>
+<h3>4.5 SVG property normalisation</h3>
+<p>The property matrix (<a href="proposed/reports/svg-properties.html">proposed/reports/svg-properties.html</a>) audits all 74 after-side SVGs for viewBox, intrinsic dimensions, currentColor/hardcoded paint, stroke class, caps/joins, fill opacity, path/shape/group counts, IDs, aria/title metadata, external references, path precision and rendered padding/ink/centre metrics.</p>
+<p>Applied metadata normalisation:</p>
+<ul>
+<li>all <strong>61</strong> proposed SVGs have <code>aria-hidden="true"</code> and <code>focusable="false"</code>;</li>
+<li>all have a viewBox; no IDs, external refs, scripts or foreignObject;</li>
+<li><code>tabledrag-handle.svg</code> corrected from 17×17 to <strong>16×16</strong> to match its viewBox;</li>
+<li>the proposed images directory is now complete for regression tests.</li>
+</ul>
+<p>The standard (<a href="proposed/reports/svg-property-standard.html">proposed/reports/svg-property-standard.md</a>) keeps families separate: 24-grid UI masters, 16-grid UI, pretints, file types and logos. It does <strong>not</strong> force file types or logos into the 24 grid, and it does <strong>not</strong> flatten deliberate stroke-weight classes. Optical padding, fill accents, stroke exceptions and path precision remain family-by-family visual decisions.</p>
+<p>Patch: <code>proposed/interdiff-svg-metadata-normalization.patch</code>. Test: <code>proposed/tests/svg_properties_test.py</code>.</p>
 <h2>5. WCAG 2.2 AA checklist for the icon work</h2>
 <p>These are the checks to run per affected component. They do not replace manual testing or testing with disabled people.</p>
 <table>
@@ -719,6 +730,7 @@ Tests: <code>proposed/tests/svg_cleanup_test.py</code>, <code>svg_optimization_p
 <li><a href="proposed/reports/forced-colors-status-icons.html">forced-colors-status-icons.md</a> — status-icon forced-colours fix</li>
 <li><a href="proposed/reports/svg-optimization-pilot.html">svg-optimization-pilot.md</a> — optimisation audit, cleanup batch and family pilots</li>
 <li><a href="proposed/reports/dark-mode-currentcolor.html">dark-mode-currentcolor.md</a> — currentColor consumer audit and loader fix</li>
+<li><a href="proposed/reports/svg-property-standard.html">svg-property-standard.md</a> — property matrix, family targets and metadata normalisation</li>
 <li><a href="http://127.0.0.1:8770/proposed/reports/patch-gallery.html">patch-gallery.html</a> — full asset gallery with Auto/Image/Mask and forced-colours views</li>
 <li><code>proposed/tests/checkmark_regression.py</code> — 6 tests</li>
 <li><code>proposed/tests/forced_colors_status_icons.py</code> — 3 tests</li>

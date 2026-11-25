@@ -210,11 +210,26 @@ Rules:
 8. Do not optimise tiny files where the gain is negligible and review noise is high.
 9. Do not optimise pretints until their mode/state table is final.
 
-**Result so far:** after-side 74 files / 41,981 bytes → proposed 61 files / 30,380 bytes, a **27.6% reduction**, including the 14-file cleanup, the required/status pilots, and the new `check-disabled-inverse.svg`.
+**Result so far:** after-side 74 files / 41,981 bytes → proposed 61 files / 32,119 bytes, a **23.5% reduction**, including the 14-file cleanup, the required/status pilots, and the new `check-disabled-inverse.svg`.
 
 Reports: `proposed/reports/svg-optimization-pilot.md`.
 Patches: `proposed/interdiff-svg-cleanup.patch`, `proposed/interdiff-svg-optimization-required.patch`, `proposed/interdiff-svg-optimization-status-family.patch`.
 Tests: `proposed/tests/svg_cleanup_test.py`, `svg_optimization_pilot.py`, `svg_optimization_status_family.py`.
+
+### 4.5 SVG property normalisation
+
+The property matrix ([proposed/reports/svg-properties.html](proposed/reports/svg-properties.html)) audits all 74 after-side SVGs for viewBox, intrinsic dimensions, currentColor/hardcoded paint, stroke class, caps/joins, fill opacity, path/shape/group counts, IDs, aria/title metadata, external references, path precision and rendered padding/ink/centre metrics.
+
+Applied metadata normalisation:
+
+- all **61** proposed SVGs have `aria-hidden="true"` and `focusable="false"`;
+- all have a viewBox; no IDs, external refs, scripts or foreignObject;
+- `tabledrag-handle.svg` corrected from 17×17 to **16×16** to match its viewBox;
+- the proposed images directory is now complete for regression tests.
+
+The standard ([proposed/reports/svg-property-standard.md](proposed/reports/svg-property-standard.md)) keeps families separate: 24-grid UI masters, 16-grid UI, pretints, file types and logos. It does **not** force file types or logos into the 24 grid, and it does **not** flatten deliberate stroke-weight classes. Optical padding, fill accents, stroke exceptions and path precision remain family-by-family visual decisions.
+
+Patch: `proposed/interdiff-svg-metadata-normalization.patch`. Test: `proposed/tests/svg_properties_test.py`.
 
 ## 5. WCAG 2.2 AA checklist for the icon work
 
@@ -329,6 +344,7 @@ Legend: ✅ tested, ❌ missing/broken, ⚠️ needs verification.
 - [forced-colors-status-icons.md](proposed/reports/forced-colors-status-icons.md) — status-icon forced-colours fix
 - [svg-optimization-pilot.md](proposed/reports/svg-optimization-pilot.md) — optimisation audit, cleanup batch and family pilots
 - [dark-mode-currentcolor.md](proposed/reports/dark-mode-currentcolor.md) — currentColor consumer audit and loader fix
+- [svg-property-standard.md](proposed/reports/svg-property-standard.md) — property matrix, family targets and metadata normalisation
 - [patch-gallery.html](http://127.0.0.1:8770/proposed/reports/patch-gallery.html) — full asset gallery with Auto/Image/Mask and forced-colours views
 - `proposed/tests/checkmark_regression.py` — 6 tests
 - `proposed/tests/forced_colors_status_icons.py` — 3 tests
