@@ -408,5 +408,28 @@
     ]
   },
   "skippedReason": "Any difference at any tested size, DPR or background was retained as the original. help.svg, toggle-unchecked.svg, required.svg, search.svg, drupal.svg and text-x-script.svg were not adopted.",
-  "limitations": "Canvas rendering in Chromium only; no Firefox/WebKit pixel run. Not a visual equivalence proof."
+  "limitations": "Canvas rendering in Chromium only; no Firefox/WebKit pixel run. Not a visual equivalence proof.",
+  "countingCorrection": {
+    "existingFilesSmaller": 41,
+    "existingFilesSmallerBytesSaved": 2137,
+    "existingFilesLarger": [
+      {
+        "asset": "icons/menu.svg",
+        "before": 421,
+        "after": 437,
+        "reason": "aria-hidden and focusable attributes"
+      },
+      {
+        "asset": "icons/tabledrag-handle.svg",
+        "before": 774,
+        "after": 804,
+        "reason": "SVGO arc-flag spacing; pixel-identical but not smaller"
+      }
+    ],
+    "newPretints": 5,
+    "newPretintsBytes": 1226,
+    "removedAssets": 15,
+    "removedBytes": 11281,
+    "netSvgBytes": -12146
+  }
 }

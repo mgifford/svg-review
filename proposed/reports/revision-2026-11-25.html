@@ -50,7 +50,7 @@
 <tr><td>Revision</td><td>64</td><td>29,835</td><td>26,315</td><td>6,246</td><td>5,346</td></tr>
 </tbody>
 </table>
-<p>Fifteen unused assets and twenty registry entries were removed. Forty-five SVGs were optimized with SVGO 3.3.2; only files whose Chromium pixels were identical across 12 sizes, DPR 1 and 2, and three backgrounds were adopted. Six files were skipped. These are stylesheet measurements, not page-weight or carbon claims.</p>
+<p>Fifteen unused assets and twenty registry entries were removed. Forty-one existing SVGs are smaller, saving 2,137 bytes; fifteen removed files save 11,281 bytes and five new pretints add 1,226 bytes. Two adopted files are larger: <code>menu.svg</code> gains 16 bytes of ARIA metadata and <code>tabledrag-handle.svg</code> gains 30 bytes from SVGO arc-flag spacing. See <a href="svg-size-changes.html">per-file size changes</a>. These are stylesheet measurements, not page-weight or carbon claims.</p>
 
 <h2>Verification</h2>
 <table>
@@ -71,6 +71,7 @@
 <li><a href="component-coverage.html">Component coverage</a> — <a href="component-coverage.json">JSON</a>, <a href="component-coverage.md">Markdown</a></li>
 <li><a href="optimization-summary.html">Optimization summary</a> — <a href="optimization-summary.json">JSON</a>, <a href="optimization-summary.md">Markdown</a></li>
 <li><a href="svg-size-changes.html">Per-file SVG size changes</a></li>
+<li><a href="lessons-2026-11-25.html">Lessons learned</a></li>
 <li><a href="validation-2026-11-25.json">SVG validation (JSON)</a></li>
 <li><a href="metrics.json">Size measurements (JSON)</a></li>
 <li><a href="axe.json">Axe results (JSON)</a></li>

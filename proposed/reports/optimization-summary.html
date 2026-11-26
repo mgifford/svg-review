@@ -3,6 +3,16 @@
 <title>optimization-summary</title>
 <style>:root{color-scheme:light dark}body{max-width:70rem;margin:2rem auto;padding:0 1rem;font:1rem/1.5 system-ui,sans-serif}table{border-collapse:collapse;width:100%}th,td{border:1px solid #888;padding:.4rem .6rem;text-align:left}th{background:color-mix(in srgb,CanvasText 10%,Canvas)}code{overflow-wrap:anywhere}</style>
 </head><body><h1>SVG optimization summary</h1>
+<h2>Counting correction</h2>
+<p>The <code>adopted</code> counts above mean “pixel-identical SVGO output”, not “smaller file”. The correct size accounting is:</p>
+<ul>
+<li><strong>41 existing SVGs are smaller</strong>, saving <strong>2,137 bytes</strong>: 29 icons, 11 file-type icons and the PHP logo.</li>
+<li><strong>15 unused SVGs removed</strong>, saving <strong>11,281 bytes</strong>.</li>
+<li><strong>5 new pretints added</strong>, costing <strong>1,226 bytes</strong>.</li>
+<li><strong>2 adopted files are larger</strong>: <code>icons/menu.svg</code> +16 bytes for ARIA metadata and <code>icons/tabledrag-handle.svg</code> +30 bytes from SVGO arc-flag spacing.</li>
+<li>Net SVG change: <strong>12,146 bytes smaller</strong>.</li>
+</ul>
+<p>See <a href="svg-size-changes.html">per-file SVG size changes</a>.</p>
 <p>Tool: SVGO 3.3.2, config <code>tools/svgo.config.mjs</code>, multipass with float precision 4.
 Pixels were compared in Chromium at 12 sizes, DPR 1 and 2, on transparent, light and dark surfaces.</p>
 <table>

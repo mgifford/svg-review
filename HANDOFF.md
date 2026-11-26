@@ -19,7 +19,7 @@
 - Rebased revision tip: `0d00037ed57a46cb6d2d2b14af7db065b12ccc24`.
 - Start with [the revision report](proposed/reports/revision-2026-11-25.html) and [component coverage](proposed/reports/component-coverage.html).
 
-The revision restores the autocomplete and media-edit icons, fixes dark disabled checkbox and select states, keeps status masks visible in forced colours, replaces the invalid sticky-loader pseudo-element, and makes tabledrag tree strokes use `currentColor`. It removes 15 unused assets and 20 registry entries, and adopts 45 SVGO results only where pixels are identical.
+The revision restores the autocomplete and media-edit icons, fixes dark disabled checkbox and select states, keeps status masks visible in forced colours, replaces the invalid sticky-loader pseudo-element, and makes tabledrag tree strokes use `currentColor`. It removes 15 unused assets and 20 registry entries, and adopts 45 pixel-identical SVGO results; 41 existing SVGs are smaller, 2 are larger, and 2 are new pretints.
 
 Executed: 64 SVGs validated with 0 errors; reference audit 0 undefined/missing/unused; 46 regression tests; 14 theme Unit/Kernel tests with 209 assertions; axe 0 violations on three pages; Stylelint, Twig lint and Core CSS build checks pass.
 

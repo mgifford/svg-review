@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lessons from the Default Admin SVG revision — 2026-11-25</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 74rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.55 system-ui, sans-serif; }
+  nav { border-bottom: 1px solid #888; padding-bottom: .6rem; margin-bottom: 1.3rem; font-size: .9rem; }
+  h1 { line-height: 1.2; }
+  h2 { margin-block-start: 2rem; }
+  ol { padding-inline-start: 1.4rem; }
+  li { margin-block: 1rem; }
+  li strong { display: block; }
+  code { overflow-wrap: anywhere; }
+  .note { border-inline-start: .4rem solid #b26a00; padding: .75rem 1rem; background: color-mix(in srgb, #b26a00 10%, Canvas); }
+  a:focus-visible { outline: .2rem solid; outline-offset: .15rem; }
+</style>
+</head>
+<body>
+<nav><a href="revision-2026-11-25.html">Revision report</a> · <a href="svg-size-changes.html">Per-file size changes</a> · <a href="../index.html">SVG Review home</a></nav>
+<h1>Lessons from the Default Admin SVG revision</h1>
+<p class="note">These are review lessons from the 2026-11-25 revision, not general proofs. Each item points to evidence in this repository.</p>
+<ol>
+<li><strong>An external SVG background does not inherit the element’s currentColor.</strong>
+A <code>currentColor</code> master used as <code>background-image</code> renders its own default paint. Masks take paint from the consuming element; inline SVG inherits CSS colour; pretints are fixed. Classify each consumer before choosing a technique. Evidence: the autocomplete and loader fixes.</li>
+<li><strong><code>&lt;input type="submit"&gt;</code> cannot host a pseudo-element.</strong>
+The sticky action controls are inputs. The historical <code>::after</code> mask could not render. Use a real wrapper element or, for native controls, a tested pretint. Check the rendered tag, not the CSS intent. Evidence: <code>loader.json</code> records <code>tagName: INPUT</code> and <code>::after: none</code>.</li>
+<li><strong>Theme specificity can invert a sensible cascade.</strong>
+The <code>:is(#extra-specificity-hack, [data-drupal-admin-styles])</code> wrapper and dark-mode selectors can beat later rules. Dark artwork must be scoped to <code>@media (forced-colors: none)</code>, and loading-state padding must match the winning specificity. Compute styles and inspect matched rules; do not rely on source order alone.</li>
+<li><strong>A mask’s paint is its background-color, and forced colours can erase it.</strong>
+Setting <code>background-color: CanvasText</code> on the masked pseudo-element kept the status icons visible in Chromium forced-colours emulation. Narrow scope was enough; <code>forced-color-adjust: none</code> was not needed. Test both palettes and record that emulation is not native Windows High Contrast.</li>
+<li><strong>Do not measure RTL by toggling <code>dir</code> on a loaded page.</strong>
+The input’s logical padding transitioned through mid-animation values and produced a false 12 px/36 px reading. Serve a fresh document with <code>dir="rtl"</code> and measure physical left and right padding. Evidence: <code>autocomplete-rtl.json</code>.</li>
+<li><strong>Pixel-identical SVGO output can still be larger.</strong>
+<code>tabledrag-handle.svg</code> grew by 30 bytes because arc-flag spacing was expanded, despite unchanged pixels. <code>menu.svg</code> grew by 16 bytes from intentional ARIA metadata. Gate optimisation on <em>both</em> pixels and bytes, and report exceptions. Evidence: <a href="svg-size-changes.html">per-file size changes</a>.</li>
+<li><strong>“Adopted”, “smaller” and “new” are different counts.</strong>
+The first summary said 45 SVGs were adopted. Only 41 existing SVGs are smaller; two adopted files are larger and two are new pretints. Define the denominator before quoting a percentage.</li>
+<li><strong>A definition is not a consumer.</strong>
+Registry properties must be resolved through alias chains to files, and a literal-reference scan must be separated from rendered use. The audit found zero undefined, missing or unused references only after alias resolution and literal CSS URL handling. Absence of a source reference still does not prove absence of runtime use.</li>
+<li><strong>Static harnesses cannot accept interaction-dependent icons.</strong>
+The sticky loader needed Drupal’s real progress markup; the media edit control needed the theme’s real class inside a real selected media item. Record where the fixture or markup was injected. Evidence: <code>loader.json</code>, <code>media.json</code>, <code>component-coverage.md</code>.</li>
+<li><strong>GitHub Pages does not list directories.</strong>
+A screenshot directory returns 404 until it has an <code>index.html</code>. Publish galleries as real pages, not bare folders.</li>
+<li><strong>Drupal.org issue-fork write access is account-specific.</strong>
+SSH authentication can succeed while the project rejects the push. Preserve both branches, prepare a bundle and the exact push command, and do not rewrite the existing MR branch.</li>
+<li><strong>Regenerate published claims when counts change.</strong>
+The revision report, README, handoff, optimization summary and Core Lab summary all carried the old “45 adopted” framing. Keep one per-file source of truth and regenerate every summary that quotes it.</li>
+</ol>
+</body>
+</html>
