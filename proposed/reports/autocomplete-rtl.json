@@ -1,0 +1,11 @@
+{
+  "method": "Fresh RTL document (dir=rtl served in the HTML) in Chromium 157, no runtime direction switch.",
+  "input": {
+    "direction": "rtl",
+    "paddingLeft": "36px",
+    "paddingRight": "12px",
+    "iconInsetInlineEnd": "1px",
+    "iconInsetBlockStart": "20px"
+  },
+  "result": "The icon is at the inline end (left) with 36px of padding on that side; no overlap with typed text."
+}
