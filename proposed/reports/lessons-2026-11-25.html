@@ -47,6 +47,8 @@ A screenshot directory returns 404 until it has an <code>index.html</code>. Publ
 SSH authentication can succeed while the project rejects the push. Preserve both branches, prepare a bundle and the exact push command, and do not rewrite the existing MR branch.</li>
 <li><strong>Regenerate published claims when counts change.</strong>
 The revision report, README, handoff, optimization summary and Core Lab summary all carried the old “45 adopted” framing. Keep one per-file source of truth and regenerate every summary that quotes it.</li>
+<li><strong>Drupal CSpell enforces US spelling in code comments.</strong>
+<code>colour</code>, <code>colours</code> and <code>grey</code> failed the commit check even though they were only comments. Use <code>color</code>, <code>colors</code> and <code>gray</code>, and run CSpell on changed CSS and Twig before pushing.</li>
 </ol>
 </body>
 </html>
