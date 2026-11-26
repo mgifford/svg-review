@@ -29,6 +29,8 @@ The sections below describe the earlier nine-patch proposal and are historical.
 
 ## Read this first
 
+Start with the [proposed reports index](proposed/index.html) for the current revision and the full report list.
+
 The repo contains **proposed fixes, cleanup and optimisation** built on top of the MR. It is not a mirror of the MR. “After-side” means the MR tree; “proposed” means this working tree. “Unused — optional removal” is a cleanup recommendation, not an MR deletion.
 
 The `unused` conclusion comes from a **literal source + CSS-variable alias scan**, not a rendered-page audit. See [the usage method](proposed/reports/usage-method.html).

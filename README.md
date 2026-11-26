@@ -23,6 +23,7 @@ This is a **review lab**, not an official Drupal repository, not an upstream for
 | `lab/` | The static SVG Review Lab (`acquire.py`, `usage.py`, `review.py`, `template.html`) |
 | `proposed/interdiff-*.patch` | Small proposed fixes/optimisations against the MR head |
 | `proposed/tests/` | Regression checks for the fixes |
+| `proposed/index.html` | Index of the current revision, asset review, methodology and historical reports |
 | `proposed/reports/` | Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, [high-use optimisation](proposed/reports/high-use-optimization.md) and the self-contained asset gallery |
 | `review.html` | Interactive SVG inventory generated from the pinned snapshots |
 | `after/` / `proposed/` | **Test fixtures only** — not full Drupal themes; see below |

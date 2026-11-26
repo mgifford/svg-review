@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposed work and reports — Default Admin SVG review</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { max-width: 78rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  nav { border-bottom: 1px solid #888; padding-bottom: .65rem; margin-bottom: 1.4rem; font-size: .9rem; }
+  h1 { line-height: 1.2; margin-bottom: .35rem; }
+  h2 { margin-block-start: 2.1rem; padding-bottom: .35rem; border-bottom: 1px solid #888; }
+  .lede { max-width: 75ch; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: .8rem; margin-block: 1rem; }
+  .card { border: 1px solid #888; border-radius: .45rem; padding: .8rem 1rem; }
+  .card h3 { margin: 0 0 .35rem; font-size: 1rem; }
+  .card p { margin: 0 0 .5rem; font-size: .92rem; }
+  .tag { display: inline-block; border: 1px solid #888; border-radius: 999px; padding: .05rem .45rem; font-size: .72rem; }
+  .note { border-inline-start: .4rem solid #b26a00; padding: .75rem 1rem; background: color-mix(in srgb, #b26a00 10%, Canvas); margin-block: 1rem; }
+  ul { padding-inline-start: 1.3rem; }
+  li { margin-block: .3rem; }
+  code { overflow-wrap: anywhere; }
+  a:focus-visible { outline: .2rem solid; outline-offset: .15rem; }
+</style>
+</head>
+<body>
+<nav><a href="../index.html">SVG Review home</a> · <a href="../HANDOFF.html">Handoff</a> · <a href="../SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="../review.html">Asset inventory</a></nav>
+<h1>Proposed work and reports</h1>
+<p class="lede">This is the index for the Default Admin SVG review. The current MR is <a href="https://git.drupalcode.org/project/drupal/-/merge_requests/17967">!17967</a>. Start with the revision report; the older patch series and per-fix reports remain available as history.</p>
+
+<div class="note"><strong>Current revision:</strong> branch <code>3603162-svg-revision</code> at <code>0d00037e</code>, rebased onto <code>main</code> <code>0387fb94</code>. It preserves the 11 commits from !16166 and adds one revision commit. No Drupal.org issue comment has been posted.</div>
+
+<h2>Current revision</h2>
+<div class="grid">
+  <article class="card">
+    <span class="tag">Start here</span>
+    <h3><a href="reports/revision-2026-11-25.html">Revision report</a></h3>
+    <p>What changed, exact revisions, tests, measurements and the current limitations.</p>
+  </article>
+  <article class="card">
+    <span class="tag">Visual</span>
+    <h3><a href="reports/screens/revision/">Component screenshot gallery</a></h3>
+    <p>Permissions, loader, media, status, selects and tabledrag in real Drupal pages.</p>
+  </article>
+  <article class="card">
+    <span class="tag">Evidence</span>
+    <h3><a href="reports/component-coverage.html">Component coverage</a></h3>
+    <p>Routes, states, verified results and explicitly untested combinations.</p>
+  </article>
+  <article class="card">
+    <span class="tag">Size</span>
+    <h3><a href="reports/svg-size-changes.html">Per-file SVG size changes</a></h3>
+    <p>41 existing SVGs are smaller, 15 removed, 5 new pretints, 2 adopted files larger.</p>
+  </article>
+  <article class="card">
+    <span class="tag">Review</span>
+    <h3><a href="reports/lessons-2026-11-25.html">Lessons learned</a></h3>
+    <p>The technical traps and process lessons from this revision.</p>
+  </article>
+  <article class="card">
+    <span class="tag">Measurements</span>
+    <h3><a href="reports/optimization-summary.html">Optimization summary</a></h3>
+    <p>SVGO configuration, pixel gate and stylesheet compression measurements.</p>
+  </article>
+</div>
+
+<h2>Asset review</h2>
+<div class="grid">
+  <article class="card">
+    <h3><a href="reports/patch-gallery.html">Before/after asset gallery</a></h3>
+    <p>Side-by-side original and !16166 after-side assets, source diffs and sizes. The current revision’s component screenshots are linked separately above.</p>
+  </article>
+  <article class="card">
+    <h3><a href="reports/svg-properties.html">SVG property matrix</a></h3>
+    <p>Paint, geometry, metadata and consumer properties for the asset set.</p>
+  </article>
+  <article class="card">
+    <h3><a href="reports/svg-property-standard.html">SVG property standard</a></h3>
+    <p>The rules used to judge artwork and consuming contexts.</p>
+  </article>
+  <article class="card">
+    <h3><a href="reports/change-ledger.html">Change ledger</a></h3>
+    <p>File-by-file changes and their stated purpose.</p>
+  </article>
+  <article class="card">
+    <h3><a href="reports/visual-review.html">Visual review</a></h3>
+    <p>Larger visual comparisons and palette simulations.</p>
+  </article>
+  <article class="card">
+    <h3><a href="reports/validation.json">Validation</a> and <a href="reports/icon-reference-validation.json">reference audit</a></h3>
+    <p>Structural validation plus undefined, missing and unused property checks.</p>
+  </article>
+</div>
+
+<h2>Method and historical fix reports</h2>
+<ul>
+  <li><a href="reports/usage-method.html">Usage method</a> — how source references and aliases were resolved.</li>
+  <li><a href="reports/dark-mode-currentcolor.html">CurrentColor dark-mode audit</a> — why background images and masks differ.</li>
+  <li><a href="reports/forced-colors-status-icons.html">Forced-colours status icons</a> — the original fix report.</li>
+  <li><a href="reports/checkmark-evidence.html">Checkmark evidence</a> — disabled checkbox contrast.</li>
+  <li><a href="reports/high-use-optimization.html">High-use optimization</a> — earlier SVGO pilot.</li>
+  <li><a href="reports/over-300-optimization.html">Over-300 optimization</a> — earlier large-file pilot.</li>
+  <li><a href="reports/svg-optimization-pilot.html">Optimization pilot</a> — the first conservative SVGO test.</li>
+</ul>
+
+<h2>Raw material</h2>
+<ul>
+  <li><a href="https://github.com/mgifford/svg-review/tree/main/proposed/tests">Regression tests</a> and <a href="https://github.com/mgifford/svg-review/tree/main/proposed/reports">all report files</a>.</li>
+  <li><a href="https://github.com/mgifford/svg-review/tree/main/proposed">The proposed directory</a> — patches, tests and reports.</li>
+  <li><a href="../reconciliation.html">Reconciliation</a> — checkmark-family dispositions and provenance.</li>
+  <li><a href="../SVG-IMPROVEMENT-PLAN.html">Improvement plan</a> — the original backlog, now historical.</li>
+</ul>
+</body>
+</html>
