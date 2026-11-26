@@ -1,6 +1,6 @@
 # Handoff — Drupal MR !16166 SVG review
 
-**Status:** review phase complete. This is an independent review lab, **not an upstream Drupal submission** and **not RTBC**.
+**Status:** MR !17967 is open. This is an independent review lab, not an official Drupal repository, and **not RTBC**.
 
 - Review site: https://mgifford.github.io/svg-review/
 - Repository: https://github.com/mgifford/svg-review
@@ -12,7 +12,7 @@
 
 ## 2026-11-25 revision
 
-**Status: draft, local only.** No push, MR update or drupal.org comment was made.
+**Status: branch and MR published.** Issue-fork branch `3603162-svg-revision`; MR !17967 is open. No Drupal.org issue comment has been posted.
 
 - MR head verified again: `fe4adb4f942385912bb3244b570afa475cadf3bd`.
 - Upstream `main`: `0387fb948f786bc344a5cc54aa0d98b8f552e378`.

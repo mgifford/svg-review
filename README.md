@@ -7,9 +7,9 @@ Independent review material for **Drupal core MR !16166** (`default_admin` SVG c
 - Baseline before: `29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8`
 - MR head reviewed: `fe4adb4f942385912bb3244b570afa475cadf3bd`
 
-**2026-11-25 revision:** MR head is still `fe4adb4f`; upstream `main` is now `0387fb94`. A complete local revision is at `0d00037e` on branch `3603162-svg-revision`. Start with the [revision report](proposed/reports/revision-2026-11-25.html). It supersedes the nine-patch sequence for current review. The historical sections below remain as evidence of the earlier proposal.
+**2026-11-25 revision:** MR head is still `fe4adb4f`; upstream `main` is now `0387fb94`. A published revision is at `0d00037e` on branch `3603162-svg-revision`; [MR !17967](https://git.drupalcode.org/project/drupal/-/merge_requests/17967) is open. Start with the [revision report](proposed/reports/revision-2026-11-25.html). It supersedes the nine-patch sequence for current review. The historical sections below remain as evidence of the earlier proposal.
 
-This is a **draft review lab**, not an official Drupal repository, not an upstream fork, and **not RTBC**. No claim of full SVG or WCAG conformance is made.
+This is a **review lab**, not an official Drupal repository, not an upstream fork, and **not RTBC**. No claim of full SVG or WCAG conformance is made.
 
 ## What is here
 
