@@ -49,6 +49,8 @@ SSH authentication can succeed while the project rejects the push. Preserve both
 The revision report, README, handoff, optimization summary and Core Lab summary all carried the old “45 adopted” framing. Keep one per-file source of truth and regenerate every summary that quotes it.</li>
 <li><strong>Drupal CSpell enforces US spelling in code comments.</strong>
 <code>colour</code>, <code>colours</code> and <code>grey</code> failed the commit check even though they were only comments. Use <code>color</code>, <code>colors</code> and <code>gray</code>, and run CSpell on changed CSS and Twig before pushing.</li>
+<li><strong>Fetch an issue fork before pushing a follow-up.</strong>
+The remote branch already contained an equivalent spelling-fix commit from the lab automation. The push was rejected as non-fast-forward. Compare the content, adopt the remote commit, and never force-push over automated work. Evidence: <code>d4728a2a</code>.</li>
 </ol>
 </body>
 </html>
