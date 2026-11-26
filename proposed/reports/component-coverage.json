@@ -1,0 +1,162 @@
+{
+  "revision": {
+    "mrHead": "fe4adb4f942385912bb3244b570afa475cadf3bd",
+    "upstreamMain": "0387fb948f786bc344a5cc54aa0d98b8f552e378",
+    "theme": "default_admin"
+  },
+  "tool": "Playwright 1.59 + system Chrome 157, Drupal 12.0-dev local site",
+  "components": [
+    {
+      "component": "Permissions",
+      "route": "/admin/people/permissions",
+      "icons": [
+        "checked-disabled",
+        "checked-disabled-inverse"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "forced-light",
+        "forced-dark"
+      ],
+      "result": "verified",
+      "evidence": "components-final.json; screens/permissions-*.png"
+    },
+    {
+      "component": "Autocomplete field",
+      "route": "/node/add/article",
+      "icons": [
+        "search"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "RTL light",
+        "RTL dark",
+        "forced-light",
+        "forced-dark",
+        "loading"
+      ],
+      "result": "verified",
+      "evidence": "components-final.json; screens/autocomplete-*.png"
+    },
+    {
+      "component": "Sticky form actions",
+      "route": "/node/add/article",
+      "icons": [
+        "loader-inverse",
+        "loader-contrast"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "RTL light",
+        "RTL dark",
+        "reduced motion",
+        "forced-dark"
+      ],
+      "result": "verified with injected Drupal AJAX progress markup",
+      "evidence": "loader.json; screens/loader2-*.png"
+    },
+    {
+      "component": "Media library selected item",
+      "route": "/node/add/article media widget",
+      "icons": [
+        "edit",
+        "edit-inverse",
+        "remove",
+        "remove-inverse"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "hover",
+        "forced-light",
+        "forced-dark"
+      ],
+      "result": "verified; edit control inserted with theme markup because the fixture widget display omits it",
+      "evidence": "media.json; screens/media-*.png"
+    },
+    {
+      "component": "Status report",
+      "route": "/admin/reports/status",
+      "icons": [
+        "drupal",
+        "server",
+        "clock",
+        "php",
+        "database"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "forced-light",
+        "forced-dark"
+      ],
+      "result": "verified",
+      "evidence": "components-final.json; screens/status-*.png"
+    },
+    {
+      "component": "Menu administration tabledrag",
+      "route": "/admin/structure/menu/manage/main",
+      "icons": [
+        "inline tree SVG"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "RTL",
+        "dragging"
+      ],
+      "result": "verified",
+      "evidence": "components-final.json; screens/tabledrag-*.png"
+    },
+    {
+      "component": "Select controls",
+      "route": "/node/add/article",
+      "icons": [
+        "chevron-down",
+        "chevron-down-inverse",
+        "chevron-down-disabled",
+        "chevron-down-disabled-inverse"
+      ],
+      "states": [
+        "light",
+        "dark",
+        "forced-light",
+        "forced-dark"
+      ],
+      "result": "verified with a synthetic disabled select in the real theme context; no disabled select exists in the fixture",
+      "evidence": "components-final.json; screens/select-*.png"
+    }
+  ],
+  "untested": [
+    "Sort indicators and pager controls on views administration",
+    "File-type icons in managed file fields and attachment lists",
+    "Required marker, password show/hide, sidebar toggles",
+    "Local task hamburger under overflow and narrow viewport",
+    "Messages, warnings and errors",
+    "Native Windows High Contrast",
+    "Firefox and WebKit pixel/forced-colors runs",
+    "Full AJAX Save/Preview round trip (progress markup was injected; node Save is not an AJAX submit)"
+  ],
+  "axe": {
+    "pages": {
+      "/admin/people/permissions": {
+        "violations": [],
+        "passes": 31,
+        "incomplete": 2
+      },
+      "/admin/reports/status": {
+        "violations": [],
+        "passes": 27,
+        "incomplete": 1
+      },
+      "/node/add/article": {
+        "violations": [],
+        "passes": 30,
+        "incomplete": 2
+      }
+    }
+  }
+}

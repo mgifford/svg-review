@@ -10,6 +10,23 @@
 - Issue: https://www.drupal.org/project/drupal/issues/3603162
 - Release tag: `v0.1-review`
 
+## 2026-11-25 revision
+
+**Status: draft, local only.** No push, MR update or drupal.org comment was made.
+
+- MR head verified again: `fe4adb4f942385912bb3244b570afa475cadf3bd`.
+- Upstream `main`: `0387fb948f786bc344a5cc54aa0d98b8f552e378`.
+- Rebased revision tip: `0d00037ed57a46cb6d2d2b14af7db065b12ccc24`.
+- Start with [the revision report](proposed/reports/revision-2026-11-25.html) and [component coverage](proposed/reports/component-coverage.html).
+
+The revision restores the autocomplete and media-edit icons, fixes dark disabled checkbox and select states, keeps status masks visible in forced colours, replaces the invalid sticky-loader pseudo-element, and makes tabledrag tree strokes use `currentColor`. It removes 15 unused assets and 20 registry entries, and adopts 45 SVGO results only where pixels are identical.
+
+Executed: 64 SVGs validated with 0 errors; reference audit 0 undefined/missing/unused; 46 regression tests; 14 theme Unit/Kernel tests with 209 assertions; axe 0 violations on three pages; Stylelint, Twig lint and Core CSS build checks pass.
+
+Not executed: 8 functional PHPUnit tests (no test web server), native Windows High Contrast, Firefox or WebKit. Full AJAX Save/Preview was not exercised; Drupal's real progress markup was injected. No WCAG 2.2 AA claim.
+
+The sections below describe the earlier nine-patch proposal and are historical.
+
 ## Read this first
 
 The repo contains **proposed fixes, cleanup and optimisation** built on top of the MR. It is not a mirror of the MR. “After-side” means the MR tree; “proposed” means this working tree. “Unused — optional removal” is a cleanup recommendation, not an MR deletion.

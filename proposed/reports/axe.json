@@ -1,0 +1,19 @@
+{
+  "pages": {
+    "/admin/people/permissions": {
+      "violations": [],
+      "passes": 31,
+      "incomplete": 2
+    },
+    "/admin/reports/status": {
+      "violations": [],
+      "passes": 27,
+      "incomplete": 1
+    },
+    "/node/add/article": {
+      "violations": [],
+      "passes": 30,
+      "incomplete": 2
+    }
+  }
+}

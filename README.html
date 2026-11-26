@@ -1,11 +1,12 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>README</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="HANDOFF.html"><strong>Handoff</strong></a> · <a href="proposed/reports/patch-gallery.html">Gallery</a> · <a href="proposed/reports/svg-properties.html">Properties</a> · <a href="proposed/reports/change-ledger.html">Change ledger</a> · <a href="proposed/reports/over-300-optimization.html">Over 300</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>Drupal Default Admin SVG review</h1>
 <p>Independent review material for <strong>Drupal core MR !16166</strong> (<code>default_admin</code> SVG consolidation).</p>
 <ul>
-<li>MR: https://git.drupalcode.org/project/drupal/-/merge_requests/16166</li>
-<li>Issue: https://www.drupal.org/project/drupal/issues/3603162</li>
+<li>MR: <a href="https://git.drupalcode.org/project/drupal/-/merge_requests/16166">https://git.drupalcode.org/project/drupal/-/merge_requests/16166</a></li>
+<li>Issue: <a href="https://www.drupal.org/project/drupal/issues/3603162">https://www.drupal.org/project/drupal/issues/3603162</a></li>
 <li>Baseline before: <code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code></li>
 <li>MR head reviewed: <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code></li>
 </ul>
+<p><strong>2026-11-25 revision:</strong> MR head is still <code>fe4adb4f</code>; upstream <code>main</code> is now <code>0387fb94</code>. A complete local revision is at <code>0d00037e</code> on branch <code>3603162-svg-revision</code>. Start with the <a href="proposed/reports/revision-2026-11-25.html">revision report</a>. It supersedes the nine-patch sequence for current review. The historical sections below remain as evidence of the earlier proposal.</p>
 <p>This is a <strong>draft review lab</strong>, not an official Drupal repository, not an upstream fork, and <strong>not RTBC</strong>. No claim of full SVG or WCAG conformance is made.</p>
 <h2>What is here</h2>
 <table>
@@ -15,8 +16,7 @@
 <th>Contents</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>HANDOFF.md</code> / <code>.html</code></td>
 <td>Verified/unverified split, patch order and release status</td>
 </tr>
@@ -50,7 +50,7 @@
 </tr>
 <tr>
 <td><code>proposed/reports/</code></td>
-<td>Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, <a href="proposed/reports/high-use-optimization.html">high-use optimisation</a> and the self-contained asset gallery</td>
+<td>Per-fix evidence, screenshots, validation, currentColor dark-mode audit, SVG property matrix, <a href="proposed/reports/high-use-optimization.md">high-use optimisation</a> and the self-contained asset gallery</td>
 </tr>
 <tr>
 <td><code>review.html</code></td>
@@ -60,8 +60,7 @@
 <td><code>after/</code> / <code>proposed/</code></td>
 <td><strong>Test fixtures only</strong> — not full Drupal themes; see below</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2>Reading “after”, “proposed” and “removed”</h2>
 <ul>
 <li><strong>After-side</strong> — the MR !16166 tree: the files the patch actually adds or keeps.</li>
@@ -69,7 +68,7 @@
 <li><strong>Unused — optional removal</strong> — the MR keeps the file, but we found no CSS, template or JS consumer in the after tree. Our cleanup recommends deleting it; this is <strong>not</strong> an MR deletion and the cleanup is optional.</li>
 <li><strong>No after asset</strong> — an original file has no counterpart in the MR at all.</li>
 </ul>
-<p>See <a href="proposed/reports/usage-method.html">how “used” was determined</a>: the current label is a source/alias scan, not a rendered-page audit.</p>
+<p>See <a href="proposed/reports/usage-method.md">how “used” was determined</a>: the current label is a source/alias scan, not a rendered-page audit.</p>
 <p>The 14 assets currently recommended for removal are <code>appearance</code>, <code>blocks</code>, <code>bookmarks</code>, <code>content</code>, <code>files</code>, <code>media</code>, <code>nav-toggle-left</code>, <code>nav-toggle-top</code>, <code>people</code>, <code>reports</code>, <code>structure</code>, <code>user</code>, <code>pretint/chevron-down-default</code> and <code>pretint/remove-default</code>. <code>search</code> and <code>chevron-left</code> are also unused but remain pending a decision.</p>
 <h2>Quick start</h2>
 <h3>Static review</h3>
@@ -113,11 +112,13 @@ python3 proposed/tests/compiled_icons_test.py
 <li>The MR removes/relocates SVG assets but leaves <strong>no broken SVG file references</strong> (80 references resolved, 0 missing in the after tree).</li>
 <li>Missing variants: <strong><code>search-muted</code> / <code>search-muted-rtl</code></strong> (autocomplete) and <strong><code>pretint/edit-inverse</code></strong> (media-library dark mode). A dark disabled select chevron also needs a decision.</li>
 <li><strong>77 original assets have no after-side target</strong>, but 0 of their exact paths are still referenced in the after tree. They are mostly intentional colour-variant/consolidation removals, not missing files.</li>
-<li>Confirmed fixes included here:</li>
+<li>Confirmed fixes included here:<ul>
 <li>dark-mode disabled checkbox contrast (<code>2.85:1 → 5.85:1</code>)</li>
 <li>status-report icons disappearing in forced colours</li>
 <li>14 unused assets recommended for removal (optional cleanup; also reflected in the proposed tree)</li>
 <li>4-decimal optimisation of <code>required.svg</code> and five status icons</li>
+</ul>
+</li>
 <li>Optimisation result: after-side <strong>74 files / 41,981 bytes → 61 files / 28,661 bytes</strong>, a <strong>31.7% reduction</strong>; compiled <code>icons.css</code> is <strong>40,615 → 25,587 bytes</strong> (37.0%) (net of the new check-disabled-inverse pretint).</li>
 <li>CurrentColor audit: unused icons have no dark-mode rendering; <code>menu.svg</code> is inline and inherits, while the sticky loader was a real <code>background-image: currentColor</code> bug and now uses a currentColor mask.</li>
 <li>The asset gallery defaults to a checkerboard, outlines the AFTER thumbnail, and exposes per-asset byte sizes, zoom and uncompressed source diffs.</li>
@@ -142,4 +143,5 @@ python3 proposed/tests/compiled_icons_test.py
 <li>No upstream push</li>
 <li>No issue/MR comment</li>
 <li>No full WCAG or SVG conformance claim</li>
-</ul></body></html>
+</ul>
+</body></html>

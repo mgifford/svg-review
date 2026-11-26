@@ -1,4 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>reconciliation</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}img{max-width:100%;height:auto}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="proposed/reports/patch-gallery.html">All assets</a> · <a href="proposed/reports/visual-review.html">Visual review</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a> · <a href="reconciliation.html">Dispositions</a> · <a href="CODE-REVIEW.html">Lab review</a></nav><h1>Checkmark family reconciliation</h1>
+<blockquote>
+<p><strong>Historical family analysis.</strong> The current revision&#39;s asset and reference evidence is in <a href="proposed/reports/icon-reference-validation.json">icon-reference-validation.json</a> and <a href="proposed/reports/revision-2026-11-25.html">revision-2026-11-25.html</a>. This file is retained for the checkmark-family disposition.</p>
+</blockquote>
 <p>Generated: 2026-11-24T19:44:58.625312+00:00</p>
 <p><strong>Scope:</strong> checkmark family only. Baseline before <code>29b0a0b...</code>, MR !16166 head <code>fe4adb4...</code>. Full 194-asset reconciliation is pending; 181 assets outside this family are not classified here.</p>
 <h2>Summary</h2>
@@ -25,8 +28,7 @@
 <th>Source evidence</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>images/icons/002e9a/checkmark.svg</code></td>
 <td>Confirmed unused and removed</td>
 <td><code>—</code></td>
@@ -117,8 +119,7 @@
 <td>high</td>
 <td><code>css/base/icons.pcss.css:57</code>; <code>css/components/form--checkbox-toggle.pcss.css:149</code>; <code>css/base/icons.css:63</code>; <code>css/components/form--checkbox-toggle.css:156</code>; <code>css/base/icons.css:74</code>; <code>css/components/form--checkbox-toggle.css:156</code>. Exact hash match with images/icons/toggle-unchecked.svg.</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2>Replacement and derived assets</h2>
 <table>
 <thead>
@@ -130,8 +131,7 @@
 <th>References</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>images/icons/check.svg</code></td>
 <td>Canonical monochrome check master</td>
 <td>—</td>
@@ -159,12 +159,11 @@
 <td>currentColor</td>
 <td><code>css/base/icons.pcss.css:68</code></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2>Confirmed regression in the checkmark family</h2>
 <p><code>images/icons/82828c/checkmark.svg</code> was the only used colour variant. MR !16166 replaced its disabled-checked checkbox image with <code>pretint/check-disabled.svg</code> (<code>#767676</code>) but did not add a dark-mode variant. On the dark disabled surface (<code>#313134</code>) the rendered check contrast drops from <strong>3.41:1 to 2.85:1</strong>. This was reproduced in the live Drupal 12 lab at <code>/admin/people/permissions</code>, where the Administrator column renders 91 checked and disabled checkboxes. Light mode improves from 3.16:1 to 3.78:1. Disabled controls are exempt from WCAG 2.2 SC 1.4.11, but the checked state became harder to distinguish and the regression is measurable and easy to prevent.</p>
 <p>Proposed fix: add <code>images/icons/pretint/check-disabled-inverse.svg</code> (<code>#adaeb3</code>, the gray-400 token used for disabled foreground), register it as <code>--admin-icon-checked-disabled-inverse</code>, and use it only under <code>.dark-mode</code>. Measured rendered contrast becomes <strong>5.85:1</strong>. Geometry is unchanged from <code>check.svg</code>; light mode and forced-colours output are unchanged.</p>
-<p><img alt="Disabled check comparison" src="proposed/reports/screens/disabled-check-comparison.png" /></p>
+<p><img src="proposed/reports/screens/disabled-check-comparison.png" alt="Disabled check comparison"></p>
 <h2>Proposed changes</h2>
 <ul>
 <li><code>images/icons/pretint/check-disabled-inverse.svg</code> — Add pretinted disabled check for dark mode. MR head uses #767676 on the dark disabled surface (#313134), 2.85:1. The new value is 5.85:1 and matches the disabled foreground token. Geometry is unchanged from check.svg.</li>
@@ -182,8 +181,9 @@
 <li>Automated pixel/contrast checks do not establish WCAG conformance.</li>
 </ul>
 <h2>Search evidence</h2>
-<pre><code class="language-sh">git --git-dir=drupal.git grep -n -F 'images/icons/&lt;colour&gt;/checkmark.svg' before -- core
-git --git-dir=drupal.git grep -n -F 'checkmark.svg' before -- core
-git --git-dir=drupal.git grep -n -F 'check-disabled' after -- core/themes/default_admin
+<pre><code class="language-sh">git --git-dir=drupal.git grep -n -F &#39;images/icons/&lt;colour&gt;/checkmark.svg&#39; before -- core
+git --git-dir=drupal.git grep -n -F &#39;checkmark.svg&#39; before -- core
+git --git-dir=drupal.git grep -n -F &#39;check-disabled&#39; after -- core/themes/default_admin
 python3 proposed/tests/checkmark_regression.py
-</code></pre></body></html>
+</code></pre>
+</body></html>

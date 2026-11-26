@@ -637,5 +637,12 @@
     "component": "91 disabled+checked checkboxes in the Administrator permission column",
     "method": "MR checkmark assets/CSS applied to the baseline theme; caches rebuilt; proposed fix added; baseline theme restored exactly.",
     "restored": true
+  },
+  "revision2026_11_25": {
+    "status": "historical family analysis; current revision evidence linked",
+    "reports": [
+      "proposed/reports/icon-reference-validation.json",
+      "proposed/reports/revision-2026-11-25.html"
+    ]
   }
 }

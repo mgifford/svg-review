@@ -1,0 +1,102 @@
+{
+  "stickyTag": "INPUT",
+  "pseudoAfter": "none",
+  "modes": {
+    "light": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#ffffff",
+      "animationName": "sticky-throbber",
+      "bgPosition": "7.60022px 15.2001px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "24.7996px 24.7996px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(1, 94, 254)"
+    },
+    "dark": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#111111",
+      "animationName": "sticky-throbber",
+      "bgPosition": "12.8026px 16.9342px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "14.3948px 14.3948px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(17, 17, 17)",
+      "backgroundColor": "lch(88 80.6205 288.155)"
+    },
+    "rtl-light": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#ffffff",
+      "animationName": "sticky-throbber-rtl",
+      "bgPosition": "calc(100% - 8.00102px) 15.3337px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "23.998px 23.998px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(1, 94, 254)"
+    },
+    "rtl-dark": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#111111",
+      "animationName": "sticky-throbber-rtl",
+      "bgPosition": "calc(100% - 5.19978px) 14.3999px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "29.6004px 29.6004px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(17, 17, 17)",
+      "backgroundColor": "lch(88 80.6205 288.155)"
+    },
+    "reduced-light": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#ffffff",
+      "animationName": "none",
+      "bgPosition": "8px 50%",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "16px 16px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(1, 94, 254)"
+    },
+    "preview-light": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#111111",
+      "animationName": "sticky-throbber",
+      "bgPosition": "8.40201px 15.4673px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "23.196px 23.196px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(1, 94, 254)",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
+    },
+    "preview-dark": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#ffffff",
+      "animationName": "sticky-throbber",
+      "bgPosition": "13.6004px 17.2001px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "12.7992px 12.7992px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "lch(88 80.6205 288.155)",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
+    },
+    "forced-dark": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  ",
+      "assetColor": "#ffffff",
+      "animationName": "sticky-throbber",
+      "bgPosition": "8.00202px 15.334px",
+      "backgroundRepeat": "no-repeat",
+      "bgSize": "23.996px 23.996px",
+      "paddingInlineStart": "32px",
+      "paddingInlineEnd": "12px",
+      "color": "rgb(255, 255, 255)",
+      "backgroundColor": "rgb(0, 0, 0)"
+    }
+  }
+}

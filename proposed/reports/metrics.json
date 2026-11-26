@@ -1,0 +1,101 @@
+{
+  "tool": {
+    "svgo": "3.3.2",
+    "gzip": "zlib level 9",
+    "brotli": "brotli -q 11"
+  },
+  "roots": {
+    "before": {
+      "svgFiles": 194,
+      "svgBytes": 92224,
+      "imageFiles": 127,
+      "imageBytes": 108909,
+      "iconsCssBytes": 43714,
+      "iconsCssGzipBytes": 12114,
+      "iconsCssBrotliBytes": 10318,
+      "fileCssBytes": 14148,
+      "fileCssGzipBytes": 2109,
+      "dataUrisIcons": 60,
+      "dataUrisFile": 14,
+      "duplicateArtworkGroups": [
+        [
+          "images/icons/currentColor/backtosite.svg",
+          "migration/media/icons/toolbar-meta/backtosite.svg"
+        ],
+        [
+          "images/icons/files/application-octet-stream.svg",
+          "images/icons/files/application-x-executable.svg"
+        ],
+        [
+          "images/icons/files/text-plain.svg",
+          "images/icons/files/text-x-generic.svg"
+        ],
+        [
+          "migration/media/icons/action-link/remove.svg",
+          "migration/media/icons/media-library/media-remove.svg"
+        ],
+        [
+          "migration/media/icons/general/calendar.svg",
+          "migration/media/icons/toolbar/bat.svg"
+        ]
+      ]
+    },
+    "mr": {
+      "svgFiles": 74,
+      "svgBytes": 41981,
+      "imageFiles": 86,
+      "imageBytes": 102814,
+      "iconsCssBytes": 40615,
+      "iconsCssGzipBytes": 9669,
+      "iconsCssBrotliBytes": 8184,
+      "fileCssBytes": 14148,
+      "fileCssGzipBytes": 2109,
+      "dataUrisIcons": 66,
+      "dataUrisFile": 14,
+      "duplicateArtworkGroups": [
+        [
+          "images/file-types/application-octet-stream.svg",
+          "images/file-types/application-x-executable.svg"
+        ],
+        [
+          "images/file-types/text-plain.svg",
+          "images/file-types/text-x-generic.svg"
+        ]
+      ]
+    },
+    "final": {
+      "svgFiles": 64,
+      "svgBytes": 29835,
+      "imageFiles": 76,
+      "imageBytes": 90668,
+      "iconsCssBytes": 26315,
+      "iconsCssGzipBytes": 6246,
+      "iconsCssBrotliBytes": 5346,
+      "fileCssBytes": 13241,
+      "fileCssGzipBytes": 2118,
+      "dataUrisIcons": 51,
+      "dataUrisFile": 14,
+      "duplicateArtworkGroups": [
+        [
+          "images/file-types/application-octet-stream.svg",
+          "images/file-types/application-x-executable.svg"
+        ],
+        [
+          "images/file-types/text-plain.svg",
+          "images/file-types/text-x-generic.svg"
+        ]
+      ]
+    }
+  },
+  "deltas": {
+    "mrToFinalSvgBytes": -12146,
+    "mrToFinalIconsCssBytes": -14300,
+    "baselineToFinalSvgBytes": -62389,
+    "baselineToFinalIconsCssBytes": -17399
+  },
+  "notes": [
+    "Compressed sizes cover icons.css only, not a delivered page or a full theme payload.",
+    "No page-weight, network or carbon claim is made from these numbers.",
+    "Cold-cache and warm-cache delivery were not measured."
+  ]
+}

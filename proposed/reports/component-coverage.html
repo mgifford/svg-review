@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>component-coverage</title>
+<style>:root{color-scheme:light dark}body{max-width:70rem;margin:2rem auto;padding:0 1rem;font:1rem/1.5 system-ui,sans-serif}table{border-collapse:collapse;width:100%}th,td{border:1px solid #888;padding:.4rem .6rem;text-align:left}th{background:color-mix(in srgb,CanvasText 10%,Canvas)}code{overflow-wrap:anywhere}</style>
+</head><body><h1>Component coverage</h1>
+<p>Revision: MR <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code> on upstream <code>0387fb948f786bc344a5cc54aa0d98b8f552e378</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Route</th>
+<th>States</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Permissions</td>
+<td><code>/admin/people/permissions</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;forced-light&#39;, &#39;forced-dark&#39;]</td>
+<td>verified</td>
+</tr>
+<tr>
+<td>Autocomplete field</td>
+<td><code>/node/add/article</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;RTL light&#39;, &#39;RTL dark&#39;, &#39;forced-light&#39;, &#39;forced-dark&#39;, &#39;loading&#39;]</td>
+<td>verified</td>
+</tr>
+<tr>
+<td>Sticky form actions</td>
+<td><code>/node/add/article</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;RTL light&#39;, &#39;RTL dark&#39;, &#39;reduced motion&#39;, &#39;forced-dark&#39;]</td>
+<td>verified with injected Drupal AJAX progress markup</td>
+</tr>
+<tr>
+<td>Media library selected item</td>
+<td><code>/node/add/article media widget</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;hover&#39;, &#39;forced-light&#39;, &#39;forced-dark&#39;]</td>
+<td>verified; edit control inserted with theme markup because the fixture widget display omits it</td>
+</tr>
+<tr>
+<td>Status report</td>
+<td><code>/admin/reports/status</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;forced-light&#39;, &#39;forced-dark&#39;]</td>
+<td>verified</td>
+</tr>
+<tr>
+<td>Menu administration tabledrag</td>
+<td><code>/admin/structure/menu/manage/main</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;RTL&#39;, &#39;dragging&#39;]</td>
+<td>verified</td>
+</tr>
+<tr>
+<td>Select controls</td>
+<td><code>/node/add/article</code></td>
+<td>[&#39;light&#39;, &#39;dark&#39;, &#39;forced-light&#39;, &#39;forced-dark&#39;]</td>
+<td>verified with a synthetic disabled select in the real theme context; no disabled select exists in the fixture</td>
+</tr>
+</tbody></table>
+<h2>Untested</h2>
+<ul>
+<li>Sort indicators and pager controls on views administration</li>
+<li>File-type icons in managed file fields and attachment lists</li>
+<li>Required marker, password show/hide, sidebar toggles</li>
+<li>Local task hamburger under overflow and narrow viewport</li>
+<li>Messages, warnings and errors</li>
+<li>Native Windows High Contrast</li>
+<li>Firefox and WebKit pixel/forced-colors runs</li>
+<li>Full AJAX Save/Preview round trip (progress markup was injected; node Save is not an AJAX submit)</li>
+</ul>
+<p>Axe checks on <code>/admin/people/permissions</code>, <code>/admin/reports/status</code> and <code>/node/add/article</code> reported no WCAG A/AA violations in the tested state. This is not a conformance claim.</p>
+</body></html>

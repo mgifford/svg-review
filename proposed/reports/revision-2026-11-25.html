@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Default Admin SVG revision — 2026-11-25</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { max-width: 75rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.5 system-ui, sans-serif; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+  th, td { border: 1px solid #888; padding: .4rem .6rem; text-align: left; vertical-align: top; }
+  th { background: color-mix(in srgb, CanvasText 10%, Canvas); }
+  code { overflow-wrap: anywhere; }
+  .status { border-inline-start: .4rem solid #b26a00; padding: .75rem 1rem; background: color-mix(in srgb, #b26a00 10%, Canvas); }
+  a:focus-visible { outline: .2rem solid; outline-offset: .15rem; }
+</style>
+</head>
+<body>
+<h1>Default Admin SVG revision — 2026-11-25</h1>
+<p class="status"><strong>Draft, local only.</strong> No push, MR update or drupal.org comment was made. This page supersedes the historical nine-patch sequence for review purposes.</p>
+
+<h2>Revisions</h2>
+<table>
+<caption>Exact revisions used for this revision</caption>
+<tbody>
+<tr><th scope="row">Historical baseline</th><td><code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code></td></tr>
+<tr><th scope="row">MR head reviewed</th><td><code>fe4adb4f942385912bb3244b570afa475cadf3bd</code> (unchanged)</td></tr>
+<tr><th scope="row">Current upstream main</th><td><code>0387fb948f786bc344a5cc54aa0d98b8f552e378</code></td></tr>
+<tr><th scope="row">Revision tip</th><td><code>0d00037ed57a46cb6d2d2b14af7db065b12ccc24</code></td></tr>
+</tbody>
+</table>
+
+<h2>Functional corrections</h2>
+<ul>
+<li>Autocomplete magnifier restored as a mask on <code>.admin-autocomplete</code>; both <code>search-muted</code> properties removed.</li>
+<li>Media-library pencil uses a registered <code>--admin-icon-edit-inverse</code>.</li>
+<li>Dark disabled checkbox uses <code>#adaeb3</code> outside forced colours; contrast 2.85:1 → 5.85:1.</li>
+<li>Dark disabled select gets its own muted chevron; dark artwork is scoped to <code>@media (forced-colors: none)</code>.</li>
+<li>Status masks paint with <code>CanvasText</code> in forced colours.</li>
+<li>The sticky loader uses pretinted background images because the controls are <code>&lt;input type="submit"&gt;</code>; it covers <code>edit-submit</code> and <code>edit-save</code>, mirrors for RTL, and keeps a reduced-motion indicator.</li>
+<li>Tabledrag tree strokes use <code>currentColor</code>; the inline SVG is decorative.</li>
+</ul>
+
+<h2>Cleanup and optimization</h2>
+<table>
+<caption>Measured theme totals</caption>
+<thead><tr><th scope="col">Revision</th><th scope="col">SVG files</th><th scope="col">SVG bytes</th><th scope="col">icons.css</th><th scope="col">gzip</th><th scope="col">brotli</th></tr></thead>
+<tbody>
+<tr><td>MR head</td><td>74</td><td>41,981</td><td>40,615</td><td>9,669</td><td>8,184</td></tr>
+<tr><td>Revision</td><td>64</td><td>29,835</td><td>26,315</td><td>6,246</td><td>5,346</td></tr>
+</tbody>
+</table>
+<p>Fifteen unused assets and twenty registry entries were removed. Forty-five SVGs were optimized with SVGO 3.3.2; only files whose Chromium pixels were identical across 12 sizes, DPR 1 and 2, and three backgrounds were adopted. Six files were skipped. These are stylesheet measurements, not page-weight or carbon claims.</p>
+
+<h2>Verification</h2>
+<table>
+<caption>Executed checks</caption>
+<tbody>
+<tr><th scope="row">Static SVG validation</th><td>64 files, 0 errors, 0 warnings</td></tr>
+<tr><th scope="row">Icon reference audit</th><td>0 undefined, 0 missing files, 0 unused properties or assets</td></tr>
+<tr><th scope="row">Compiled equivalence</th><td>51 data URIs match source recursively</td></tr>
+<tr><th scope="row">Regression suite</th><td>46 tests pass</td></tr>
+<tr><th scope="row">Theme PHPUnit</th><td>14 Unit/Kernel tests, 209 assertions pass; 8 functional tests blocked</td></tr>
+<tr><th scope="row">Axe</th><td>0 WCAG A/AA violations on permissions, status and node form</td></tr>
+</tbody>
+</table>
+
+<h2>Reports and evidence</h2>
+<ul>
+<li><a href="icon-reference-validation.json">Icon reference validation (JSON)</a></li>
+<li><a href="component-coverage.html">Component coverage</a> — <a href="component-coverage.json">JSON</a>, <a href="component-coverage.md">Markdown</a></li>
+<li><a href="optimization-summary.html">Optimization summary</a> — <a href="optimization-summary.json">JSON</a>, <a href="optimization-summary.md">Markdown</a></li>
+<li><a href="validation-2026-11-25.json">SVG validation (JSON)</a></li>
+<li><a href="metrics.json">Size measurements (JSON)</a></li>
+<li><a href="axe.json">Axe results (JSON)</a></li>
+<li><a href="screens/revision/">Browser screenshots</a></li>
+</ul>
+
+<h2>Not verified</h2>
+<ul>
+<li>Native Windows High Contrast; Firefox and WebKit.</li>
+<li>Full AJAX Save/Preview round trip. The real progress markup was injected because node Save is not an AJAX submit.</li>
+<li>The fixture's media widget display does not render the edit field; the edit control was tested with the theme's own markup inside a real selected item.</li>
+<li>File-type icons, sort indicators, pager, messages, password controls and the narrow-viewport local-task trigger.</li>
+<li>No WCAG 2.2 AA conformance claim.</li>
+</ul>
+<p>The historical gallery, property matrix and ledger describe the earlier nine-patch proposal. They remain available as history and are not evidence for this revision.</p>
+</body>
+</html>

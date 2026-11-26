@@ -1,0 +1,279 @@
+{
+  "revisions": {
+    "mrHead": "fe4adb4f942385912bb3244b570afa475cadf3bd",
+    "upstreamMain": "0387fb948f786bc344a5cc54aa0d98b8f552e378",
+    "theme": "default_admin"
+  },
+  "permissions": {
+    "count": 145,
+    "modes": {
+      "light": {
+        "bg": "rgb(234, 234, 234)",
+        "assetColor": "#767676",
+        "contrast": 3.78,
+        "colorScheme": "light",
+        "forcedColorAdjust": "auto"
+      },
+      "dark": {
+        "bg": "rgb(49, 49, 52)",
+        "assetColor": "#adaeb3",
+        "contrast": 5.85,
+        "colorScheme": "dark",
+        "forcedColorAdjust": "auto"
+      },
+      "forced-light": {
+        "bg": "rgb(255, 255, 255)",
+        "assetColor": "#767676",
+        "contrast": 4.54,
+        "colorScheme": "light dark",
+        "forcedColorAdjust": "auto"
+      },
+      "forced-dark": {
+        "bg": "rgb(0, 0, 0)",
+        "assetColor": "#767676",
+        "contrast": 4.62,
+        "colorScheme": "light dark",
+        "forcedColorAdjust": "auto"
+      }
+    }
+  },
+  "autocomplete": {
+    "count": 1,
+    "modes": {
+      "light": {
+        "content": "\"\"",
+        "bg": "rgb(142, 146, 156)",
+        "mask": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w",
+        "width": "16px",
+        "height": "16px",
+        "insetInlineEnd": "1px",
+        "paddingInlineEnd": "36px",
+        "inputBgImage": "none",
+        "position": "absolute"
+      },
+      "dark": {
+        "content": "\"\"",
+        "bg": "rgb(142, 146, 156)",
+        "mask": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w",
+        "width": "16px",
+        "height": "16px",
+        "insetInlineEnd": "1px",
+        "paddingInlineEnd": "36px",
+        "inputBgImage": "none",
+        "position": "absolute"
+      },
+      "rtl-light": {
+        "content": "\"\"",
+        "bg": "rgb(142, 146, 156)",
+        "mask": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w",
+        "width": "16px",
+        "height": "16px",
+        "insetInlineEnd": "1px",
+        "paddingInlineEnd": "12px",
+        "inputBgImage": "none",
+        "position": "absolute"
+      },
+      "rtl-dark": {
+        "content": "\"\"",
+        "bg": "rgb(142, 146, 156)",
+        "mask": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w",
+        "width": "16px",
+        "height": "16px",
+        "insetInlineEnd": "1px",
+        "paddingInlineEnd": "12px",
+        "inputBgImage": "none",
+        "position": "absolute"
+      },
+      "forced-light": {
+        "content": "\"\"",
+        "bg": "rgb(0, 0, 0)",
+        "mask": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w",
+        "width": "16px",
+        "height": "16px",
+        "insetInlineEnd": "1px",
+        "paddingInlineEnd": "12px",
+        "inputBgImage": "none",
+        "position": "absolute"
+      },
+      "forced-dark": {
+        "content": "\"\"",
+        "bg": "rgb(255, 255, 255)",
+        "mask": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w",
+        "width": "16px",
+        "height": "16px",
+        "insetInlineEnd": "1px",
+        "paddingInlineEnd": "36px",
+        "inputBgImage": "none",
+        "position": "absolute"
+      }
+    },
+    "loading": {
+      "messageVisible": true,
+      "spinnerAnimation": "throbber",
+      "searchIconStillVisible": true
+    }
+  },
+  "select": {
+    "synthetic": true,
+    "modes": {
+      "light": {
+        "disabled": {
+          "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000",
+          "assetColor": "#767676",
+          "appearance": "none"
+        },
+        "enabled": {
+          "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000",
+          "assetColor": null,
+          "appearance": "none"
+        }
+      },
+      "dark": {
+        "disabled": {
+          "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000",
+          "assetColor": "#adaeb3",
+          "appearance": "none"
+        },
+        "enabled": {
+          "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000",
+          "assetColor": "#ffffff",
+          "appearance": "none"
+        }
+      },
+      "forced-light": {
+        "disabled": {
+          "bgImage": "none",
+          "assetColor": null,
+          "appearance": "auto"
+        },
+        "enabled": {
+          "bgImage": "none",
+          "assetColor": null,
+          "appearance": "auto"
+        }
+      },
+      "forced-dark": {
+        "disabled": {
+          "bgImage": "none",
+          "assetColor": null,
+          "appearance": "auto"
+        },
+        "enabled": {
+          "bgImage": "none",
+          "assetColor": null,
+          "appearance": "auto"
+        }
+      }
+    }
+  },
+  "status": {
+    "count": 5,
+    "modes": {
+      "forced-light": [
+        {
+          "iconClass": "system-status-general-info__item-icon--drupal",
+          "bg": "rgb(0, 0, 0)",
+          "mask": "url(\"data:image/svg+xml,%3csvg viewBox='",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--server",
+          "bg": "rgb(0, 0, 0)",
+          "mask": "url(\"data:image/svg+xml,%3csvg xmlns='ht",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--clock",
+          "bg": "rgb(0, 0, 0)",
+          "mask": "url(\"data:image/svg+xml,%3csvg xmlns='ht",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--php",
+          "bg": "rgb(0, 0, 0)",
+          "mask": "url(\"data:image/svg+xml,%3csvg height='3",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--database",
+          "bg": "rgb(0, 0, 0)",
+          "mask": "url(\"data:image/svg+xml,%3csvg xmlns='ht",
+          "adjust": "auto"
+        }
+      ],
+      "forced-dark": [
+        {
+          "iconClass": "system-status-general-info__item-icon--drupal",
+          "bg": "rgb(255, 255, 255)",
+          "mask": "url(\"data:image/svg+xml,%3csvg viewBox='",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--server",
+          "bg": "rgb(255, 255, 255)",
+          "mask": "url(\"data:image/svg+xml,%3csvg xmlns='ht",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--clock",
+          "bg": "rgb(255, 255, 255)",
+          "mask": "url(\"data:image/svg+xml,%3csvg xmlns='ht",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--php",
+          "bg": "rgb(255, 255, 255)",
+          "mask": "url(\"data:image/svg+xml,%3csvg height='3",
+          "adjust": "auto"
+        },
+        {
+          "iconClass": "system-status-general-info__item-icon--database",
+          "bg": "rgb(255, 255, 255)",
+          "mask": "url(\"data:image/svg+xml,%3csvg xmlns='ht",
+          "adjust": "auto"
+        }
+      ]
+    }
+  },
+  "tabledrag": {
+    "trees": 1,
+    "modes": {
+      "light": {
+        "color": "rgb(84, 85, 96)",
+        "ariaHidden": "true",
+        "focusable": "false",
+        "strokeAttrs": [
+          "currentColor"
+        ],
+        "visible": [
+          "tree__item tree__item-child-ltr tree__item-child-last-ltr tree__item-horizontal tree__item-horizontal-right",
+          "tree__item tree__item-child-ltr tree__item-child-rtl tree__item-child-last-ltr tree__item-child-last-rtl tree__vertical tree__vertical-top"
+        ]
+      },
+      "dark": {
+        "color": "rgb(158, 159, 160)",
+        "ariaHidden": "true",
+        "focusable": "false",
+        "strokeAttrs": [
+          "currentColor"
+        ],
+        "visible": [
+          "tree__item tree__item-child-ltr tree__item-child-last-ltr tree__item-horizontal tree__item-horizontal-right",
+          "tree__item tree__item-child-ltr tree__item-child-rtl tree__item-child-last-ltr tree__item-child-last-rtl tree__vertical tree__vertical-top"
+        ]
+      },
+      "rtl-light": {
+        "color": "rgb(84, 85, 96)",
+        "ariaHidden": "true",
+        "focusable": "false",
+        "strokeAttrs": [
+          "currentColor"
+        ],
+        "visible": [
+          "tree__item tree__item-child-rtl tree__item-child-last-rtl tree__item-horizontal tree__horizontal-left",
+          "tree__item tree__item-child-ltr tree__item-child-rtl tree__item-child-last-ltr tree__item-child-last-rtl tree__vertical tree__vertical-top"
+        ]
+      }
+    }
+  }
+}

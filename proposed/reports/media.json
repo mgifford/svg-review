@@ -1,0 +1,70 @@
+{
+  "removeLabel": "Remove Test image",
+  "modes": {
+    "light": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+      "assetColor": null,
+      "borderColor": "rgb(212, 212, 216)",
+      "color": "rgba(0, 0, 0, 0)",
+      "width": "24px",
+      "height": "24px",
+      "remove": {
+        "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+        "assetColor": null,
+        "borderColor": "rgb(212, 212, 216)"
+      }
+    },
+    "dark": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+      "assetColor": "#ffffff",
+      "borderColor": "rgb(67, 69, 74)",
+      "color": "rgba(0, 0, 0, 0)",
+      "width": "24px",
+      "height": "24px",
+      "remove": {
+        "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+        "assetColor": "#ffffff",
+        "borderColor": "rgb(67, 69, 74)"
+      }
+    },
+    "forced-light": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+      "assetColor": null,
+      "borderColor": "rgb(0, 0, 0)",
+      "color": "rgb(0, 0, 159)",
+      "width": "24px",
+      "height": "24px",
+      "remove": {
+        "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+        "assetColor": null,
+        "borderColor": "rgb(0, 0, 0)"
+      }
+    },
+    "forced-dark": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+      "assetColor": "#ffffff",
+      "borderColor": "rgb(255, 255, 255)",
+      "color": "rgb(255, 255, 0)",
+      "width": "24px",
+      "height": "24px",
+      "remove": {
+        "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+        "assetColor": "#ffffff",
+        "borderColor": "rgb(255, 255, 255)"
+      }
+    },
+    "hover": {
+      "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+      "assetColor": null,
+      "borderColor": "rgb(212, 212, 216)",
+      "color": "lch(37.644 77.8721 288.155)",
+      "width": "24px",
+      "height": "24px",
+      "remove": {
+        "bgImage": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3e  %3cg fill=",
+        "assetColor": null,
+        "borderColor": "rgb(212, 212, 216)"
+      }
+    }
+  }
+}

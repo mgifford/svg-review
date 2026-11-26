@@ -64,5 +64,12 @@
     "images/icons/pretint/remove-inverse.svg": [
       "Explicit paint values: check light, dark and forced-colours contexts"
     ]
+  },
+  "revision2026_11_25": {
+    "file": "validation-2026-11-25.json",
+    "files": 64,
+    "errors": 0,
+    "warnings": 0,
+    "limitations": "Structural checks only; not SVG conformance, rendering or accessibility testing."
   }
 }

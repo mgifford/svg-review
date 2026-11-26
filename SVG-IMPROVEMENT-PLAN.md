@@ -4,6 +4,8 @@
 **Scope:** the 203 SVG paths in the patch, the inline SVGs in the theme, and the components that consume them.
 **Goal:** dark mode as a first-class mode, WCAG 2.2 AA where the icons carry meaning, and no regression to light mode or forced colours.
 
+> **Superseded for the current revision (2026-11-25).** The implemented revision is described in [revision-2026-11-25.html](proposed/reports/revision-2026-11-25.html). It restores the autocomplete search and media edit icons, fixes dark disabled checkbox and select states, fixes status masks in forced colours, replaces the sticky-loader pseudo-element, adds tabledrag `currentColor`, removes 15 unused assets and adopts 45 pixel-identical SVGO results. This plan remains as the historical backlog.
+
 This is a work plan, not a claim of conformance. Each item names its evidence and acceptance test.
 
 ---

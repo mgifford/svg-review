@@ -1,0 +1,393 @@
+{
+  "root": "work/mr16166/core/themes/default_admin/images",
+  "files": 64,
+  "errors": 0,
+  "warnings": 0,
+  "results": [
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/application-octet-stream.svg",
+      "bytes": 521
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/application-pdf.svg",
+      "bytes": 838
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/application-x-executable.svg",
+      "bytes": 521
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/audio-x-generic.svg",
+      "bytes": 762
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/image-x-generic.svg",
+      "bytes": 826
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/package-x-generic.svg",
+      "bytes": 765
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/text-html.svg",
+      "bytes": 761
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/text-plain.svg",
+      "bytes": 846
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/text-x-generic.svg",
+      "bytes": 846
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/text-x-script.svg",
+      "bytes": 1012
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/video-x-generic.svg",
+      "bytes": 690
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/x-office-document.svg",
+      "bytes": 681
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/x-office-presentation.svg",
+      "bytes": 661
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "file-types/x-office-spreadsheet.svg",
+      "bytes": 693
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/back-to-site.svg",
+      "bytes": 338
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/check.svg",
+      "bytes": 217
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/chevron-down.svg",
+      "bytes": 188
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/chevron-right.svg",
+      "bytes": 189
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/clock.svg",
+      "bytes": 243
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/close.svg",
+      "bytes": 218
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/cog.svg",
+      "bytes": 1022
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/database.svg",
+      "bytes": 305
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/drag-y.svg",
+      "bytes": 283
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/drag.svg",
+      "bytes": 392
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/error.svg",
+      "bytes": 255
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/grid.svg",
+      "bytes": 335
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/help.svg",
+      "bytes": 591
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/hide.svg",
+      "bytes": 400
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/info.svg",
+      "bytes": 240
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/key.svg",
+      "bytes": 480
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/list.svg",
+      "bytes": 401
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/loader.svg",
+      "bytes": 310
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/menu.svg",
+      "bytes": 437
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pager-first.svg",
+      "bytes": 247
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pager-last.svg",
+      "bytes": 246
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pager-next.svg",
+      "bytes": 202
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pager-prev.svg",
+      "bytes": 203
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pencil.svg",
+      "bytes": 229
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/plus.svg",
+      "bytes": 214
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/check-disabled-inverse.svg",
+      "bytes": 211
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/check-disabled.svg",
+      "bytes": 212
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/check-inverse.svg",
+      "bytes": 212
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/chevron-down-disabled-inverse.svg",
+      "bytes": 183
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/chevron-down-disabled.svg",
+      "bytes": 183
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/chevron-down-inverse.svg",
+      "bytes": 183
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/edit-inverse.svg",
+      "bytes": 224
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/loader-contrast.svg",
+      "bytes": 304
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/loader-inverse.svg",
+      "bytes": 304
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/pretint/remove-inverse.svg",
+      "bytes": 213
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/required.svg",
+      "bytes": 1130
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/search.svg",
+      "bytes": 345
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/server.svg",
+      "bytes": 363
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/show.svg",
+      "bytes": 290
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/sidebar.svg",
+      "bytes": 355
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/sort-asc.svg",
+      "bytes": 219
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/sort-desc.svg",
+      "bytes": 220
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/sort.svg",
+      "bytes": 233
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/status.svg",
+      "bytes": 262
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/tabledrag-handle.svg",
+      "bytes": 804
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/toggle-unchecked.svg",
+      "bytes": 1260
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/trash.svg",
+      "bytes": 372
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "icons/warning.svg",
+      "bytes": 344
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "logos/drupal.svg",
+      "bytes": 1610
+    },
+    {
+      "errors": [],
+      "warnings": [],
+      "file": "logos/php.svg",
+      "bytes": 1191
+    }
+  ],
+  "limitations": "Structural checks only; not SVG conformance, rendering or accessibility testing."
+}

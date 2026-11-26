@@ -1,0 +1,821 @@
+{
+  "method": "PostCSS AST for CSS; explicit scans for Twig/PHP/JS/YAML/JSON. Definitions and consumer counts are separate.",
+  "counts": {
+    "files": 494,
+    "css": 216,
+    "svg": 64,
+    "properties": 60,
+    "undefinedProperties": 0,
+    "missingFiles": 0,
+    "unusedProperties": 0,
+    "noSourceConsumerFound": 0,
+    "dynamicReferences": 0,
+    "inlineReferences": 1,
+    "literalReferences": 41
+  },
+  "undefinedProperties": [],
+  "missingFiles": [],
+  "unusedProperties": [],
+  "unusedFiles": [],
+  "assets": [
+    {
+      "path": "images/file-types/application-octet-stream.svg",
+      "bytes": 521,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 30,
+          "reference": "../../images/file-types/application-octet-stream.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/application-pdf.svg",
+      "bytes": 838,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 54,
+          "reference": "../../images/file-types/application-pdf.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/application-x-executable.svg",
+      "bytes": 521,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 57,
+          "reference": "../../images/file-types/application-x-executable.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/audio-x-generic.svg",
+      "bytes": 762,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 60,
+          "reference": "../../images/file-types/audio-x-generic.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/image-x-generic.svg",
+      "bytes": 826,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 69,
+          "reference": "../../images/file-types/image-x-generic.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/package-x-generic.svg",
+      "bytes": 765,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 33,
+          "reference": "../../images/file-types/package-x-generic.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/text-html.svg",
+      "bytes": 761,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 48,
+          "reference": "../../images/file-types/text-html.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/text-plain.svg",
+      "bytes": 846,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 51,
+          "reference": "../../images/file-types/text-plain.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/text-x-generic.svg",
+      "bytes": 846,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 66,
+          "reference": "../../images/file-types/text-x-generic.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/text-x-script.svg",
+      "bytes": 1012,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 45,
+          "reference": "../../images/file-types/text-x-script.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/video-x-generic.svg",
+      "bytes": 690,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 63,
+          "reference": "../../images/file-types/video-x-generic.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/x-office-document.svg",
+      "bytes": 681,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 39,
+          "reference": "../../images/file-types/x-office-document.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/x-office-presentation.svg",
+      "bytes": 661,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 42,
+          "reference": "../../images/file-types/x-office-presentation.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/file-types/x-office-spreadsheet.svg",
+      "bytes": 693,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [
+        {
+          "file": "css/components/file.pcss.css",
+          "line": 36,
+          "reference": "../../images/file-types/x-office-spreadsheet.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/icons/back-to-site.svg",
+      "bytes": 338,
+      "properties": [
+        "admin-icon-back-to-site"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/check.svg",
+      "bytes": 217,
+      "properties": [
+        "admin-icon-checked",
+        "admin-icon-checkmark"
+      ],
+      "consumerCount": 6,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/chevron-down.svg",
+      "bytes": 188,
+      "properties": [
+        "admin-icon-chevron-down",
+        "admin-icon-drop"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/chevron-right.svg",
+      "bytes": 189,
+      "properties": [
+        "admin-icon-handle"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/clock.svg",
+      "bytes": 243,
+      "properties": [
+        "admin-icon-clock"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/close.svg",
+      "bytes": 218,
+      "properties": [
+        "admin-icon-close",
+        "admin-icon-remove"
+      ],
+      "consumerCount": 14,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/cog.svg",
+      "bytes": 1022,
+      "properties": [
+        "admin-icon-config"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/database.svg",
+      "bytes": 305,
+      "properties": [
+        "admin-icon-database"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/drag-y.svg",
+      "bytes": 283,
+      "properties": [
+        "admin-icon-drag-y"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/drag.svg",
+      "bytes": 392,
+      "properties": [
+        "admin-icon-drag"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/error.svg",
+      "bytes": 255,
+      "properties": [
+        "admin-icon-error"
+      ],
+      "consumerCount": 10,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/grid.svg",
+      "bytes": 335,
+      "properties": [
+        "admin-icon-grid"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/help.svg",
+      "bytes": 591,
+      "properties": [
+        "admin-icon-help"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/hide.svg",
+      "bytes": 400,
+      "properties": [
+        "admin-icon-hide"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/info.svg",
+      "bytes": 240,
+      "properties": [
+        "admin-icon-info"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/key.svg",
+      "bytes": 480,
+      "properties": [
+        "admin-icon-devel"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/list.svg",
+      "bytes": 401,
+      "properties": [
+        "admin-icon-list"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/loader.svg",
+      "bytes": 310,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "master-asset"
+    },
+    {
+      "path": "images/icons/menu.svg",
+      "bytes": 437,
+      "properties": [],
+      "consumerCount": 0,
+      "inlineConsumers": [
+        {
+          "file": "templates/navigation/menu-local-task.html.twig",
+          "line": 30,
+          "reference": "@default_admin/../images/icons/menu.svg"
+        }
+      ],
+      "literalConsumers": [
+        {
+          "file": "templates/navigation/menu-local-task.html.twig",
+          "line": 30,
+          "reference": "@default_admin/../images/icons/menu.svg"
+        }
+      ],
+      "status": "literal-source-reference"
+    },
+    {
+      "path": "images/icons/pager-first.svg",
+      "bytes": 247,
+      "properties": [
+        "admin-icon-first"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pager-last.svg",
+      "bytes": 246,
+      "properties": [
+        "admin-icon-last"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pager-next.svg",
+      "bytes": 202,
+      "properties": [
+        "admin-icon-next"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pager-prev.svg",
+      "bytes": 203,
+      "properties": [
+        "admin-icon-prev"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pencil.svg",
+      "bytes": 229,
+      "properties": [
+        "admin-icon-edit"
+      ],
+      "consumerCount": 6,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/plus.svg",
+      "bytes": 214,
+      "properties": [
+        "admin-icon-add"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/check-disabled-inverse.svg",
+      "bytes": 211,
+      "properties": [
+        "admin-icon-checked-disabled-inverse"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/check-disabled.svg",
+      "bytes": 212,
+      "properties": [
+        "admin-icon-checked-disabled"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/check-inverse.svg",
+      "bytes": 212,
+      "properties": [
+        "admin-icon-checked-inverse"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/chevron-down-disabled-inverse.svg",
+      "bytes": 183,
+      "properties": [
+        "admin-icon-chevron-down-disabled-inverse"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/chevron-down-disabled.svg",
+      "bytes": 183,
+      "properties": [
+        "admin-icon-chevron-down-disabled"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/chevron-down-inverse.svg",
+      "bytes": 183,
+      "properties": [
+        "admin-icon-chevron-down-inverse"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/edit-inverse.svg",
+      "bytes": 224,
+      "properties": [
+        "admin-icon-edit-inverse"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/loader-contrast.svg",
+      "bytes": 304,
+      "properties": [
+        "admin-icon-loader-contrast"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/loader-inverse.svg",
+      "bytes": 304,
+      "properties": [
+        "admin-icon-loader-inverse"
+      ],
+      "consumerCount": 6,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/pretint/remove-inverse.svg",
+      "bytes": 213,
+      "properties": [
+        "admin-icon-remove-inverse"
+      ],
+      "consumerCount": 6,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/required.svg",
+      "bytes": 1130,
+      "properties": [
+        "admin-icon-asterisk"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/search.svg",
+      "bytes": 345,
+      "properties": [
+        "admin-icon-search"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/server.svg",
+      "bytes": 363,
+      "properties": [
+        "admin-icon-server"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/show.svg",
+      "bytes": 290,
+      "properties": [
+        "admin-icon-show"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/sidebar.svg",
+      "bytes": 355,
+      "properties": [
+        "admin-icon-sidebar"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/sort-asc.svg",
+      "bytes": 219,
+      "properties": [
+        "admin-icon-sort-asc"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/sort-desc.svg",
+      "bytes": 220,
+      "properties": [
+        "admin-icon-sort-desc"
+      ],
+      "consumerCount": 4,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/sort.svg",
+      "bytes": 233,
+      "properties": [
+        "admin-icon-sort"
+      ],
+      "consumerCount": 6,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/status.svg",
+      "bytes": 262,
+      "properties": [
+        "admin-icon-status"
+      ],
+      "consumerCount": 12,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/tabledrag-handle.svg",
+      "bytes": 804,
+      "properties": [
+        "admin-icon-tabledrag-handle"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/toggle-unchecked.svg",
+      "bytes": 1260,
+      "properties": [
+        "admin-icon-toggle-unchecked"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/trash.svg",
+      "bytes": 372,
+      "properties": [
+        "admin-icon-trash"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/icons/warning.svg",
+      "bytes": 344,
+      "properties": [
+        "admin-icon-warning"
+      ],
+      "consumerCount": 10,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/logos/drupal.svg",
+      "bytes": 1610,
+      "properties": [
+        "admin-icon-drupal"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    },
+    {
+      "path": "images/logos/php.svg",
+      "bytes": 1191,
+      "properties": [
+        "admin-icon-php"
+      ],
+      "consumerCount": 2,
+      "inlineConsumers": [],
+      "literalConsumers": [],
+      "status": "rendered-via-css-property"
+    }
+  ],
+  "limitations": [
+    "Dynamic file paths, PHP-generated URLs not written as strings, contrib code and unexercised states are not covered.",
+    "An absent source reference is evidence for removal only after runtime verification; it is not proof of non-use.",
+    "Definitions are not counted as consumers."
+  ],
+  "removedAssets": [
+    "images/icons/appearance.svg",
+    "images/icons/blocks.svg",
+    "images/icons/bookmarks.svg",
+    "images/icons/content.svg",
+    "images/icons/chevron-left.svg",
+    "images/icons/files.svg",
+    "images/icons/media.svg",
+    "images/icons/nav-toggle-left.svg",
+    "images/icons/nav-toggle-top.svg",
+    "images/icons/people.svg",
+    "images/icons/reports.svg",
+    "images/icons/structure.svg",
+    "images/icons/user.svg",
+    "images/icons/pretint/chevron-down-default.svg",
+    "images/icons/pretint/remove-default.svg"
+  ],
+  "removalEvidence": {
+    "literalReferences": 0,
+    "propertyConsumers": 0,
+    "runtimeState": "No source consumer found; assets are not rendered by any theme CSS property or Twig include.",
+    "coverage": "Theme tree only. Contrib/custom code, dynamic PHP URLs and unexercised states are not covered."
+  }
+}

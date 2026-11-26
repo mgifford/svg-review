@@ -1,21 +1,33 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Handoff — SVG review</title><style>body{max-width:1100px;margin:2rem auto;padding:0 1.2rem;font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:#1b1c20;background:#fff}h1,h2,h3{line-height:1.25}a{color:#0b57d0}code{background:#f1f3f5;padding:.08em .28em;border-radius:.2em;font-size:.92em}pre{background:#f6f7f9;padding:.8rem;overflow:auto;border:1px solid #d9dce1}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #c9ccd4;padding:.4rem .55rem;text-align:left;vertical-align:top}th{background:#f1f3f5}.site-nav{font-size:.85rem;border-bottom:1px solid #c9ccd4;padding-bottom:.6rem;margin-bottom:1.4rem}.site-nav a{text-decoration:none}</style></head><body><nav class="site-nav"><a href="index.html">Home</a> · <a href="HANDOFF.html"><strong>Handoff</strong></a> · <a href="proposed/reports/patch-gallery.html">Gallery</a> · <a href="proposed/reports/svg-properties.html">Properties</a> · <a href="proposed/reports/change-ledger.html">Change ledger</a> · <a href="proposed/reports/over-300-optimization.html">Over 300</a> · <a href="SVG-IMPROVEMENT-PLAN.html">Plan</a></nav><h1>Handoff — Drupal MR !16166 SVG review</h1>
 <p><strong>Status:</strong> review phase complete. This is an independent review lab, <strong>not an upstream Drupal submission</strong> and <strong>not RTBC</strong>.</p>
 <ul>
-<li>Review site: https://mgifford.github.io/svg-review/</li>
-<li>Repository: https://github.com/mgifford/svg-review</li>
+<li>Review site: <a href="https://mgifford.github.io/svg-review/">https://mgifford.github.io/svg-review/</a></li>
+<li>Repository: <a href="https://github.com/mgifford/svg-review">https://github.com/mgifford/svg-review</a></li>
 <li>Baseline before: <code>29b0a0b2256eb5ed27df6ec5e4e4e33142a717e8</code></li>
 <li>MR head reviewed: <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code></li>
-<li>MR: https://git.drupalcode.org/project/drupal/-/merge_requests/16166</li>
-<li>Issue: https://www.drupal.org/project/drupal/issues/3603162</li>
+<li>MR: <a href="https://git.drupalcode.org/project/drupal/-/merge_requests/16166">https://git.drupalcode.org/project/drupal/-/merge_requests/16166</a></li>
+<li>Issue: <a href="https://www.drupal.org/project/drupal/issues/3603162">https://www.drupal.org/project/drupal/issues/3603162</a></li>
 <li>Release tag: <code>v0.1-review</code></li>
 </ul>
+<h2>2026-11-25 revision</h2>
+<p><strong>Status: draft, local only.</strong> No push, MR update or drupal.org comment was made.</p>
+<ul>
+<li>MR head verified again: <code>fe4adb4f942385912bb3244b570afa475cadf3bd</code>.</li>
+<li>Upstream <code>main</code>: <code>0387fb948f786bc344a5cc54aa0d98b8f552e378</code>.</li>
+<li>Rebased revision tip: <code>0d00037ed57a46cb6d2d2b14af7db065b12ccc24</code>.</li>
+<li>Start with <a href="proposed/reports/revision-2026-11-25.html">the revision report</a> and <a href="proposed/reports/component-coverage.html">component coverage</a>.</li>
+</ul>
+<p>The revision restores the autocomplete and media-edit icons, fixes dark disabled checkbox and select states, keeps status masks visible in forced colours, replaces the invalid sticky-loader pseudo-element, and makes tabledrag tree strokes use <code>currentColor</code>. It removes 15 unused assets and 20 registry entries, and adopts 45 SVGO results only where pixels are identical.</p>
+<p>Executed: 64 SVGs validated with 0 errors; reference audit 0 undefined/missing/unused; 46 regression tests; 14 theme Unit/Kernel tests with 209 assertions; axe 0 violations on three pages; Stylelint, Twig lint and Core CSS build checks pass.</p>
+<p>Not executed: 8 functional PHPUnit tests (no test web server), native Windows High Contrast, Firefox or WebKit. Full AJAX Save/Preview was not exercised; Drupal&#39;s real progress markup was injected. No WCAG 2.2 AA claim.</p>
+<p>The sections below describe the earlier nine-patch proposal and are historical.</p>
 <h2>Read this first</h2>
 <p>The repo contains <strong>proposed fixes, cleanup and optimisation</strong> built on top of the MR. It is not a mirror of the MR. “After-side” means the MR tree; “proposed” means this working tree. “Unused — optional removal” is a cleanup recommendation, not an MR deletion.</p>
 <p>The <code>unused</code> conclusion comes from a <strong>literal source + CSS-variable alias scan</strong>, not a rendered-page audit. See <a href="proposed/reports/usage-method.html">the usage method</a>.</p>
 <h2>What is verified</h2>
 <ul>
 <li>The nine-patch sequence applies cleanly to the MR head and reproduces the proposed theme exactly.</li>
-<li><strong>8 test suites pass</strong>:</li>
+<li><strong>8 test suites pass</strong>:<ul>
 <li><code>checkmark_regression.py</code></li>
 <li><code>forced_colors_status_icons.py</code></li>
 <li><code>loader_dark_test.py</code></li>
@@ -24,12 +36,16 @@
 <li><code>svg_optimization_status_family.py</code></li>
 <li><code>svg_properties_test.py</code></li>
 <li><code>compiled_icons_test.py</code></li>
-<li>Checkmark contrast fix was measured in a live Drupal 12 baseline with the MR assets/CSS applied surgically:</li>
+</ul>
+</li>
+<li>Checkmark contrast fix was measured in a live Drupal 12 baseline with the MR assets/CSS applied surgically:<ul>
 <li>MR head dark disabled: <strong>2.85:1</strong></li>
 <li>Proposed dark disabled: <strong>5.85:1</strong></li>
 <li>Light mode unchanged: <strong>3.78:1</strong></li>
+</ul>
+</li>
 <li>Status-report forced-colours fix was checked against the live Drupal status page with the proposed status CSS.</li>
-<li>Every proposed SVG has a <code>viewBox</code>, <code>aria-hidden="true"</code> and <code>focusable="false"</code>; no IDs, external references, scripts or <code>foreignObject</code>.</li>
+<li>Every proposed SVG has a <code>viewBox</code>, <code>aria-hidden=&quot;true&quot;</code> and <code>focusable=&quot;false&quot;</code>; no IDs, external references, scripts or <code>foreignObject</code>.</li>
 <li>All optimisation files used per-file pixel checks at 16/24/32/42/64/192px.</li>
 <li>The compiled <code>icons.css</code> data URIs were re-synced with the source SVGs; <code>compiled_icons_test.py</code> verifies equivalence.</li>
 <li>The public Pages site returns 200 for the gallery, property matrix, ledger and reports.</li>
@@ -38,7 +54,7 @@
 <ul>
 <li><strong>A full MR-theme Drupal install.</strong> Live checks used the baseline theme with selected MR files/CSS applied, then restored.</li>
 <li><strong>Native Windows High Contrast.</strong> Forced-colours results are Chromium emulation.</li>
-<li><strong>RTL for the loader mask</strong>, and the loader's forced-colour active/delete state.</li>
+<li><strong>RTL for the loader mask</strong>, and the loader&#39;s forced-colour active/delete state.</li>
 <li><strong>A rendered page/state usage audit.</strong> The “unused” decision is source-level only and does not cover dynamic paths, contrib/custom code, or unexercised states.</li>
 <li><strong>Missing variants</strong>: <code>search-muted</code>, <code>search-muted-rtl</code>, and <code>edit-inverse</code> were identified but not implemented.</li>
 <li><strong>The loader fix in a real component.</strong> It is verified in a static harness only.</li>
@@ -51,59 +67,57 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: right;">#</th>
+<th align="right">#</th>
 <th>Patch</th>
 <th>Purpose</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align: right;">1</td>
+<tbody><tr>
+<td align="right">1</td>
 <td><code>proposed/interdiff-checkmark.patch</code></td>
 <td>Dark disabled checkmark contrast</td>
 </tr>
 <tr>
-<td style="text-align: right;">2</td>
+<td align="right">2</td>
 <td><code>proposed/interdiff-forced-colors-status-icons.patch</code></td>
 <td>Status icons in forced colours</td>
 </tr>
 <tr>
-<td style="text-align: right;">3</td>
+<td align="right">3</td>
 <td><code>proposed/interdiff-svg-optimization-required.patch</code></td>
 <td>Required marker optimisation</td>
 </tr>
 <tr>
-<td style="text-align: right;">4</td>
+<td align="right">4</td>
 <td><code>proposed/interdiff-svg-cleanup.patch</code></td>
 <td>Remove unused after-side assets</td>
 </tr>
 <tr>
-<td style="text-align: right;">5</td>
+<td align="right">5</td>
 <td><code>proposed/interdiff-svg-optimization-status-family.patch</code></td>
 <td>Status family optimisation</td>
 </tr>
 <tr>
-<td style="text-align: right;">6</td>
+<td align="right">6</td>
 <td><code>proposed/interdiff-loader-currentcolor.patch</code></td>
 <td>Sticky loader currentColor/mask</td>
 </tr>
 <tr>
-<td style="text-align: right;">7</td>
+<td align="right">7</td>
 <td><code>proposed/interdiff-svg-metadata-normalization.patch</code></td>
 <td>Decorative ARIA/viewBox consistency</td>
 </tr>
 <tr>
-<td style="text-align: right;">8</td>
+<td align="right">8</td>
 <td><code>proposed/interdiff-svg-high-use-optimization.patch</code></td>
 <td>Repeated controls</td>
 </tr>
 <tr>
-<td style="text-align: right;">9</td>
+<td align="right">9</td>
 <td><code>proposed/interdiff-svg-over-300-optimization.patch</code></td>
 <td><strong>Latest:</strong> every SVG over 300 B</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <pre><code class="language-sh">git apply -p1 proposed/interdiff-checkmark.patch
 git apply -p1 proposed/interdiff-forced-colors-status-icons.patch
 git apply -p1 proposed/interdiff-svg-optimization-required.patch
@@ -123,8 +137,7 @@ git apply -p1 proposed/interdiff-svg-over-300-optimization.patch
 <th>Before / after</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>SVG set</td>
 <td>41,981 → <strong>28,661 bytes</strong> (−31.7%)</td>
 </tr>
@@ -144,9 +157,8 @@ git apply -p1 proposed/interdiff-svg-over-300-optimization.patch
 <td>High-use set</td>
 <td>21 files; 562 SVG bytes; 1,492 compiled CSS bytes</td>
 </tr>
-</tbody>
-</table>
-<p><code>menu.svg</code> is an important nuance: the supplied hamburger path is used, but the proposed source is 438 B versus the MR's 421 B because it restores viewBox/ARIA. The <strong>compiled hamburger data URI</strong> is still smaller: 432 B proposed vs 451 B after-side.</p>
+</tbody></table>
+<p><code>menu.svg</code> is an important nuance: the supplied hamburger path is used, but the proposed source is 438 B versus the MR&#39;s 421 B because it restores viewBox/ARIA. The <strong>compiled hamburger data URI</strong> is still smaller: 432 B proposed vs 451 B after-side.</p>
 <h2>Recommended upstream subset</h2>
 <p>Do <strong>not</strong> submit all nine patches as one change. Proposed split:</p>
 <ol>
@@ -168,4 +180,5 @@ git apply -p1 proposed/interdiff-svg-over-300-optimization.patch
 <li><a href="SVG-IMPROVEMENT-PLAN.html">Improvement plan</a></li>
 </ul>
 <h2>Release rule</h2>
-<p>This release is a <strong>review artefact</strong>. No upstream Drupal push, no MR comment, and no RTBC claim were made. Any upstream submission needs explicit authorization and a maintainer-scoped subset.</p></body></html>
+<p>This release is a <strong>review artefact</strong>. No upstream Drupal push, no MR comment, and no RTBC claim were made. Any upstream submission needs explicit authorization and a maintainer-scoped subset.</p>
+</body></html>

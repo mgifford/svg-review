@@ -1,5 +1,8 @@
 # Checkmark family reconciliation
 
+
+> **Historical family analysis.** The current revision's asset and reference evidence is in [icon-reference-validation.json](proposed/reports/icon-reference-validation.json) and [revision-2026-11-25.html](proposed/reports/revision-2026-11-25.html). This file is retained for the checkmark-family disposition.
+
 Generated: 2026-11-24T19:44:58.625312+00:00
 
 **Scope:** checkmark family only. Baseline before `29b0a0b...`, MR !16166 head `fe4adb4...`. Full 194-asset reconciliation is pending; 181 assets outside this family are not classified here.
@@ -76,4 +79,3 @@ git --git-dir=drupal.git grep -n -F 'checkmark.svg' before -- core
 git --git-dir=drupal.git grep -n -F 'check-disabled' after -- core/themes/default_admin
 python3 proposed/tests/checkmark_regression.py
 ```
-

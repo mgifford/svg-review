@@ -1,0 +1,412 @@
+{
+  "tool": "svgo 3.3.2",
+  "config": "tools/svgo.config.mjs",
+  "pixelTest": {
+    "sizes": [
+      12,
+      16,
+      17,
+      20,
+      21,
+      24,
+      25,
+      32,
+      36,
+      42,
+      64,
+      192
+    ],
+    "devicePixelRatios": [
+      1,
+      2
+    ],
+    "backgrounds": [
+      "transparent",
+      "light",
+      "dark"
+    ]
+  },
+  "icons": {
+    "assets": 48,
+    "adopted": 33,
+    "skipped": [
+      "back-to-site.svg",
+      "check.svg",
+      "cog.svg",
+      "help.svg",
+      "key.svg",
+      "loader.svg",
+      "pretint/check-disabled-inverse.svg",
+      "pretint/check-disabled.svg",
+      "pretint/check-inverse.svg",
+      "pretint/loader-contrast.svg",
+      "pretint/loader-inverse.svg",
+      "required.svg",
+      "search.svg",
+      "show.svg",
+      "toggle-unchecked.svg"
+    ],
+    "beforeBytes": 17715,
+    "afterBytes": 14922,
+    "savedBytes": 1104,
+    "changedAtAnyCombination": [
+      {
+        "asset": "back-to-site.svg",
+        "beforeBytes": 338,
+        "afterBytes": 254,
+        "changedPixels": 154,
+        "maxChannelDifference": 56,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "light",
+        "combos": 72
+      },
+      {
+        "asset": "check.svg",
+        "beforeBytes": 217,
+        "afterBytes": 183,
+        "changedPixels": 112,
+        "maxChannelDifference": 8,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "cog.svg",
+        "beforeBytes": 1022,
+        "afterBytes": 989,
+        "changedPixels": 50,
+        "maxChannelDifference": 15,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "help.svg",
+        "beforeBytes": 591,
+        "afterBytes": 332,
+        "changedPixels": 99,
+        "maxChannelDifference": 96,
+        "totalPixels": 7056,
+        "size": 42,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "key.svg",
+        "beforeBytes": 480,
+        "afterBytes": 460,
+        "changedPixels": 382,
+        "maxChannelDifference": 56,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "loader.svg",
+        "beforeBytes": 310,
+        "afterBytes": 241,
+        "changedPixels": 45,
+        "maxChannelDifference": 255,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "pretint/check-disabled-inverse.svg",
+        "beforeBytes": 211,
+        "afterBytes": 178,
+        "changedPixels": 109,
+        "maxChannelDifference": 255,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "pretint/check-disabled.svg",
+        "beforeBytes": 212,
+        "afterBytes": 178,
+        "changedPixels": 109,
+        "maxChannelDifference": 128,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "pretint/check-inverse.svg",
+        "beforeBytes": 212,
+        "afterBytes": 178,
+        "changedPixels": 109,
+        "maxChannelDifference": 255,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "pretint/loader-contrast.svg",
+        "beforeBytes": 304,
+        "afterBytes": 236,
+        "changedPixels": 45,
+        "maxChannelDifference": 255,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "pretint/loader-inverse.svg",
+        "beforeBytes": 304,
+        "afterBytes": 236,
+        "changedPixels": 45,
+        "maxChannelDifference": 255,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "required.svg",
+        "beforeBytes": 1130,
+        "afterBytes": 919,
+        "changedPixels": 352,
+        "maxChannelDifference": 63,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "search.svg",
+        "beforeBytes": 345,
+        "afterBytes": 277,
+        "changedPixels": 129,
+        "maxChannelDifference": 75,
+        "totalPixels": 5184,
+        "size": 36,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "show.svg",
+        "beforeBytes": 290,
+        "afterBytes": 257,
+        "changedPixels": 40,
+        "maxChannelDifference": 7,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "toggle-unchecked.svg",
+        "beforeBytes": 1260,
+        "afterBytes": 619,
+        "changedPixels": 1046,
+        "maxChannelDifference": 92,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      }
+    ]
+  },
+  "fileTypes": {
+    "assets": 14,
+    "adopted": 11,
+    "skipped": [
+      "application-pdf.svg",
+      "text-html.svg",
+      "text-x-script.svg"
+    ],
+    "beforeBytes": 11475,
+    "afterBytes": 10023,
+    "savedBytes": 1052,
+    "changedAtAnyCombination": [
+      {
+        "asset": "application-pdf.svg",
+        "beforeBytes": 838,
+        "afterBytes": 715,
+        "changedPixels": 7,
+        "maxChannelDifference": 2,
+        "totalPixels": 400,
+        "size": 20,
+        "dpr": 1,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "text-html.svg",
+        "beforeBytes": 761,
+        "afterBytes": 659,
+        "changedPixels": 9,
+        "maxChannelDifference": 4,
+        "totalPixels": 625,
+        "size": 25,
+        "dpr": 1,
+        "background": "transparent",
+        "combos": 72
+      },
+      {
+        "asset": "text-x-script.svg",
+        "beforeBytes": 1012,
+        "afterBytes": 837,
+        "changedPixels": 13,
+        "maxChannelDifference": 53,
+        "totalPixels": 2500,
+        "size": 25,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      }
+    ]
+  },
+  "logos": {
+    "assets": 2,
+    "adopted": 1,
+    "skipped": [
+      "drupal.svg"
+    ],
+    "beforeBytes": 2821,
+    "afterBytes": 2413,
+    "savedBytes": 20,
+    "changedAtAnyCombination": [
+      {
+        "asset": "drupal.svg",
+        "beforeBytes": 1610,
+        "afterBytes": 1222,
+        "changedPixels": 26,
+        "maxChannelDifference": 64,
+        "totalPixels": 147456,
+        "size": 192,
+        "dpr": 2,
+        "background": "transparent",
+        "combos": 72
+      }
+    ]
+  },
+  "metrics": {
+    "tool": {
+      "svgo": "3.3.2",
+      "gzip": "zlib level 9",
+      "brotli": "brotli -q 11"
+    },
+    "roots": {
+      "before": {
+        "svgFiles": 194,
+        "svgBytes": 92224,
+        "imageFiles": 127,
+        "imageBytes": 108909,
+        "iconsCssBytes": 43714,
+        "iconsCssGzipBytes": 12114,
+        "iconsCssBrotliBytes": 10318,
+        "fileCssBytes": 14148,
+        "fileCssGzipBytes": 2109,
+        "dataUrisIcons": 60,
+        "dataUrisFile": 14,
+        "duplicateArtworkGroups": [
+          [
+            "images/icons/currentColor/backtosite.svg",
+            "migration/media/icons/toolbar-meta/backtosite.svg"
+          ],
+          [
+            "images/icons/files/application-octet-stream.svg",
+            "images/icons/files/application-x-executable.svg"
+          ],
+          [
+            "images/icons/files/text-plain.svg",
+            "images/icons/files/text-x-generic.svg"
+          ],
+          [
+            "migration/media/icons/action-link/remove.svg",
+            "migration/media/icons/media-library/media-remove.svg"
+          ],
+          [
+            "migration/media/icons/general/calendar.svg",
+            "migration/media/icons/toolbar/bat.svg"
+          ]
+        ]
+      },
+      "mr": {
+        "svgFiles": 74,
+        "svgBytes": 41981,
+        "imageFiles": 86,
+        "imageBytes": 102814,
+        "iconsCssBytes": 40615,
+        "iconsCssGzipBytes": 9669,
+        "iconsCssBrotliBytes": 8184,
+        "fileCssBytes": 14148,
+        "fileCssGzipBytes": 2109,
+        "dataUrisIcons": 66,
+        "dataUrisFile": 14,
+        "duplicateArtworkGroups": [
+          [
+            "images/file-types/application-octet-stream.svg",
+            "images/file-types/application-x-executable.svg"
+          ],
+          [
+            "images/file-types/text-plain.svg",
+            "images/file-types/text-x-generic.svg"
+          ]
+        ]
+      },
+      "final": {
+        "svgFiles": 64,
+        "svgBytes": 29835,
+        "imageFiles": 76,
+        "imageBytes": 90668,
+        "iconsCssBytes": 26315,
+        "iconsCssGzipBytes": 6246,
+        "iconsCssBrotliBytes": 5346,
+        "fileCssBytes": 13241,
+        "fileCssGzipBytes": 2118,
+        "dataUrisIcons": 51,
+        "dataUrisFile": 14,
+        "duplicateArtworkGroups": [
+          [
+            "images/file-types/application-octet-stream.svg",
+            "images/file-types/application-x-executable.svg"
+          ],
+          [
+            "images/file-types/text-plain.svg",
+            "images/file-types/text-x-generic.svg"
+          ]
+        ]
+      }
+    },
+    "deltas": {
+      "mrToFinalSvgBytes": -12146,
+      "mrToFinalIconsCssBytes": -14300,
+      "baselineToFinalSvgBytes": -62389,
+      "baselineToFinalIconsCssBytes": -17399
+    },
+    "notes": [
+      "Compressed sizes cover icons.css only, not a delivered page or a full theme payload.",
+      "No page-weight, network or carbon claim is made from these numbers.",
+      "Cold-cache and warm-cache delivery were not measured."
+    ]
+  },
+  "skippedReason": "Any difference at any tested size, DPR or background was retained as the original. help.svg, toggle-unchecked.svg, required.svg, search.svg, drupal.svg and text-x-script.svg were not adopted.",
+  "limitations": "Canvas rendering in Chromium only; no Firefox/WebKit pixel run. Not a visual equivalence proof."
+}

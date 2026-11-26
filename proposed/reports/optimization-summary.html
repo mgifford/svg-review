@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>optimization-summary</title>
+<style>:root{color-scheme:light dark}body{max-width:70rem;margin:2rem auto;padding:0 1rem;font:1rem/1.5 system-ui,sans-serif}table{border-collapse:collapse;width:100%}th,td{border:1px solid #888;padding:.4rem .6rem;text-align:left}th{background:color-mix(in srgb,CanvasText 10%,Canvas)}code{overflow-wrap:anywhere}</style>
+</head><body><h1>SVG optimization summary</h1>
+<p>Tool: SVGO 3.3.2, config <code>tools/svgo.config.mjs</code>, multipass with float precision 4.
+Pixels were compared in Chromium at 12 sizes, DPR 1 and 2, on transparent, light and dark surfaces.</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Assets</th>
+<th>Adopted</th>
+<th>Bytes before</th>
+<th>Bytes after</th>
+<th>Saved</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Icons</td>
+<td>48</td>
+<td>33</td>
+<td>17715</td>
+<td>14922</td>
+<td>1104</td>
+</tr>
+<tr>
+<td>File types</td>
+<td>14</td>
+<td>11</td>
+<td>11475</td>
+<td>10023</td>
+<td>1052</td>
+</tr>
+<tr>
+<td>Logos</td>
+<td>2</td>
+<td>1</td>
+<td>2821</td>
+<td>2413</td>
+<td>20</td>
+</tr>
+</tbody></table>
+<p>Skipped because at least one tested combination changed: back-to-site.svg, check.svg, cog.svg, help.svg, key.svg, loader.svg, pretint/check-disabled-inverse.svg, pretint/check-disabled.svg, pretint/check-inverse.svg, pretint/loader-contrast.svg, pretint/loader-inverse.svg, required.svg, search.svg, show.svg, toggle-unchecked.svg, application-pdf.svg, text-html.svg, text-x-script.svg, drupal.svg.</p>
+<h2>Theme totals</h2>
+<table>
+<thead>
+<tr>
+<th>Revision</th>
+<th>SVGs</th>
+<th>SVG bytes</th>
+<th>icons.css bytes</th>
+<th>icons.css gzip</th>
+<th>icons.css brotli</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MR head</td>
+<td>74</td>
+<td>41981</td>
+<td>40615</td>
+<td>9669</td>
+<td>8184</td>
+</tr>
+<tr>
+<td>Revised</td>
+<td>64</td>
+<td>29835</td>
+<td>26315</td>
+<td>6246</td>
+<td>5346</td>
+</tr>
+</tbody></table>
+<p>Compression: zlib level 9 and <code>brotli -q 11</code>. These are stylesheet-only measurements. They do not describe a delivered page, network transfer or carbon impact.</p>
+<p>Limitations: Canvas rendering in Chromium only; no Firefox/WebKit pixel run. Not a visual equivalence proof.</p>
+</body></html>
