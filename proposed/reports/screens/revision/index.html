@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Default Admin revision screenshots — 2026-11-25</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { max-width: 76rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.55 system-ui, sans-serif; }
+  nav { border-bottom: 1px solid #888; padding-bottom: .65rem; margin-bottom: 1.4rem; font-size: .9rem; }
+  h1 { line-height: 1.2; }
+  h2 { margin-block-start: 2.2rem; padding-bottom: .35rem; border-bottom: 1px solid #888; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); gap: 1.2rem; margin-block: 1rem; }
+  figure { margin: 0; padding: .75rem; border: 1px solid #888; border-radius: .4rem; }
+  figure img { display: block; max-width: 100%; height: auto; margin-block-end: .6rem; }
+  .small img { width: 88px; height: 88px; image-rendering: pixelated; }
+  figcaption { font-size: .9rem; }
+  figcaption strong { display: block; }
+  a:focus-visible { outline: .2rem solid; outline-offset: .15rem; }
+  .note { border-inline-start: .4rem solid #b26a00; padding: .75rem 1rem; background: color-mix(in srgb, #b26a00 10%, Canvas); }
+</style>
+</head>
+<body>
+<nav><a href="../../revision-2026-11-25.html">Revision report</a> · <a href="../../component-coverage.html">Component coverage</a> · <a href="../../../index.html">SVG Review home</a></nav>
+<h1>Default Admin revision screenshots</h1>
+<p class="note">These are Chromium 157 screenshots from a real Drupal 12.0-dev site. Forced colours are browser emulation, not native Windows High Contrast. The white checkerboard in the media thumbnail is a broken test image, not an icon defect.</p>
+
+<h2>Permissions: disabled checked checkbox</h2>
+<div class="grid">
+  <figure class="small">
+    <a href="permissions-light.png"><img src="permissions-light.png" width="22" height="22" alt="Light-mode disabled checked checkbox, shown at four times its 22 pixel crop."></a>
+    <figcaption><strong>Light</strong>22×22 crop, shown at 4×. Check <code>#767676</code> on <code>#eaeaea</code>; 3.78:1.</figcaption>
+  </figure>
+  <figure class="small">
+    <a href="permissions-dark.png"><img src="permissions-dark.png" width="22" height="22" alt="Dark-mode disabled checked checkbox, shown at four times its 22 pixel crop."></a>
+    <figcaption><strong>Dark</strong>22×22 crop, shown at 4×. Check <code>#adaeb3</code> on <code>#313134</code>; 5.85:1.</figcaption>
+  </figure>
+  <figure class="small">
+    <a href="permissions-forced-dark.png"><img src="permissions-forced-dark.png" width="22" height="22" alt="Forced-colours dark disabled checked checkbox, shown at four times its 22 pixel crop."></a>
+    <figcaption><strong>Forced colours, dark</strong>Native control; the author dark override is excluded.</figcaption>
+  </figure>
+</div>
+
+<h2>Sticky form action loader</h2>
+<div class="grid">
+  <figure>
+    <a href="loader2-light.png"><img src="loader2-light.png" width="310" height="41" alt="Sticky Save button in light mode with a white loading dot and the saved status switch."></a>
+    <figcaption><strong>Light</strong>White dot on the primary button; 32px start padding.</figcaption>
+  </figure>
+  <figure>
+    <a href="loader2-dark.png"><img src="loader2-dark.png" width="310" height="41" alt="Sticky Save button in dark mode with a near-black loading dot on the light primary fill."></a>
+    <figcaption><strong>Dark</strong>Near-black dot on the light primary fill; no tiling.</figcaption>
+  </figure>
+  <figure>
+    <a href="loader2-rtl-light.png"><img src="loader2-rtl-light.png" width="310" height="41" alt="Right-to-left sticky actions with the loading dot on the right of the Save button."></a>
+    <figcaption><strong>RTL</strong>Dot on the right, mirrored keyframes, logical start padding.</figcaption>
+  </figure>
+</div>
+
+<h2>Media library selected item</h2>
+<div class="grid">
+  <figure>
+    <a href="media-dark.png"><img src="media-dark.png" width="492" height="279" alt="Dark media library item with white pencil and remove icons."></a>
+    <figcaption><strong>Dark</strong>Pencil and remove glyphs are white.</figcaption>
+  </figure>
+  <figure>
+    <a href="media-forced-dark.png"><img src="media-forced-dark.png" width="492" height="279" alt="Forced-colours dark media library item with white pencil and remove icons and a white border."></a>
+    <figcaption><strong>Forced colours, dark</strong>Both controls retain visible glyphs.</figcaption>
+  </figure>
+</div>
+
+<h2>Status report icons</h2>
+<div class="grid">
+  <figure>
+    <a href="status-forced-light.png"><img src="status-forced-light.png" width="952" height="530" alt="Status report in forced-colours light mode with black masked icons for Drupal, server, clock, PHP and database."></a>
+    <figcaption><strong>Forced colours, light</strong>All five masks paint with <code>CanvasText</code>.</figcaption>
+  </figure>
+  <figure>
+    <a href="status-forced-dark.png"><img src="status-forced-dark.png" width="952" height="530" alt="Status report in forced-colours dark mode with white masked icons for Drupal, server, clock, PHP and database."></a>
+    <figcaption><strong>Forced colours, dark</strong>Status text remains available independently of the icons.</figcaption>
+  </figure>
+</div>
+
+<h2>Select controls</h2>
+<div class="grid">
+  <figure>
+    <a href="select-light.png"><img src="select-light.png" width="288" height="52" alt="Disabled and enabled select controls in light mode with grey and black chevrons."></a>
+    <figcaption><strong>Light</strong>Disabled chevron <code>#767676</code>; enabled uses the theme colour.</figcaption>
+  </figure>
+  <figure>
+    <a href="select-dark.png"><img src="select-dark.png" width="288" height="52" alt="Disabled and enabled select controls in dark mode with a muted grey chevron and a white chevron."></a>
+    <figcaption><strong>Dark</strong>Disabled chevron <code>#adaeb3</code>; enabled is white.</figcaption>
+  </figure>
+</div>
+
+<h2>Tabledrag indentation</h2>
+<div class="grid">
+  <figure>
+    <a href="tabledrag-drag-light.png"><img src="tabledrag-drag-light.png" width="900" height="260" alt="Menu administration table in light mode during a drag, showing the tree line beside the child link."></a>
+    <figcaption><strong>Light, dragging</strong>Tree stroke follows the soft text colour.</figcaption>
+  </figure>
+  <figure>
+    <a href="tabledrag-drag-dark.png"><img src="tabledrag-drag-dark.png" width="900" height="260" alt="Menu administration table in dark mode during a drag, showing the tree line beside the child link."></a>
+    <figcaption><strong>Dark, dragging</strong>Same geometry; stroke follows dark-mode text.</figcaption>
+  </figure>
+</div>
+</body>
+</html>
