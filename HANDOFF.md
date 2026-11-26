@@ -16,7 +16,7 @@
 
 - MR head verified again: `fe4adb4f942385912bb3244b570afa475cadf3bd`.
 - Upstream `main`: `0387fb948f786bc344a5cc54aa0d98b8f552e378`.
-- Rebased revision tip: `172c07efd8243f678eaa8697c47596eb62b3a747`.
+- Rebased revision tip: `d4728a2aa3fc34e45e428d78ac111bd0c5e228ad`.
 - Start with [the revision report](proposed/reports/revision-2026-11-25.html) and [component coverage](proposed/reports/component-coverage.html).
 
 The revision restores the autocomplete and media-edit icons, fixes dark disabled checkbox and select states, keeps status masks visible in forced colours, replaces the invalid sticky-loader pseudo-element, and makes tabledrag tree strokes use `currentColor`. It removes 15 unused assets and 20 registry entries, and adopts 45 pixel-identical SVGO results; 41 existing SVGs are smaller, 2 are larger, and 2 are new pretints.
