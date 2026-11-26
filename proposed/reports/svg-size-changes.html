@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Per-file SVG size changes — 2026-11-25</title>
+<style>
+:root{color-scheme:light dark}body{max-width:76rem;margin:2rem auto;padding:0 1rem;font:1rem/1.55 system-ui,sans-serif}
+nav{border-bottom:1px solid #888;padding-bottom:.6rem;margin-bottom:1.2rem;font-size:.9rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #888;padding:.35rem .55rem;text-align:left;vertical-align:top}
+th{background:color-mix(in srgb,CanvasText 10%,Canvas)}td:nth-child(n+2){text-align:right;white-space:nowrap}
+code{overflow-wrap:anywhere}.note{border-inline-start:.4rem solid #b26a00;padding:.75rem 1rem;background:color-mix(in srgb,#b26a00 10%,Canvas)}
+a:focus-visible{outline:.2rem solid;outline-offset:.15rem}
+</style></head><body>
+<nav><a href="revision-2026-11-25.html">Revision report</a> · <a href="optimization-summary.html">Optimization summary</a> · <a href="../index.html">SVG Review home</a></nav>
+<h1>Per-file SVG size changes</h1>
+<p class="note">These compare the MR head tree with the 2026-11-25 revision. “Smaller” means the committed bytes are lower. Dropped and new files are listed separately; they are not optimization wins.</p>
+<h2>Summary</h2>
+<ul>
+<li><strong>41 existing SVGs are smaller</strong>, saving <strong>2,137 bytes</strong>.</li>
+<li><strong>15 unused SVGs are removed</strong>, saving <strong>11,281 bytes</strong>.</li>
+<li><strong>5 new pretints</strong> add <strong>1,226 bytes</strong>.</li>
+<li><strong>2 SVGs are larger</strong> by <strong>46 bytes</strong>.</li>
+<li>Net SVG change: <strong>12,146 bytes smaller</strong>.</li>
+</ul>
+<h2>Smaller files (41)</h2>
+<table><thead><tr><th scope="col">Asset</th><th scope="col">MR bytes</th><th scope="col">Revision bytes</th><th scope="col">Saved</th><th scope="col">Saving</th></tr></thead><tbody>
+<tr><td><code>file-types/image-x-generic.svg</code></td><td>951</td><td>826</td><td>-125</td><td>13.1%</td></tr>
+<tr><td><code>file-types/text-plain.svg</code></td><td>964</td><td>846</td><td>-118</td><td>12.2%</td></tr>
+<tr><td><code>file-types/text-x-generic.svg</code></td><td>964</td><td>846</td><td>-118</td><td>12.2%</td></tr>
+<tr><td><code>file-types/package-x-generic.svg</code></td><td>872</td><td>765</td><td>-107</td><td>12.3%</td></tr>
+<tr><td><code>file-types/x-office-document.svg</code></td><td>785</td><td>681</td><td>-104</td><td>13.2%</td></tr>
+<tr><td><code>file-types/x-office-spreadsheet.svg</code></td><td>792</td><td>693</td><td>-99</td><td>12.5%</td></tr>
+<tr><td><code>file-types/x-office-presentation.svg</code></td><td>751</td><td>661</td><td>-90</td><td>12.0%</td></tr>
+<tr><td><code>icons/drag.svg</code></td><td>482</td><td>392</td><td>-90</td><td>18.7%</td></tr>
+<tr><td><code>file-types/video-x-generic.svg</code></td><td>775</td><td>690</td><td>-85</td><td>11.0%</td></tr>
+<tr><td><code>file-types/audio-x-generic.svg</code></td><td>846</td><td>762</td><td>-84</td><td>9.9%</td></tr>
+<tr><td><code>icons/list.svg</code></td><td>475</td><td>401</td><td>-74</td><td>15.6%</td></tr>
+<tr><td><code>file-types/application-octet-stream.svg</code></td><td>582</td><td>521</td><td>-61</td><td>10.5%</td></tr>
+<tr><td><code>file-types/application-x-executable.svg</code></td><td>582</td><td>521</td><td>-61</td><td>10.5%</td></tr>
+<tr><td><code>icons/trash.svg</code></td><td>428</td><td>372</td><td>-56</td><td>13.1%</td></tr>
+<tr><td><code>icons/grid.svg</code></td><td>387</td><td>335</td><td>-52</td><td>13.4%</td></tr>
+<tr><td><code>icons/server.svg</code></td><td>415</td><td>363</td><td>-52</td><td>12.5%</td></tr>
+<tr><td><code>icons/sidebar.svg</code></td><td>407</td><td>355</td><td>-52</td><td>12.8%</td></tr>
+<tr><td><code>icons/drag-y.svg</code></td><td>332</td><td>283</td><td>-49</td><td>14.8%</td></tr>
+<tr><td><code>icons/database.svg</code></td><td>349</td><td>305</td><td>-44</td><td>12.6%</td></tr>
+<tr><td><code>icons/warning.svg</code></td><td>388</td><td>344</td><td>-44</td><td>11.3%</td></tr>
+<tr><td><code>icons/pager-first.svg</code></td><td>285</td><td>247</td><td>-38</td><td>13.3%</td></tr>
+<tr><td><code>icons/pager-last.svg</code></td><td>284</td><td>246</td><td>-38</td><td>13.4%</td></tr>
+<tr><td><code>icons/clock.svg</code></td><td>279</td><td>243</td><td>-36</td><td>12.9%</td></tr>
+<tr><td><code>icons/status.svg</code></td><td>296</td><td>262</td><td>-34</td><td>11.5%</td></tr>
+<tr><td><code>icons/error.svg</code></td><td>287</td><td>255</td><td>-32</td><td>11.1%</td></tr>
+<tr><td><code>icons/pencil.svg</code></td><td>260</td><td>229</td><td>-31</td><td>11.9%</td></tr>
+<tr><td><code>icons/hide.svg</code></td><td>430</td><td>400</td><td>-30</td><td>7.0%</td></tr>
+<tr><td><code>icons/pager-next.svg</code></td><td>232</td><td>202</td><td>-30</td><td>12.9%</td></tr>
+<tr><td><code>icons/pager-prev.svg</code></td><td>233</td><td>203</td><td>-30</td><td>12.9%</td></tr>
+<tr><td><code>icons/info.svg</code></td><td>266</td><td>240</td><td>-26</td><td>9.8%</td></tr>
+<tr><td><code>icons/sort.svg</code></td><td>259</td><td>233</td><td>-26</td><td>10.0%</td></tr>
+<tr><td><code>icons/chevron-down.svg</code></td><td>212</td><td>188</td><td>-24</td><td>11.3%</td></tr>
+<tr><td><code>icons/pretint/chevron-down-disabled.svg</code></td><td>207</td><td>183</td><td>-24</td><td>11.6%</td></tr>
+<tr><td><code>icons/pretint/chevron-down-inverse.svg</code></td><td>207</td><td>183</td><td>-24</td><td>11.6%</td></tr>
+<tr><td><code>icons/chevron-right.svg</code></td><td>212</td><td>189</td><td>-23</td><td>10.8%</td></tr>
+<tr><td><code>icons/sort-asc.svg</code></td><td>242</td><td>219</td><td>-23</td><td>9.5%</td></tr>
+<tr><td><code>icons/sort-desc.svg</code></td><td>243</td><td>220</td><td>-23</td><td>9.5%</td></tr>
+<tr><td><code>icons/close.svg</code></td><td>238</td><td>218</td><td>-20</td><td>8.4%</td></tr>
+<tr><td><code>icons/plus.svg</code></td><td>234</td><td>214</td><td>-20</td><td>8.5%</td></tr>
+<tr><td><code>icons/pretint/remove-inverse.svg</code></td><td>233</td><td>213</td><td>-20</td><td>8.6%</td></tr>
+<tr><td><code>logos/php.svg</code></td><td>1211</td><td>1191</td><td>-20</td><td>1.7%</td></tr>
+</tbody></table>
+<h2>Larger files (2)</h2>
+<table><thead><tr><th scope="col">Asset</th><th scope="col">MR bytes</th><th scope="col">Revision bytes</th><th scope="col">Change</th><th scope="col">Reason</th></tr></thead><tbody>
+<tr><td><code>icons/menu.svg</code></td><td>421</td><td>437</td><td>+16</td><td>ARIA metadata (intentional)</td></tr>
+<tr><td><code>icons/tabledrag-handle.svg</code></td><td>774</td><td>804</td><td>+30</td><td>SVGO arc-flag spacing; not a size win</td></tr>
+</tbody></table>
+<h2>New files (5)</h2>
+<table><thead><tr><th scope="col">Asset</th><th scope="col">Bytes</th><th scope="col">Reason</th></tr></thead><tbody>
+<tr><td><code>icons/pretint/check-disabled-inverse.svg</code></td><td>211</td><td>New pretint</td></tr>
+<tr><td><code>icons/pretint/chevron-down-disabled-inverse.svg</code></td><td>183</td><td>New pretint</td></tr>
+<tr><td><code>icons/pretint/edit-inverse.svg</code></td><td>224</td><td>New pretint</td></tr>
+<tr><td><code>icons/pretint/loader-contrast.svg</code></td><td>304</td><td>New pretint</td></tr>
+<tr><td><code>icons/pretint/loader-inverse.svg</code></td><td>304</td><td>New pretint</td></tr>
+</tbody></table>
+<h2>Removed files (15)</h2>
+<table><thead><tr><th scope="col">Asset</th><th scope="col">Bytes removed</th><th scope="col">Reason</th></tr></thead><tbody>
+<tr><td><code>icons/appearance.svg</code></td><td>617</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/blocks.svg</code></td><td>1326</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/bookmarks.svg</code></td><td>1171</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/chevron-left.svg</code></td><td>213</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/content.svg</code></td><td>331</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/files.svg</code></td><td>2234</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/media.svg</code></td><td>2178</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/nav-toggle-left.svg</code></td><td>268</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/nav-toggle-top.svg</code></td><td>266</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/people.svg</code></td><td>784</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/pretint/chevron-down-default.svg</code></td><td>207</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/pretint/remove-default.svg</code></td><td>233</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/reports.svg</code></td><td>325</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/structure.svg</code></td><td>587</td><td>Removed: no source consumer</td></tr>
+<tr><td><code>icons/user.svg</code></td><td>541</td><td>Removed: no source consumer</td></tr>
+</tbody></table>
+<p>Compression figures are in the <a href="optimization-summary.html">optimization summary</a>. These are source-byte measurements, not page weight.</p>
+</body></html>
